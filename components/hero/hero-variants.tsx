@@ -54,13 +54,21 @@ export function HeroWithVariants() {
               style={{ opacity: 0.82 }}
             ></div>
           ) : (
-            // Extended gradient overlay (left side - covers text area then fades)
-            <div 
-              className="absolute inset-0"
-              style={{ 
-                background: 'linear-gradient(to right, rgba(255, 107, 107, 0.95) 0%, rgba(255, 82, 82, 0.92) 20%, rgba(245, 158, 11, 0.90) 35%, rgba(245, 158, 11, 0.70) 45%, rgba(245, 158, 11, 0.30) 55%, transparent 65%)'
-              }}
-            ></div>
+            // Responsive gradient - full on mobile/tablet, partial on desktop
+            <>
+              {/* Mobile/Tablet: Full gradient */}
+              <div 
+                className="absolute inset-0 lg:hidden bg-gradient-to-br from-[#ff6b6b] via-[#ff5252] to-[#f59e0b]"
+                style={{ opacity: 0.82 }}
+              ></div>
+              {/* Desktop: Extended left gradient */}
+              <div 
+                className="hidden lg:block absolute inset-0"
+                style={{ 
+                  background: 'linear-gradient(to right, rgba(255, 107, 107, 0.95) 0%, rgba(255, 82, 82, 0.92) 20%, rgba(245, 158, 11, 0.90) 35%, rgba(245, 158, 11, 0.70) 45%, rgba(245, 158, 11, 0.30) 55%, transparent 65%)'
+                }}
+              ></div>
+            </>
           )}
         </div>
         
@@ -106,9 +114,11 @@ export function HeroWithVariants() {
             </div>
           </div>
         ) : (
-          // LEFT ALIGNED LAYOUT (New)
+          // RESPONSIVE LAYOUT - Centered on mobile/tablet, Left-aligned on desktop
           <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-            <div className="max-w-2xl text-left">
+            {/* Mobile/Tablet: Centered (like original) */}
+            {/* Desktop: Left-aligned */}
+            <div className="mx-auto lg:mx-0 max-w-3xl lg:max-w-2xl text-center lg:text-left">
               <Badge variant="featured" className="mb-4 text-sm px-4 py-2">
                 Featured: Bryan Johnson's 200°F Protocol
               </Badge>
@@ -119,8 +129,8 @@ export function HeroWithVariants() {
                 Evidence-based sauna protocols and equipment reviews to optimize your health, backed by science and real results.
               </p>
               
-              {/* Main CTA Button - Left Aligned */}
-              <div className="flex flex-col items-start gap-6">
+              {/* Main CTA Button - Centered on mobile, Left-aligned on desktop */}
+              <div className="flex flex-col items-center lg:items-start gap-6">
                 <div className="relative">
                   <Button 
                     asChild 
