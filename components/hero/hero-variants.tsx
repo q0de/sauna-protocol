@@ -54,11 +54,11 @@ export function HeroWithVariants() {
               style={{ opacity: 0.82 }}
             ></div>
           ) : (
-            // Quarter gradient overlay (left side only)
+            // Extended gradient overlay (left side - covers text area then fades)
             <div 
-              className="absolute inset-0 bg-gradient-to-r from-[#ff6b6b] via-[#ff5252]/90 to-transparent"
+              className="absolute inset-0"
               style={{ 
-                background: 'linear-gradient(to right, rgba(255, 107, 107, 0.95) 0%, rgba(255, 82, 82, 0.90) 15%, rgba(245, 158, 11, 0.85) 25%, transparent 35%)'
+                background: 'linear-gradient(to right, rgba(255, 107, 107, 0.95) 0%, rgba(255, 82, 82, 0.92) 20%, rgba(245, 158, 11, 0.90) 35%, rgba(245, 158, 11, 0.70) 45%, rgba(245, 158, 11, 0.30) 55%, transparent 65%)'
               }}
             ></div>
           )}
