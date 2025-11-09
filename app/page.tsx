@@ -88,18 +88,20 @@ export default async function HomePage() {
             </p>
             
             {/* Main CTA Button - BIGGER & 3D */}
-            <div className="flex flex-col items-center gap-4">
-              <Button 
-                asChild 
-                size="lg" 
-                variant="secondary"
-                className="text-lg px-10 py-7 h-auto rounded-2xl shadow-2xl shadow-blue-900/40 hover:shadow-blue-900/60 transform hover:scale-105 transition-all duration-200 bg-gradient-to-br from-[#2196f3] via-[#1976d2] to-[#1565c0] border-b-4 border-[#0d47a1] hover:border-b-2 hover:translate-y-1"
-              >
-                <Link href="/protocols/bryan-johnson" className="flex items-center gap-3">
-                  <span className="font-bold">Explore Bryan Johnson's Protocol</span>
-                  <ArrowRight className="h-6 w-6" />
-                </Link>
-              </Button>
+            <div className="flex flex-col items-center gap-6">
+              <div className="relative">
+                <Button 
+                  asChild 
+                  size="lg" 
+                  variant="secondary"
+                  className="text-lg px-10 py-7 h-auto rounded-2xl shadow-2xl shadow-blue-900/40 hover:shadow-blue-900/60 transition-all duration-200 bg-gradient-to-br from-[#2196f3] via-[#1976d2] to-[#1565c0] border-b-4 border-[#0d47a1] hover:border-b-2 hover:translate-y-1"
+                >
+                  <Link href="/protocols/bryan-johnson" className="flex items-center gap-3">
+                    <span className="font-bold">Explore Bryan Johnson's Protocol</span>
+                    <ArrowRight className="h-6 w-6" />
+                  </Link>
+                </Button>
+              </div>
               
               {/* Browse Articles - Text Link Below */}
               <Link 
