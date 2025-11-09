@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Flame } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export function Header() {
@@ -19,8 +19,16 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
-            <span className="text-2xl font-bold text-[#ff6b6b]">SaunaProtocol</span>
+          <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2 group">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#ff6b6b] to-[#f59e0b] rounded-lg blur-sm opacity-75 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative bg-gradient-to-r from-[#ff6b6b] to-[#f59e0b] p-2 rounded-lg">
+                <Flame className="h-6 w-6 text-white" />
+              </div>
+            </div>
+            <span className="text-2xl font-bold bg-gradient-to-r from-[#ff6b6b] to-[#f59e0b] bg-clip-text text-transparent">
+              SaunaProtocol
+            </span>
           </Link>
         </div>
         <div className="flex lg:hidden">

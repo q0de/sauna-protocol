@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { NewsletterForm } from '@/components/email/newsletter-form'
+import { NoiseTexture } from '@/components/effects/noise-texture'
 import { ArrowRight, Thermometer, Clock, TrendingUp, Star, CheckCircle } from 'lucide-react'
 import { getAllArticles } from '@/lib/mdx'
 
@@ -50,28 +51,63 @@ export default async function HomePage() {
 
   return (
     <div className="flex flex-col">
+      {/* Canvas-Based Film Grain - Locked at 10% */}
+      <NoiseTexture opacity={0.10} />
+
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#ff6b6b] via-[#ff5252] to-[#f59e0b] text-white">
-        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+      <section className="relative overflow-hidden text-white">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/sign/vid/sauna-protocol-vid.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yZjYwM2EwMS00ZmEwLTQ0M2YtODJhNi03ZmU4MDBmZjJiOGUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWQvc2F1bmEtcHJvdG9jb2wtdmlkLndlYm0iLCJpYXQiOjE3NjI3MjI2MTAsImV4cCI6MTc5NDI1ODYxMH0.JS-u_DL9wmxYMvqJADkrdNZa3QBdZfrFZZ4MYc-9CO8" type="video/webm" />
+          </video>
+          {/* Gradient Overlay - Locked at 82% */}
+          <div 
+            className="absolute inset-0 bg-gradient-to-br from-[#ff6b6b] via-[#ff5252] to-[#f59e0b]"
+            style={{ opacity: 0.82 }}
+          ></div>
+        </div>
+        
+        {/* Content */}
+        <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <Badge variant="featured" className="mb-4 text-sm px-4 py-2">
               Featured: Bryan Johnson's 200°F Protocol
             </Badge>
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl mb-6">
+            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl mb-6 drop-shadow-lg">
               Master Your Sauna Protocol
             </h1>
-            <p className="text-xl leading-8 mb-8 text-white/90">
+            <p className="text-xl leading-8 mb-8 text-white/95 drop-shadow-md">
               Evidence-based sauna protocols and equipment reviews to optimize your health, backed by science and real results.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="secondary">
-                <Link href="/protocols/bryan-johnson">
-                  Explore Bryan Johnson's Protocol <ArrowRight className="ml-2 h-5 w-5" />
+            
+            {/* Main CTA Button - BIGGER & 3D */}
+            <div className="flex flex-col items-center gap-4">
+              <Button 
+                asChild 
+                size="lg" 
+                variant="secondary"
+                className="text-lg px-10 py-7 h-auto rounded-2xl shadow-2xl shadow-blue-900/40 hover:shadow-blue-900/60 transform hover:scale-105 transition-all duration-200 bg-gradient-to-br from-[#2196f3] via-[#1976d2] to-[#1565c0] border-b-4 border-[#0d47a1] hover:border-b-2 hover:translate-y-1"
+              >
+                <Link href="/protocols/bryan-johnson" className="flex items-center gap-3">
+                  <span className="font-bold">Explore Bryan Johnson's Protocol</span>
+                  <ArrowRight className="h-6 w-6" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="bg-white/10 text-white border-white hover:bg-white/20">
-                <Link href="/articles">Browse Articles</Link>
-              </Button>
+              
+              {/* Browse Articles - Text Link Below */}
+              <Link 
+                href="/articles" 
+                className="text-white/90 hover:text-white text-base font-medium underline underline-offset-4 decoration-white/50 hover:decoration-white transition-all"
+              >
+                Browse Articles
+              </Link>
             </div>
           </div>
         </div>

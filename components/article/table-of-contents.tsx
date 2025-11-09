@@ -51,9 +51,9 @@ export function TableOfContents() {
       <CardContent>
         <nav>
           <ul className="space-y-2">
-            {headings.map((heading) => (
+            {headings.map((heading, index) => (
               <li
-                key={heading.id}
+                key={heading.id || `heading-${index}`}
                 className={heading.level === 3 ? 'ml-4' : ''}
               >
                 <a
