@@ -16,10 +16,13 @@ export function NoiseTexture({ opacity = 0.5 }: NoiseTextureProps) {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    // Set canvas size to window size
+    // Set canvas size to match parent element (hero section)
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      const parent = canvas.parentElement
+      if (parent) {
+        canvas.width = parent.offsetWidth
+        canvas.height = parent.offsetHeight
+      }
     }
     
     resizeCanvas()
@@ -66,7 +69,7 @@ export function NoiseTexture({ opacity = 0.5 }: NoiseTextureProps) {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-10 mix-blend-overlay"
+      className="absolute inset-0 pointer-events-none z-10 mix-blend-overlay"
       style={{
         filter: 'contrast(2.5) brightness(1.5)',
         opacity,

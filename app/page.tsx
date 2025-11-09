@@ -51,11 +51,11 @@ export default async function HomePage() {
 
   return (
     <div className="flex flex-col">
-      {/* Canvas-Based Film Grain - Locked at 10% */}
-      <NoiseTexture opacity={0.10} />
-
       {/* Hero Section */}
       <section className="relative overflow-hidden text-white">
+        {/* Canvas-Based Film Grain - Locked at 10% (Only on Hero) */}
+        <NoiseTexture opacity={0.10} />
+        
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
           <video
