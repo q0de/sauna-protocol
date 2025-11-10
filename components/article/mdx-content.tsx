@@ -12,7 +12,7 @@ const components = {
     <h3 className="text-2xl font-bold mt-8 mb-3" id={props.children?.toString().toLowerCase().replace(/\s+/g, '-')} {...props} />
   ),
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className="mb-6 text-lg leading-relaxed" {...props} />
+    <div className="mb-6 text-lg leading-relaxed" {...props} />
   ),
   ul: (props: React.HTMLAttributes<HTMLUListElement>) => (
     <ul className="list-disc pl-6 mb-6 space-y-2" {...props} />
