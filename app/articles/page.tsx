@@ -16,6 +16,20 @@ export default async function ArticlesPage() {
   
   const categories = ['All', 'Protocol', 'Equipment', 'Science', 'How-To']
   
+  // Manual entry for Bryan Johnson Protocol (since it's a page, not an MDX article)
+  const bryanJohnsonProtocol = {
+    slug: 'bryan-johnson',
+    href: '/protocols/bryan-johnson',
+    frontmatter: {
+      title: "Bryan Johnson's 200°F Sauna Protocol: Complete 90-Day Results",
+      excerpt: "The exact sauna protocol used by Bryan Johnson to improve blood pressure by 20 mmHg and increase HRV by 38%. Complete 90-day implementation guide with measured results.",
+      category: 'Protocol',
+      featured: true,
+      publishedAt: '2025-11-09',
+      readingTime: '15 min read'
+    }
+  }
+  
   return (
     <div className="py-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -37,6 +51,32 @@ export default async function ArticlesPage() {
               {category}
             </Badge>
           ))}
+        </div>
+
+        {/* Featured Protocol (Bryan Johnson) */}
+        <div className="mb-12">
+          <Card className="border-2 border-[#ff6b6b] bg-gradient-to-br from-[#ff6b6b]/5 to-[#f59e0b]/5 hover:shadow-xl transition-shadow">
+            <CardHeader>
+              <div className="flex items-center gap-2 mb-2">
+                <Badge variant="featured">FEATURED PROTOCOL</Badge>
+                <Badge variant="secondary">{bryanJohnsonProtocol.frontmatter.category}</Badge>
+              </div>
+              <CardTitle className="text-2xl">
+                <Link href={bryanJohnsonProtocol.href} className="hover:text-[#ff6b6b]">
+                  {bryanJohnsonProtocol.frontmatter.title}
+                </Link>
+              </CardTitle>
+              <CardDescription className="text-base">
+                {bryanJohnsonProtocol.frontmatter.excerpt}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center justify-between text-sm">
+                <span className="font-medium text-gray-700">{bryanJohnsonProtocol.frontmatter.readingTime}</span>
+                <span className="text-gray-500">{new Date(bryanJohnsonProtocol.frontmatter.publishedAt).toLocaleDateString()}</span>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Articles Grid */}
