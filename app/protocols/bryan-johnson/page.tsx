@@ -268,49 +268,49 @@ export default function BryanJohnsonProtocolPage() {
                 </div>
               </header>
 
-          {/* Table of Contents - Compact Multi-Column Layout */}
+          {/* Table of Contents - Clean Numbered Layout */}
           <nav className="mb-12 lg:hidden">
-            <Card className="bg-white border-2 border-[#ff6b6b]/20">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg">Jump to Section</CardTitle>
+            <Card className="bg-white border border-gray-200">
+              <CardHeader>
+                <CardTitle className="text-2xl">Table of Contents</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                  <Link href="#video" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
-                    Video
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3">
+                  <Link href="#video" className="text-[#2563eb] hover:underline">
+                    1. Watch Bryan's Video
                   </Link>
-                  <Link href="#why-sauna" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
-                    Why Sauna?
+                  <Link href="#why-sauna" className="text-[#2563eb] hover:underline">
+                    2. Why He Finally Tried Sauna
                   </Link>
-                  <Link href="#protocol-specs" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
-                    Protocol
+                  <Link href="#protocol-specs" className="text-[#2563eb] hover:underline">
+                    3. Exact Protocol Specifications
                   </Link>
-                  <Link href="#week-1" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
-                    Week 1
+                  <Link href="#week-1" className="text-[#2563eb] hover:underline">
+                    4. Week 1: The Crash
                   </Link>
-                  <Link href="#week-1-results" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
-                    Results
+                  <Link href="#week-1-results" className="text-[#2563eb] hover:underline">
+                    5. Week 1 Results
                   </Link>
-                  <Link href="#toxin-results" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
-                    Detox
+                  <Link href="#toxin-results" className="text-[#2563eb] hover:underline">
+                    6. 21-Day Detox Results
                   </Link>
-                  <Link href="#timeline" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
-                    Timeline
+                  <Link href="#timeline" className="text-[#2563eb] hover:underline">
+                    7. 90-Day Timeline
                   </Link>
-                  <Link href="#fertility" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
-                    Fertility
+                  <Link href="#fertility" className="text-[#2563eb] hover:underline">
+                    8. Fertility Experiment
                   </Link>
-                  <Link href="#final-results" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
-                    Final Results
+                  <Link href="#final-results" className="text-[#2563eb] hover:underline">
+                    9. 48-Day Final Results
                   </Link>
-                  <Link href="#implementation" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
-                    How To
+                  <Link href="#implementation" className="text-[#2563eb] hover:underline">
+                    10. How to Replicate This Protocol
                   </Link>
-                  <Link href="#equipment" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
-                    Equipment
+                  <Link href="#equipment" className="text-[#2563eb] hover:underline">
+                    11. Equipment Requirements
                   </Link>
-                  <Link href="#faq" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
-                    FAQ
+                  <Link href="#faq" className="text-[#2563eb] hover:underline">
+                    12. Frequently Asked Questions
                   </Link>
                 </div>
               </CardContent>
@@ -1185,50 +1185,50 @@ export default function BryanJohnsonProtocolPage() {
           </section>
         </div>
         
-        {/* Sticky Sidebar TOC - Desktop Only - Compact Version */}
+        {/* Sticky Sidebar TOC - Desktop Only - Clean Numbered List */}
         <aside className="hidden lg:block">
           <div className="sticky top-24">
-            <Card className="bg-white border-2 border-[#ff6b6b]/20 shadow-lg">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-base">Jump To</CardTitle>
+            <Card className="bg-white border border-gray-200 shadow-lg">
+              <CardHeader>
+                <CardTitle className="text-lg">On This Page</CardTitle>
               </CardHeader>
               <CardContent>
-                <nav className="space-y-0.5">
-                  <Link href="#video" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
-                    Video
+                <nav className="space-y-2 text-sm">
+                  <Link href="#video" className="block text-[#2563eb] hover:underline">
+                    1. Video
                   </Link>
-                  <Link href="#why-sauna" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
-                    Why Sauna?
+                  <Link href="#why-sauna" className="block text-[#2563eb] hover:underline">
+                    2. Why Sauna?
                   </Link>
-                  <Link href="#protocol-specs" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
-                    Protocol
+                  <Link href="#protocol-specs" className="block text-[#2563eb] hover:underline">
+                    3. Protocol
                   </Link>
-                  <Link href="#week-1" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
-                    Week 1
+                  <Link href="#week-1" className="block text-[#2563eb] hover:underline">
+                    4. Week 1
                   </Link>
-                  <Link href="#week-1-results" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
-                    Results
+                  <Link href="#week-1-results" className="block text-[#2563eb] hover:underline">
+                    5. Results
                   </Link>
-                  <Link href="#toxin-results" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
-                    Detox
+                  <Link href="#toxin-results" className="block text-[#2563eb] hover:underline">
+                    6. Detox
                   </Link>
-                  <Link href="#timeline" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
-                    Timeline
+                  <Link href="#timeline" className="block text-[#2563eb] hover:underline">
+                    7. Timeline
                   </Link>
-                  <Link href="#fertility" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
-                    Fertility
+                  <Link href="#fertility" className="block text-[#2563eb] hover:underline">
+                    8. Fertility
                   </Link>
-                  <Link href="#final-results" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
-                    Final Results
+                  <Link href="#final-results" className="block text-[#2563eb] hover:underline">
+                    9. Final Results
                   </Link>
-                  <Link href="#implementation" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
-                    How To
+                  <Link href="#implementation" className="block text-[#2563eb] hover:underline">
+                    10. How To
                   </Link>
-                  <Link href="#equipment" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
-                    Equipment
+                  <Link href="#equipment" className="block text-[#2563eb] hover:underline">
+                    11. Equipment
                   </Link>
-                  <Link href="#faq" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
-                    FAQ
+                  <Link href="#faq" className="block text-[#2563eb] hover:underline">
+                    12. FAQ
                   </Link>
                 </nav>
               </CardContent>
