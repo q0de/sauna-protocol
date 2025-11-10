@@ -1,9 +1,4 @@
-import { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: "Bryan Johnson's Sauna Protocol - Printable PDF",
-  description: 'Download or print the complete Bryan Johnson 200°F sauna protocol',
-}
+"use client"
 
 export default function ProtocolPDFPage() {
   return (
