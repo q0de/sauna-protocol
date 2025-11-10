@@ -268,62 +268,49 @@ export default function BryanJohnsonProtocolPage() {
                 </div>
               </header>
 
-          {/* Table of Contents - Mobile Only (Inline) */}
+          {/* Table of Contents - Compact Multi-Column Layout */}
           <nav className="mb-12 lg:hidden">
             <Card className="bg-white border-2 border-[#ff6b6b]/20">
-              <CardHeader>
-                <CardTitle className="text-2xl">Table of Contents</CardTitle>
-                <CardDescription>Jump to any section</CardDescription>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg">Jump to Section</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 gap-2">
-                  <Link href="#video" className="flex items-center gap-2 text-gray-700 hover:text-[#ff6b6b] transition-colors p-2 rounded-lg hover:bg-white text-sm">
-                    <span className="text-[#ff6b6b] font-bold">→</span>
-                    <span>Watch Bryan's Video</span>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  <Link href="#video" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
+                    Video
                   </Link>
-                  <Link href="#why-sauna" className="flex items-center gap-2 text-gray-700 hover:text-[#ff6b6b] transition-colors p-2 rounded-lg hover:bg-white text-sm">
-                    <span className="text-[#ff6b6b] font-bold">→</span>
-                    <span>Why He Finally Tried Sauna</span>
+                  <Link href="#why-sauna" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
+                    Why Sauna?
                   </Link>
-                  <Link href="#protocol-specs" className="flex items-center gap-2 text-gray-700 hover:text-[#ff6b6b] transition-colors p-2 rounded-lg hover:bg-white text-sm">
-                    <span className="text-[#ff6b6b] font-bold">→</span>
-                    <span>Exact Protocol Specifications</span>
+                  <Link href="#protocol-specs" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
+                    Protocol
                   </Link>
-                  <Link href="#week-1" className="flex items-center gap-2 text-gray-700 hover:text-[#ff6b6b] transition-colors p-2 rounded-lg hover:bg-white text-sm">
-                    <span className="text-[#ff6b6b] font-bold">→</span>
-                    <span>Week 1: The Crash</span>
+                  <Link href="#week-1" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
+                    Week 1
                   </Link>
-                  <Link href="#week-1-results" className="flex items-center gap-2 text-gray-700 hover:text-[#ff6b6b] transition-colors p-2 rounded-lg hover:bg-white text-sm">
-                    <span className="text-[#ff6b6b] font-bold">→</span>
-                    <span>Week 1 Results</span>
+                  <Link href="#week-1-results" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
+                    Results
                   </Link>
-                  <Link href="#toxin-results" className="flex items-center gap-2 text-gray-700 hover:text-[#ff6b6b] transition-colors p-2 rounded-lg hover:bg-white text-sm">
-                    <span className="text-[#ff6b6b] font-bold">→</span>
-                    <span>21-Day Detox Results</span>
+                  <Link href="#toxin-results" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
+                    Detox
                   </Link>
-                  <Link href="#timeline" className="flex items-center gap-2 text-gray-700 hover:text-[#ff6b6b] transition-colors p-2 rounded-lg hover:bg-white text-sm">
-                    <span className="text-[#ff6b6b] font-bold">→</span>
-                    <span>90-Day Timeline</span>
+                  <Link href="#timeline" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
+                    Timeline
                   </Link>
-                  <Link href="#fertility" className="flex items-center gap-2 text-gray-700 hover:text-[#ff6b6b] transition-colors p-2 rounded-lg hover:bg-white text-sm">
-                    <span className="text-[#ff6b6b] font-bold">→</span>
-                    <span>Fertility Experiment</span>
+                  <Link href="#fertility" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
+                    Fertility
                   </Link>
-                  <Link href="#final-results" className="flex items-center gap-2 text-gray-700 hover:text-[#ff6b6b] transition-colors p-2 rounded-lg hover:bg-white text-sm">
-                    <span className="text-[#ff6b6b] font-bold">→</span>
-                    <span>48-Day Results</span>
+                  <Link href="#final-results" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
+                    Final Results
                   </Link>
-                  <Link href="#implementation" className="flex items-center gap-2 text-gray-700 hover:text-[#ff6b6b] transition-colors p-2 rounded-lg hover:bg-white text-sm">
-                    <span className="text-[#ff6b6b] font-bold">→</span>
-                    <span>How to Replicate</span>
+                  <Link href="#implementation" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
+                    How To
                   </Link>
-                  <Link href="#equipment" className="flex items-center gap-2 text-gray-700 hover:text-[#ff6b6b] transition-colors p-2 rounded-lg hover:bg-white text-sm">
-                    <span className="text-[#ff6b6b] font-bold">→</span>
-                    <span>Equipment</span>
+                  <Link href="#equipment" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
+                    Equipment
                   </Link>
-                  <Link href="#faq" className="flex items-center gap-2 text-gray-700 hover:text-[#ff6b6b] transition-colors p-2 rounded-lg hover:bg-white text-sm">
-                    <span className="text-[#ff6b6b] font-bold">→</span>
-                    <span>FAQ</span>
+                  <Link href="#faq" className="text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded-lg border border-gray-200 text-center font-medium">
+                    FAQ
                   </Link>
                 </div>
               </CardContent>
@@ -1198,49 +1185,49 @@ export default function BryanJohnsonProtocolPage() {
           </section>
         </div>
         
-        {/* Sticky Sidebar TOC - Desktop Only */}
+        {/* Sticky Sidebar TOC - Desktop Only - Compact Version */}
         <aside className="hidden lg:block">
           <div className="sticky top-24">
             <Card className="bg-white border-2 border-[#ff6b6b]/20 shadow-lg">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg">On This Page</CardTitle>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-base">Jump To</CardTitle>
               </CardHeader>
               <CardContent>
-                <nav className="space-y-1">
-                  <Link href="#video" className="block text-sm text-gray-700 hover:text-[#ff6b6b] transition-colors py-1.5 px-2 rounded hover:bg-white">
+                <nav className="space-y-0.5">
+                  <Link href="#video" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
                     Video
                   </Link>
-                  <Link href="#why-sauna" className="block text-sm text-gray-700 hover:text-[#ff6b6b] transition-colors py-1.5 px-2 rounded hover:bg-white">
+                  <Link href="#why-sauna" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
                     Why Sauna?
                   </Link>
-                  <Link href="#protocol-specs" className="block text-sm text-gray-700 hover:text-[#ff6b6b] transition-colors py-1.5 px-2 rounded hover:bg-white">
-                    Protocol Specs
+                  <Link href="#protocol-specs" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
+                    Protocol
                   </Link>
-                  <Link href="#week-1" className="block text-sm text-gray-700 hover:text-[#ff6b6b] transition-colors py-1.5 px-2 rounded hover:bg-white">
-                    Week 1 Crash
+                  <Link href="#week-1" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
+                    Week 1
                   </Link>
-                  <Link href="#week-1-results" className="block text-sm text-gray-700 hover:text-[#ff6b6b] transition-colors py-1.5 px-2 rounded hover:bg-white">
-                    Week 1 Results
+                  <Link href="#week-1-results" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
+                    Results
                   </Link>
-                  <Link href="#toxin-results" className="block text-sm text-gray-700 hover:text-[#ff6b6b] transition-colors py-1.5 px-2 rounded hover:bg-white">
-                    Detox Results
+                  <Link href="#toxin-results" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
+                    Detox
                   </Link>
-                  <Link href="#timeline" className="block text-sm text-gray-700 hover:text-[#ff6b6b] transition-colors py-1.5 px-2 rounded hover:bg-white">
-                    90-Day Timeline
+                  <Link href="#timeline" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
+                    Timeline
                   </Link>
-                  <Link href="#fertility" className="block text-sm text-gray-700 hover:text-[#ff6b6b] transition-colors py-1.5 px-2 rounded hover:bg-white">
-                    Fertility Test
+                  <Link href="#fertility" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
+                    Fertility
                   </Link>
-                  <Link href="#final-results" className="block text-sm text-gray-700 hover:text-[#ff6b6b] transition-colors py-1.5 px-2 rounded hover:bg-white">
+                  <Link href="#final-results" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
                     Final Results
                   </Link>
-                  <Link href="#implementation" className="block text-sm text-gray-700 hover:text-[#ff6b6b] transition-colors py-1.5 px-2 rounded hover:bg-white">
-                    How to Replicate
+                  <Link href="#implementation" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
+                    How To
                   </Link>
-                  <Link href="#equipment" className="block text-sm text-gray-700 hover:text-[#ff6b6b] transition-colors py-1.5 px-2 rounded hover:bg-white">
+                  <Link href="#equipment" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
                     Equipment
                   </Link>
-                  <Link href="#faq" className="block text-sm text-gray-700 hover:text-[#ff6b6b] transition-colors py-1.5 px-2 rounded hover:bg-white">
+                  <Link href="#faq" className="block text-xs text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded font-medium">
                     FAQ
                   </Link>
                 </nav>

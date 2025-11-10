@@ -53,30 +53,30 @@ export default async function ArticlesPage() {
           ))}
         </div>
 
-        {/* Featured Protocol (Bryan Johnson) */}
+        {/* Featured Protocol (Bryan Johnson) - Fully Clickable Card */}
         <div className="mb-12">
-          <Card className="border-2 border-[#ff6b6b] bg-gradient-to-br from-[#ff6b6b]/5 to-[#f59e0b]/5 hover:shadow-xl transition-shadow">
-            <CardHeader>
-              <div className="flex items-center gap-2 mb-2">
-                <Badge variant="featured">FEATURED PROTOCOL</Badge>
-                <Badge variant="secondary">{bryanJohnsonProtocol.frontmatter.category}</Badge>
-              </div>
-              <CardTitle className="text-2xl">
-                <Link href={bryanJohnsonProtocol.href} className="hover:text-[#ff6b6b]">
+          <Link href={bryanJohnsonProtocol.href} className="block">
+            <Card className="border-2 border-[#ff6b6b] bg-gradient-to-br from-[#ff6b6b]/5 to-[#f59e0b]/5 hover:shadow-xl transition-all cursor-pointer">
+              <CardHeader>
+                <div className="flex items-center gap-2 mb-2">
+                  <Badge variant="featured">FEATURED PROTOCOL</Badge>
+                  <Badge variant="secondary">{bryanJohnsonProtocol.frontmatter.category}</Badge>
+                </div>
+                <CardTitle className="text-2xl hover:text-[#ff6b6b] transition-colors">
                   {bryanJohnsonProtocol.frontmatter.title}
-                </Link>
-              </CardTitle>
-              <CardDescription className="text-base">
-                {bryanJohnsonProtocol.frontmatter.excerpt}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex items-center justify-between text-sm">
-                <span className="font-medium text-gray-700">{bryanJohnsonProtocol.frontmatter.readingTime}</span>
-                <span className="text-gray-500">{new Date(bryanJohnsonProtocol.frontmatter.publishedAt).toLocaleDateString()}</span>
-              </div>
-            </CardContent>
-          </Card>
+                </CardTitle>
+                <CardDescription className="text-base">
+                  {bryanJohnsonProtocol.frontmatter.excerpt}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between text-sm">
+                  <span className="font-medium text-gray-700">{bryanJohnsonProtocol.frontmatter.readingTime}</span>
+                  <span className="text-gray-500">{new Date(bryanJohnsonProtocol.frontmatter.publishedAt).toLocaleDateString()}</span>
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
         </div>
 
         {/* Articles Grid */}
@@ -87,32 +87,32 @@ export default async function ArticlesPage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {articles.map((article) => (
-              <Card key={article.slug} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex items-center gap-2 mb-2">
-                    <Badge variant="secondary">
-                      {article.frontmatter.category}
-                    </Badge>
-                    {article.frontmatter.featured && (
-                      <Badge variant="featured">FEATURED</Badge>
-                    )}
-                  </div>
-                  <CardTitle className="text-xl">
-                    <Link href={`/articles/${article.slug}`} className="hover:text-[#ff6b6b]">
+              <Link key={article.slug} href={`/articles/${article.slug}`} className="block">
+                <Card className="hover:shadow-lg transition-all cursor-pointer h-full">
+                  <CardHeader>
+                    <div className="flex items-center gap-2 mb-2">
+                      <Badge variant="secondary">
+                        {article.frontmatter.category}
+                      </Badge>
+                      {article.frontmatter.featured && (
+                        <Badge variant="featured">FEATURED</Badge>
+                      )}
+                    </div>
+                    <CardTitle className="text-xl hover:text-[#ff6b6b] transition-colors">
                       {article.frontmatter.title}
-                    </Link>
-                  </CardTitle>
-                  <CardDescription className="line-clamp-3">
-                    {article.frontmatter.excerpt}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex items-center justify-between text-sm text-gray-500">
-                    <span>{article.frontmatter.readingTime}</span>
-                    <span>{new Date(article.frontmatter.publishedAt).toLocaleDateString()}</span>
-                  </div>
-                </CardContent>
-              </Card>
+                    </CardTitle>
+                    <CardDescription className="line-clamp-3">
+                      {article.frontmatter.excerpt}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex items-center justify-between text-sm text-gray-500">
+                      <span>{article.frontmatter.readingTime}</span>
+                      <span>{new Date(article.frontmatter.publishedAt).toLocaleDateString()}</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         )}
