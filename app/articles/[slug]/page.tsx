@@ -88,10 +88,10 @@ export default async function ArticlePage({ params }: Props) {
       <StructuredData data={breadcrumbSchema} />
 
       <article className="py-12">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="mx-auto max-w-5xl px-6 lg:px-8">
+          <div>
             {/* Main Content */}
-            <div className="lg:col-span-8">
+            <div>
               {/* Breadcrumbs */}
               <div className="mb-8">
                 <Breadcrumbs
@@ -217,24 +217,6 @@ export default async function ArticlePage({ params }: Props) {
                 </section>
               )}
             </div>
-
-            {/* Sidebar */}
-            <aside className="lg:col-span-4">
-              <div className="space-y-8">
-                {/* Newsletter Card */}
-                <Card className="sticky top-24">
-                  <CardHeader>
-                    <CardTitle>Stay Updated</CardTitle>
-                    <CardDescription>
-                      Get the latest sauna protocols and research delivered to your inbox
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <NewsletterForm leadMagnet="sidebar" />
-                  </CardContent>
-                </Card>
-              </div>
-            </aside>
           </div>
         </div>
       </article>
