@@ -221,11 +221,8 @@ export default async function ArticlePage({ params }: Props) {
             {/* Sidebar */}
             <aside className="lg:col-span-4">
               <div className="space-y-8">
-                {/* Table of Contents */}
-                <TableOfContents />
-
                 {/* Newsletter Card */}
-                <Card>
+                <Card className="sticky top-24">
                   <CardHeader>
                     <CardTitle>Stay Updated</CardTitle>
                     <CardDescription>
