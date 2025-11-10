@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Thermometer, Clock, Droplets, Sparkles, Heart, Volume2, CheckCircle, AlertCircle } from 'lucide-react'
+import { affiliateLinks } from '@/lib/affiliate-links'
 
 export const metadata: Metadata = {
   title: 'Best Sauna Equipment & Accessories Guide 2025',
@@ -115,6 +116,13 @@ export default function EquipmentPage() {
                     <div><strong>Why It Works:</strong> No batteries, handles extreme heat, easy to read</div>
                     <div><strong>Best For:</strong> Traditional Finnish saunas (175-200°F)</div>
                     <div><strong>Look For:</strong> Stainless steel construction, clear dial face, mounting hardware included</div>
+                    <div className="pt-3">
+                      <Button asChild variant="default" size="sm" className="w-full">
+                        <a href={affiliateLinks.thermometerDialTraditional} target="_blank" rel="noopener noreferrer nofollow">
+                          View on Amazon →
+                        </a>
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
 
@@ -127,6 +135,13 @@ export default function EquipmentPage() {
                     <div><strong>Added Benefit:</strong> Tracks humidity levels (critical for protocol optimization)</div>
                     <div><strong>Best For:</strong> Users following specific research protocols</div>
                     <div><strong>Pro Tip:</strong> Mount at head height when seated for accurate readings</div>
+                    <div className="pt-3">
+                      <Button asChild variant="secondary" size="sm" className="w-full">
+                        <a href={affiliateLinks.thermometerHygrometerCombo} target="_blank" rel="noopener noreferrer nofollow">
+                          View on Amazon →
+                        </a>
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
 
@@ -139,6 +154,13 @@ export default function EquipmentPage() {
                     <div><strong>Pros:</strong> Precise readings, some models include remote displays</div>
                     <div><strong>Cons:</strong> Requires batteries, may have shorter lifespan</div>
                     <div><strong>Best For:</strong> Tech enthusiasts who want data logging</div>
+                    <div className="pt-3">
+                      <Button asChild variant="default" size="sm" className="w-full">
+                        <a href={affiliateLinks.thermometerDigital} target="_blank" rel="noopener noreferrer nofollow">
+                          View on Amazon →
+                        </a>
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
 
@@ -287,6 +309,13 @@ export default function EquipmentPage() {
                       </ul>
                     </div>
                     <div><strong>Sizing:</strong> Look for 30x60" or larger for full body coverage</div>
+                    <div className="pt-3">
+                      <Button asChild variant="default" size="sm" className="w-full">
+                        <a href={affiliateLinks.towelsLinen2Pack} target="_blank" rel="noopener noreferrer nofollow">
+                          Shop Linen Towels →
+                        </a>
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
 
@@ -298,6 +327,13 @@ export default function EquipmentPage() {
                     <div><strong>Amazon Price:</strong> $30-60 for a set</div>
                     <div><strong>Why It Works:</strong> Highly absorbent, durable, heat-resistant</div>
                     <div><strong>Best For:</strong> Those who prefer plush, thick towels</div>
+                    <div className="pt-3">
+                      <Button asChild variant="secondary" size="sm" className="w-full">
+                        <a href={affiliateLinks.towelsTurkishCotton} target="_blank" rel="noopener noreferrer nofollow">
+                          Shop Turkish Towels →
+                        </a>
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               </div>
