@@ -1185,15 +1185,15 @@ export default function BryanJohnsonProtocolPage() {
           </section>
         </div>
         
-        {/* Sticky Sidebar TOC - Desktop Only - Clean Numbered List */}
+        {/* Sticky Sidebar TOC - Desktop Only - Compact Style */}
         <aside className="hidden lg:block">
           <div className="sticky top-24">
             <Card className="bg-white border border-gray-200 shadow-lg">
-              <CardHeader>
-                <CardTitle className="text-lg">On This Page</CardTitle>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-base font-bold">On This Page</CardTitle>
               </CardHeader>
               <CardContent>
-                <nav className="space-y-2 text-sm">
+                <nav className="space-y-1.5 text-sm">
                   <Link href="#video" className="block text-[#2563eb] hover:underline">
                     1. Video
                   </Link>
