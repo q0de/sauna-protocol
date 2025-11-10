@@ -268,48 +268,48 @@ export default function BryanJohnsonProtocolPage() {
                 </div>
               </header>
 
-          {/* Table of Contents - Clean Numbered Layout */}
+          {/* Table of Contents - Clean Numbered Layout with Red Hover */}
           <nav className="mb-12 lg:hidden">
             <Card className="bg-white border border-gray-200">
               <CardHeader>
                 <CardTitle className="text-2xl">Table of Contents</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3">
-                  <Link href="#video" className="text-[#2563eb] hover:underline">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
+                  <Link href="#video" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
                     1. Watch Bryan's Video
                   </Link>
-                  <Link href="#why-sauna" className="text-[#2563eb] hover:underline">
+                  <Link href="#why-sauna" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
                     2. Why He Finally Tried Sauna
                   </Link>
-                  <Link href="#protocol-specs" className="text-[#2563eb] hover:underline">
+                  <Link href="#protocol-specs" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
                     3. Exact Protocol Specifications
                   </Link>
-                  <Link href="#week-1" className="text-[#2563eb] hover:underline">
+                  <Link href="#week-1" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
                     4. Week 1: The Crash
                   </Link>
-                  <Link href="#week-1-results" className="text-[#2563eb] hover:underline">
+                  <Link href="#week-1-results" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
                     5. Week 1 Results
                   </Link>
-                  <Link href="#toxin-results" className="text-[#2563eb] hover:underline">
+                  <Link href="#toxin-results" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
                     6. 21-Day Detox Results
                   </Link>
-                  <Link href="#timeline" className="text-[#2563eb] hover:underline">
+                  <Link href="#timeline" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
                     7. 90-Day Timeline
                   </Link>
-                  <Link href="#fertility" className="text-[#2563eb] hover:underline">
+                  <Link href="#fertility" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
                     8. Fertility Experiment
                   </Link>
-                  <Link href="#final-results" className="text-[#2563eb] hover:underline">
+                  <Link href="#final-results" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
                     9. 48-Day Final Results
                   </Link>
-                  <Link href="#implementation" className="text-[#2563eb] hover:underline">
+                  <Link href="#implementation" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
                     10. How to Replicate This Protocol
                   </Link>
-                  <Link href="#equipment" className="text-[#2563eb] hover:underline">
+                  <Link href="#equipment" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
                     11. Equipment Requirements
                   </Link>
-                  <Link href="#faq" className="text-[#2563eb] hover:underline">
+                  <Link href="#faq" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
                     12. Frequently Asked Questions
                   </Link>
                 </div>
@@ -1185,7 +1185,7 @@ export default function BryanJohnsonProtocolPage() {
           </section>
         </div>
         
-        {/* Sticky Sidebar TOC - Desktop Only - Compact Style */}
+        {/* Sticky Sidebar TOC - Desktop Only - Compact Style with Red Hover */}
         <aside className="hidden lg:block">
           <div className="sticky top-24">
             <Card className="bg-white border border-gray-200 shadow-lg">
@@ -1194,40 +1194,40 @@ export default function BryanJohnsonProtocolPage() {
               </CardHeader>
               <CardContent>
                 <nav className="space-y-1.5 text-sm">
-                  <Link href="#video" className="block text-[#2563eb] hover:underline">
+                  <Link href="#video" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
                     1. Video
                   </Link>
-                  <Link href="#why-sauna" className="block text-[#2563eb] hover:underline">
+                  <Link href="#why-sauna" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
                     2. Why Sauna?
                   </Link>
-                  <Link href="#protocol-specs" className="block text-[#2563eb] hover:underline">
+                  <Link href="#protocol-specs" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
                     3. Protocol
                   </Link>
-                  <Link href="#week-1" className="block text-[#2563eb] hover:underline">
+                  <Link href="#week-1" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
                     4. Week 1
                   </Link>
-                  <Link href="#week-1-results" className="block text-[#2563eb] hover:underline">
+                  <Link href="#week-1-results" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
                     5. Results
                   </Link>
-                  <Link href="#toxin-results" className="block text-[#2563eb] hover:underline">
+                  <Link href="#toxin-results" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
                     6. Detox
                   </Link>
-                  <Link href="#timeline" className="block text-[#2563eb] hover:underline">
+                  <Link href="#timeline" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
                     7. Timeline
                   </Link>
-                  <Link href="#fertility" className="block text-[#2563eb] hover:underline">
+                  <Link href="#fertility" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
                     8. Fertility
                   </Link>
-                  <Link href="#final-results" className="block text-[#2563eb] hover:underline">
+                  <Link href="#final-results" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
                     9. Final Results
                   </Link>
-                  <Link href="#implementation" className="block text-[#2563eb] hover:underline">
+                  <Link href="#implementation" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
                     10. How To
                   </Link>
-                  <Link href="#equipment" className="block text-[#2563eb] hover:underline">
+                  <Link href="#equipment" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
                     11. Equipment
                   </Link>
-                  <Link href="#faq" className="block text-[#2563eb] hover:underline">
+                  <Link href="#faq" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
                     12. FAQ
                   </Link>
                 </nav>
