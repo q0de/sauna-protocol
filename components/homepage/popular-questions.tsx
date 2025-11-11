@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
 
 export function PopularQuestions() {
   const questions = [
@@ -47,9 +46,9 @@ export function PopularQuestions() {
                   <p className="text-gray-600 mb-3">
                     {q.preview}
                   </p>
-                  <Button variant="link" className="p-0 h-auto text-[#2196f3]">
+                  <span className="text-[#2196f3] font-medium hover:underline">
                     Learn More →
-                  </Button>
+                  </span>
                 </CardContent>
               </Card>
             </Link>

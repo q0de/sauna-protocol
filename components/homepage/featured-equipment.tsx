@@ -23,7 +23,7 @@ export function FeaturedEquipment() {
     {
       id: 'thermometer',
       name: 'Sauna Thermometer',
-      benefit: 'Monitor exact temperature to follow protocols precisely—essential for Bryan Johnson's 200°F standard',
+      benefit: 'Monitor exact temperature to follow protocols precisely—essential for Bryan Johnson\'s 200°F standard',
       price: '$29.97',
       rating: 5,
       image: 'https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-01-Thermo-49Kpw6L.webp',
@@ -47,7 +47,7 @@ export function FeaturedEquipment() {
     {
       id: 'heartrate',
       name: 'Heart Rate Monitor',
-      benefit: 'Track HRV and cardiovascular response in real-time—measure your protocol's effectiveness',
+      benefit: 'Track HRV and cardiovascular response in real-time—measure your protocol\'s effectiveness',
       price: '$104.95',
       rating: 5,
       image: 'https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-03-heartrate-47YPUYO.webp',
@@ -58,7 +58,7 @@ export function FeaturedEquipment() {
     {
       id: 'thermometer',
       name: 'Sauna Thermometer',
-      benefit: 'Monitor exact temperature to follow protocols precisely—essential for Bryan Johnson's 200°F standard',
+      benefit: 'Monitor exact temperature to follow protocols precisely—essential for Bryan Johnson\'s 200°F standard',
       price: '$29.97',
       rating: 5,
       image: 'https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-01-Thermo-49Kpw6L.webp',
