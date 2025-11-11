@@ -16,19 +16,57 @@ export default async function ArticlesPage() {
   
   const categories = ['All', 'Protocol', 'Equipment', 'Science', 'How-To']
   
-  // Manual entry for Bryan Johnson Protocol (since it's a page, not an MDX article)
-  const bryanJohnsonProtocol = {
-    slug: 'bryan-johnson',
-    href: '/protocols/bryan-johnson',
-    frontmatter: {
-      title: "Bryan Johnson's 200°F Sauna Protocol: Complete 90-Day Results",
-      excerpt: "The exact sauna protocol used by Bryan Johnson to improve blood pressure by 20 mmHg and increase HRV by 38%. Complete 90-day implementation guide with measured results.",
-      category: 'Protocol',
-      featured: true,
-      publishedAt: '2025-11-09',
-      readingTime: '15 min read'
-    }
-  }
+  // Manual entries for pages (not MDX articles)
+  const staticPages = [
+    {
+      slug: 'bryan-johnson',
+      href: '/protocols/bryan-johnson',
+      frontmatter: {
+        title: "Bryan Johnson's 200°F Sauna Protocol: Complete 90-Day Results",
+        excerpt: "The exact sauna protocol used by Bryan Johnson to improve blood pressure by 20 mmHg and increase HRV by 38%. Complete 90-day implementation guide with measured results.",
+        category: 'Protocol',
+        featured: true,
+        publishedAt: '2025-11-09',
+        readingTime: '15 min read'
+      }
+    },
+    {
+      slug: 'equipment-guide',
+      href: '/equipment',
+      frontmatter: {
+        title: "Best Sauna Equipment & Accessories Review Guide [2025]",
+        excerpt: "Expert reviews of the top 8 sauna accessories. We tested and analyzed hundreds of products to find the best thermometers, towels, and gear.",
+        category: 'Equipment',
+        featured: false,
+        publishedAt: '2025-11-11',
+        readingTime: '12 min read'
+      }
+    },
+    {
+      slug: 'beginner-protocol',
+      href: '/protocols/beginner',
+      frontmatter: {
+        title: "Beginner Sauna Protocol - Safe Start Guide",
+        excerpt: "Start your sauna journey safely with our 4-week beginner protocol. Gradual adaptation from 150°F for 10 minutes.",
+        category: 'Protocol',
+        featured: false,
+        publishedAt: '2025-11-11',
+        readingTime: '8 min read'
+      }
+    },
+    {
+      slug: 'advanced-protocol',
+      href: '/protocols/advanced',
+      frontmatter: {
+        title: "Advanced Sauna Protocol - Maximum Benefits",
+        excerpt: "Advanced sauna protocol for experienced users. 190-200°F for 20-25 minutes, 4-5x/week. Maximize cardiovascular and longevity benefits.",
+        category: 'Protocol',
+        featured: false,
+        publishedAt: '2025-11-11',
+        readingTime: '10 min read'
+      }
+    },
+  ]
   
   return (
     <div className="py-12">
@@ -55,31 +93,65 @@ export default async function ArticlesPage() {
 
         {/* Featured Protocol (Bryan Johnson) - Fully Clickable Card */}
         <div className="mb-12">
-          <Link href={bryanJohnsonProtocol.href} className="block">
+          <Link href={staticPages[0].href} className="block">
             <Card className="border-2 border-[#ff6b6b] bg-gradient-to-br from-[#ff6b6b]/5 to-[#f59e0b]/5 hover:shadow-xl transition-all cursor-pointer">
               <CardHeader>
                 <div className="flex items-center gap-2 mb-2">
                   <Badge variant="featured">FEATURED PROTOCOL</Badge>
-                  <Badge variant="secondary">{bryanJohnsonProtocol.frontmatter.category}</Badge>
+                  <Badge variant="secondary">{staticPages[0].frontmatter.category}</Badge>
                 </div>
                 <CardTitle className="text-2xl hover:text-[#ff6b6b] transition-colors">
-                  {bryanJohnsonProtocol.frontmatter.title}
+                  {staticPages[0].frontmatter.title}
                 </CardTitle>
                 <CardDescription className="text-base">
-                  {bryanJohnsonProtocol.frontmatter.excerpt}
+                  {staticPages[0].frontmatter.excerpt}
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="font-medium text-gray-700">{bryanJohnsonProtocol.frontmatter.readingTime}</span>
-                  <span className="text-gray-500">{new Date(bryanJohnsonProtocol.frontmatter.publishedAt).toLocaleDateString()}</span>
+                  <span className="font-medium text-gray-700">{staticPages[0].frontmatter.readingTime}</span>
+                  <span className="text-gray-500">{new Date(staticPages[0].frontmatter.publishedAt).toLocaleDateString()}</span>
                 </div>
               </CardContent>
             </Card>
           </Link>
         </div>
 
-        {/* Articles Grid */}
+        {/* Other Protocols & Guides */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold mb-6">All Protocols & Guides</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+            {staticPages.slice(1).map((page) => (
+              <Link key={page.slug} href={page.href} className="block">
+                <Card className="hover:shadow-lg transition-all cursor-pointer h-full">
+                  <CardHeader>
+                    <div className="flex items-center gap-2 mb-2">
+                      <Badge variant="secondary">
+                        {page.frontmatter.category}
+                      </Badge>
+                    </div>
+                    <CardTitle className="text-xl hover:text-[#ff6b6b] transition-colors">
+                      {page.frontmatter.title}
+                    </CardTitle>
+                    <CardDescription className="line-clamp-3">
+                      {page.frontmatter.excerpt}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex items-center justify-between text-sm text-gray-500">
+                      <span>{page.frontmatter.readingTime}</span>
+                      <span>{new Date(page.frontmatter.publishedAt).toLocaleDateString()}</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* MDX Articles */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold mb-6">Articles</h2>
         {articles.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-xl text-gray-600">No articles yet. Check back soon!</p>

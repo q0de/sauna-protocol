@@ -453,6 +453,48 @@ export default function EquipmentPage() {
           </div>
         </section>
 
+        {/* Coming Soon: Full Sauna Reviews */}
+        <section className="mt-12 mb-12">
+          <Card className="border-2 border-[#ff6b6b] bg-gradient-to-br from-[#ff6b6b]/5 to-[#f59e0b]/5">
+            <CardHeader>
+              <Badge variant="featured" className="mb-2 w-fit">COMING SOON</Badge>
+              <CardTitle className="text-3xl">Full Sauna Unit Reviews</CardTitle>
+              <CardDescription className="text-lg mt-2">
+                In-depth reviews of complete sauna systems—traditional, infrared, and barrel saunas
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-gray-700">
+                We're currently testing and reviewing the best home sauna units on the market. Our comprehensive reviews will cover:
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
+                  <h3 className="font-semibold mb-2 text-[#ff6b6b]">🔥 Traditional Saunas</h3>
+                  <ul className="text-sm text-gray-700 space-y-1">
+                    <li>• Almost Heaven Barrel Saunas</li>
+                    <li>• Finnleo Custom Series</li>
+                    <li>• Dundalk Cedar Pod</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
+                  <h3 className="font-semibold mb-2 text-[#ff6b6b]">☀️ Infrared Saunas</h3>
+                  <ul className="text-sm text-gray-700 space-y-1">
+                    <li>• Sunlighten Solo System</li>
+                    <li>• Clearlight Sanctuary</li>
+                    <li>• Therasauna TS Series</li>
+                  </ul>
+                </div>
+              </div>
+
+              <p className="text-sm text-gray-600 italic">
+                <strong>Want to be notified when we publish full sauna reviews?</strong> <Link href="/#email-signup" className="text-[#ff6b6b] hover:underline font-semibold">Sign up for our email list →</Link>
+              </p>
+            </CardContent>
+          </Card>
+        </section>
+
         {/* Affiliate Disclosure */}
         <div className="mt-12 p-4 bg-gray-50 rounded-lg border border-gray-200 text-sm text-gray-600">
           <p className="font-semibold mb-2">Affiliate Disclosure:</p>
