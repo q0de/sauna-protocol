@@ -54,20 +54,22 @@ export function Header() {
   return (
     <header 
       className="fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] max-w-6xl"
-      style={{ top: '2rem' }}
+      style={{ top: '3rem' }}
     >
-      <div className={`relative rounded-full shadow-2xl border transition-all duration-500 ${
+      <div className={`relative rounded-full border transition-all duration-500 ${
         isScrolled 
-          ? 'bg-white/70 backdrop-blur-2xl border-white/30' 
-          : 'bg-transparent border-transparent'
+          ? 'bg-white/70 backdrop-blur-2xl border-white/30 shadow-2xl' 
+          : 'bg-transparent border-transparent shadow-none'
       }`}>
         {/* Gradient Background Behind Logo - Centered with Left & Right Fade */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[600px] pointer-events-none">
+        <div className={`absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[600px] pointer-events-none transition-opacity duration-500 ${
+          isScrolled ? 'opacity-40' : 'opacity-0'
+        }`}>
           <Image
             src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/IMG-GRADIENT.png"
             alt=""
             fill
-            className="object-cover object-center opacity-40"
+            className="object-cover object-center"
             style={{
               maskImage: 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)',
               WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)'
