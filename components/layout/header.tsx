@@ -19,28 +19,19 @@ export function Header() {
     { name: 'About', href: '/about' },
   ]
 
-  useEffect(() => {
-    // Only hide navbar on homepage
-    if (!isHomePage) {
-      setIsVisible(true)
-      return
-    }
-
-    const handleScroll = () => {
-      // Show navbar after scrolling 100px (past hero) on homepage only
-      setIsVisible(window.scrollY > 100)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [isHomePage])
-
   return (
     <header 
-      className={`sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 transition-transform duration-300 ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
+      className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+        isHomePage 
+          ? 'w-[95%] max-w-6xl' 
+          : 'w-full max-w-7xl px-6'
       }`}
     >
+      <div className={`${
+        isHomePage 
+          ? 'bg-white/90 backdrop-blur-xl rounded-full shadow-2xl border border-white/20' 
+          : 'bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b'
+      }`}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2 group">
@@ -109,6 +100,7 @@ export function Header() {
           </div>
         </div>
       )}
+      </div>
     </header>
   )
 }
