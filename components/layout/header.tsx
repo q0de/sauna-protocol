@@ -18,9 +18,9 @@ const logoSizes = [
   { label: 'Small (Current)', height: 80, width: 480, marginY: 4 },
   { label: 'Medium', height: 96, width: 576, marginY: 5 },
   { label: 'Large', height: 112, width: 672, marginY: 6 },
-  { label: 'X-Large', height: 128, width: 768, marginY: 7 },
-  { label: '2X-Large', height: 144, width: 864, marginY: 8 },
-  { label: '3X-Large', height: 160, width: 960, marginY: 9 },
+  { label: 'X-Large', height: 128, width: 768, marginY: 8 },
+  { label: '2X-Large', height: 144, width: 864, marginY: 10 },
+  { label: '3X-Large', height: 160, width: 960, marginY: 12 },
 ]
 
 export function Header() {
@@ -70,7 +70,7 @@ export function Header() {
           />
         </div>
         
-      <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between py-12 px-6 lg:px-8 transition-all duration-300" aria-label="Global">
+      <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 transition-all duration-300" aria-label="Global">
         {/* Left Navigation */}
         <div className="hidden lg:flex lg:gap-x-8">
           <Link
