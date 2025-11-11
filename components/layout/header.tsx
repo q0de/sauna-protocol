@@ -70,7 +70,7 @@ export function Header() {
           />
         </div>
         
-      <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between py-8 px-6 lg:px-8 transition-all duration-300" aria-label="Global">
+      <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between py-12 px-6 lg:px-8 transition-all duration-300" aria-label="Global">
         {/* Left Navigation */}
         <div className="hidden lg:flex lg:gap-x-8">
           <Link
