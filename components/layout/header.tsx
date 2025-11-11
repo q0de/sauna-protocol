@@ -16,11 +16,11 @@ import {
 
 const logoSizes = [
   { label: 'Small (Current)', height: 80, width: 480, marginY: 4 },
-  { label: 'Medium', height: 96, width: 576, marginY: 5 },
-  { label: 'Large', height: 112, width: 672, marginY: 6 },
-  { label: 'X-Large', height: 128, width: 768, marginY: 8 },
-  { label: '2X-Large', height: 144, width: 864, marginY: 10 },
-  { label: '3X-Large', height: 160, width: 960, marginY: 12 },
+  { label: 'Medium', height: 96, width: 576, marginY: 6 },
+  { label: 'Large', height: 112, width: 672, marginY: 8 },
+  { label: 'X-Large', height: 128, width: 768, marginY: 10 },
+  { label: '2X-Large', height: 144, width: 864, marginY: 14 },
+  { label: '3X-Large', height: 160, width: 960, marginY: 16 },
 ]
 
 export function Header() {
@@ -53,9 +53,14 @@ export function Header() {
 
   return (
     <header 
-      className="fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 top-6 w-[95%] max-w-6xl"
+      className="fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] max-w-6xl"
+      style={{ top: '2rem' }}
     >
-      <div className="relative bg-white/70 backdrop-blur-2xl rounded-full shadow-2xl border border-white/30">
+      <div className={`relative rounded-full shadow-2xl border transition-all duration-500 ${
+        isScrolled 
+          ? 'bg-white/70 backdrop-blur-2xl border-white/30' 
+          : 'bg-transparent border-transparent'
+      }`}>
         {/* Gradient Background Behind Logo - Centered with Left & Right Fade */}
         <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[600px] pointer-events-none">
           <Image
@@ -115,29 +120,30 @@ export function Header() {
           </button>
         </div>
 
-        {/* Centered Logo */}
-        <div className="absolute left-1/2 -translate-x-1/2 flex items-center">
-          <Link href="/" className="relative flex items-center group">
-            {/* Logo Text */}
-            <div 
-              className="relative w-auto object-contain transition-all duration-300"
-              style={{ 
-                height: `${currentSize.height}px`,
-                marginTop: `-${currentSize.marginY * 4}px`,
-                marginBottom: `-${currentSize.marginY * 4}px`
-              }}
-            >
-              <Image
-                src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/IMG-LOGO.png"
-                alt="SaunaProtocol Logo"
-                width={currentSize.width}
-                height={currentSize.height}
-                className="h-full w-auto object-contain"
-                priority
-              />
+            {/* Centered Logo */}
+            <div className="absolute left-1/2 -translate-x-1/2 flex items-center">
+              <Link href="/" className="relative flex items-center group">
+                {/* Logo Text */}
+                <div 
+                  className="relative w-auto object-contain"
+                  style={{ 
+                    height: `${currentSize.height}px`,
+                    marginTop: `-${currentSize.marginY * 4}px`,
+                    marginBottom: `-${currentSize.marginY * 4}px`,
+                    transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+                  }}
+                >
+                  <Image
+                    src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/IMG-LOGO.png"
+                    alt="SaunaProtocol Logo"
+                    width={currentSize.width}
+                    height={currentSize.height}
+                    className="h-full w-auto object-contain transition-all duration-500"
+                    priority
+                  />
+                </div>
+              </Link>
             </div>
-          </Link>
-        </div>
         
         {/* Logo Size Control - Temporary */}
         <div className="absolute right-4 top-1/2 -translate-y-1/2 z-50">
