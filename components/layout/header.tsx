@@ -51,7 +51,7 @@ export function Header() {
 
   return (
     <header 
-      className="fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] max-w-6xl"
+      className="fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[98%] max-w-7xl"
       style={{ top: '3rem' }}
     >
       <div className={`relative rounded-full border transition-all duration-500 ${
