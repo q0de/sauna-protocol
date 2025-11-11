@@ -62,23 +62,21 @@ export function HeroWithVariants() {
               {content.subheadline}
             </p>
             
-            {/* Trust Signals - Only for Authority Variant */}
-            {variant === 'authority' && (
-              <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
-                <div className="flex items-center gap-2 text-white/90">
-                  <CheckCircle className="h-5 w-5" />
-                  <span className="text-sm font-medium">Peer-Reviewed Research</span>
-                </div>
-                <div className="flex items-center gap-2 text-white/90">
-                  <CheckCircle className="h-5 w-5" />
-                  <span className="text-sm font-medium">Hands-On Testing</span>
-                </div>
-                <div className="flex items-center gap-2 text-white/90">
-                  <CheckCircle className="h-5 w-5" />
-                  <span className="text-sm font-medium">Transparent Reviews</span>
-                </div>
+            {/* Trust Signals - Authority Variant */}
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
+              <div className="flex items-center gap-2 text-white/90">
+                <CheckCircle className="h-5 w-5" />
+                <span className="text-sm font-medium">Peer-Reviewed Research</span>
               </div>
-            )}
+              <div className="flex items-center gap-2 text-white/90">
+                <CheckCircle className="h-5 w-5" />
+                <span className="text-sm font-medium">Hands-On Testing</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/90">
+                <CheckCircle className="h-5 w-5" />
+                <span className="text-sm font-medium">Transparent Reviews</span>
+              </div>
+            </div>
             
             {/* Main CTA Button - Centered on mobile, Left-aligned on desktop */}
             <div className="flex flex-col items-center lg:items-start gap-6">
