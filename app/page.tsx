@@ -33,19 +33,6 @@ export default async function HomePage() {
 
   const protocols = [
     {
-      title: "Bryan Johnson's Advanced Sauna Protocol",
-      description: "The exact 200°F sauna protocol Bryan Johnson uses daily as part of his $2M longevity program. This advanced protocol requires experience and precise temperature control for maximum health optimization—documented results in 90 days.",
-      temperature: "200°F",
-      duration: "25 min",
-      frequency: "4x/week",
-      badge: "ADVANCED",
-      intensity: "🔥🔥🔥",
-      result: "HRV +38%, BP -20 mmHg",
-      testimonial: "Publicly documented results from Bryan Johnson's Blueprint protocol",
-      href: "/protocols/bryan-johnson",
-      featured: true,
-    },
-    {
       title: "Beginner Sauna Protocol: Safe Foundation",
       description: "Start your sauna protocol practice safely with our beginner-friendly temperature progression. Learn the optimal duration and frequency for building heat tolerance without overwhelming your system. Perfect for answering 'how long to sit in sauna' when you're just starting.",
       temperature: "150-170°F",
@@ -68,6 +55,19 @@ export default async function HomePage() {
       result: "20 mmHg BP reduction typical",
       testimonial: "Results align with JAMA study findings (2,315 participants)",
       href: "/protocols/intermediate",
+    },
+    {
+      title: "Bryan Johnson's Advanced Sauna Protocol",
+      description: "The exact 200°F sauna protocol Bryan Johnson uses daily as part of his $2M longevity program. This advanced protocol requires experience and precise temperature control for maximum health optimization—documented results in 90 days.",
+      temperature: "200°F",
+      duration: "25 min",
+      frequency: "4x/week",
+      badge: "ADVANCED",
+      intensity: "🔥🔥🔥",
+      result: "HRV +38%, BP -20 mmHg",
+      testimonial: "Publicly documented results from Bryan Johnson's Blueprint protocol",
+      href: "/protocols/bryan-johnson",
+      featured: true,
     },
   ]
 
