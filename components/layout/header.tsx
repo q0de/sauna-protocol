@@ -34,13 +34,13 @@ export function Header() {
                 <Flame className="h-6 w-6 text-white" />
               </div>
             </div>
-            <div className="relative h-16 w-auto -my-2">
+            <div className="relative h-20 w-auto -my-4">
               <Image
                 src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/IMG-LOGO.png"
                 alt="SaunaProtocol Logo"
-                width={380}
-                height={64}
-                className="h-16 w-auto object-contain"
+                width={480}
+                height={80}
+                className="h-20 w-auto object-contain"
                 priority
               />
             </div>
