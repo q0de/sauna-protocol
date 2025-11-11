@@ -21,16 +21,16 @@ export function Header() {
 
   return (
     <header 
-      className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+      className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
         isHomePage 
-          ? 'w-[95%] max-w-6xl' 
-          : 'w-full max-w-7xl px-6'
+          ? 'top-6 w-[95%] max-w-6xl' 
+          : 'top-4 w-[96%] max-w-7xl'
       }`}
     >
       <div className={`${
         isHomePage 
           ? 'bg-white/70 backdrop-blur-2xl rounded-full shadow-2xl border border-white/30' 
-          : 'bg-white/80 backdrop-blur-xl border-b border-gray-200/50'
+          : 'bg-white/75 backdrop-blur-2xl rounded-2xl shadow-xl border border-white/40'
       }`}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
@@ -65,7 +65,7 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold leading-6 text-gray-900 hover:text-[#ff6b6b] transition-colors"
+              className="text-base font-bold leading-6 text-gray-900 hover:text-[#ff6b6b] transition-colors"
             >
               {item.name}
             </Link>
