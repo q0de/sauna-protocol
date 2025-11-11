@@ -77,7 +77,7 @@ export function Header() {
         
       <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 transition-all duration-300" aria-label="Global">
         {/* Left Navigation - Aligned with hero content */}
-        <div className="hidden lg:flex lg:gap-x-8 lg:-ml-2">
+        <div className="hidden lg:flex lg:gap-x-8 lg:-ml-8">
           <Link
             href="/protocols/bryan-johnson"
             className="text-base font-bold leading-6 text-gray-900 hover:text-[#ff6b6b] transition-colors"
