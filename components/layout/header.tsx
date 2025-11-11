@@ -73,27 +73,19 @@ export function Header() {
           transform: 'translateZ(0)'
         }}
       >
-        {/* Gradient Background Behind Logo - Centered with Left & Right Fade */}
+        {/* CSS Gradient Background Behind Logo - Centered with Left & Right Fade */}
         <div 
           className={`absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[600px] pointer-events-none transition-opacity duration-300 ${
             isScrolled ? 'opacity-40' : 'opacity-0'
           }`}
           style={{ 
             willChange: 'opacity',
-            transform: 'translateZ(0)'
+            transform: 'translateZ(0)',
+            background: 'linear-gradient(135deg, #ff6b6b 0%, #ff8e53 50%, #f59e0b 100%)',
+            maskImage: 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)'
           }}
-        >
-          <Image
-            src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/IMG-GRADIENT.png"
-            alt=""
-            fill
-            className="object-cover object-center"
-            style={{
-              maskImage: 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)',
-              WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)'
-            }}
-          />
-        </div>
+        />
         
       <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 transition-all duration-300" aria-label="Global">
         {/* Left Navigation - Aligned with hero content */}

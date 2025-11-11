@@ -68,7 +68,7 @@ export default function EquipmentPage() {
                     alt="Sauna thermometer and hygrometer combo mounted on wooden wall showing temperature and humidity readings"
                     fill
                     className="object-cover"
-                    style={{ objectPosition: '50% 20%' }}
+                    style={{ objectPosition: '50% 10%' }}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     loading="lazy"
                     placeholder="blur"
