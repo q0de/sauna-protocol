@@ -64,7 +64,7 @@ export default function EquipmentPage() {
               <CardContent className="space-y-4">
                 <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
                   <Image
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+                    src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/product-images/product-01-Thermo-49Kpw6L.jpg"
                     alt="Sauna thermometer and hygrometer combo mounted on wooden wall showing temperature and humidity readings"
                     fill
                     className="object-cover"
@@ -115,7 +115,7 @@ export default function EquipmentPage() {
               <CardContent className="space-y-4">
                 <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
                   <Image
-                    src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=2070&auto=format&fit=crop"
+                    src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/product-images/product-02-LED-4p42AE6.jpg"
                     alt="Warm LED sauna light fixture creating ambient lighting in wooden sauna interior"
                     fill
                     className="object-cover"
@@ -170,7 +170,7 @@ export default function EquipmentPage() {
               <CardContent className="space-y-4">
                 <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
                   <Image
-                    src="https://images.unsplash.com/photo-1576243345690-4e4b79b63288?q=80&w=2070&auto=format&fit=crop"
+                    src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/product-images/product-03-heartrate-47YPUYO.jpg"
                     alt="Heart rate monitor chest strap for tracking cardiovascular response during sauna sessions"
                     fill
                     className="object-cover"
@@ -227,7 +227,7 @@ export default function EquipmentPage() {
               <CardContent className="space-y-4">
                 <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
                   <Image
-                    src="https://images.unsplash.com/photo-1608889335941-32ac5f2041b9?q=80&w=2080&auto=format&fit=crop"
+                    src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/product-images/product-04-bucket-4p5RNJD.jpg"
                     alt="Traditional wooden sauna bucket and ladle set for Finnish löyly steam experience"
                     fill
                     className="object-cover"
@@ -282,7 +282,7 @@ export default function EquipmentPage() {
               <CardContent className="space-y-4">
                 <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
                   <Image
-                    src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?q=80&w=2070&auto=format&fit=crop"
+                    src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/product-images/product-05-oils-4qYMk9j.jpg"
                     alt="Eucalyptus essential oil bottles for sauna aromatherapy and respiratory benefits"
                     fill
                     className="object-cover"
@@ -333,7 +333,7 @@ export default function EquipmentPage() {
               <CardContent className="space-y-4">
                 <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
                   <Image
-                    src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2070&auto=format&fit=crop"
+                    src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/product-images/product-06-towels-3JfK1iY.jpg"
                     alt="Plush Turkish cotton sauna towels folded on wooden bench, ultra-absorbent and heat-resistant"
                     fill
                     className="object-cover"
@@ -384,7 +384,7 @@ export default function EquipmentPage() {
               <CardContent className="space-y-4">
                 <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
                   <Image
-                    src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?q=80&w=2070&auto=format&fit=crop"
+                    src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/product-images/product-07-wafflecotton-3JI4Ce8.jpg"
                     alt="Lightweight waffle-weave cotton towels with linen texture, fast-drying for sauna use"
                     fill
                     className="object-cover"
@@ -435,7 +435,7 @@ export default function EquipmentPage() {
               <CardContent className="space-y-4">
                 <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
                   <Image
-                    src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?q=80&w=2070&auto=format&fit=crop"
+                    src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/product-images/product-08-speaker-49e0X24.jpg"
                     alt="Waterproof Bluetooth speaker for sauna, IPX7 rated for music and meditation audio"
                     fill
                     className="object-cover"
@@ -491,7 +491,7 @@ export default function EquipmentPage() {
               <CardContent className="space-y-4">
                 <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
                   <Image
-                    src="https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?q=80&w=2064&auto=format&fit=crop"
+                    src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/product-images/product-09-timer-4oANaal.jpg"
                     alt="Stainless steel mechanical sauna timer with 55-minute dial, no batteries required"
                     fill
                     className="object-cover"
@@ -543,7 +543,7 @@ export default function EquipmentPage() {
               <CardContent className="space-y-4">
                 <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
                   <Image
-                    src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop"
+                    src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/product-images/product-10-headicepack-487cn6y.jpg"
                     alt="Reusable head ice pack for cooling during sauna sessions, prevents overheating"
                     fill
                     className="object-cover"
@@ -604,7 +604,7 @@ export default function EquipmentPage() {
               <CardContent className="space-y-4">
                 <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
                   <Image
-                    src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=2070&auto=format&fit=crop"
+                    src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/product-images/product-11-testicular-4qTfeY9.jpg"
                     alt="Custom-fit ice pack for testicular cooling after sauna, protects fertility and testosterone"
                     fill
                     className="object-cover"
