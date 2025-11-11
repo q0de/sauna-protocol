@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -267,6 +268,23 @@ export default function BryanJohnsonProtocolPage() {
                     This complete guide breaks down Johnson's exact protocol, the measured outcomes, and how you can adapt it for your own 
                     longevity goals—whether you have access to a home sauna or just a gym membership.
                   </p>
+                </div>
+
+                {/* Hero Image */}
+                <div className="relative w-full h-[400px] rounded-xl overflow-hidden my-8">
+                  <Image
+                    src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070&auto=format&fit=crop"
+                    alt="Traditional Finnish sauna interior with wooden benches and ambient lighting at 200°F"
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <div className="absolute bottom-6 left-6 text-white">
+                    <p className="text-sm font-semibold">Traditional Finnish Sauna</p>
+                    <p className="text-xs opacity-90">Photo by Unsplash</p>
+                  </div>
                 </div>
               </header>
 

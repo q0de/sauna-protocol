@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -61,11 +62,14 @@ export default function EquipmentPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="w-full h-48 bg-white rounded-lg flex items-center justify-center border border-gray-200 mb-4">
-                  <div className="text-center text-gray-500">
-                    <Thermometer className="h-20 w-20 mx-auto mb-2 text-green-600" />
-                    <div className="text-sm font-semibold">Dual-Gauge Display</div>
-                  </div>
+                <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
+                  <Image
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+                    alt="Sauna thermometer and hygrometer combo mounted on wooden wall showing temperature and humidity readings"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
                 </div>
 
                 <p className="text-gray-700">
@@ -109,6 +113,15 @@ export default function EquipmentPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
+                <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
+                  <Image
+                    src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=2070&auto=format&fit=crop"
+                    alt="Warm LED sauna light fixture creating ambient lighting in wooden sauna interior"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
                 <p className="text-gray-700">
                   Most home saunas come with basic incandescent bulbs that burn out frequently at high temperatures. This LED fixture is specifically engineered for sauna use with heat-resistant components rated to 194°F and moisture-proof sealing. The warm 2700K color temperature creates a relaxing atmosphere without harsh glare.
                 </p>
@@ -155,6 +168,15 @@ export default function EquipmentPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
+                <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
+                  <Image
+                    src="https://images.unsplash.com/photo-1576243345690-4e4b79b63288?q=80&w=2070&auto=format&fit=crop"
+                    alt="Heart rate monitor chest strap for tracking cardiovascular response during sauna sessions"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
                 <p className="text-gray-700">
                   This is the gold standard for heart rate monitoring in extreme conditions. Unlike wrist-based fitness trackers (which you can't wear in high heat), the Polar H10 chest strap delivers clinical-grade accuracy even at 200°F. Bryan Johnson and other biohackers use chest strap monitors to track how their heart rate responds to heat stress—a key biomarker for cardiovascular adaptation.
                 </p>
@@ -203,6 +225,15 @@ export default function EquipmentPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
+                <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
+                  <Image
+                    src="https://images.unsplash.com/photo-1608889335941-32ac5f2041b9?q=80&w=2080&auto=format&fit=crop"
+                    alt="Traditional wooden sauna bucket and ladle set for Finnish löyly steam experience"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
                 <p className="text-gray-700">
                   This is the authentic Finnish sauna accessory set—handcrafted wood construction that won't warp or crack under temperature extremes. The 4-liter capacity is perfect for multiple water pours during a session, and the long-handled ladle (18") keeps your hands safely away from the heater stones.
                 </p>
@@ -249,6 +280,15 @@ export default function EquipmentPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
+                <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
+                  <Image
+                    src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?q=80&w=2070&auto=format&fit=crop"
+                    alt="Eucalyptus essential oil bottles for sauna aromatherapy and respiratory benefits"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
                 <p className="text-gray-700">
                   This is Amazon's Choice for sauna essential oils, and with 40,000+ reviews, it's clear why. The eucalyptus blend is specifically formulated for high-heat applications and provides natural respiratory clearing benefits. Add 2-3 drops to your ladle water (never directly on heater stones) for an authentic spa experience.
                 </p>
@@ -291,6 +331,15 @@ export default function EquipmentPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
+                <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
+                  <Image
+                    src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2070&auto=format&fit=crop"
+                    alt="Plush Turkish cotton sauna towels folded on wooden bench, ultra-absorbent and heat-resistant"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
                 <p className="text-gray-700">
                   These aren't your typical bath towels. Turkish cotton is specifically bred for heat resistance and absorbency—critical for sauna use. The 100% cotton construction breathes better than synthetic blends, dries 50% faster than terry cloth, and actually gets softer with each wash. With 3,000+ sold monthly, these are the most popular sauna towels on Amazon.
                 </p>
@@ -333,6 +382,15 @@ export default function EquipmentPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
+                <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
+                  <Image
+                    src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?q=80&w=2070&auto=format&fit=crop"
+                    alt="Lightweight waffle-weave cotton towels with linen texture, fast-drying for sauna use"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
                 <p className="text-gray-700">
                   If Turkish towels feel too heavy, these waffle-weave cotton towels offer the perfect middle ground. The textured weave promotes airflow and drying speed—essential when you're using towels back-to-back between sauna sessions. The linen-like aesthetic also gives your sauna area a modern spa look.
                 </p>
@@ -375,6 +433,15 @@ export default function EquipmentPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
+                <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
+                  <Image
+                    src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?q=80&w=2070&auto=format&fit=crop"
+                    alt="Waterproof Bluetooth speaker for sauna, IPX7 rated for music and meditation audio"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
                 <p className="text-gray-700">
                   Many people enhance their sauna experience with audio—whether it's relaxing music, guided meditation, or catching up on podcasts. This speaker is specifically rated for high humidity and temperatures up to 140°F (perfect for infrared saunas). The IPX7 waterproof rating means it can handle steam, splashes, and even full submersion.
                 </p>
