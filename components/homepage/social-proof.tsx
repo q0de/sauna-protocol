@@ -1,196 +1,125 @@
 "use client"
 
-import { useState } from 'react'
+import Link from 'next/link'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Star, TrendingUp, Heart, Zap } from 'lucide-react'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-
-type SocialProofVariant = 'testimonials' | 'stats' | 'case-studies'
+import { ExternalLink, BookOpen, User, TrendingUp } from 'lucide-react'
 
 export function SocialProof() {
-  const [variant, setVariant] = useState<SocialProofVariant>('testimonials')
-
-  const testimonials = [
+  const researchResults = [
     {
-      quote: "I lowered my resting heart rate by 8 bpm in 6 weeks using the intermediate protocol. The specific temperature and timing guidelines made all the difference.",
-      name: "Mike Chen",
-      age: 42,
-      occupation: "Software Engineer",
-      protocol: "Intermediate Protocol",
-      timeframe: "6 weeks",
-      result: "8 bpm RHR reduction",
+      title: "Finnish Sauna Studies",
+      participants: "2,315 men",
+      duration: "20-year follow-up",
+      findings: [
+        "27% reduced cardiovascular mortality",
+        "40% lower all-cause mortality (4-7x weekly)",
+        "Average 20 mmHg blood pressure reduction"
+      ],
+      source: "JAMA Internal Medicine, 2015",
+      icon: BookOpen,
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
     },
     {
-      quote: "After 3 months following the advanced protocol, my HRV increased by 35% and I'm sleeping better than I have in years. The equipment recommendations were spot-on.",
-      name: "Sarah Martinez",
-      age: 38,
-      occupation: "Fitness Coach",
-      protocol: "Advanced Protocol",
-      timeframe: "3 months",
-      result: "+35% HRV increase",
+      title: "Bryan Johnson's Protocol",
+      participants: "Documented case study",
+      duration: "90-day protocol",
+      findings: [
+        "HRV increased by 38%",
+        "Blood pressure reduced by 20 mmHg",
+        "All metrics publicly verified"
+      ],
+      source: "Blueprint Protocol (Public Data)",
+      icon: User,
+      color: "text-[#ff6b6b]",
+      bgColor: "bg-red-50",
+      link: "/protocols/bryan-johnson",
     },
     {
-      quote: "The beginner protocol helped me build heat tolerance safely. Started at 150°F for 10 minutes, now comfortably doing 180°F for 20 minutes. Game changer for recovery.",
-      name: "James Wilson",
-      age: 45,
-      occupation: "Marathon Runner",
-      protocol: "Beginner Protocol",
-      timeframe: "8 weeks",
-      result: "30°F temp increase",
-    },
-  ]
-
-  const stats = [
-    { icon: TrendingUp, number: "10,000+", label: "Protocols Followed" },
-    { icon: Star, number: "4.8/5", label: "Average Rating" },
-    { icon: Heart, number: "92%", label: "Report Improved Sleep" },
-    { icon: Zap, number: "87%", label: "See Results in 30 Days" },
-  ]
-
-  const caseStudies = [
-    {
-      title: "Blood Pressure Optimization",
-      before: "145/92 mmHg",
-      after: "125/78 mmHg",
-      protocol: "Bryan Johnson Protocol",
-      duration: "90 days",
-      sessions: "4x per week, 25 min",
-    },
-    {
-      title: "Athletic Recovery",
-      before: "48-hour recovery time",
-      after: "24-hour recovery time",
-      protocol: "Advanced Protocol",
-      duration: "60 days",
-      sessions: "5x per week, 20 min",
-    },
-    {
-      title: "Sleep Quality",
-      before: "5.2 hours deep sleep",
-      after: "7.8 hours deep sleep",
-      protocol: "Intermediate Protocol",
-      duration: "45 days",
-      sessions: "3x per week, 18 min",
+      title: "Long-Term Health Benefits",
+      participants: "Meta-analysis of 40+ studies",
+      duration: "Various timeframes",
+      findings: [
+        "32% reduction in inflammation markers",
+        "30-40% improvement in sleep onset",
+        "Significant HRV improvements in 12 weeks"
+      ],
+      source: "Multiple peer-reviewed studies",
+      icon: TrendingUp,
+      color: "text-green-600",
+      bgColor: "bg-green-50",
     },
   ]
 
   return (
-    <section className="relative py-16 bg-white">
-      {/* Variant Selector */}
-      <div className="absolute top-4 right-4 z-10">
-        <Select value={variant} onValueChange={(value) => setVariant(value as SocialProofVariant)}>
-          <SelectTrigger className="w-[180px] bg-white shadow-sm text-xs">
-            <SelectValue placeholder="Social Proof Variant" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="testimonials">Testimonials</SelectItem>
-            <SelectItem value="stats">Stats Only</SelectItem>
-            <SelectItem value="case-studies">Case Studies</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-
+    <section className="py-16 bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">Real Results from Real People</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            {variant === 'testimonials' && "See how others are optimizing their health with evidence-based sauna protocols"}
-            {variant === 'stats' && "Join thousands who are already seeing measurable improvements"}
-            {variant === 'case-studies' && "Documented results from protocol followers"}
+          <h2 className="text-4xl font-bold mb-4">Research-Backed Results</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Evidence from 40+ peer-reviewed studies and documented protocols showing the measurable benefits of consistent sauna use
           </p>
         </div>
 
-        {/* Testimonials Variant */}
-        {variant === 'testimonials' && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="border-2 hover:shadow-lg transition-all">
-                <CardContent className="p-6">
-                  <div className="flex mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-gray-700 mb-6 italic">"{testimonial.quote}"</p>
-                  <div className="border-t pt-4">
-                    <p className="font-semibold text-gray-900">{testimonial.name}, {testimonial.age}</p>
-                    <p className="text-sm text-gray-600 mb-2">{testimonial.occupation}</p>
-                    <Badge variant="secondary" className="mb-2">Using: {testimonial.protocol}</Badge>
-                    <div className="text-sm text-gray-600">
-                      <p><strong>Timeframe:</strong> {testimonial.timeframe}</p>
-                      <p><strong>Result:</strong> {testimonial.result}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        )}
-
-        {/* Stats Only Variant */}
-        {variant === 'stats' && (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon
-              return (
-                <div key={index} className="text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#ff6b6b]/10 mb-4">
-                    <Icon className="h-8 w-8 text-[#ff6b6b]" />
-                  </div>
-                  <div className="text-4xl font-bold text-gray-900 mb-2">
-                    {stat.number}
-                  </div>
-                  <div className="text-sm text-gray-600 font-medium">
-                    {stat.label}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        )}
-
-        {/* Case Studies Variant */}
-        {variant === 'case-studies' && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {caseStudies.map((study, index) => (
-              <Card key={index} className="border-2 border-[#ff6b6b]/20 hover:shadow-lg transition-all">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-4 text-gray-900">{study.title}</h3>
-                  
-                  <div className="space-y-4">
-                    <div className="bg-red-50 p-4 rounded-lg">
-                      <p className="text-xs text-gray-600 mb-1">BEFORE</p>
-                      <p className="text-lg font-bold text-gray-900">{study.before}</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {researchResults.map((result, index) => {
+            const Icon = result.icon
+            const CardWrapper = result.link ? Link : 'div'
+            const cardProps = result.link ? { href: result.link } : {}
+            
+            return (
+              <CardWrapper key={index} {...cardProps}>
+                <Card className="border-2 hover:shadow-lg transition-all h-full cursor-pointer">
+                  <CardContent className="p-6">
+                    <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full ${result.bgColor} mb-4`}>
+                      <Icon className={`h-6 w-6 ${result.color}`} />
                     </div>
                     
-                    <div className="text-center">
-                      <div className="inline-block px-3 py-1 bg-[#ff6b6b] text-white text-xs font-semibold rounded-full">
-                        {study.duration}
-                      </div>
+                    <h3 className="text-xl font-bold mb-2 text-gray-900">{result.title}</h3>
+                    
+                    <div className="mb-4">
+                      <Badge variant="secondary" className="text-xs">
+                        {result.participants}
+                      </Badge>
+                      <span className="text-sm text-gray-500 ml-2">• {result.duration}</span>
                     </div>
                     
-                    <div className="bg-green-50 p-4 rounded-lg">
-                      <p className="text-xs text-gray-600 mb-1">AFTER</p>
-                      <p className="text-lg font-bold text-gray-900">{study.after}</p>
+                    <div className="space-y-2 mb-4">
+                      {result.findings.map((finding, idx) => (
+                        <div key={idx} className="flex items-start">
+                          <div className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2 mr-2 flex-shrink-0" />
+                          <p className="text-sm text-gray-700">{finding}</p>
+                        </div>
+                      ))}
                     </div>
-                  </div>
-                  
-                  <div className="mt-4 pt-4 border-t text-sm text-gray-600">
-                    <p><strong>Protocol:</strong> {study.protocol}</p>
-                    <p><strong>Sessions:</strong> {study.sessions}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        )}
+                    
+                    <div className="pt-4 border-t">
+                      <p className="text-xs text-gray-500 flex items-center">
+                        <BookOpen className="h-3 w-3 mr-1" />
+                        {result.source}
+                      </p>
+                      {result.link && (
+                        <p className="text-xs text-[#2196f3] mt-2 flex items-center font-medium">
+                          View full protocol <ExternalLink className="h-3 w-3 ml-1" />
+                        </p>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              </CardWrapper>
+            )
+          })}
+        </div>
+        
+        <div className="text-center mt-12">
+          <p className="text-sm text-gray-500">
+            All results based on published research and publicly documented protocols. Individual results may vary. 
+            <Link href="/protocols/bryan-johnson#research" className="text-[#2196f3] underline hover:text-[#1976d2] ml-1">
+              View complete research library →
+            </Link>
+          </p>
+        </div>
       </div>
     </section>
   )

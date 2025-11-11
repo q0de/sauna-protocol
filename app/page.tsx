@@ -41,7 +41,7 @@ export default async function HomePage() {
       badge: "ADVANCED",
       intensity: "🔥🔥🔥",
       result: "HRV +38%, BP -20 mmHg",
-      testimonial: "'Cut recovery time significantly' — David S., 43",
+      testimonial: "Publicly documented results from Bryan Johnson's Blueprint protocol",
       href: "/protocols/bryan-johnson",
       featured: true,
     },
@@ -54,7 +54,7 @@ export default async function HomePage() {
       intensity: "🔥",
       intensityLabel: "START HERE",
       result: "Build tolerance safely in 30 days",
-      testimonial: "'Perfect for building tolerance safely' — Sarah M., 38",
+      testimonial: "Based on beginner protocols used in Finnish sauna research studies",
       href: "/protocols/beginner",
     },
     {
@@ -66,7 +66,7 @@ export default async function HomePage() {
       intensity: "🔥🔥",
       intensityLabel: "MOST POPULAR",
       result: "20 mmHg BP reduction typical",
-      testimonial: "'Exactly what the research predicted' — Michael R., 47",
+      testimonial: "Results align with JAMA study findings (2,315 participants)",
       href: "/protocols/intermediate",
     },
   ]
@@ -378,8 +378,8 @@ export default async function HomePage() {
             </div>
             
             <div className="text-sm text-gray-500">
-              <p className="mb-2">Join 1,000+ people getting weekly protocol updates</p>
-              <p className="italic text-xs">"This checklist saved me $200 in wrong equipment purchases" — Recent subscriber</p>
+              <p className="mb-2">Join our community of sauna protocol enthusiasts</p>
+              <p className="italic text-xs">Get evidence-based protocols and equipment guides delivered weekly</p>
             </div>
           </div>
         </div>
