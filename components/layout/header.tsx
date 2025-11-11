@@ -29,8 +29,8 @@ export function Header() {
     >
       <div className={`${
         isHomePage 
-          ? 'bg-white/90 backdrop-blur-xl rounded-full shadow-2xl border border-white/20' 
-          : 'bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b'
+          ? 'bg-white/70 backdrop-blur-2xl rounded-full shadow-2xl border border-white/30' 
+          : 'bg-white/80 backdrop-blur-xl border-b border-gray-200/50'
       }`}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">

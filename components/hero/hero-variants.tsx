@@ -27,9 +27,9 @@ export function HeroWithVariants() {
         
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
-          {/* Video Placeholder - Animated Gradient */}
+          {/* Video Placeholder - Animated Gradient (behind video) */}
           <div 
-            className={`absolute inset-0 bg-gradient-to-br from-[#ff6b6b] via-[#ff5252] to-[#f59e0b] transition-opacity duration-1000 ${
+            className={`absolute inset-0 z-0 bg-gradient-to-br from-[#ff6b6b] via-[#ff5252] to-[#f59e0b] transition-opacity duration-1000 ${
               videoLoaded ? 'opacity-0' : 'opacity-100'
             }`}
             style={{
@@ -37,28 +37,29 @@ export function HeroWithVariants() {
             }}
           />
           
+          {/* Video Layer */}
           <video
             autoPlay
             loop
             muted
             playsInline
             onLoadedData={() => setVideoLoaded(true)}
-            className={`w-full h-full object-cover transition-opacity duration-1000 ${
+            className={`absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-1000 ${
               videoLoaded ? 'opacity-100' : 'opacity-0'
             }`}
           >
             <source src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/sign/vid/sauna-protocol-vid.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yZjYwM2EwMS00ZmEwLTQ0M2YtODJhNi03ZmU4MDBmZjJiOGUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWQvc2F1bmEtcHJvdG9jb2wtdmlkLndlYm0iLCJpYXQiOjE3NjI3MjI2MTAsImV4cCI6MTc5NDI1ODYxMH0.JS-u_DL9wmxYMvqJADkrdNZa3QBdZfrFZZ4MYc-9CO8" type="video/webm" />
           </video>
           
-          {/* Responsive Gradient Overlay */}
+          {/* Gradient Overlays (on top of video) */}
           {/* Mobile/Tablet: Full gradient */}
           <div 
-            className="absolute inset-0 lg:hidden bg-gradient-to-br from-[#ff6b6b] via-[#ff5252] to-[#f59e0b]"
+            className="absolute inset-0 z-20 lg:hidden bg-gradient-to-br from-[#ff6b6b] via-[#ff5252] to-[#f59e0b]"
             style={{ opacity: 0.82 }}
           ></div>
           {/* Desktop: Extended left quarter gradient */}
           <div 
-            className="hidden lg:block absolute inset-0"
+            className="hidden lg:block absolute inset-0 z-20"
             style={{ 
               background: 'linear-gradient(to right, rgba(255, 107, 107, 0.95) 0%, rgba(255, 82, 82, 0.92) 20%, rgba(245, 158, 11, 0.90) 35%, rgba(245, 158, 11, 0.70) 45%, rgba(245, 158, 11, 0.30) 55%, transparent 65%)'
             }}
