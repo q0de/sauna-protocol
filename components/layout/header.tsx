@@ -6,12 +6,31 @@ import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Flame } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
+const logoSizes = [
+  { label: 'Small (Current)', height: 80, width: 480, marginY: 4 },
+  { label: 'Medium', height: 96, width: 576, marginY: 5 },
+  { label: 'Large', height: 112, width: 672, marginY: 6 },
+  { label: 'X-Large', height: 128, width: 768, marginY: 7 },
+  { label: '2X-Large', height: 144, width: 864, marginY: 8 },
+  { label: '3X-Large', height: 160, width: 960, marginY: 9 },
+]
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
+  const [logoSizeIndex, setLogoSizeIndex] = useState(0)
   const pathname = usePathname()
   const isHomePage = pathname === '/'
+  
+  const currentSize = logoSizes[logoSizeIndex]
 
   const navigation = [
     { name: 'Protocols', href: '/protocols/bryan-johnson' },
@@ -88,17 +107,40 @@ export function Header() {
         <div className="absolute left-1/2 -translate-x-1/2 flex items-center">
           <Link href="/" className="relative flex items-center group">
             {/* Logo Text */}
-            <div className="relative h-20 w-auto -my-4">
+            <div 
+              className="relative w-auto object-contain transition-all duration-300"
+              style={{ 
+                height: `${currentSize.height}px`,
+                marginTop: `-${currentSize.marginY * 4}px`,
+                marginBottom: `-${currentSize.marginY * 4}px`
+              }}
+            >
               <Image
                 src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/IMG-LOGO.png"
                 alt="SaunaProtocol Logo"
-                width={480}
-                height={80}
-                className="h-20 w-auto object-contain"
+                width={currentSize.width}
+                height={currentSize.height}
+                className="h-full w-auto object-contain"
                 priority
               />
             </div>
           </Link>
+        </div>
+        
+        {/* Logo Size Control - Temporary */}
+        <div className="absolute right-4 top-1/2 -translate-y-1/2 z-50">
+          <Select value={logoSizeIndex.toString()} onValueChange={(value) => setLogoSizeIndex(parseInt(value))}>
+            <SelectTrigger className="w-[180px] bg-white/90 backdrop-blur-sm">
+              <SelectValue placeholder="Logo Size" />
+            </SelectTrigger>
+            <SelectContent>
+              {logoSizes.map((size, index) => (
+                <SelectItem key={index} value={index.toString()}>
+                  {size.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
         {/* Right - Get Started Button */}
