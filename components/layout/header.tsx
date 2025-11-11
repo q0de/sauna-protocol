@@ -77,28 +77,44 @@ export function Header() {
         
       <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 transition-all duration-300" aria-label="Global">
         {/* Left Navigation - Aligned with hero content */}
-        <div className="hidden lg:flex lg:gap-x-8 lg:-ml-8">
+        <div className="hidden lg:flex lg:gap-x-8 lg:-ml-6">
           <Link
             href="/protocols/bryan-johnson"
-            className="text-base font-bold leading-6 text-gray-900 hover:text-[#ff6b6b] transition-colors"
+            className={`text-base font-bold leading-6 transition-colors ${
+              isScrolled 
+                ? 'text-gray-900 hover:text-[#ff6b6b]' 
+                : 'text-white hover:text-white/80'
+            }`}
           >
             Protocols
           </Link>
           <Link
             href="/articles"
-            className="text-base font-bold leading-6 text-gray-900 hover:text-[#ff6b6b] transition-colors"
+            className={`text-base font-bold leading-6 transition-colors ${
+              isScrolled 
+                ? 'text-gray-900 hover:text-[#ff6b6b]' 
+                : 'text-white hover:text-white/80'
+            }`}
           >
             Articles
           </Link>
           <Link
             href="/equipment"
-            className="text-base font-bold leading-6 text-gray-900 hover:text-[#ff6b6b] transition-colors"
+            className={`text-base font-bold leading-6 transition-colors ${
+              isScrolled 
+                ? 'text-gray-900 hover:text-[#ff6b6b]' 
+                : 'text-white hover:text-white/80'
+            }`}
           >
             Equipment
           </Link>
           <Link
             href="/about"
-            className="text-base font-bold leading-6 text-gray-900 hover:text-[#ff6b6b] transition-colors"
+            className={`text-base font-bold leading-6 transition-colors ${
+              isScrolled 
+                ? 'text-gray-900 hover:text-[#ff6b6b]' 
+                : 'text-white hover:text-white/80'
+            }`}
           >
             About
           </Link>
@@ -152,7 +168,14 @@ export function Header() {
 
             {/* Right - Get Started Button */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Button asChild>
+          <Button 
+            asChild 
+            className={`transition-all duration-300 ${
+              isScrolled 
+                ? '' 
+                : 'bg-white text-[#ff6b6b] hover:bg-white/90'
+            }`}
+          >
             <Link href="/contact">Get Started</Link>
           </Button>
         </div>
