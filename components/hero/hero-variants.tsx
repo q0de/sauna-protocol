@@ -1,84 +1,167 @@
 "use client"
 
+import { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { NoiseTexture } from '@/components/effects/noise-texture'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, CheckCircle } from 'lucide-react'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
+type HeroVariant = 'current' | 'pain-point' | 'social-proof' | 'outcome-driven' | 'authority'
 
 export function HeroWithVariants() {
+  const [variant, setVariant] = useState<HeroVariant>('current')
+
+  const heroContent = {
+    current: {
+      badge: "Featured: Bryan Johnson's 200°F Protocol",
+      headline: "Master Your Sauna Protocol",
+      subheadline: "Evidence-based sauna protocols and equipment reviews to optimize your health, backed by science and real results.",
+      cta: "Explore Bryan Johnson's Protocol"
+    },
+    'pain-point': {
+      badge: "Stop Guessing Your Sauna Temperature",
+      headline: "Finally: A Sauna Protocol That Actually Works",
+      subheadline: "Most people waste 6+ months with random sauna sessions. Get the exact temperature, timing, and frequency used by top biohackers—backed by 40+ studies.",
+      cta: "Get the Proven Protocol"
+    },
+    'social-proof': {
+      badge: "Trusted by 10,000+ Protocol Followers",
+      headline: "The Sauna Protocol Bryan Johnson Uses Daily",
+      subheadline: "Join thousands optimizing cardiovascular health with evidence-based protocols. Featured: The exact 200°F approach that improved blood pressure by 20 mmHg in 90 days.",
+      cta: "See Bryan Johnson's Results"
+    },
+    'outcome-driven': {
+      badge: "Improve Blood Pressure in 90 Days",
+      headline: "Lower Your BP 20 Points With This Sauna Protocol",
+      subheadline: "Bryan Johnson's measured results: 20 mmHg blood pressure drop, 38% HRV increase, and improved cardiovascular age—all from 4 weekly sauna sessions at 200°F.",
+      cta: "Get the Exact Protocol"
+    },
+    'authority': {
+      badge: "11 Equipment Reviews • 40+ Studies Cited",
+      headline: "Evidence-Based Sauna Protocols for Longevity",
+      subheadline: "We test every product, cite peer-reviewed research, and follow the protocols ourselves. From Bryan Johnson's 200°F approach to beginner-safe progressions—all backed by science.",
+      cta: "Explore All Protocols"
+    }
+  }
+
+  const content = heroContent[variant]
+
   return (
-    <section className="relative overflow-hidden text-white">
-      {/* Canvas-Based Film Grain - Locked at 10% (Only on Hero) */}
-      <NoiseTexture opacity={0.10} />
-      
-      {/* Background Video */}
-      <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/sign/vid/sauna-protocol-vid.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yZjYwM2EwMS00ZmEwLTQ0M2YtODJhNi03ZmU4MDBmZjJiOGUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWQvc2F1bmEtcHJvdG9jb2wtdmlkLndlYm0iLCJpYXQiOjE3NjI3MjI2MTAsImV4cCI6MTc5NDI1ODYxMH0.JS-u_DL9wmxYMvqJADkrdNZa3QBdZfrFZZ4MYc-9CO8" type="video/webm" />
-        </video>
-        
-        {/* Responsive Gradient Overlay */}
-        {/* Mobile/Tablet: Full gradient */}
-        <div 
-          className="absolute inset-0 lg:hidden bg-gradient-to-br from-[#ff6b6b] via-[#ff5252] to-[#f59e0b]"
-          style={{ opacity: 0.82 }}
-        ></div>
-        {/* Desktop: Extended left quarter gradient */}
-        <div 
-          className="hidden lg:block absolute inset-0"
-          style={{ 
-            background: 'linear-gradient(to right, rgba(255, 107, 107, 0.95) 0%, rgba(255, 82, 82, 0.92) 20%, rgba(245, 158, 11, 0.90) 35%, rgba(245, 158, 11, 0.70) 45%, rgba(245, 158, 11, 0.30) 55%, transparent 65%)'
-          }}
-        ></div>
+    <>
+      {/* Variant Selector - Fixed Top Right */}
+      <div className="fixed top-20 right-4 z-50">
+        <Select value={variant} onValueChange={(value) => setVariant(value as HeroVariant)}>
+          <SelectTrigger className="w-[200px] bg-white/95 backdrop-blur-sm shadow-lg">
+            <SelectValue placeholder="Hero Variant" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="current">Current (Control)</SelectItem>
+            <SelectItem value="pain-point">Pain-Point Driven</SelectItem>
+            <SelectItem value="social-proof">Social Proof</SelectItem>
+            <SelectItem value="outcome-driven">Outcome-Driven</SelectItem>
+            <SelectItem value="authority">Authority/E-E-A-T</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
-      
-      {/* Content - Responsive Layout */}
-      {/* Mobile/Tablet: Centered */}
-      {/* Desktop: Left-aligned */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-        <div className="mx-auto lg:mx-0 max-w-3xl lg:max-w-2xl text-center lg:text-left">
-          <Badge variant="featured" className="mb-4 text-sm px-4 py-2">
-            Featured: Bryan Johnson's 200°F Protocol
-          </Badge>
-          <h1 className="text-5xl font-bold tracking-tight sm:text-7xl mb-6 drop-shadow-lg">
-            Master Your Sauna Protocol
-          </h1>
-          <p className="text-xl leading-8 mb-8 text-white/95 drop-shadow-md">
-            Evidence-based sauna protocols and equipment reviews to optimize your health, backed by science and real results.
-          </p>
+
+      <section className="relative overflow-hidden text-white">
+        {/* Canvas-Based Film Grain - Locked at 10% (Only on Hero) */}
+        <NoiseTexture opacity={0.10} />
+        
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/sign/vid/sauna-protocol-vid.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yZjYwM2EwMS00ZmEwLTQ0M2YtODJhNi03ZmU4MDBmZjJiOGUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWQvc2F1bmEtcHJvdG9jb2wtdmlkLndlYm0iLCJpYXQiOjE3NjI3MjI2MTAsImV4cCI6MTc5NDI1ODYxMH0.JS-u_DL9wmxYMvqJADkrdNZa3QBdZfrFZZ4MYc-9CO8" type="video/webm" />
+          </video>
           
-          {/* Main CTA Button - Centered on mobile, Left-aligned on desktop */}
-          <div className="flex flex-col items-center lg:items-start gap-6">
-            <Button 
-              asChild 
-              size="lg" 
-              variant="secondary"
-              className="text-lg px-10 py-7 h-auto rounded-2xl shadow-2xl shadow-blue-900/40 hover:shadow-blue-900/60 transition-all duration-200 bg-gradient-to-br from-[#2196f3] via-[#1976d2] to-[#1565c0] border-b-4 border-[#0d47a1] hover:translate-y-[2px] active:translate-y-1"
-            >
-              <Link href="/protocols/bryan-johnson" className="flex items-center gap-3">
-                <span className="font-bold">Explore Bryan Johnson's Protocol</span>
-                <ArrowRight className="h-6 w-6" />
-              </Link>
-            </Button>
+          {/* Responsive Gradient Overlay */}
+          {/* Mobile/Tablet: Full gradient */}
+          <div 
+            className="absolute inset-0 lg:hidden bg-gradient-to-br from-[#ff6b6b] via-[#ff5252] to-[#f59e0b]"
+            style={{ opacity: 0.82 }}
+          ></div>
+          {/* Desktop: Extended left quarter gradient */}
+          <div 
+            className="hidden lg:block absolute inset-0"
+            style={{ 
+              background: 'linear-gradient(to right, rgba(255, 107, 107, 0.95) 0%, rgba(255, 82, 82, 0.92) 20%, rgba(245, 158, 11, 0.90) 35%, rgba(245, 158, 11, 0.70) 45%, rgba(245, 158, 11, 0.30) 55%, transparent 65%)'
+            }}
+          ></div>
+        </div>
+        
+        {/* Content - Responsive Layout */}
+        {/* Mobile/Tablet: Centered */}
+        {/* Desktop: Left-aligned */}
+        <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+          <div className="mx-auto lg:mx-0 max-w-3xl lg:max-w-2xl text-center lg:text-left">
+            <Badge variant="featured" className="mb-4 text-sm px-4 py-2">
+              {content.badge}
+            </Badge>
+            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl mb-6 drop-shadow-lg">
+              {content.headline}
+            </h1>
+            <p className="text-xl leading-8 mb-8 text-white/95 drop-shadow-md">
+              {content.subheadline}
+            </p>
             
-            {/* Browse Articles - Text Link Below */}
-            <Link 
-              href="/articles" 
-              className="text-white/90 hover:text-white text-base font-medium underline underline-offset-4 decoration-white/50 hover:decoration-white transition-all"
-            >
-              Browse Articles
-            </Link>
+            {/* Trust Signals - Only for Authority Variant */}
+            {variant === 'authority' && (
+              <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
+                <div className="flex items-center gap-2 text-white/90">
+                  <CheckCircle className="h-5 w-5" />
+                  <span className="text-sm font-medium">Peer-Reviewed Research</span>
+                </div>
+                <div className="flex items-center gap-2 text-white/90">
+                  <CheckCircle className="h-5 w-5" />
+                  <span className="text-sm font-medium">Hands-On Testing</span>
+                </div>
+                <div className="flex items-center gap-2 text-white/90">
+                  <CheckCircle className="h-5 w-5" />
+                  <span className="text-sm font-medium">Transparent Reviews</span>
+                </div>
+              </div>
+            )}
+            
+            {/* Main CTA Button - Centered on mobile, Left-aligned on desktop */}
+            <div className="flex flex-col items-center lg:items-start gap-6">
+              <Button 
+                asChild 
+                size="lg" 
+                variant="secondary"
+                className="text-lg px-10 py-7 h-auto rounded-2xl shadow-2xl shadow-blue-900/40 hover:shadow-blue-900/60 transition-all duration-200 bg-gradient-to-br from-[#2196f3] via-[#1976d2] to-[#1565c0] border-b-4 border-[#0d47a1] hover:translate-y-[2px] active:translate-y-1"
+              >
+                <Link href="/protocols/bryan-johnson" className="flex items-center gap-3">
+                  <span className="font-bold">{content.cta}</span>
+                  <ArrowRight className="h-6 w-6" />
+                </Link>
+              </Button>
+              
+              {/* Browse Articles - Text Link Below */}
+              <Link 
+                href="/articles" 
+                className="text-white/90 hover:text-white text-base font-medium underline underline-offset-4 decoration-white/50 hover:decoration-white transition-all"
+              >
+                Browse Articles
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }
 
