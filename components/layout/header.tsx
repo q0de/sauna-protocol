@@ -41,7 +41,7 @@ export function Header() {
         
       <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         {/* Left Navigation */}
-        <div className="hidden lg:flex lg:gap-x-12">
+        <div className="hidden lg:flex lg:gap-x-8">
           <Link
             href="/protocols/bryan-johnson"
             className="text-base font-bold leading-6 text-gray-900 hover:text-[#ff6b6b] transition-colors"
@@ -53,6 +53,18 @@ export function Header() {
             className="text-base font-bold leading-6 text-gray-900 hover:text-[#ff6b6b] transition-colors"
           >
             Articles
+          </Link>
+          <Link
+            href="/equipment"
+            className="text-base font-bold leading-6 text-gray-900 hover:text-[#ff6b6b] transition-colors"
+          >
+            Equipment
+          </Link>
+          <Link
+            href="/about"
+            className="text-base font-bold leading-6 text-gray-900 hover:text-[#ff6b6b] transition-colors"
+          >
+            About
           </Link>
         </div>
 
@@ -75,8 +87,11 @@ export function Header() {
         {/* Centered Logo */}
         <div className="absolute left-1/2 -translate-x-1/2 flex items-center">
           <Link href="/" className="relative flex items-center group">
-            {/* Flame Emoji Behind Text */}
-            <div className="absolute left-1/2 -translate-x-1/2 text-[100px] opacity-20 pointer-events-none select-none">
+            {/* Flame Emoji Behind Text - White Outline */}
+            <div className="absolute left-1/2 -translate-x-1/2 text-[100px] opacity-30 pointer-events-none select-none" style={{ 
+              WebkitTextStroke: '2px white',
+              textShadow: '0 0 10px rgba(255,255,255,0.8)'
+            }}>
               🔥
             </div>
             {/* Logo Text */}
@@ -93,23 +108,7 @@ export function Header() {
           </Link>
         </div>
 
-        {/* Right Navigation */}
-        <div className="hidden lg:flex lg:gap-x-12">
-          <Link
-            href="/equipment"
-            className="text-base font-bold leading-6 text-gray-900 hover:text-[#ff6b6b] transition-colors"
-          >
-            Equipment
-          </Link>
-          <Link
-            href="/about"
-            className="text-base font-bold leading-6 text-gray-900 hover:text-[#ff6b6b] transition-colors"
-          >
-            About
-          </Link>
-        </div>
-
-        {/* Get Started Button */}
+        {/* Right - Get Started Button */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Button asChild>
             <Link href="/contact">Get Started</Link>
