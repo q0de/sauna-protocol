@@ -1,9 +1,7 @@
 import { Metadata } from 'next'
-import Link from 'next/link'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { getAllArticles } from '@/lib/mdx'
 import { generateSEO } from '@/lib/seo'
+import { ArticlesFilter } from '@/components/articles/articles-filter'
 
 export const metadata: Metadata = generateSEO({
   title: 'Sauna Articles & Guides',
@@ -13,8 +11,6 @@ export const metadata: Metadata = generateSEO({
 
 export default async function ArticlesPage() {
   const articles = await getAllArticles()
-  
-  const categories = ['All', 'Protocol', 'Equipment', 'Science', 'How-To']
   
   // Manual entries for pages (not MDX articles)
   const staticPages = [
@@ -68,6 +64,15 @@ export default async function ArticlesPage() {
     },
   ]
   
+  // Format MDX articles to match staticPages structure
+  const formattedArticles = articles.map(article => ({
+    slug: article.slug,
+    frontmatter: {
+      ...article.frontmatter,
+      readingTime: article.frontmatter.readingTime || '5 min read'
+    }
+  }))
+
   return (
     <div className="py-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -78,116 +83,7 @@ export default async function ArticlesPage() {
           </p>
         </header>
 
-        {/* Category Filter (client-side filtering would be better, but this is MVP) */}
-        <div className="flex flex-wrap gap-3 justify-center mb-12">
-          {categories.map((category) => (
-            <Badge
-              key={category}
-              variant={category === 'All' ? 'default' : 'outline'}
-              className="text-sm px-4 py-2 cursor-pointer"
-            >
-              {category}
-            </Badge>
-          ))}
-        </div>
-
-        {/* Featured Protocol (Bryan Johnson) - Fully Clickable Card */}
-        <div className="mb-12">
-          <Link href={staticPages[0].href} className="block">
-            <Card className="border-2 border-[#ff6b6b] bg-gradient-to-br from-[#ff6b6b]/5 to-[#f59e0b]/5 hover:shadow-xl transition-all cursor-pointer">
-              <CardHeader>
-                <div className="flex items-center gap-2 mb-2">
-                  <Badge variant="featured">FEATURED PROTOCOL</Badge>
-                  <Badge variant="secondary">{staticPages[0].frontmatter.category}</Badge>
-                </div>
-                <CardTitle className="text-2xl hover:text-[#ff6b6b] transition-colors">
-                  {staticPages[0].frontmatter.title}
-                </CardTitle>
-                <CardDescription className="text-base">
-                  {staticPages[0].frontmatter.excerpt}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="font-medium text-gray-700">{staticPages[0].frontmatter.readingTime}</span>
-                  <span className="text-gray-500">{new Date(staticPages[0].frontmatter.publishedAt).toLocaleDateString()}</span>
-                </div>
-              </CardContent>
-            </Card>
-          </Link>
-        </div>
-
-        {/* Other Protocols & Guides */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold mb-6">All Protocols & Guides</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-            {staticPages.slice(1).map((page) => (
-              <Link key={page.slug} href={page.href} className="block">
-                <Card className="hover:shadow-lg transition-all cursor-pointer h-full">
-                  <CardHeader>
-                    <div className="flex items-center gap-2 mb-2">
-                      <Badge variant="secondary">
-                        {page.frontmatter.category}
-                      </Badge>
-                    </div>
-                    <CardTitle className="text-xl hover:text-[#ff6b6b] transition-colors">
-                      {page.frontmatter.title}
-                    </CardTitle>
-                    <CardDescription className="line-clamp-3">
-                      {page.frontmatter.excerpt}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex items-center justify-between text-sm text-gray-500">
-                      <span>{page.frontmatter.readingTime}</span>
-                      <span>{new Date(page.frontmatter.publishedAt).toLocaleDateString()}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* MDX Articles */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold mb-6">Articles</h2>
-        {articles.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-xl text-gray-600">No articles yet. Check back soon!</p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {articles.map((article) => (
-              <Link key={article.slug} href={`/articles/${article.slug}`} className="block">
-                <Card className="hover:shadow-lg transition-all cursor-pointer h-full">
-                  <CardHeader>
-                    <div className="flex items-center gap-2 mb-2">
-                      <Badge variant="secondary">
-                        {article.frontmatter.category}
-                      </Badge>
-                      {article.frontmatter.featured && (
-                        <Badge variant="featured">FEATURED</Badge>
-                      )}
-                    </div>
-                    <CardTitle className="text-xl hover:text-[#ff6b6b] transition-colors">
-                      {article.frontmatter.title}
-                    </CardTitle>
-                    <CardDescription className="line-clamp-3">
-                      {article.frontmatter.excerpt}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex items-center justify-between text-sm text-gray-500">
-                      <span>{article.frontmatter.readingTime}</span>
-                      <span>{new Date(article.frontmatter.publishedAt).toLocaleDateString()}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </div>
-        )}
+        <ArticlesFilter staticPages={staticPages} mdxArticles={formattedArticles} />
       </div>
     </div>
   )
