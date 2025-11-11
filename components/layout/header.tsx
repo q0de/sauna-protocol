@@ -30,7 +30,7 @@ export function Header() {
       <div className={`${
         isHomePage 
           ? 'bg-white/70 backdrop-blur-2xl rounded-full shadow-2xl border border-white/30' 
-          : 'bg-white/75 backdrop-blur-2xl rounded-2xl shadow-xl border border-white/40'
+          : 'bg-white/75 backdrop-blur-2xl rounded-full shadow-xl border border-white/40'
       }`}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">

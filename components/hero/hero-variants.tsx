@@ -43,7 +43,13 @@ export function HeroWithVariants() {
             loop
             muted
             playsInline
+            preload="auto"
             onLoadedData={() => setVideoLoaded(true)}
+            onCanPlay={() => setVideoLoaded(true)}
+            onError={() => {
+              console.log('Video failed to load, showing gradient fallback')
+              setVideoLoaded(false)
+            }}
             className={`absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-1000 ${
               videoLoaded ? 'opacity-100' : 'opacity-0'
             }`}
