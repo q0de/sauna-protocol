@@ -94,7 +94,7 @@ export default async function HomePage() {
       {/* Featured Protocol Section */}
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'backwards' }}>
             <Badge variant="featured" className="mb-4">SPOTLIGHT</Badge>
             <h2 className="text-4xl font-bold mb-4">Bryan Johnson's 200°F Sauna Protocol</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
@@ -105,7 +105,7 @@ export default async function HomePage() {
             </p>
           </div>
           
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'backwards' }}>
             <Card className="border-2 border-[#ff6b6b] shadow-xl">
               <CardHeader>
                 <CardTitle className="text-2xl">Protocol Highlights</CardTitle>
@@ -156,14 +156,18 @@ export default async function HomePage() {
       {/* Quick Start Protocols */}
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'backwards' }}>
             <h2 className="text-4xl font-bold mb-4">Choose Your Protocol</h2>
             <p className="text-xl text-gray-600">Start with a protocol that matches your experience level</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {protocols.map((protocol) => (
-              <Card key={protocol.title} className={protocol.featured ? "border-2 border-[#ff6b6b]" : ""}>
+            {protocols.map((protocol, index) => (
+              <Card 
+                key={protocol.title} 
+                className={`${protocol.featured ? "border-2 border-[#ff6b6b]" : ""} animate-fade-in`}
+                style={{ animationDelay: `${0.3 + index * 0.1}s`, animationFillMode: 'backwards' }}
+              >
                 <CardHeader>
                   <div className="flex items-center justify-between mb-2">
                     {protocol.badge && (
@@ -227,7 +231,7 @@ export default async function HomePage() {
       {/* Benefits Section */}
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'backwards' }}>
             <h2 className="text-4xl font-bold mb-4">Science-Backed Benefits of Sauna Protocols</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Regular sauna use following structured protocols provides significant health benefits backed by 40+ peer-reviewed studies. Whether you're using a dry sauna or wet sauna, consistent heat exposure improves cardiovascular health, enhances recovery, and supports longevity. The key is following a protocol tailored to your experience level and health goals.
@@ -235,42 +239,42 @@ export default async function HomePage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            <Card className="text-center p-6">
+            <Card className="text-center p-6 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'backwards' }}>
               <div className="text-5xl font-bold text-[#ff6b6b] mb-2">-20</div>
               <div className="text-xl font-semibold mb-1">mmHg</div>
               <div className="text-sm text-gray-600 mb-2">Blood Pressure Reduction</div>
               <div className="text-xs text-gray-500">JAMA Internal Medicine, 2015</div>
             </Card>
             
-            <Card className="text-center p-6">
+            <Card className="text-center p-6 animate-fade-in" style={{ animationDelay: '0.35s', animationFillMode: 'backwards' }}>
               <div className="text-5xl font-bold text-[#2196f3] mb-2">27%</div>
               <div className="text-xl font-semibold mb-1">Reduced</div>
               <div className="text-sm text-gray-600 mb-2">Cardiovascular Death</div>
               <div className="text-xs text-gray-500">20-year study of 2,315 men</div>
             </Card>
             
-            <Card className="text-center p-6">
+            <Card className="text-center p-6 animate-fade-in" style={{ animationDelay: '0.4s', animationFillMode: 'backwards' }}>
               <div className="text-5xl font-bold text-[#f59e0b] mb-2">40%</div>
               <div className="text-xl font-semibold mb-1">Lower</div>
               <div className="text-sm text-gray-600 mb-2">All-Cause Mortality</div>
               <div className="text-xs text-gray-500">4-7x weekly vs 1x weekly</div>
             </Card>
             
-            <Card className="text-center p-6">
+            <Card className="text-center p-6 animate-fade-in" style={{ animationDelay: '0.45s', animationFillMode: 'backwards' }}>
               <div className="text-5xl font-bold text-green-600 mb-2">+38%</div>
               <div className="text-xl font-semibold mb-1">HRV</div>
               <div className="text-sm text-gray-600 mb-2">HRV Improvement</div>
               <div className="text-xs text-gray-500">12-week consistent protocol</div>
             </Card>
             
-            <Card className="text-center p-6">
+            <Card className="text-center p-6 animate-fade-in" style={{ animationDelay: '0.5s', animationFillMode: 'backwards' }}>
               <div className="text-5xl font-bold text-purple-600 mb-2">-32%</div>
               <div className="text-xl font-semibold mb-1">Inflammation</div>
               <div className="text-sm text-gray-600 mb-2">C-Reactive Protein Decrease</div>
               <div className="text-xs text-gray-500">Regular users vs control</div>
             </Card>
             
-            <Card className="text-center p-6">
+            <Card className="text-center p-6 animate-fade-in" style={{ animationDelay: '0.55s', animationFillMode: 'backwards' }}>
               <div className="text-5xl font-bold text-indigo-600 mb-2">30-40%</div>
               <div className="text-xl font-semibold mb-1">Better</div>
               <div className="text-sm text-gray-600 mb-2">Sleep Onset</div>
@@ -293,7 +297,7 @@ export default async function HomePage() {
       {featuredArticles.length > 0 && (
         <section className="py-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="flex items-center justify-between mb-12">
+            <div className="flex items-center justify-between mb-12 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'backwards' }}>
               <div>
                 <h2 className="text-4xl font-bold mb-2">Latest Articles</h2>
                 <p className="text-xl text-gray-600">Evidence-based guides and insights</p>
@@ -304,8 +308,12 @@ export default async function HomePage() {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredArticles.map((article) => (
-                <Card key={article.slug} className="hover:shadow-lg transition-shadow">
+              {featuredArticles.map((article, index) => (
+                <Card 
+                  key={article.slug} 
+                  className="hover:shadow-lg transition-shadow animate-fade-in"
+                  style={{ animationDelay: `${0.3 + index * 0.1}s`, animationFillMode: 'backwards' }}
+                >
                   <CardHeader>
                     <Badge variant="secondary" className="mb-2 w-fit">
                       {article.frontmatter.category}
@@ -338,7 +346,7 @@ export default async function HomePage() {
       {/* Email Capture Section */}
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <div className="text-center">
+          <div className="text-center animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'backwards' }}>
             <h2 className="text-4xl font-bold mb-4">Download the Complete Sauna Protocol Guide</h2>
             <p className="text-xl text-gray-600 mb-6 max-w-3xl mx-auto">
               Free PDF: Everything you need to start sauna protocols safely—from beginner temperature guidelines to Bryan Johnson's advanced approach. Includes equipment checklist and safety protocols.

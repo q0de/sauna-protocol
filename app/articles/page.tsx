@@ -74,9 +74,9 @@ export default async function ArticlesPage() {
   }))
 
   return (
-    <div className="pt-28 pb-12">
+    <div className="pt-32 pb-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <header className="mb-12 text-center animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>
+        <header className="mb-16 text-center animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>
           <h1 className="text-5xl font-bold mb-6">Sauna Articles & Guides</h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Evidence-based guides to help you optimize your sauna practice
