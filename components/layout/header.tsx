@@ -59,8 +59,7 @@ export function Header() {
     <header 
       className="fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[98%] max-w-7xl"
       style={{ 
-        top: '3rem',
-        contain: 'layout style paint'
+        top: '4rem'
       }}
     >
       <div 
@@ -71,8 +70,7 @@ export function Header() {
         }`}
         style={{ 
           willChange: isScrolled ? 'auto' : 'background, backdrop-filter, border, box-shadow',
-          transform: 'translateZ(0)',
-          backfaceVisibility: 'hidden'
+          transform: 'translateZ(0)'
         }}
       >
         {/* Gradient Background Behind Logo - Centered with Left & Right Fade */}
