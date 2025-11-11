@@ -782,6 +782,27 @@ export default function BryanJohnsonProtocolPage() {
                 </Card>
               ))}
             </div>
+            
+            {/* Protocol Links */}
+            <Card className="mt-6 bg-blue-50 border-blue-200">
+              <CardContent className="pt-6">
+                <p className="text-gray-700 mb-4">
+                  <strong>Not ready for Bryan Johnson's advanced protocol?</strong> Start with our structured beginner and intermediate programs:
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Button asChild variant="outline" className="bg-white hover:bg-gray-50">
+                    <Link href="/protocols/beginner">
+                      Beginner Protocol (150-170°F) →
+                    </Link>
+                  </Button>
+                  <Button asChild variant="outline" className="bg-white hover:bg-gray-50">
+                    <Link href="/protocols/intermediate">
+                      Intermediate Protocol (170-190°F) →
+                    </Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           </section>
 
           {/* The Fertility Experiment */}
@@ -853,9 +874,19 @@ export default function BryanJohnsonProtocolPage() {
                     <p className="text-gray-700 leading-relaxed mb-3">
                       <strong>Men must cool their testicles during high-heat sauna sessions.</strong>
                     </p>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-gray-600 text-sm mb-4">
                       The good news? After restarting the ice pack protocol, his fertility markers improved by 30% and he expected full recovery within weeks.
                     </p>
+                    <div className="pt-3 border-t border-green-200">
+                      <p className="text-sm text-gray-700 mb-2">
+                        <strong>Recommended solution:</strong> Use a <Link href="/equipment#ice-pack-testicular" className="text-[#2196f3] hover:text-[#1976d2] underline font-semibold">testicular ice pack</Link> during and after high-temperature sauna sessions (175°F+) to protect fertility while maintaining cardiovascular benefits.
+                      </p>
+                      <Button asChild variant="outline" size="sm" className="mt-2">
+                        <Link href="/equipment#ice-pack-testicular">
+                          View Recommended Ice Pack →
+                        </Link>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </CardContent>

@@ -75,12 +75,13 @@ export function Header() {
       >
         {/* CSS Gradient Background Behind Logo - Centered with Left & Right Fade */}
         <div 
-          className={`absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[600px] pointer-events-none transition-opacity duration-300 ${
+          className={`absolute top-0 bottom-0 w-[600px] pointer-events-none transition-opacity duration-300 ${
             isScrolled ? 'opacity-40' : 'opacity-0'
           }`}
           style={{ 
+            left: '50%',
+            transform: 'translateX(-50%) translateZ(0)',
             willChange: 'opacity',
-            transform: 'translateZ(0)',
             background: 'linear-gradient(135deg, #ff6b6b 0%, #ff8e53 50%, #f59e0b 100%)',
             maskImage: 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)',
             WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)'
