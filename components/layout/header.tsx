@@ -19,6 +19,7 @@ const logoSizes = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [navLeftMargin, setNavLeftMargin] = useState(-24) // Start at -ml-6 (-24px)
   const pathname = usePathname()
   
   // Detect scroll to shrink logo
@@ -77,7 +78,10 @@ export function Header() {
         
       <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 transition-all duration-300" aria-label="Global">
         {/* Left Navigation - Aligned with hero content */}
-        <div className="hidden lg:flex lg:gap-x-8 lg:-ml-6">
+        <div 
+          className="hidden lg:flex lg:gap-x-8"
+          style={{ marginLeft: `${navLeftMargin}px` }}
+        >
           <Link
             href="/protocols/bryan-johnson"
             className={`text-base font-bold leading-6 transition-colors ${
@@ -167,7 +171,7 @@ export function Header() {
             </div>
 
             {/* Right - Get Started Button */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-4">
           <Button 
             asChild 
             className={`transition-all duration-300 ${
@@ -178,6 +182,26 @@ export function Header() {
           >
             <Link href="/contact">Get Started</Link>
           </Button>
+          
+          {/* Navigation Alignment Control */}
+          <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 text-sm">
+            <span className="text-gray-700 font-medium">Nav Position:</span>
+            <button
+              onClick={() => setNavLeftMargin(prev => prev - 4)}
+              className="px-2 py-1 bg-gray-200 hover:bg-gray-300 rounded text-gray-700 font-bold"
+            >
+              ←
+            </button>
+            <span className="text-gray-900 font-mono min-w-[60px] text-center">
+              {navLeftMargin}px
+            </span>
+            <button
+              onClick={() => setNavLeftMargin(prev => prev + 4)}
+              className="px-2 py-1 bg-gray-200 hover:bg-gray-300 rounded text-gray-700 font-bold"
+            >
+              →
+            </button>
+          </div>
         </div>
       </nav>
       

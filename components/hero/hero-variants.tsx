@@ -43,14 +43,20 @@ export function HeroWithVariants() {
             loop
             muted
             playsInline
-            preload="auto"
-            onLoadedData={() => setVideoLoaded(true)}
-            onCanPlay={() => setVideoLoaded(true)}
-            onError={() => {
-              console.log('Video failed to load, showing gradient fallback')
+            preload="metadata"
+            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ff6b6b;stop-opacity:1' /%3E%3Cstop offset='50%25' style='stop-color:%23ff5252;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23f59e0b;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1920' height='1080' fill='url(%23grad)' /%3E%3C/svg%3E"
+            onLoadedMetadata={() => {
+              console.log('Video metadata loaded')
+            }}
+            onCanPlayThrough={() => {
+              console.log('Video can play through')
+              setVideoLoaded(true)
+            }}
+            onError={(e) => {
+              console.log('Video failed to load:', e)
               setVideoLoaded(false)
             }}
-            className={`absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-1000 ${
+            className={`absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-700 ${
               videoLoaded ? 'opacity-100' : 'opacity-0'
             }`}
           >
