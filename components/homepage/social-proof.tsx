@@ -36,7 +36,7 @@ export function SocialProof() {
       color: "text-[#ff6b6b]",
       bgColor: "bg-red-50",
       link: "/protocols/bryan-johnson",
-      studyLink: "https://protocol.bryanjohnson.com/",
+      studyLink: "https://blueprint.bryanjohnson.com/",
     },
     {
       title: "Long-Term Health Benefits",

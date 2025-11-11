@@ -1,58 +1,16 @@
-"use client"
-
-import { useState } from 'react'
 import { Microscope, CheckCircle, BarChart3, Users } from 'lucide-react'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-
-type TrustVariant = 'conservative' | 'aspirational' | 'ai-generated'
 
 export function TrustBar() {
-  const [variant, setVariant] = useState<TrustVariant>('conservative')
-
-  const trustMetrics = {
-    conservative: [
-      { icon: Microscope, number: "40+", label: "Studies Analyzed" },
-      { icon: CheckCircle, number: "11", label: "Products Tested" },
-      { icon: BarChart3, number: "Complete", label: "Protocol Guide" },
-      { icon: Users, number: "1,000+", label: "Following" },
-    ],
-    aspirational: [
-      { icon: Microscope, number: "127", label: "Studies Cited" },
-      { icon: CheckCircle, number: "50+", label: "Products Tested" },
-      { icon: BarChart3, number: "Complete", label: "Protocol Library" },
-      { icon: Users, number: "10,000+", label: "Protocol Followers" },
-    ],
-    'ai-generated': [
-      { icon: Microscope, number: "67", label: "Studies Referenced" },
-      { icon: CheckCircle, number: "23", label: "Products Reviewed" },
-      { icon: BarChart3, number: "5", label: "Evidence-Based Protocols" },
-      { icon: Users, number: "5,000+", label: "Active Users" },
-    ],
-  }
-
-  const metrics = trustMetrics[variant]
+  // Locked to Conservative variant (real, verifiable numbers)
+  const metrics = [
+    { icon: Microscope, number: "40+", label: "Studies Analyzed" },
+    { icon: CheckCircle, number: "11", label: "Products Tested" },
+    { icon: BarChart3, number: "Complete", label: "Protocol Guide" },
+    { icon: Users, number: "1,000+", label: "Following" },
+  ]
 
   return (
-    <section className="relative py-8 bg-white border-y border-gray-200">
-      {/* Variant Selector */}
-      <div className="absolute top-4 right-4 z-10">
-        <Select value={variant} onValueChange={(value) => setVariant(value as TrustVariant)}>
-          <SelectTrigger className="w-[180px] bg-white shadow-sm text-xs">
-            <SelectValue placeholder="Trust Bar Variant" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="conservative">Conservative</SelectItem>
-            <SelectItem value="aspirational">Aspirational</SelectItem>
-            <SelectItem value="ai-generated">AI-Generated</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
+    <section className="py-8 bg-white border-y border-gray-200">
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

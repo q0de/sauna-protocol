@@ -1,23 +1,11 @@
-"use client"
-
-import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Star, ArrowRight } from 'lucide-react'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-
-type EquipmentVariant = '4-product' | '3-product'
 
 export function FeaturedEquipment() {
-  const [variant, setVariant] = useState<EquipmentVariant>('4-product')
+  // Locked to 4-product variant (shows more products = more affiliate opportunities)
 
   const products4 = [
     {
@@ -81,22 +69,10 @@ export function FeaturedEquipment() {
     },
   ]
 
-  const products = variant === '4-product' ? products4 : products3
+  const products = products4
 
   return (
-    <section className="relative py-16 bg-gray-50">
-      {/* Variant Selector */}
-      <div className="absolute top-4 right-4 z-10">
-        <Select value={variant} onValueChange={(value) => setVariant(value as EquipmentVariant)}>
-          <SelectTrigger className="w-[180px] bg-white shadow-sm text-xs">
-            <SelectValue placeholder="Equipment Variant" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="4-product">4-Product Grid</SelectItem>
-            <SelectItem value="3-product">3-Product Essentials</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
+    <section className="py-16 bg-gray-50">
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="text-center mb-12">
@@ -106,7 +82,7 @@ export function FeaturedEquipment() {
           </p>
         </div>
 
-        <div className={`grid grid-cols-1 md:grid-cols-2 ${variant === '4-product' ? 'lg:grid-cols-4' : 'lg:grid-cols-3'} gap-8`}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product) => (
             <Card key={product.id} className="hover:shadow-lg transition-all">
               <CardHeader className="p-0">

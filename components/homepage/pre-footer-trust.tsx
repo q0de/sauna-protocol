@@ -1,48 +1,15 @@
-"use client"
-
-import { useState } from 'react'
 import Link from 'next/link'
 import { Shield, FileText, DollarSign } from 'lucide-react'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-
-type TrustVariant = 'generic' | 'methodology'
 
 export function PreFooterTrust() {
-  const [variant, setVariant] = useState<TrustVariant>('generic')
-
-  const trustContent = {
-    generic: {
-      about: "Protocols tested and documented by experienced practitioners. Science-backed, experience-proven.",
-      aboutLink: "About Us",
-    },
-    methodology: {
-      about: "Every protocol is peer-reviewed, personally tested, and backed by published research.",
-      aboutLink: "Our Methodology",
-    },
+  // Locked to Methodology variant (stronger credibility)
+  const content = {
+    about: "Every protocol is peer-reviewed, personally tested, and backed by published research.",
+    aboutLink: "Our Methodology",
   }
 
-  const content = trustContent[variant]
-
   return (
-    <section className="relative py-12 bg-gray-50 border-t border-gray-200">
-      {/* Variant Selector */}
-      <div className="absolute top-4 right-4 z-10">
-        <Select value={variant} onValueChange={(value) => setVariant(value as TrustVariant)}>
-          <SelectTrigger className="w-[180px] bg-white shadow-sm text-xs">
-            <SelectValue placeholder="Trust Variant" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="generic">Generic Credentials</SelectItem>
-            <SelectItem value="methodology">Methodology Focus</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
+    <section className="py-12 bg-gray-50 border-t border-gray-200">
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

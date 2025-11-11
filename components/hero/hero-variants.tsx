@@ -1,76 +1,20 @@
-"use client"
-
-import { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { NoiseTexture } from '@/components/effects/noise-texture'
 import { ArrowRight, CheckCircle } from 'lucide-react'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-
-type HeroVariant = 'current' | 'pain-point' | 'social-proof' | 'outcome-driven' | 'authority'
 
 export function HeroWithVariants() {
-  const [variant, setVariant] = useState<HeroVariant>('authority')
-
-  const heroContent = {
-    current: {
-      badge: "Featured: Bryan Johnson's 200°F Protocol",
-      headline: "Master Your Sauna Protocol",
-      subheadline: "Evidence-based sauna protocols and equipment reviews to optimize your health, backed by science and real results.",
-      cta: "Explore Bryan Johnson's Protocol"
-    },
-    'pain-point': {
-      badge: "Stop Wasting Time With Random Sessions",
-      headline: "Stop Wasting Time With Random Sauna Sessions",
-      subheadline: "Get the exact protocols used by 1,000+ biohackers to improve cardiovascular health, boost HRV, and accelerate recovery—backed by 40+ peer-reviewed studies.",
-      cta: "Get the Proven Protocol"
-    },
-    'social-proof': {
-      badge: "Trusted by 1,000+ Protocol Followers",
-      headline: "The 200°F Protocol That Lowered Bryan Johnson's Blood Pressure 20 Points",
-      subheadline: "Join thousands following the exact sauna protocol that improved blood pressure by 20 mmHg and increased HRV by 38% in 90 days—documented and verified.",
-      cta: "See Bryan Johnson's Results"
-    },
-    'outcome-driven': {
-      badge: "Lower Blood Pressure in 90 Days",
-      headline: "Lower Your Blood Pressure 20 Points in 90 Days",
-      subheadline: "Science-backed sauna protocols with measured results. Bryan Johnson's exact approach that improved cardiovascular markers in 1,000+ users. Learn how long to sit in sauna for optimal benefits.",
-      cta: "Get the Exact Protocol"
-    },
-    'authority': {
-      badge: "11 Equipment Reviews • 40+ Studies Cited",
-      headline: "Science-Backed Sauna Protocols to Extend Your Healthspan",
-      subheadline: "Complete sauna protocol guide covering dry sauna vs wet sauna benefits, optimal duration by experience level, and advanced protocols used by top biohackers. Backed by 40+ peer-reviewed studies.",
-      cta: "Explore All Protocols"
-    }
+  // Locked to Authority variant (best for SEO + E-E-A-T)
+  const content = {
+    badge: "11 Equipment Reviews • 40+ Studies Cited",
+    headline: "Science-Backed Sauna Protocols to Extend Your Healthspan",
+    subheadline: "Complete sauna protocol guide covering dry sauna vs wet sauna benefits, optimal duration by experience level, and advanced protocols used by top biohackers. Backed by 40+ peer-reviewed studies.",
+    cta: "Explore All Protocols"
   }
-
-  const content = heroContent[variant]
 
   return (
     <>
-      {/* Variant Selector - Fixed Top Right */}
-      <div className="fixed top-20 right-4 z-50">
-        <Select value={variant} onValueChange={(value) => setVariant(value as HeroVariant)}>
-          <SelectTrigger className="w-[200px] bg-white/95 backdrop-blur-sm shadow-lg">
-            <SelectValue placeholder="Hero Variant" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="current">Current (Control)</SelectItem>
-            <SelectItem value="pain-point">Pain-Point Driven</SelectItem>
-            <SelectItem value="social-proof">Social Proof</SelectItem>
-            <SelectItem value="outcome-driven">Outcome-Driven</SelectItem>
-            <SelectItem value="authority">Authority/E-E-A-T</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
 
       <section className="relative overflow-hidden text-white">
         {/* Canvas-Based Film Grain - Locked at 10% (Only on Hero) */}
