@@ -26,11 +26,23 @@ const logoSizes = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
-  const [logoSizeIndex, setLogoSizeIndex] = useState(0)
+  const [logoSizeIndex, setLogoSizeIndex] = useState(5) // Start at 3X-Large
+  const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
   const isHomePage = pathname === '/'
   
-  const currentSize = logoSizes[logoSizeIndex]
+  // Detect scroll to shrink logo
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+  
+  // Use X-Large (index 3) when scrolled, otherwise use selected size
+  const currentSize = logoSizes[isScrolled ? 3 : logoSizeIndex]
 
   const navigation = [
     { name: 'Protocols', href: '/protocols/bryan-johnson' },
@@ -58,7 +70,7 @@ export function Header() {
           />
         </div>
         
-      <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between py-8 px-6 lg:px-8 transition-all duration-300" aria-label="Global">
         {/* Left Navigation */}
         <div className="hidden lg:flex lg:gap-x-8">
           <Link
