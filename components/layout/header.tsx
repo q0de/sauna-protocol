@@ -135,7 +135,7 @@ export function Header() {
                   }}
                 >
                   <Image
-                    src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/IMG-LOGO.png"
+                    src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/IMG-LOGO.webp"
                     alt="SaunaProtocol Logo"
                     width={currentSize.width}
                     height={currentSize.height}
