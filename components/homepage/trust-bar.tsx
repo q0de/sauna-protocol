@@ -17,20 +17,20 @@ export function TrustBar() {
 
   const trustMetrics = {
     conservative: [
+      { icon: Microscope, number: "40+", label: "Studies Analyzed" },
       { icon: CheckCircle, number: "11", label: "Products Tested" },
-      { icon: Microscope, number: "40+", label: "Studies Cited" },
-      { icon: BarChart3, number: "3", label: "Protocols Documented" },
-      { icon: Users, number: "1,000+", label: "Monthly Readers" },
+      { icon: BarChart3, number: "Complete", label: "Protocol Guide" },
+      { icon: Users, number: "1,000+", label: "Following" },
     ],
     aspirational: [
-      { icon: CheckCircle, number: "50+", label: "Products Tested" },
       { icon: Microscope, number: "127", label: "Studies Cited" },
+      { icon: CheckCircle, number: "50+", label: "Products Tested" },
+      { icon: BarChart3, number: "Complete", label: "Protocol Library" },
       { icon: Users, number: "10,000+", label: "Protocol Followers" },
-      { icon: BarChart3, number: "Featured", label: "by Biohackers" },
     ],
     'ai-generated': [
-      { icon: CheckCircle, number: "23", label: "Products Reviewed" },
       { icon: Microscope, number: "67", label: "Studies Referenced" },
+      { icon: CheckCircle, number: "23", label: "Products Reviewed" },
       { icon: BarChart3, number: "5", label: "Evidence-Based Protocols" },
       { icon: Users, number: "5,000+", label: "Active Users" },
     ],

@@ -23,7 +23,7 @@ export function FeaturedEquipment() {
     {
       id: 'thermometer',
       name: 'Sauna Thermometer',
-      benefit: 'Monitor exact temperature',
+      benefit: 'Monitor exact temperature to follow protocols precisely—essential for Bryan Johnson's 200°F standard',
       price: '$29.97',
       rating: 5,
       image: 'https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-01-Thermo-49Kpw6L.webp',
@@ -31,7 +31,7 @@ export function FeaturedEquipment() {
     {
       id: 'towels',
       name: 'Turkish Cotton Towel',
-      benefit: 'Enhanced heat exposure comfort',
+      benefit: 'Absorbs 2x more than regular towels—prevents slipping and enhances heat exposure safety',
       price: '$37.99',
       rating: 5,
       image: 'https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-06-towels-3JfK1iY.webp',
@@ -39,7 +39,7 @@ export function FeaturedEquipment() {
     {
       id: 'head-ice-pack',
       name: 'Head Ice Pack',
-      benefit: 'Post-sauna cooling recovery',
+      benefit: 'Post-sauna recovery essential—activates cold shock proteins shown to reduce inflammation',
       price: '$38.99',
       rating: 5,
       image: 'https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-10-headicepack-487cn6y.webp',
@@ -47,7 +47,7 @@ export function FeaturedEquipment() {
     {
       id: 'heartrate',
       name: 'Heart Rate Monitor',
-      benefit: 'Track cardiovascular response',
+      benefit: 'Track HRV and cardiovascular response in real-time—measure your protocol's effectiveness',
       price: '$104.95',
       rating: 5,
       image: 'https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-03-heartrate-47YPUYO.webp',
@@ -58,7 +58,7 @@ export function FeaturedEquipment() {
     {
       id: 'thermometer',
       name: 'Sauna Thermometer',
-      benefit: 'Monitor exact temperature',
+      benefit: 'Monitor exact temperature to follow protocols precisely—essential for Bryan Johnson's 200°F standard',
       price: '$29.97',
       rating: 5,
       image: 'https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-01-Thermo-49Kpw6L.webp',
@@ -66,7 +66,7 @@ export function FeaturedEquipment() {
     {
       id: 'timer-mechanical',
       name: 'Mechanical Timer',
-      benefit: 'Track session duration precisely',
+      benefit: 'Track session duration precisely—no batteries needed, works reliably at 200°F+',
       price: '$22.98',
       rating: 5,
       image: 'https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-09-timer-4oANaal.webp',
@@ -74,7 +74,7 @@ export function FeaturedEquipment() {
     {
       id: 'towels',
       name: 'Turkish Cotton Towel',
-      benefit: 'Enhanced heat exposure comfort',
+      benefit: 'Absorbs 2x more than regular towels—prevents slipping and enhances heat exposure safety',
       price: '$37.99',
       rating: 5,
       image: 'https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-06-towels-3JfK1iY.webp',
@@ -100,9 +100,9 @@ export function FeaturedEquipment() {
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">Tools Used in Every Protocol</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Essential equipment tested and recommended for optimal sauna sessions
+          <h2 className="text-4xl font-bold mb-4">Essential Equipment for Any Sauna Protocol</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Following a sauna protocol safely requires accurate temperature monitoring and proper equipment. Whether you're implementing Bryan Johnson's advanced protocol or starting with beginner sessions, these tested products ensure safety and effectiveness.
           </p>
         </div>
 

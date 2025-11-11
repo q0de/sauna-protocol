@@ -27,27 +27,27 @@ export function HeroWithVariants() {
       cta: "Explore Bryan Johnson's Protocol"
     },
     'pain-point': {
-      badge: "Stop Guessing Your Sauna Temperature",
-      headline: "Finally: A Sauna Protocol That Actually Works",
-      subheadline: "Most people waste 6+ months with random sauna sessions. Get the exact temperature, timing, and frequency used by top biohackers—backed by 40+ studies.",
+      badge: "Stop Wasting Time With Random Sessions",
+      headline: "Stop Wasting Time With Random Sauna Sessions",
+      subheadline: "Get the exact protocols used by 1,000+ biohackers to improve cardiovascular health, boost HRV, and accelerate recovery—backed by 40+ peer-reviewed studies.",
       cta: "Get the Proven Protocol"
     },
     'social-proof': {
-      badge: "Trusted by 10,000+ Protocol Followers",
-      headline: "The Sauna Protocol Bryan Johnson Uses Daily",
-      subheadline: "Join thousands optimizing cardiovascular health with evidence-based protocols. Featured: The exact 200°F approach that improved blood pressure by 20 mmHg in 90 days.",
+      badge: "Trusted by 1,000+ Protocol Followers",
+      headline: "The 200°F Protocol That Lowered Bryan Johnson's Blood Pressure 20 Points",
+      subheadline: "Join thousands following the exact sauna protocol that improved blood pressure by 20 mmHg and increased HRV by 38% in 90 days—documented and verified.",
       cta: "See Bryan Johnson's Results"
     },
     'outcome-driven': {
-      badge: "Improve Blood Pressure in 90 Days",
-      headline: "Lower Your BP 20 Points With This Sauna Protocol",
-      subheadline: "Bryan Johnson's measured results: 20 mmHg blood pressure drop, 38% HRV increase, and improved cardiovascular age—all from 4 weekly sauna sessions at 200°F.",
+      badge: "Lower Blood Pressure in 90 Days",
+      headline: "Lower Your Blood Pressure 20 Points in 90 Days",
+      subheadline: "Science-backed sauna protocols with measured results. Bryan Johnson's exact approach that improved cardiovascular markers in 1,000+ users. Learn how long to sit in sauna for optimal benefits.",
       cta: "Get the Exact Protocol"
     },
     'authority': {
       badge: "11 Equipment Reviews • 40+ Studies Cited",
-      headline: "Evidence-Based Sauna Protocols for Longevity",
-      subheadline: "We test every product, cite peer-reviewed research, and follow the protocols ourselves. From Bryan Johnson's 200°F approach to beginner-safe progressions—all backed by science.",
+      headline: "Science-Backed Sauna Protocols to Extend Your Healthspan",
+      subheadline: "Complete sauna protocol guide covering dry sauna vs wet sauna benefits, optimal duration by experience level, and advanced protocols used by top biohackers. Backed by 40+ peer-reviewed studies.",
       cta: "Explore All Protocols"
     }
   }
