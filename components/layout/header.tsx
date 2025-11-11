@@ -54,13 +54,13 @@ export function Header() {
       className="fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[98%] max-w-7xl"
       style={{ top: '3rem' }}
     >
-      <div className={`relative rounded-full border transition-all duration-500 ${
+      <div className={`relative rounded-full border transition-all duration-300 ${
         isScrolled 
           ? 'bg-white/70 backdrop-blur-2xl border-white/30 shadow-2xl' 
           : 'bg-transparent border-transparent shadow-none'
       }`}>
         {/* Gradient Background Behind Logo - Centered with Left & Right Fade */}
-        <div className={`absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[600px] pointer-events-none transition-opacity duration-500 ${
+        <div className={`absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[600px] pointer-events-none transition-opacity duration-300 ${
           isScrolled ? 'opacity-40' : 'opacity-0'
         }`}>
           <Image
@@ -146,7 +146,7 @@ export function Header() {
                     height: `${currentSize.height}px`,
                     marginTop: `-${currentSize.marginY * 4}px`,
                     marginBottom: `-${currentSize.marginY * 4}px`,
-                    transition: 'all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)',
+                    transition: 'all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1)',
                     willChange: 'height, margin'
                   }}
                 >
@@ -157,7 +157,7 @@ export function Header() {
                     height={currentSize.height}
                     className="h-full w-auto object-contain"
                     style={{
-                      transition: 'all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)',
+                      transition: 'all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1)',
                       willChange: 'transform'
                     }}
                     priority
