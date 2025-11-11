@@ -280,12 +280,12 @@ export default function EquipmentPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
+                <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4 bg-white">
                   <Image
                     src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-05-oils-4qYMk9j.webp"
                     alt="Eucalyptus essential oil bottles for sauna aromatherapy and respiratory benefits"
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
