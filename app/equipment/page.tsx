@@ -494,7 +494,7 @@ export default function EquipmentPage() {
                     src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-09-timer-4oANaal.webp"
                     alt="Stainless steel mechanical sauna timer with 55-minute dial, no batteries required"
                     fill
-                    className="object-cover"
+                    className="object-contain bg-gray-50"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
@@ -612,7 +612,7 @@ export default function EquipmentPage() {
                   />
                 </div>
                 <p className="text-gray-700">
-                  This is the exact product Bryan Johnson uses post-sauna. High heat (200°F) can temporarily affect sperm production and testosterone levels. This custom-fit ice pack is designed for testicular cooling—originally for vasectomy recovery, but biohackers discovered it's perfect for post-sauna temperature regulation. The 2-pack system with snug boxer briefs keeps ice packs in place while you recover.
+                  High heat (200°F) can temporarily affect sperm production and testosterone levels. This custom-fit ice pack is designed for testicular cooling—originally for vasectomy recovery, but biohackers discovered it's a better option for post-sauna temperature regulation. The 2-pack system with snug boxer briefs keeps ice packs in place while you recover, providing targeted cooling where it matters most.
                 </p>
 
                 <div className="bg-white p-4 rounded-lg border border-gray-200">
