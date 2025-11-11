@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function EquipmentPage() {
   return (
-    <article className="pt-40 pb-12">
+    <article className="pt-44 pb-12">
       <div className="mx-auto max-w-4xl px-6 lg:px-8">
         
         {/* Header */}

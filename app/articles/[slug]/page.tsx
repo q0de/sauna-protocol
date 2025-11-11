@@ -87,7 +87,7 @@ export default async function ArticlePage({ params }: Props) {
       <StructuredData data={articleSchema} />
       <StructuredData data={breadcrumbSchema} />
 
-      <article className="pt-28 pb-12">
+      <article className="pt-44 pb-12">
         <div className="mx-auto max-w-5xl px-6 lg:px-8">
           <div>
             {/* Main Content */}
