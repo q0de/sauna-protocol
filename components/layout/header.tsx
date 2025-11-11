@@ -19,7 +19,7 @@ const logoSizes = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [navLeftMargin, setNavLeftMargin] = useState(-20) // Adjusted 4px to the right
+  const [navLeftMargin, setNavLeftMargin] = useState(0) // Aligned with hero content
   const pathname = usePathname()
   
   // Detect scroll to shrink logo
