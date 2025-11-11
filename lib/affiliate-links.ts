@@ -13,11 +13,11 @@ export const affiliateLinks = {
   timerSand20Min: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
   timerDigitalRemote: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
   timerIntervalWaterproof: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
-  timerMechanicalStainless: 'https://amzn.to/4oANaal', // VOVCIG Stainless Steel - 55 min - $22.98 ✅
+  timerMechanicalStainless: 'https://amzn.to/4oANaal', // VOVCIG Stainless Steel - 55 min - $22.98 ✅ UPDATED
   
   // Towels
   towelsLinen2Pack: 'https://amzn.to/3JI4Ce8', // COTTON CRAFT Waffle - 4 pack - $39.99 ✅
-  towelsTurkishCotton: 'https://amzn.to/3JfK1iY', // White Classic Luxury - 700 GSM - $37.99 ✅
+  towelsTurkishCotton: 'https://amzn.to/3JrK1iY', // White Classic Luxury - 700 GSM - $37.99 ✅ UPDATED
   
   // Buckets & Ladles
   bucketLadleWooden: 'https://amzn.to/4p5RNJD', // 5L Pine Bucket & Ladle - $54.99 ✅
@@ -33,7 +33,7 @@ export const affiliateLinks = {
   icePackHead: 'https://amzn.to/487cn6y', // Quboora Head Ice Pack - 2 pcs - $9.99 ✅
   
   // Aromatherapy
-  essentialOilsSet: 'https://amzn.to/4qYMk9j', // Breathe Essential Oil Blend - Eucalyptus - $11.49 ✅
+  essentialOilsSet: 'https://amzn.to/4qYMk9j', // Breathe Essential Oil Blend - Eucalyptus - $11.49 ✅ UPDATED
   
   // Cleaning Supplies
   cleanerWoodNatural: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
@@ -42,7 +42,7 @@ export const affiliateLinks = {
   disinfectantSpray: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
   
   // Tracking & Wearables
-  heartRateMonitorPolar: 'https://amzn.to/47YPUYO', // Polar H10 - ANT+ Bluetooth - $104.95 ✅
+  heartRateMonitorPolar: 'https://amzn.to/47YPUYO', // Polar H10 - ANT+ Bluetooth - $104.95 ✅ UPDATED
   heartRateMonitorGarmin: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
   ouraRing: 'https://ouraring.com/product/horizon-silver?ref=YOUR-AFFILIATE',
   
