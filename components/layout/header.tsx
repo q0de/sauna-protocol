@@ -36,7 +36,7 @@ export function Header() {
             </div>
             <div className="relative h-20 w-auto -my-4">
               <Image
-                src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/IMG-LOGO.png"
+                src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/IMG-LOGO2.png"
                 alt="SaunaProtocol Logo"
                 width={480}
                 height={80}
