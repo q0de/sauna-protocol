@@ -34,7 +34,7 @@ export default function AboutPage() {
   ]
 
   return (
-    <div className="py-12">
+    <div className="pt-44 pb-12">
       <div className="mx-auto max-w-4xl px-6 lg:px-8">
         <header className="mb-12 text-center">
           <h1 className="text-5xl font-bold mb-6">About SaunaProtocol</h1>
