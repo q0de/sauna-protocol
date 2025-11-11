@@ -479,6 +479,175 @@ export default function EquipmentPage() {
                 </div>
               </CardContent>
             </Card>
+            {/* PRODUCT #9: Stainless Steel Sauna Timer */}
+            <Card id="timer-mechanical" className="border-2 border-slate-200 bg-slate-50">
+              <CardHeader>
+                <Badge variant="accent" className="mb-2">PRODUCT #9</Badge>
+                <CardTitle className="text-2xl">Mechanical Stainless Steel Sauna Timer</CardTitle>
+                <CardDescription className="text-base">
+                  <strong>Best for:</strong> No-battery timer that handles extreme heat up to 55 minutes
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
+                  <Image
+                    src="https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?q=80&w=2064&auto=format&fit=crop"
+                    alt="Stainless steel mechanical sauna timer with 55-minute dial, no batteries required"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+                <p className="text-gray-700">
+                  This stainless steel mechanical timer is specifically designed for sauna use. No batteries means no worries about heat damage to electronics. The mechanical self-drive mechanism is reliable up to 55 minutes—perfect for Bryan Johnson's 25-minute protocol with room to spare. The clear dial is easy to read through steam, and the satisfying tick reminds you to focus on your session.
+                </p>
+
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
+                  <p className="font-semibold mb-2">Why we recommend it:</p>
+                  <ul className="space-y-1 text-sm text-gray-700">
+                    <li>• All stainless steel construction handles extreme sauna heat</li>
+                    <li>• Mechanical operation—no batteries to fail or corrode</li>
+                    <li>• Accurate timing up to 55 minutes with clear dial face</li>
+                    <li>• 100+ bought in past month, proven reliability</li>
+                  </ul>
+                </div>
+
+                <p className="text-sm text-gray-600">
+                  <strong>Who it's for:</strong> Anyone following timed protocols who wants a reliable, heat-proof timer that won't fail mid-session.
+                </p>
+
+                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                  <div>
+                    <div className="text-2xl font-bold text-slate-600">$22.98</div>
+                    <div className="text-sm text-gray-600">⭐ 4.7/5 (4 reviews)</div>
+                    <div className="text-xs text-green-600 font-semibold">100+ bought/month</div>
+                  </div>
+                  <Button asChild size="lg">
+                    <a href={affiliateLinks.timerMechanicalStainless} target="_blank" rel="noopener noreferrer nofollow">
+                      Check Price on Amazon →
+                    </a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* PRODUCT #10: Head Ice Pack */}
+            <Card id="head-ice-pack" className="border-2 border-sky-200 bg-sky-50 scroll-mt-32">
+              <CardHeader>
+                <Badge variant="default" className="mb-2">PRODUCT #10</Badge>
+                <CardTitle className="text-2xl">Head Ice Pack for Sauna Cooling</CardTitle>
+                <CardDescription className="text-base">
+                  <strong>Best for:</strong> Keeping your head cool during high-heat sauna sessions
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
+                  <Image
+                    src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop"
+                    alt="Reusable head ice pack for cooling during sauna sessions, prevents overheating"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+                <p className="text-gray-700">
+                  This is a game-changer for high-heat protocols. The head ice pack sits comfortably on your head or hard hat during outdoor activities—but sauna users have discovered it's perfect for keeping your scalp cool during intense sessions. The stable fit prevents slipping, and the leak-proof construction means no water dripping down your face. Comes as a 2-pack so you can rotate while one refreezes.
+                </p>
+
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
+                  <p className="font-semibold mb-2">Why we recommend it:</p>
+                  <ul className="space-y-1 text-sm text-gray-700">
+                    <li>• Prevents head overheating during 200°F+ sessions</li>
+                    <li>• Reusable—freeze for 2 hours, use for extended cooling</li>
+                    <li>• Comfortable, secure fit that won't slip off</li>
+                    <li>• 2-pack lets you rotate between sessions</li>
+                  </ul>
+                </div>
+
+                <p className="text-sm text-gray-600">
+                  <strong>Who it's for:</strong> Advanced users doing high-heat protocols who want to extend session duration safely.
+                </p>
+
+                <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                  <p className="text-sm text-blue-900">
+                    <strong>Pro tip:</strong> Bryan Johnson uses ice packs on his head during sauna to prevent hair damage and extend tolerance to extreme heat.
+                  </p>
+                </div>
+
+                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                  <div>
+                    <div className="text-2xl font-bold text-sky-600">$9.99</div>
+                    <div className="text-sm text-gray-600">⭐ 4.0/5 (4 reviews)</div>
+                    <div className="text-xs text-orange-600 font-semibold">Lowest price in 30 days</div>
+                  </div>
+                  <Button asChild size="lg" variant="default">
+                    <a href={affiliateLinks.icePackHead} target="_blank" rel="noopener noreferrer nofollow">
+                      Check Price on Amazon →
+                    </a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* PRODUCT #11: Testicular Ice Pack */}
+            <Card id="testicular-ice-pack" className="border-2 border-violet-200 bg-violet-50 scroll-mt-32">
+              <CardHeader>
+                <div className="flex items-center gap-2 mb-2">
+                  <Badge variant="secondary">PRODUCT #11</Badge>
+                  <Badge className="bg-blue-600 text-white">BRYAN JOHNSON USES</Badge>
+                </div>
+                <CardTitle className="text-2xl">Testicular Ice Pack for Post-Sauna Recovery</CardTitle>
+                <CardDescription className="text-base">
+                  <strong>Best for:</strong> Protecting fertility and testosterone during high-heat sauna protocols
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
+                  <Image
+                    src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=2070&auto=format&fit=crop"
+                    alt="Custom-fit ice pack for testicular cooling after sauna, protects fertility and testosterone"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+                <p className="text-gray-700">
+                  This is the exact product Bryan Johnson uses post-sauna. High heat (200°F) can temporarily affect sperm production and testosterone levels. This custom-fit ice pack is designed for testicular cooling—originally for vasectomy recovery, but biohackers discovered it's perfect for post-sauna temperature regulation. The 2-pack system with snug boxer briefs keeps ice packs in place while you recover.
+                </p>
+
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
+                  <p className="font-semibold mb-2">Why we recommend it:</p>
+                  <ul className="space-y-1 text-sm text-gray-700">
+                    <li>• Protects fertility during high-heat sauna protocols</li>
+                    <li>• Custom-fit design with boxer brief support system</li>
+                    <li>• 2 ice packs included for continuous cooling</li>
+                    <li>• Made in USA, 95% Spandex for comfortable fit</li>
+                  </ul>
+                </div>
+
+                <p className="text-sm text-gray-600">
+                  <strong>Who it's for:</strong> Men doing high-heat protocols (180°F+) who want to protect reproductive health and testosterone levels.
+                </p>
+
+                <div className="bg-amber-50 p-3 rounded-lg border border-amber-200">
+                  <p className="text-sm text-amber-900">
+                    <strong>Important:</strong> Bryan Johnson applies this immediately post-sauna for 15-20 minutes to counteract heat exposure to sensitive areas.
+                  </p>
+                </div>
+
+                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                  <div>
+                    <div className="text-2xl font-bold text-violet-600">$39.00</div>
+                    <div className="text-sm text-gray-600">⭐ 4.4/5 (921 reviews)</div>
+                  </div>
+                  <Button asChild size="lg" variant="default">
+                    <a href={affiliateLinks.icePackTesticles} target="_blank" rel="noopener noreferrer nofollow">
+                      Check Price on Amazon →
+                    </a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
 

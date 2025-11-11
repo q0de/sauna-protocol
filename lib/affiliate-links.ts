@@ -13,6 +13,7 @@ export const affiliateLinks = {
   timerSand20Min: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
   timerDigitalRemote: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
   timerIntervalWaterproof: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
+  timerMechanicalStainless: 'https://amzn.to/4oANaal', // VOVCIG Stainless Steel - 55 min - $22.98 ✅
   
   // Towels
   towelsLinen2Pack: 'https://amzn.to/3JI4Ce8', // COTTON CRAFT Waffle - 4 pack - $39.99 ✅
@@ -26,6 +27,10 @@ export const affiliateLinks = {
   backrestWooden: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
   backrestErgonomic: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
   pillowSauna: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
+  
+  // Ice Packs & Recovery
+  icePackTesticles: 'https://amzn.to/4qTfeY9', // Undeez Vasectomy Ice Pack - 2 custom fit - $39.00 ✅
+  icePackHead: 'https://amzn.to/487cn6y', // Quboora Head Ice Pack - 2 pcs - $9.99 ✅
   
   // Aromatherapy
   essentialOilsSet: 'https://amzn.to/4qYMk9j', // Breathe Essential Oil Blend - Eucalyptus - $11.49 ✅

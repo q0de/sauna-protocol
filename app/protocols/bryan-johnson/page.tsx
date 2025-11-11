@@ -166,7 +166,7 @@ export default function BryanJohnsonProtocolPage() {
       name: "Timer",
       recommended: true,
       reason: "Track your 25-minute sessions precisely",
-      link: "/equipment#timer",
+      link: "/equipment#timer-mechanical",
     },
   ]
 
@@ -450,7 +450,7 @@ export default function BryanJohnsonProtocolPage() {
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-4 w-4 text-purple-600 mt-1 flex-shrink-0" />
-                      <span><strong>Scalp:</strong> Ice pack with towel to prevent hair damage</span>
+                      <span><strong>Scalp:</strong> <Link href="/equipment#head-ice-pack" className="text-[#ff6b6b] underline font-semibold hover:text-[#e55555] transition-colors">Ice pack</Link> with towel to prevent hair damage</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-4 w-4 text-purple-600 mt-1 flex-shrink-0" />
@@ -994,7 +994,7 @@ export default function BryanJohnsonProtocolPage() {
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Bring a <Link href="/equipment#towels" className="text-[#ff6b6b] underline font-semibold hover:text-[#e55555] transition-colors">towel</Link> and <Link href="/equipment#timer" className="text-[#ff6b6b] underline font-semibold hover:text-[#e55555] transition-colors">timer</Link></span>
+                      <span>Bring a <Link href="/equipment#towels" className="text-[#ff6b6b] underline font-semibold hover:text-[#e55555] transition-colors">towel</Link> and <Link href="/equipment#timer-mechanical" className="text-[#ff6b6b] underline font-semibold hover:text-[#e55555] transition-colors">timer</Link></span>
                     </li>
                   </ul>
                 </CardContent>
@@ -1011,7 +1011,7 @@ export default function BryanJohnsonProtocolPage() {
                   <ul className="space-y-2 text-gray-600">
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Set <Link href="/equipment#timer" className="text-[#ff6b6b] underline font-semibold hover:text-[#e55555] transition-colors">timer</Link> for 25 minutes</span>
+                      <span>Set <Link href="/equipment#timer-mechanical" className="text-[#ff6b6b] underline font-semibold hover:text-[#e55555] transition-colors">timer</Link> for 25 minutes</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
