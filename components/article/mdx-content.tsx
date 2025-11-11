@@ -46,13 +46,21 @@ const components = {
     <pre className="bg-gray-900 text-gray-100 p-6 rounded-lg overflow-x-auto my-6" {...props} />
   ),
   table: (props: React.HTMLAttributes<HTMLTableElement>) => (
-    <table className="w-full my-8 border-collapse" {...props} />
+    <div className="overflow-x-auto my-8 rounded-xl border-2 border-gray-200 shadow-lg">
+      <table className="w-full border-collapse" {...props} />
+    </div>
+  ),
+  thead: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <thead className="bg-gradient-to-r from-[#ff6b6b] to-[#f59e0b]" {...props} />
   ),
   th: (props: React.HTMLAttributes<HTMLTableCellElement>) => (
-    <th className="bg-gray-100 font-bold p-3 text-left border" {...props} />
+    <th className="font-bold p-4 text-left text-white border-b-2 border-white/20" {...props} />
   ),
   td: (props: React.HTMLAttributes<HTMLTableCellElement>) => (
-    <td className="p-3 border" {...props} />
+    <td className="p-4 border-b border-gray-200 text-gray-700 bg-white" {...props} />
+  ),
+  tr: (props: React.HTMLAttributes<HTMLTableRowElement>) => (
+    <tr className="hover:bg-gray-50 transition-colors" {...props} />
   ),
 }
 
