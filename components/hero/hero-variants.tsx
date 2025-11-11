@@ -1,10 +1,15 @@
+'use client'
+
 import Link from 'next/link'
+import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { NoiseTexture } from '@/components/effects/noise-texture'
 import { ArrowRight, CheckCircle } from 'lucide-react'
 
 export function HeroWithVariants() {
+  const [videoLoaded, setVideoLoaded] = useState(false)
+
   // Locked to Authority variant (best for SEO + E-E-A-T)
   const content = {
     badge: "11 Equipment Reviews • 40+ Studies Cited",
@@ -22,12 +27,25 @@ export function HeroWithVariants() {
         
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
+          {/* Video Placeholder - Animated Gradient */}
+          <div 
+            className={`absolute inset-0 bg-gradient-to-br from-[#ff6b6b] via-[#ff5252] to-[#f59e0b] transition-opacity duration-1000 ${
+              videoLoaded ? 'opacity-0' : 'opacity-100'
+            }`}
+            style={{
+              animation: videoLoaded ? 'none' : 'pulse 2s ease-in-out infinite'
+            }}
+          />
+          
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover"
+            onLoadedData={() => setVideoLoaded(true)}
+            className={`w-full h-full object-cover transition-opacity duration-1000 ${
+              videoLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
           >
             <source src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/sign/vid/sauna-protocol-vid.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yZjYwM2EwMS00ZmEwLTQ0M2YtODJhNi03ZmU4MDBmZjJiOGUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWQvc2F1bmEtcHJvdG9jb2wtdmlkLndlYm0iLCJpYXQiOjE3NjI3MjI2MTAsImV4cCI6MTc5NDI1ODYxMH0.JS-u_DL9wmxYMvqJADkrdNZa3QBdZfrFZZ4MYc-9CO8" type="video/webm" />
           </video>
@@ -52,18 +70,31 @@ export function HeroWithVariants() {
         {/* Desktop: Left-aligned */}
         <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto lg:mx-0 max-w-3xl lg:max-w-2xl text-center lg:text-left">
-            <Badge variant="featured" className="mb-4 text-sm px-4 py-2">
+            <Badge 
+              variant="featured" 
+              className="mb-4 text-sm px-4 py-2 animate-fade-in-up"
+              style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}
+            >
               {content.badge}
             </Badge>
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl mb-6 drop-shadow-lg">
+            <h1 
+              className="text-5xl font-bold tracking-tight sm:text-7xl mb-6 drop-shadow-lg animate-fade-in-up"
+              style={{ animationDelay: '0.2s', animationFillMode: 'backwards' }}
+            >
               {content.headline}
             </h1>
-            <p className="text-xl leading-8 mb-8 text-white/95 drop-shadow-md">
+            <p 
+              className="text-xl leading-8 mb-8 text-white/95 drop-shadow-md animate-fade-in-up"
+              style={{ animationDelay: '0.3s', animationFillMode: 'backwards' }}
+            >
               {content.subheadline}
             </p>
             
             {/* Trust Signals - Authority Variant */}
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
+            <div 
+              className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8 animate-fade-in-up"
+              style={{ animationDelay: '0.4s', animationFillMode: 'backwards' }}
+            >
               <div className="flex items-center gap-2 text-white/90">
                 <CheckCircle className="h-5 w-5" />
                 <span className="text-sm font-medium">Peer-Reviewed Research</span>
@@ -79,7 +110,10 @@ export function HeroWithVariants() {
             </div>
             
             {/* Main CTA Button - Centered on mobile, Left-aligned on desktop */}
-            <div className="flex flex-col items-center lg:items-start gap-6">
+            <div 
+              className="flex flex-col items-center lg:items-start gap-6 animate-fade-in-up"
+              style={{ animationDelay: '0.5s', animationFillMode: 'backwards' }}
+            >
               <Button 
                 asChild 
                 size="lg" 
