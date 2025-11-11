@@ -4,9 +4,9 @@
 
 export const affiliateLinks = {
   // Thermometers
-  thermometerDialTraditional: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
-  thermometerHygrometerCombo: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
-  thermometerDigital: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
+  thermometerDialTraditional: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK', // TODO: Add traditional dial thermometer
+  thermometerHygrometerCombo: 'https://amzn.to/49Kpw6L', // Northwood Sauna - Finnish Pine - $29.97 ✅
+  thermometerDigital: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK', // TODO: Add digital thermometer
   
   // Timers
   timerSand15Min: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
@@ -15,11 +15,11 @@ export const affiliateLinks = {
   timerIntervalWaterproof: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
   
   // Towels
-  towelsLinen2Pack: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
-  towelsTurkishCotton: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
+  towelsLinen2Pack: 'https://amzn.to/3JI4Ce8', // COTTON CRAFT Waffle - 4 pack - $39.99 ✅
+  towelsTurkishCotton: 'https://amzn.to/3JfK1iY', // White Classic Luxury - 700 GSM - $37.99 ✅
   
   // Buckets & Ladles
-  bucketLadleWooden: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
+  bucketLadleWooden: 'https://amzn.to/4p5RNJD', // 5L Pine Bucket & Ladle - $54.99 ✅
   bucketLadleStainless: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
   
   // Comfort Accessories
@@ -28,7 +28,7 @@ export const affiliateLinks = {
   pillowSauna: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
   
   // Aromatherapy
-  essentialOilsSet: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
+  essentialOilsSet: 'https://amzn.to/4qYMk9j', // Breathe Essential Oil Blend - Eucalyptus - $11.49 ✅
   
   // Cleaning Supplies
   cleanerWoodNatural: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
@@ -37,23 +37,23 @@ export const affiliateLinks = {
   disinfectantSpray: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
   
   // Tracking & Wearables
-  heartRateMonitorPolar: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
+  heartRateMonitorPolar: 'https://amzn.to/47YPUYO', // Polar H10 - ANT+ Bluetooth - $104.95 ✅
   heartRateMonitorGarmin: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
   ouraRing: 'https://ouraring.com/product/horizon-silver?ref=YOUR-AFFILIATE',
   
   // Lighting
-  ledLightFixture: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
+  ledLightFixture: 'https://amzn.to/4p42AE6', // COB LED Strip 2700K Warm White - $30.99 ✅
   chromotherapySystem: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
   
   // Sound Systems
-  speakerBluetoothHeatResistant: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
+  speakerBluetoothHeatResistant: 'https://amzn.to/49e0X24', // INSMY C12 IPX7 Waterproof - $21.59 ✅
   speakerSystemWired: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK',
   
   // General Amazon Search Links
-  searchSaunaThermometers: 'https://amazon.com/s?k=sauna+thermometer&tag=YOUR-AFFILIATE-TAG',
-  searchSaunaTowels: 'https://amazon.com/s?k=sauna+towels+linen&tag=YOUR-AFFILIATE-TAG',
-  searchSaunaTimers: 'https://amazon.com/s?k=sauna+timer&tag=YOUR-AFFILIATE-TAG',
-  searchSaunaAccessories: 'https://amazon.com/s?k=sauna+accessories&tag=YOUR-AFFILIATE-TAG',
+  searchSaunaThermometers: 'https://amazon.com/s?k=sauna+thermometer&tag=saunaprotocol-20',
+  searchSaunaTowels: 'https://amazon.com/s?k=sauna+towels+linen&tag=saunaprotocol-20',
+  searchSaunaTimers: 'https://amazon.com/s?k=sauna+timer&tag=saunaprotocol-20',
+  searchSaunaAccessories: 'https://amazon.com/s?k=sauna+accessories&tag=saunaprotocol-20',
 }
 
 // Helper function to add tracking parameters to URLs
