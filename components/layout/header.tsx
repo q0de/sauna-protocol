@@ -25,22 +25,22 @@ export function Header() {
       className="fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 top-6 w-[95%] max-w-6xl"
     >
       <div className="relative bg-white/70 backdrop-blur-2xl rounded-full shadow-2xl border border-white/30 overflow-hidden">
-        {/* Gradient Background Behind Logo */}
-        <div className="absolute left-0 top-0 bottom-0 w-[500px] pointer-events-none">
+        {/* Gradient Background Behind Logo - Centered with Left & Right Fade */}
+        <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[600px] pointer-events-none">
           <Image
             src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/IMG-GRADIENT.png"
             alt=""
             fill
-            className="object-cover object-left opacity-40"
+            className="object-cover object-center opacity-40"
             style={{
-              maskImage: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)',
-              WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)'
+              maskImage: 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)',
+              WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)'
             }}
           />
         </div>
         
       <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <div className="flex lg:flex-1">
+        <div className="flex lg:flex-1 justify-center">
           <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-3 group">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-[#ff6b6b] to-[#f59e0b] rounded-lg blur-sm opacity-75 group-hover:opacity-100 transition-opacity"></div>
