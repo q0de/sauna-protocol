@@ -21,14 +21,20 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
   
-  // Detect scroll to shrink logo
+  // Detect scroll to shrink logo with hysteresis to prevent flickering
   useEffect(() => {
     let ticking = false
     
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 50)
+          const scrollY = window.scrollY
+          // Add 5px hysteresis to prevent flickering at threshold
+          if (scrollY > 55 && !isScrolled) {
+            setIsScrolled(true)
+          } else if (scrollY < 45 && isScrolled) {
+            setIsScrolled(false)
+          }
           ticking = false
         })
         ticking = true
@@ -37,7 +43,7 @@ export function Header() {
     
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [isScrolled])
   
   // Use X-Large (index 3) when scrolled, otherwise use 3X-Large (index 5)
   const currentSize = logoSizes[isScrolled ? 3 : 5]
@@ -52,17 +58,33 @@ export function Header() {
   return (
     <header 
       className="fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[98%] max-w-7xl"
-      style={{ top: '3rem' }}
+      style={{ 
+        top: '3rem',
+        contain: 'layout style paint'
+      }}
     >
-      <div className={`relative rounded-full border transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/70 backdrop-blur-2xl border-white/30 shadow-2xl' 
-          : 'bg-transparent border-transparent shadow-none'
-      }`}>
+      <div 
+        className={`relative rounded-full border transition-all duration-300 ${
+          isScrolled 
+            ? 'bg-white/70 backdrop-blur-xl border-white/30 shadow-2xl' 
+            : 'bg-transparent border-transparent shadow-none'
+        }`}
+        style={{ 
+          willChange: isScrolled ? 'auto' : 'background, backdrop-filter, border, box-shadow',
+          transform: 'translateZ(0)',
+          backfaceVisibility: 'hidden'
+        }}
+      >
         {/* Gradient Background Behind Logo - Centered with Left & Right Fade */}
-        <div className={`absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[600px] pointer-events-none transition-opacity duration-300 ${
-          isScrolled ? 'opacity-40' : 'opacity-0'
-        }`}>
+        <div 
+          className={`absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[600px] pointer-events-none transition-opacity duration-300 ${
+            isScrolled ? 'opacity-40' : 'opacity-0'
+          }`}
+          style={{ 
+            willChange: 'opacity',
+            transform: 'translateZ(0)'
+          }}
+        >
           <Image
             src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/IMG-GRADIENT.png"
             alt=""
