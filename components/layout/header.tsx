@@ -2,12 +2,15 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { Menu, X, Flame } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
+  const pathname = usePathname()
+  const isHomePage = pathname === '/'
 
   const navigation = [
     { name: 'Protocols', href: '/protocols/bryan-johnson' },
@@ -17,14 +20,20 @@ export function Header() {
   ]
 
   useEffect(() => {
+    // Only hide navbar on homepage
+    if (!isHomePage) {
+      setIsVisible(true)
+      return
+    }
+
     const handleScroll = () => {
-      // Show navbar after scrolling 100px (past hero)
+      // Show navbar after scrolling 100px (past hero) on homepage only
       setIsVisible(window.scrollY > 100)
     }
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [isHomePage])
 
   return (
     <header 
