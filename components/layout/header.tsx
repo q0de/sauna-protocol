@@ -4,15 +4,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Flame } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
 
 const logoSizes = [
   { label: 'Small (Current)', height: 80, width: 480, marginY: 4 },
@@ -25,24 +18,29 @@ const logoSizes = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [isVisible, setIsVisible] = useState(false)
-  const [logoSizeIndex, setLogoSizeIndex] = useState(5) // Start at 3X-Large
   const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
-  const isHomePage = pathname === '/'
   
   // Detect scroll to shrink logo
   useEffect(() => {
+    let ticking = false
+    
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50)
+          ticking = false
+        })
+        ticking = true
+      }
     }
     
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
   
-  // Use X-Large (index 3) when scrolled, otherwise use selected size
-  const currentSize = logoSizes[isScrolled ? 3 : logoSizeIndex]
+  // Use X-Large (index 3) when scrolled, otherwise use 3X-Large (index 5)
+  const currentSize = logoSizes[isScrolled ? 3 : 5]
 
   const navigation = [
     { name: 'Protocols', href: '/protocols/bryan-johnson' },
@@ -132,7 +130,8 @@ export function Header() {
                     height: `${currentSize.height}px`,
                     marginTop: `-${currentSize.marginY * 4}px`,
                     marginBottom: `-${currentSize.marginY * 4}px`,
-                    transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+                    transition: 'all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)',
+                    willChange: 'height, margin'
                   }}
                 >
                   <Image
@@ -140,30 +139,18 @@ export function Header() {
                     alt="SaunaProtocol Logo"
                     width={currentSize.width}
                     height={currentSize.height}
-                    className="h-full w-auto object-contain transition-all duration-500"
+                    className="h-full w-auto object-contain"
+                    style={{
+                      transition: 'all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)',
+                      willChange: 'transform'
+                    }}
                     priority
                   />
                 </div>
               </Link>
             </div>
-        
-        {/* Logo Size Control - Temporary */}
-        <div className="absolute right-4 top-1/2 -translate-y-1/2 z-50">
-          <Select value={logoSizeIndex.toString()} onValueChange={(value) => setLogoSizeIndex(parseInt(value))}>
-            <SelectTrigger className="w-[180px] bg-white/90 backdrop-blur-sm">
-              <SelectValue placeholder="Logo Size" />
-            </SelectTrigger>
-            <SelectContent>
-              {logoSizes.map((size, index) => (
-                <SelectItem key={index} value={index.toString()}>
-                  {size.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
 
-        {/* Right - Get Started Button */}
+            {/* Right - Get Started Button */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Button asChild>
             <Link href="/contact">Get Started</Link>
