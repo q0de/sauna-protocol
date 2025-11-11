@@ -228,7 +228,7 @@ export default function BryanJohnsonProtocolPage() {
     <>
       <StructuredData data={structuredData} />
       
-      <article className="py-12">
+      <article className="pt-28 pb-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-[1fr_250px] lg:gap-12">
         

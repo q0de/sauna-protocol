@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function EquipmentPage() {
   return (
-    <article className="py-12">
+    <article className="pt-28 pb-12">
       <div className="mx-auto max-w-4xl px-6 lg:px-8">
         
         {/* Header */}
@@ -69,6 +69,9 @@ export default function EquipmentPage() {
                     fill
                     className="object-cover object-top"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2YzZjRmNiIvPjwvc3ZnPg=="
                   />
                 </div>
 

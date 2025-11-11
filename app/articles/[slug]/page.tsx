@@ -87,13 +87,13 @@ export default async function ArticlePage({ params }: Props) {
       <StructuredData data={articleSchema} />
       <StructuredData data={breadcrumbSchema} />
 
-      <article className="py-12">
+      <article className="pt-28 pb-12">
         <div className="mx-auto max-w-5xl px-6 lg:px-8">
           <div>
             {/* Main Content */}
             <div>
               {/* Breadcrumbs */}
-              <div className="mb-8">
+              <div className="mb-8 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>
                 <Breadcrumbs
                   items={[
                     { name: 'Articles', href: '/articles' },
@@ -103,7 +103,7 @@ export default async function ArticlePage({ params }: Props) {
               </div>
 
               {/* Header */}
-              <header className="mb-8">
+              <header className="mb-8 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'backwards' }}>
                 <Badge variant="secondary" className="mb-4">
                   {frontmatter.category}
                 </Badge>
@@ -138,7 +138,7 @@ export default async function ArticlePage({ params }: Props) {
 
               {/* TL;DR */}
               {frontmatter.tldr && frontmatter.tldr.length > 0 && (
-                <Card className="mb-8 bg-blue-50 border-blue-200">
+                <Card className="mb-8 bg-blue-50 border-blue-200 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'backwards' }}>
                   <CardHeader>
                     <CardTitle className="text-lg">TL;DR</CardTitle>
                   </CardHeader>
@@ -156,7 +156,7 @@ export default async function ArticlePage({ params }: Props) {
               )}
 
               {/* Article Content */}
-              <div className="prose-article">
+              <div className="prose-article animate-fade-in" style={{ animationDelay: '0.4s', animationFillMode: 'backwards' }}>
                 <MDXContent source={content} />
               </div>
 

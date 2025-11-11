@@ -4,6 +4,7 @@ import Script from 'next/script'
 import "./globals.css"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
+import { ScrollToTop } from "@/components/ui/scroll-to-top"
 import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ 
@@ -70,6 +71,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <ScrollToTop />
         </div>
         <Analytics />
         
