@@ -22,8 +22,8 @@ import {
 } from 'lucide-react'
 
 export const metadata: Metadata = generateSEO({
-  title: "Bryan Johnson's 200°F Sauna Protocol - Complete 90-Day Results & Guide",
-  description: "The exact sauna protocol used by Bryan Johnson to improve blood pressure by 20 mmHg and increase HRV by 38%. Complete 90-day implementation guide with measured results.",
+  title: "Bryan Johnson's 200°F Sauna Protocol",
+  description: "The exact sauna protocol Bryan Johnson uses to improve blood pressure 20 mmHg and increase HRV 38%. Complete 90-day guide with measured results.",
   keywords: [
     "bryan johnson sauna",
     "bryan johnson protocol",

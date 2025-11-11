@@ -13,6 +13,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://saunaprotocol.com'),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: "SaunaProtocol - Evidence-Based Sauna Protocols & Equipment Reviews",
     template: "%s | SaunaProtocol",

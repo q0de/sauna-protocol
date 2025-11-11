@@ -8,7 +8,7 @@ import { affiliateLinks } from '@/lib/affiliate-links'
 
 export const metadata: Metadata = {
   title: 'Best Sauna Equipment & Accessories Guide 2025',
-  description: 'Comprehensive guide to sauna equipment, accessories, and gear. From essential thermometers to advanced tracking devices. Research-backed recommendations with Amazon pricing.',
+  description: 'Essential sauna equipment guide: thermometers, towels, timers, and tracking devices. Research-backed recommendations with Amazon pricing.',
   keywords: ['sauna equipment', 'sauna accessories', 'sauna thermometer', 'sauna towels', 'sauna gear'],
 }
 
