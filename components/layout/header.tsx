@@ -43,7 +43,7 @@ export function Header() {
     <header 
       className="fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 top-6 w-[95%] max-w-6xl"
     >
-      <div className="relative bg-white/70 backdrop-blur-2xl rounded-full shadow-2xl border border-white/30 overflow-hidden">
+      <div className="relative bg-white/70 backdrop-blur-2xl rounded-full shadow-2xl border border-white/30">
         {/* Gradient Background Behind Logo - Centered with Left & Right Fade */}
         <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[600px] pointer-events-none">
           <Image
