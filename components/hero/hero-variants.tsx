@@ -21,7 +21,7 @@ export function HeroWithVariants() {
   return (
     <>
 
-      <section className="relative overflow-hidden text-white pt-24">
+      <section className="relative overflow-hidden text-white min-h-screen flex items-center">
         {/* Canvas-Based Film Grain - Locked at 10% (Only on Hero) */}
         <NoiseTexture opacity={0.10} />
         
@@ -75,7 +75,7 @@ export function HeroWithVariants() {
         {/* Content - Responsive Layout */}
         {/* Mobile/Tablet: Centered */}
         {/* Desktop: Left-aligned */}
-        <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 py-12 sm:py-16 lg:px-8 w-full">
           <div className="mx-auto lg:mx-0 max-w-3xl lg:max-w-2xl text-center lg:text-left">
             <Badge 
               variant="featured" 

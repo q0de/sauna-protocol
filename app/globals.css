@@ -366,6 +366,18 @@ textarea:hover {
   animation: fade-in-up 0.8s ease-out;
 }
 
+/* Scroll-triggered animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @keyframes pulse-subtle {
   0%, 100% {
     opacity: 1;
