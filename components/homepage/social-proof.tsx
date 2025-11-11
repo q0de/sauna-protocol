@@ -17,6 +17,7 @@ export function SocialProof() {
         "Average 20 mmHg blood pressure reduction"
       ],
       source: "JAMA Internal Medicine, 2015",
+      studyLink: "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2130724",
       icon: BookOpen,
       color: "text-blue-600",
       bgColor: "bg-blue-50",
@@ -35,6 +36,7 @@ export function SocialProof() {
       color: "text-[#ff6b6b]",
       bgColor: "bg-red-50",
       link: "/protocols/bryan-johnson",
+      studyLink: "https://protocol.bryanjohnson.com/",
     },
     {
       title: "Long-Term Health Benefits",
@@ -46,6 +48,7 @@ export function SocialProof() {
         "Significant HRV improvements in 12 weeks"
       ],
       source: "Multiple peer-reviewed studies",
+      studyLink: "https://pubmed.ncbi.nlm.nih.gov/?term=sauna+cardiovascular+health",
       icon: TrendingUp,
       color: "text-green-600",
       bgColor: "bg-green-50",
@@ -94,15 +97,25 @@ export function SocialProof() {
                       ))}
                     </div>
                     
-                    <div className="pt-4 border-t">
+                    <div className="pt-4 border-t space-y-2">
                       <p className="text-xs text-gray-500 flex items-center">
                         <BookOpen className="h-3 w-3 mr-1" />
                         {result.source}
                       </p>
+                      {result.studyLink && (
+                        <a 
+                          href={result.studyLink} 
+                          target="_blank" 
+                          rel="noopener noreferrer nofollow"
+                          className="text-xs text-[#2196f3] flex items-center font-medium hover:underline"
+                        >
+                          View research study <ExternalLink className="h-3 w-3 ml-1" />
+                        </a>
+                      )}
                       {result.link && (
-                        <p className="text-xs text-[#2196f3] mt-2 flex items-center font-medium">
+                        <Link href={result.link} className="text-xs text-[#ff6b6b] flex items-center font-medium hover:underline">
                           View full protocol <ExternalLink className="h-3 w-3 ml-1" />
-                        </p>
+                        </Link>
                       )}
                     </div>
                   </CardContent>
