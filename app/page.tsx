@@ -366,6 +366,7 @@ export default async function HomePage() {
                     </div>
                   </CardContent>
                 </Card>
+                </ScrollReveal>
               ))}
             </div>
           </div>
