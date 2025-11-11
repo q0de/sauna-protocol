@@ -73,14 +73,13 @@ export function Header() {
         </div>
 
         {/* Centered Logo */}
-        <div className="flex lg:flex-1 justify-center">
-          <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-3 group">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#ff6b6b] to-[#f59e0b] rounded-lg blur-sm opacity-75 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative bg-gradient-to-r from-[#ff6b6b] to-[#f59e0b] p-2 rounded-lg">
-                <Flame className="h-6 w-6 text-white" />
-              </div>
+        <div className="absolute left-1/2 -translate-x-1/2 flex items-center">
+          <Link href="/" className="relative flex items-center group">
+            {/* Flame Emoji Behind Text */}
+            <div className="absolute left-1/2 -translate-x-1/2 text-[100px] opacity-20 pointer-events-none select-none">
+              🔥
             </div>
+            {/* Logo Text */}
             <div className="relative h-20 w-auto -my-4">
               <Image
                 src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/IMG-LOGO.png"
