@@ -87,13 +87,6 @@ export function Header() {
         {/* Centered Logo */}
         <div className="absolute left-1/2 -translate-x-1/2 flex items-center">
           <Link href="/" className="relative flex items-center group">
-            {/* Flame Emoji Behind Text - White Outline */}
-            <div className="absolute left-1/2 -translate-x-1/2 text-[100px] opacity-30 pointer-events-none select-none" style={{ 
-              WebkitTextStroke: '2px white',
-              textShadow: '0 0 10px rgba(255,255,255,0.8)'
-            }}>
-              🔥
-            </div>
             {/* Logo Text */}
             <div className="relative h-20 w-auto -my-4">
               <Image
