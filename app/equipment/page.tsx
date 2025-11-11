@@ -480,7 +480,7 @@ export default function EquipmentPage() {
               </CardContent>
             </Card>
             {/* PRODUCT #9: Stainless Steel Sauna Timer */}
-            <Card id="timer-mechanical" className="border-2 border-slate-200 bg-slate-50">
+            <Card id="timer-mechanical" className="border-2 border-slate-200 bg-slate-50 scroll-mt-32">
               <CardHeader>
                 <Badge variant="accent" className="mb-2">PRODUCT #9</Badge>
                 <CardTitle className="text-2xl">Mechanical Stainless Steel Sauna Timer</CardTitle>
