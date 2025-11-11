@@ -68,59 +68,60 @@ export function SocialProof() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {researchResults.map((result, index) => {
             const Icon = result.icon
-            const CardWrapper = result.link ? Link : 'div'
-            const cardProps = result.link ? { href: result.link } : {}
             
             return (
-              <CardWrapper key={index} {...cardProps}>
-                <Card className="border-2 hover:shadow-lg transition-all h-full cursor-pointer">
-                  <CardContent className="p-6">
-                    <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full ${result.bgColor} mb-4`}>
-                      <Icon className={`h-6 w-6 ${result.color}`} />
-                    </div>
-                    
-                    <h3 className="text-xl font-bold mb-2 text-gray-900">{result.title}</h3>
-                    
-                    <div className="mb-4">
-                      <Badge variant="secondary" className="text-xs">
-                        {result.participants}
-                      </Badge>
-                      <span className="text-sm text-gray-500 ml-2">• {result.duration}</span>
-                    </div>
-                    
-                    <div className="space-y-2 mb-4">
-                      {result.findings.map((finding, idx) => (
-                        <div key={idx} className="flex items-start">
-                          <div className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2 mr-2 flex-shrink-0" />
-                          <p className="text-sm text-gray-700">{finding}</p>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    <div className="pt-4 border-t space-y-2">
-                      <p className="text-xs text-gray-500 flex items-center">
-                        <BookOpen className="h-3 w-3 mr-1" />
-                        {result.source}
-                      </p>
-                      {result.studyLink && (
-                        <a 
-                          href={result.studyLink} 
-                          target="_blank" 
-                          rel="noopener noreferrer nofollow"
-                          className="text-xs text-[#2196f3] flex items-center font-medium hover:underline"
-                        >
-                          View research study <ExternalLink className="h-3 w-3 ml-1" />
-                        </a>
-                      )}
-                      {result.link && (
-                        <Link href={result.link} className="text-xs text-[#ff6b6b] flex items-center font-medium hover:underline">
-                          View full protocol <ExternalLink className="h-3 w-3 ml-1" />
-                        </Link>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              </CardWrapper>
+              <Card key={index} className="border-2 hover:shadow-lg transition-all h-full">
+                <CardContent className="p-6">
+                  <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full ${result.bgColor} mb-4`}>
+                    <Icon className={`h-6 w-6 ${result.color}`} />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">{result.title}</h3>
+                  
+                  <div className="mb-4">
+                    <Badge variant="secondary" className="text-xs">
+                      {result.participants}
+                    </Badge>
+                    <span className="text-sm text-gray-500 ml-2">• {result.duration}</span>
+                  </div>
+                  
+                  <div className="space-y-2 mb-4">
+                    {result.findings.map((finding, idx) => (
+                      <div key={idx} className="flex items-start">
+                        <div className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2 mr-2 flex-shrink-0" />
+                        <p className="text-sm text-gray-700">{finding}</p>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="pt-4 border-t space-y-2">
+                    <p className="text-xs text-gray-500 flex items-center">
+                      <BookOpen className="h-3 w-3 mr-1" />
+                      {result.source}
+                    </p>
+                    {result.studyLink && (
+                      <a 
+                        href={result.studyLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer nofollow"
+                        className="text-xs text-[#2196f3] flex items-center font-medium hover:underline"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        View research study <ExternalLink className="h-3 w-3 ml-1" />
+                      </a>
+                    )}
+                    {result.link && (
+                      <Link 
+                        href={result.link} 
+                        className="text-xs text-[#ff6b6b] flex items-center font-medium hover:underline"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        View full protocol <ExternalLink className="h-3 w-3 ml-1" />
+                      </Link>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
             )
           })}
         </div>
