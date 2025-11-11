@@ -4,6 +4,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { NewsletterForm } from '@/components/email/newsletter-form'
 import { HeroWithVariants } from '@/components/hero/hero-variants'
+import { TrustBar } from '@/components/homepage/trust-bar'
+import { FeaturedEquipment } from '@/components/homepage/featured-equipment'
+import { SocialProof } from '@/components/homepage/social-proof'
+import { PreFooterTrust } from '@/components/homepage/pre-footer-trust'
 import { ArrowRight, Thermometer, Clock, TrendingUp, Star, CheckCircle } from 'lucide-react'
 import { getAllArticles } from '@/lib/mdx'
 
@@ -53,6 +57,9 @@ export default async function HomePage() {
     <div className="flex flex-col">
       {/* Hero Section with Layout Variants */}
       <HeroWithVariants />
+
+      {/* Trust Bar - NEW */}
+      <TrustBar />
 
       {/* Featured Protocol Section */}
       <section className="py-16 bg-gray-50">
@@ -158,6 +165,9 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Featured Equipment - NEW */}
+      <FeaturedEquipment />
+
       {/* Benefits Section */}
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -195,6 +205,9 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Social Proof - NEW */}
+      <SocialProof />
 
       {/* Latest Articles */}
       {featuredArticles.length > 0 && (
@@ -253,6 +266,9 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Pre-Footer Trust Elements - NEW */}
+      <PreFooterTrust />
     </div>
   )
 }

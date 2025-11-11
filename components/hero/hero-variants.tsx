@@ -17,7 +17,7 @@ import {
 type HeroVariant = 'current' | 'pain-point' | 'social-proof' | 'outcome-driven' | 'authority'
 
 export function HeroWithVariants() {
-  const [variant, setVariant] = useState<HeroVariant>('current')
+  const [variant, setVariant] = useState<HeroVariant>('authority')
 
   const heroContent = {
     current: {
