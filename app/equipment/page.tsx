@@ -31,7 +31,7 @@ export default function EquipmentPage() {
             <CardContent className="pt-6">
               <p className="text-lg font-semibold mb-2">Quick Take:</p>
               <p className="text-gray-700">
-                Essential sauna equipment includes an accurate thermometer ($20-50), timer ($15-40), proper towels ($25-60), and quality cleaning supplies ($30-80). Optional upgrades like aromatherapy systems, sound systems, and tracking devices can enhance your experience significantly.
+                Essential sauna equipment includes an accurate thermometer ($20-50), <span id="timer" className="scroll-mt-32">timer</span> ($15-40), proper <span id="towels" className="scroll-mt-32">towels</span> ($25-60), and quality cleaning supplies ($30-80). Optional upgrades like aromatherapy systems, sound systems, and tracking devices can enhance your experience significantly.
               </p>
             </CardContent>
           </Card>
@@ -49,7 +49,7 @@ export default function EquipmentPage() {
 
           <div className="space-y-8">
             {/* PRODUCT #1: Thermometer/Hygrometer Combo */}
-            <Card className="border-2 border-green-200 bg-gradient-to-br from-green-50 to-blue-50">
+            <Card id="thermometer" className="border-2 border-green-200 bg-gradient-to-br from-green-50 to-blue-50 scroll-mt-32">
               <CardHeader>
                 <div className="flex items-center gap-2 mb-2">
                   <Badge variant="default">PRODUCT #1</Badge>

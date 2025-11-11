@@ -159,11 +159,13 @@ export default function BryanJohnsonProtocolPage() {
       name: "Sauna Thermometer",
       recommended: true,
       reason: "Essential for accurate temperature monitoring",
+      link: "/equipment#thermometer",
     },
     {
       name: "Timer",
       recommended: true,
       reason: "Track your 25-minute sessions precisely",
+      link: "/equipment#timer",
     },
   ]
 
@@ -974,7 +976,7 @@ export default function BryanJohnsonProtocolPage() {
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Bring a towel and timer</span>
+                      <span>Bring a <Link href="/equipment#towels" className="text-[#ff6b6b] hover:underline">towel</Link> and <Link href="/equipment#timer" className="text-[#ff6b6b] hover:underline">timer</Link></span>
                     </li>
                   </ul>
                 </CardContent>
@@ -991,7 +993,7 @@ export default function BryanJohnsonProtocolPage() {
                   <ul className="space-y-2 text-gray-600">
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Set timer for 25 minutes</span>
+                      <span>Set <Link href="/equipment#timer" className="text-[#ff6b6b] hover:underline">timer</Link> for 25 minutes</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
@@ -1055,7 +1057,13 @@ export default function BryanJohnsonProtocolPage() {
                       )}
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
-                          <h3 className="font-semibold text-lg">{item.name}</h3>
+                          {item.link ? (
+                            <Link href={item.link} className="font-semibold text-lg hover:text-[#ff6b6b] transition-colors">
+                              {item.name}
+                            </Link>
+                          ) : (
+                            <h3 className="font-semibold text-lg">{item.name}</h3>
+                          )}
                           {item.recommended && (
                             <Badge variant="default" className="text-xs">RECOMMENDED</Badge>
                           )}
