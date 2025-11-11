@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   description: "Discover science-backed sauna protocols, including Bryan Johnson's 200°F protocol. Expert equipment reviews and guides to optimize your sauna experience.",
   keywords: ["sauna protocol", "bryan johnson sauna", "sauna benefits", "sauna equipment", "infrared sauna", "dry sauna"],
   authors: [{ name: "SaunaProtocol Team" }],
+  verification: {
+    google: 'MGGQ4BczJSuzQaaZ-AAgWts1peu5Eup3P4P4YWjLZnY',
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -78,6 +81,14 @@ export default function RootLayout({
             plausible.init()
           `}
         </Script>
+        
+        {/* Ahrefs Analytics */}
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="BLrodkYEXoModhOOFKdeEg"
+          strategy="afterInteractive"
+          async
+        />
       </body>
     </html>
   )

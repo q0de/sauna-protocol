@@ -111,7 +111,14 @@ export default function EquipmentPage() {
                   <CardHeader>
                     <CardTitle className="text-lg">Top Pick: Traditional Dial Thermometer</CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-2 text-sm">
+                  <CardContent className="space-y-3 text-sm">
+                    {/* Product Image Placeholder */}
+                    <div className="w-full h-40 bg-white rounded-lg flex items-center justify-center border border-gray-200">
+                      <div className="text-center text-gray-500">
+                        <Thermometer className="h-16 w-16 mx-auto mb-2 text-green-600" />
+                        <div className="text-xs">Product Image</div>
+                      </div>
+                    </div>
                     <div><strong>Amazon Price:</strong> $20-35</div>
                     <div><strong>Why It Works:</strong> No batteries, handles extreme heat, easy to read</div>
                     <div><strong>Best For:</strong> Traditional Finnish saunas (175-200°F)</div>
@@ -130,13 +137,20 @@ export default function EquipmentPage() {
                   <CardHeader>
                     <CardTitle className="text-lg">Runner-Up: Thermometer/Hygrometer Combo</CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-2 text-sm">
+                  <CardContent className="space-y-3 text-sm">
+                    {/* Product Image Placeholder */}
+                    <div className="w-full h-40 bg-white rounded-lg flex items-center justify-center border border-gray-200">
+                      <div className="text-center text-gray-500">
+                        <Droplets className="h-16 w-16 mx-auto mb-2 text-blue-600" />
+                        <div className="text-xs">Product Image</div>
+                      </div>
+                    </div>
                     <div><strong>Amazon Price:</strong> $25-50</div>
                     <div><strong>Added Benefit:</strong> Tracks humidity levels (critical for protocol optimization)</div>
                     <div><strong>Best For:</strong> Users following specific research protocols</div>
                     <div><strong>Pro Tip:</strong> Mount at head height when seated for accurate readings</div>
                     <div className="pt-3">
-                      <Button asChild variant="secondary" size="sm" className="w-full">
+                      <Button asChild variant="default" size="sm" className="w-full bg-white text-blue-700 border-2 border-blue-600 hover:bg-blue-600 hover:text-white">
                         <a href={affiliateLinks.thermometerHygrometerCombo} target="_blank" rel="noopener noreferrer nofollow">
                           View on Amazon →
                         </a>
@@ -149,7 +163,14 @@ export default function EquipmentPage() {
                   <CardHeader>
                     <CardTitle className="text-lg">Digital Option: Heat-Resistant Digital</CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-2 text-sm">
+                  <CardContent className="space-y-3 text-sm">
+                    {/* Product Image Placeholder */}
+                    <div className="w-full h-40 bg-white rounded-lg flex items-center justify-center border border-gray-200">
+                      <div className="text-center text-gray-500">
+                        <Thermometer className="h-16 w-16 mx-auto mb-2 text-purple-600" />
+                        <div className="text-xs">Product Image</div>
+                      </div>
+                    </div>
                     <div><strong>Amazon Price:</strong> $30-65</div>
                     <div><strong>Pros:</strong> Precise readings, some models include remote displays</div>
                     <div><strong>Cons:</strong> Requires batteries, may have shorter lifespan</div>
@@ -297,6 +318,13 @@ export default function EquipmentPage() {
                     <CardTitle>Best Linen Sauna Towels</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3">
+                    {/* Product Image Placeholder */}
+                    <div className="w-full h-40 bg-white rounded-lg flex items-center justify-center border border-gray-200">
+                      <div className="text-center text-gray-500">
+                        <Sparkles className="h-16 w-16 mx-auto mb-2 text-blue-600" />
+                        <div className="text-xs">Product Image</div>
+                      </div>
+                    </div>
                     <div><strong>Amazon Price:</strong> $25-45 for a 2-pack</div>
                     <div><strong>Material:</strong> 100% linen or linen-cotton blend</div>
                     <div className="text-sm text-gray-700">
@@ -310,7 +338,7 @@ export default function EquipmentPage() {
                     </div>
                     <div><strong>Sizing:</strong> Look for 30x60" or larger for full body coverage</div>
                     <div className="pt-3">
-                      <Button asChild variant="default" size="sm" className="w-full">
+                      <Button asChild variant="default" size="sm" className="w-full bg-white text-blue-700 border-2 border-blue-600 hover:bg-blue-600 hover:text-white">
                         <a href={affiliateLinks.towelsLinen2Pack} target="_blank" rel="noopener noreferrer nofollow">
                           Shop Linen Towels →
                         </a>
@@ -324,11 +352,18 @@ export default function EquipmentPage() {
                     <CardTitle>Turkish Cotton Option</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3">
+                    {/* Product Image Placeholder */}
+                    <div className="w-full h-40 bg-white rounded-lg flex items-center justify-center border border-gray-200">
+                      <div className="text-center text-gray-500">
+                        <Sparkles className="h-16 w-16 mx-auto mb-2 text-green-600" />
+                        <div className="text-xs">Product Image</div>
+                      </div>
+                    </div>
                     <div><strong>Amazon Price:</strong> $30-60 for a set</div>
                     <div><strong>Why It Works:</strong> Highly absorbent, durable, heat-resistant</div>
                     <div><strong>Best For:</strong> Those who prefer plush, thick towels</div>
                     <div className="pt-3">
-                      <Button asChild variant="secondary" size="sm" className="w-full">
+                      <Button asChild variant="default" size="sm" className="w-full">
                         <a href={affiliateLinks.towelsTurkishCotton} target="_blank" rel="noopener noreferrer nofollow">
                           Shop Turkish Towels →
                         </a>
