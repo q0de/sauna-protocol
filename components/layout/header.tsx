@@ -166,10 +166,8 @@ export function Header() {
           </button>
         </div>
 
-            {/* Centered Logo - Hidden on mobile when menu is open */}
-            <div className={`absolute left-1/2 -translate-x-1/2 flex items-center transition-opacity duration-300 ${
-              mobileMenuOpen ? 'lg:opacity-100 opacity-0 pointer-events-none' : 'opacity-100'
-            }`}>
+            {/* Centered Logo - Always visible */}
+            <div className="absolute left-1/2 -translate-x-1/2 flex items-center">
               <Link href="/" className="relative flex items-center group">
                 {/* Logo Text */}
                 <div 
@@ -213,31 +211,19 @@ export function Header() {
         </div>
       </nav>
       
-      {/* Mobile menu - Full screen overlay */}
+      {/* Mobile menu - Full screen overlay with top spacing for logo */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 bg-white">
+        <div className="lg:hidden fixed inset-0 z-40 bg-white" style={{ paddingTop: '140px' }}>
           <div className="flex flex-col h-full">
-            {/* Header with close button */}
-            <div className="flex items-center justify-between p-6 border-b">
-              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
-                <Image
-                  src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/IMG-LOGO.webp"
-                  alt="SaunaProtocol Logo"
-                  width={240}
-                  height={40}
-                  className="h-10 w-auto"
-                  priority
-                />
-              </Link>
-              <button
-                type="button"
-                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <span className="sr-only">Close menu</span>
-                <X className="h-6 w-6" aria-hidden="true" />
-              </button>
-            </div>
+            {/* Close button - positioned absolute top right */}
+            <button
+              type="button"
+              className="absolute top-6 right-6 -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 z-10"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <X className="h-6 w-6" aria-hidden="true" />
+            </button>
             
             {/* Navigation links */}
             <div className="flex-1 overflow-y-auto py-6 px-6">
