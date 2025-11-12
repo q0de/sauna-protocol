@@ -112,7 +112,7 @@ export function Header() {
         />
         
       <nav className={`relative z-10 mx-auto flex max-w-7xl items-center justify-between transition-all duration-300 ${
-        isMobile ? 'py-4 px-6' : 'p-6 lg:px-8'
+        isMobile ? 'py-6 px-6' : 'p-6 lg:px-8'
       }`} aria-label="Global">
         {/* Left Navigation - Aligned with hero content */}
         <div className="hidden lg:flex lg:gap-x-8 lg:-ml-1">
