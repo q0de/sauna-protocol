@@ -21,7 +21,7 @@ export function HeroWithVariants() {
   return (
     <>
 
-      <section className="relative overflow-hidden text-white min-h-screen flex items-center pt-[140px] lg:pt-0">
+      <section className="relative overflow-hidden text-white min-h-screen flex items-center pt-[120px] lg:pt-0">
         {/* Canvas-Based Film Grain - Locked at 10% (Only on Hero) */}
         <NoiseTexture opacity={0.10} />
         

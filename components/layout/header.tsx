@@ -111,7 +111,9 @@ export function Header() {
           }}
         />
         
-      <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 transition-all duration-300" aria-label="Global">
+      <nav className={`relative z-10 mx-auto flex max-w-7xl items-center justify-between transition-all duration-300 ${
+        isMobile ? 'py-4 px-6' : 'p-6 lg:px-8'
+      }`} aria-label="Global">
         {/* Left Navigation - Aligned with hero content */}
         <div className="hidden lg:flex lg:gap-x-8 lg:-ml-1">
           <Link
@@ -182,8 +184,8 @@ export function Header() {
                   className="relative w-auto object-contain"
                   style={{ 
                     height: `${currentSize.height}px`,
-                    marginTop: `-${currentSize.marginY * 4}px`,
-                    marginBottom: `-${currentSize.marginY * 4}px`,
+                    marginTop: isMobile ? '0px' : `-${currentSize.marginY * 4}px`,
+                    marginBottom: isMobile ? '0px' : `-${currentSize.marginY * 4}px`,
                     transition: 'all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1)',
                     willChange: 'height, margin'
                   }}
@@ -222,7 +224,7 @@ export function Header() {
       
       {/* Mobile menu - Dropdown below navbar */}
       {mobileMenuOpen && isMobile && (
-        <div className="lg:hidden fixed inset-x-0 bg-white border-t border-gray-200 shadow-xl" style={{ top: '100%', zIndex: 40 }}>
+        <div className="lg:hidden absolute inset-x-0 top-full bg-white border-t border-gray-200 shadow-xl" style={{ zIndex: 40 }}>
           <div className="flex flex-col max-h-[calc(100vh-140px)] overflow-y-auto">
             {/* Navigation links */}
             <div className="py-6 px-6">
