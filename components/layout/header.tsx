@@ -72,13 +72,21 @@ export function Header() {
 
   return (
     <header 
-      className="fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[98%] max-w-7xl"
+      className={`fixed z-50 transition-all duration-300 ${
+        isMobile 
+          ? 'inset-x-0 top-0' 
+          : 'left-1/2 -translate-x-1/2 w-[98%] max-w-7xl'
+      }`}
       style={{ 
-        top: isMobile ? '1rem' : '4rem'
+        top: isMobile ? '0' : '4rem'
       }}
     >
       <div 
-        className={`relative rounded-full border transition-all duration-300 ${
+        className={`relative border transition-all duration-300 ${
+          isMobile 
+            ? 'rounded-none' 
+            : 'rounded-full'
+        } ${
           isScrolled 
             ? 'bg-white/70 backdrop-blur-xl border-white/30 shadow-2xl' 
             : 'bg-transparent border-transparent shadow-none'
@@ -210,23 +218,14 @@ export function Header() {
           </Button>
         </div>
       </nav>
+      </div>
       
-      {/* Mobile menu - Full screen overlay with top spacing for logo */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-40 bg-white" style={{ paddingTop: '140px' }}>
-          <div className="flex flex-col h-full">
-            {/* Close button - positioned absolute top right */}
-            <button
-              type="button"
-              className="absolute top-6 right-6 -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 z-10"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <X className="h-6 w-6" aria-hidden="true" />
-            </button>
-            
+      {/* Mobile menu - Dropdown below navbar */}
+      {mobileMenuOpen && isMobile && (
+        <div className="lg:hidden fixed inset-x-0 bg-white border-t border-gray-200 shadow-xl" style={{ top: '100%', zIndex: 40 }}>
+          <div className="flex flex-col max-h-[calc(100vh-140px)] overflow-y-auto">
             {/* Navigation links */}
-            <div className="flex-1 overflow-y-auto py-6 px-6">
+            <div className="py-6 px-6">
               <div className="space-y-2">
                 {navigation.map((item) => (
                   <Link
@@ -252,7 +251,6 @@ export function Header() {
           </div>
         </div>
       )}
-      </div>
     </header>
   )
 }
