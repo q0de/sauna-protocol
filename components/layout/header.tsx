@@ -46,7 +46,22 @@ export function Header() {
   }, [isScrolled])
   
   // Use X-Large (index 3) when scrolled, otherwise use 3X-Large (index 5)
-  const currentSize = logoSizes[isScrolled ? 3 : 5]
+  // On mobile, use smaller sizes: Medium (index 1) when scrolled, Large (index 2) otherwise
+  const [isMobile, setIsMobile] = useState(false)
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+  
+  const currentSize = isMobile 
+    ? logoSizes[isScrolled ? 1 : 2]  // Mobile: Medium when scrolled, Large otherwise
+    : logoSizes[isScrolled ? 3 : 5]  // Desktop: X-Large when scrolled, 3X-Large otherwise
 
   const navigation = [
     { name: 'Protocols', href: '/protocols/bryan-johnson' },
@@ -59,7 +74,7 @@ export function Header() {
     <header 
       className="fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[98%] max-w-7xl"
       style={{ 
-        top: '4rem'
+        top: isMobile ? '1rem' : '4rem'
       }}
     >
       <div 
@@ -137,7 +152,9 @@ export function Header() {
         <div className="flex lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            className={`-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 ${
+              isScrolled ? 'text-gray-700' : 'text-white'
+            }`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="sr-only">Open main menu</span>
@@ -149,8 +166,10 @@ export function Header() {
           </button>
         </div>
 
-            {/* Centered Logo */}
-            <div className="absolute left-1/2 -translate-x-1/2 flex items-center">
+            {/* Centered Logo - Hidden on mobile when menu is open */}
+            <div className={`absolute left-1/2 -translate-x-1/2 flex items-center transition-opacity duration-300 ${
+              mobileMenuOpen ? 'lg:opacity-100 opacity-0 pointer-events-none' : 'opacity-100'
+            }`}>
               <Link href="/" className="relative flex items-center group">
                 {/* Logo Text */}
                 <div 
@@ -194,23 +213,54 @@ export function Header() {
         </div>
       </nav>
       
-      {/* Mobile menu */}
+      {/* Mobile menu - Full screen overlay */}
       {mobileMenuOpen && (
-        <div className="lg:hidden">
-          <div className="space-y-2 px-6 pb-6 pt-2">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+        <div className="lg:hidden fixed inset-0 z-50 bg-white">
+          <div className="flex flex-col h-full">
+            {/* Header with close button */}
+            <div className="flex items-center justify-between p-6 border-b">
+              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                <Image
+                  src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/IMG-LOGO.webp"
+                  alt="SaunaProtocol Logo"
+                  width={240}
+                  height={40}
+                  className="h-10 w-auto"
+                  priority
+                />
+              </Link>
+              <button
+                type="button"
+                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {item.name}
-              </Link>
-            ))}
-            <div className="pt-4">
-              <Button asChild className="w-full">
-                <Link href="/contact">Get Started</Link>
+                <span className="sr-only">Close menu</span>
+                <X className="h-6 w-6" aria-hidden="true" />
+              </button>
+            </div>
+            
+            {/* Navigation links */}
+            <div className="flex-1 overflow-y-auto py-6 px-6">
+              <div className="space-y-2">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="block rounded-lg px-4 py-3 text-lg font-semibold leading-7 text-gray-900 hover:bg-gray-50 transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            
+            {/* Footer with CTA */}
+            <div className="border-t p-6">
+              <Button asChild className="w-full" size="lg">
+                <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+                  Get Started
+                </Link>
               </Button>
             </div>
           </div>
