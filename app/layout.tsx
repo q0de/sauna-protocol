@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { ScrollToTop } from "@/components/ui/scroll-to-top"
 import { Analytics } from "@vercel/analytics/react"
+import { StructuredData } from "@/components/seo/structured-data"
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -64,9 +65,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://saunaprotocol.com'
+  
+  // Organization Schema for entire site
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'SaunaProtocol',
+    url: siteUrl,
+    logo: `${siteUrl}/logo.png`,
+    description: 'Evidence-based sauna protocols and equipment reviews for optimal health and longevity',
+    sameAs: [
+      // Add social media profiles here when available
+    ]
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased`} suppressHydrationWarning>
+        <StructuredData data={organizationSchema} />
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>

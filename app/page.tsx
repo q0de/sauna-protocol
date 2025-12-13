@@ -16,15 +16,15 @@ import { getAllArticles } from '@/lib/mdx'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Sauna Protocol Guide: Science-Backed Heat Exposure Plans",
-  description: "Evidence-based sauna protocols for cardiovascular health & longevity. Complete guide covering Bryan Johnson's 200°F protocol, optimal duration, timing, and safety. 40+ studies analyzed.",
+  title: "Sauna Protocol Guide: Science-Backed Plans",
+  description: "Evidence-based sauna protocols for health & longevity. Bryan Johnson's 200°F protocol, optimal duration, timing, safety. 40+ studies analyzed.",
   openGraph: {
-    title: "Sauna Protocol Guide: Science-Backed Heat Exposure Plans",
-    description: "Evidence-based sauna protocols for cardiovascular health & longevity. Complete guide covering Bryan Johnson's 200°F protocol, optimal duration, timing, and safety.",
+    title: "Sauna Protocol Guide: Science-Backed Plans",
+    description: "Evidence-based sauna protocols for health & longevity. Bryan Johnson's 200°F protocol, optimal duration, timing, and safety.",
   },
   twitter: {
-    title: "Sauna Protocol Guide: Science-Backed Heat Exposure Plans",
-    description: "Evidence-based sauna protocols for cardiovascular health & longevity. Complete guide covering Bryan Johnson's 200°F protocol, optimal duration, timing, and safety.",
+    title: "Sauna Protocol Guide: Science-Backed Plans",
+    description: "Evidence-based sauna protocols for health & longevity. Bryan Johnson's 200°F protocol, optimal duration, timing, and safety.",
   },
 }
 

@@ -214,19 +214,65 @@ export default function BryanJohnsonProtocolPage() {
     },
   ]
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://saunaprotocol.com'
+  
   const structuredData = generateArticleSchema({
     title: "Bryan Johnson's 200°F Sauna Protocol",
     description: "The exact sauna protocol used by Bryan Johnson to improve blood pressure and increase HRV.",
     publishedAt: "2025-11-09T00:00:00.000Z",
     updatedAt: "2025-11-09T00:00:00.000Z",
     author: "SaunaProtocol Team",
-    image: `${process.env.NEXT_PUBLIC_SITE_URL}/images/og/bryan-johnson-protocol.jpg`,
-    url: `${process.env.NEXT_PUBLIC_SITE_URL}/protocols/bryan-johnson`,
+    image: `${siteUrl}/images/og/bryan-johnson-protocol.jpg`,
+    url: `${siteUrl}/protocols/bryan-johnson`,
   })
+
+  // HowTo Schema for step-by-step protocol
+  const howToSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: "How to Follow Bryan Johnson's 200°F Sauna Protocol",
+    description: "Step-by-step guide to implementing Bryan Johnson's advanced sauna protocol for cardiovascular health and longevity",
+    totalTime: 'PT25M',
+    step: [
+      {
+        '@type': 'HowToStep',
+        name: 'Pre-Sauna Preparation',
+        text: 'Drink 16-20 oz of water to pre-hydrate. Complete your workout session if doing post-workout protocol. Preheat sauna to 200°F.',
+        position: 1
+      },
+      {
+        '@type': 'HowToStep',
+        name: 'During the Session',
+        text: 'Set timer for 25 minutes. Practice deep breathing or meditation. Stay seated or lying down. Exit immediately if you feel dizzy.',
+        position: 2
+      },
+      {
+        '@type': 'HowToStep',
+        name: 'Post-Sauna Recovery',
+        text: 'Cool down gradually. Take a lukewarm shower. Rehydrate with 20-24 oz of water with electrolytes. Rest for 10-15 minutes.',
+        position: 3
+      }
+    ],
+    tool: [
+      {
+        '@type': 'HowToTool',
+        name: 'Traditional Finnish Sauna'
+      },
+      {
+        '@type': 'HowToTool',
+        name: 'Sauna Thermometer'
+      },
+      {
+        '@type': 'HowToTool',
+        name: 'Timer'
+      }
+    ]
+  }
 
   return (
     <>
       <StructuredData data={structuredData} />
+      <StructuredData data={howToSchema} />
       
       <article className="pt-44 pb-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
