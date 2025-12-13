@@ -1,7 +1,25 @@
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from 'next/link'
 
+// YouTube embed component
+function YouTube({ id }: { id: string }) {
+  return (
+    <div className="my-8 aspect-video rounded-xl overflow-hidden shadow-lg">
+      <iframe
+        width="100%"
+        height="100%"
+        src={`https://www.youtube.com/embed/${id}`}
+        title="YouTube video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        className="w-full h-full"
+      />
+    </div>
+  )
+}
+
 const components = {
+  YouTube,
   h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1 className="text-4xl font-bold mt-8 mb-4" {...props} />
   ),
