@@ -65,8 +65,21 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
+      'max-image-preview': 'large' as const,
+      'max-snippet': -1,
     },
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  manifest: '/manifest.json',
 }
 
 export default function RootLayout({
@@ -82,7 +95,7 @@ export default function RootLayout({
     '@type': 'Organization',
     name: 'SaunaProtocol',
     url: siteUrl,
-    logo: `${siteUrl}/images/logo.png`,
+    logo: `${siteUrl}/images/logo-512.png`,
     description: 'Evidence-based sauna protocols and equipment reviews for optimal health and longevity',
     sameAs: [
       // Add social media profiles here when available

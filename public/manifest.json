@@ -1,0 +1,21 @@
+{
+  "name": "SaunaProtocol",
+  "short_name": "SaunaProtocol",
+  "description": "Evidence-based sauna protocols for health & longevity",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a0f0a",
+  "theme_color": "#f26c0d",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
