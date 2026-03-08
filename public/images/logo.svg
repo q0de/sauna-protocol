@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 70" width="90" height="70">
+  <!-- SaunaProtocol Logo - 5 petal lotus fan -->
+  <rect width="90" height="70" rx="2" fill="#2d1810"/>
+  <g transform="translate(45, 50)">
+    <!-- Rounder, wider petals with more overlap, smaller overall -->
+    
+    <!-- Far left petal (-50°) -->
+    <path d="M0,0 C-4,-6 -6,-22 0,-30 C6,-22 4,-6 0,0Z" fill="#f26c0d" transform="rotate(-50)"/>
+    
+    <!-- Left-center petal (-25°) -->
+    <path d="M0,0 C-4,-6 -6,-22 0,-30 C6,-22 4,-6 0,0Z" fill="#f26c0d" transform="rotate(-25)"/>
+    
+    <!-- Center petal (0°) -->
+    <path d="M0,0 C-4,-6 -6,-22 0,-30 C6,-22 4,-6 0,0Z" fill="#f26c0d"/>
+    
+    <!-- Right-center petal (25°) -->
+    <path d="M0,0 C-4,-6 -6,-22 0,-30 C6,-22 4,-6 0,0Z" fill="#f26c0d" transform="rotate(25)"/>
+    
+    <!-- Far right petal (50°) -->
+    <path d="M0,0 C-4,-6 -6,-22 0,-30 C6,-22 4,-6 0,0Z" fill="#f26c0d" transform="rotate(50)"/>
+  </g>
+</svg>
