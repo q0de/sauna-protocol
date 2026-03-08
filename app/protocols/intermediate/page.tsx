@@ -8,6 +8,7 @@ import { StaggerContainer, StaggerItem } from '@/components/effects/stagger-cont
 export const metadata: Metadata = {
   title: 'Intermediate Sauna Protocol - Coming Soon',
   description: 'Intermediate sauna protocol page coming soon. Bridge between beginner and advanced protocols.',
+  robots: { index: false, follow: true },
 }
 
 export default function IntermediateProtocolPage() {

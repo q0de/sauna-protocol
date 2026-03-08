@@ -31,7 +31,7 @@ export default async function ArticlesPage() {
       slug: 'equipment-guide',
       href: '/equipment',
       frontmatter: {
-        title: "Best Sauna Equipment & Accessories Review Guide [2025]",
+        title: "Best Sauna Equipment & Accessories Review Guide [2026]",
         excerpt: "Expert reviews of the top 8 sauna accessories. We tested and analyzed hundreds of products to find the best thermometers, towels, and gear.",
         category: 'Equipment',
         featured: false,

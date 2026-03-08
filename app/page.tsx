@@ -18,13 +18,21 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: "Sauna Protocol Guide: Science-Backed Plans",
   description: "Evidence-based sauna protocols for health & longevity. Bryan Johnson's 200°F protocol, optimal duration, timing, safety. 40+ studies analyzed.",
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: "Sauna Protocol Guide: Science-Backed Plans",
     description: "Evidence-based sauna protocols for health & longevity. Bryan Johnson's 200°F protocol, optimal duration, timing, and safety.",
+    type: 'website',
+    url: 'https://saunaprotocol.com',
+    images: [{ url: '/images/og/default.jpg', width: 1200, height: 630, alt: 'SaunaProtocol - Science-Backed Sauna Protocols' }],
   },
   twitter: {
+    card: 'summary_large_image',
     title: "Sauna Protocol Guide: Science-Backed Plans",
     description: "Evidence-based sauna protocols for health & longevity. Bryan Johnson's 200°F protocol, optimal duration, timing, and safety.",
+    images: ['/images/og/default.jpg'],
   },
 }
 
@@ -313,7 +321,7 @@ export default async function HomePage() {
                 </div>
               </HoverCard>
               <div className="absolute top-8 right-8 z-20 bg-white text-black px-4 py-2 rounded-lg font-bold shadow-xl transform rotate-3 text-sm">
-                Verified 2024
+                Verified 2026
               </div>
             </FadeIn>
           </div>

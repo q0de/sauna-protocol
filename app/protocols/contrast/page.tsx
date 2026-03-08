@@ -8,6 +8,7 @@ import { StaggerContainer, StaggerItem } from '@/components/effects/stagger-cont
 export const metadata: Metadata = {
   title: 'Contrast Therapy Protocol - Coming Soon',
   description: 'Sauna and cold plunge contrast therapy protocol. Coming soon.',
+  robots: { index: false, follow: true },
 }
 
 export default function ContrastProtocolPage() {

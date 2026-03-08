@@ -161,7 +161,7 @@ export default function BestInfraredSaunasPage() {
         <header className="mb-12">
           <Badge variant="featured" className="mb-4">COMPARISON GUIDE</Badge>
           <h1 className="font-display text-4xl md:text-5xl font-bold italic text-white mb-6">
-            Best Infrared Saunas 2025
+            Best Infrared Saunas 2026
           </h1>
           <p className="text-xl text-text-muted leading-relaxed mb-6">
             We've tested and researched the top infrared sauna brands to help you find the perfect 
