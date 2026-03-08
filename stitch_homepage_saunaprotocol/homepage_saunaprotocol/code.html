@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SaunaProtocol - Science-Backed Heat Therapy</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Noto+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f26c0d",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#231810",
+                        "wood-dark": "#1a120b",
+                        "wood-medium": "#342418",
+                        "wood-light": "#493222",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #231810; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #493222; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f26c0d; 
+        }
+        .glass-nav {
+            background: rgba(35, 24, 16, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .steam-gradient {
+            background: radial-gradient(circle at 50% 100%, rgba(242, 108, 13, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(242, 108, 13, 0.3);
+        }
+        .cta-gradient {
+            background: linear-gradient(135deg, #ff7f50 0%, #f26c0d 100%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-body selection:bg-primary selection:text-white">
+<nav class="fixed top-0 left-0 right-0 z-50 border-b border-wood-light glass-nav transition-all duration-300">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<span class="material-symbols-outlined text-4xl">hot_tub</span>
+</div>
+<span class="font-display font-bold text-2xl tracking-tight text-white">SaunaProtocol</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="#">Protocols</a>
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="#">Science</a>
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="#">Gear</a>
+<a class="text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="#">About</a>
+</div>
+<div class="hidden md:flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3 text-wood-light">
+<span class="material-symbols-outlined text-gray-400">search</span>
+</span>
+<input class="w-64 bg-wood-medium border border-wood-light text-white text-sm rounded-full focus:ring-primary focus:border-primary block pl-10 p-2.5 placeholder-gray-500" placeholder="Search protocols..." type="text"/>
+</div>
+<button class="bg-primary hover:bg-orange-600 text-white px-5 py-2.5 rounded-full text-sm font-bold transition-colors shadow-lg shadow-orange-900/20">
+                    Start Protocol
+                </button>
+</div>
+<div class="md:hidden flex items-center">
+<button class="text-gray-300 hover:text-white">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/40 via-background-dark/80 to-background-dark z-10"></div>
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1515362778563-6a8d0e44bc0b?q=80&amp;w=2070&amp;auto=format&amp;fit=crop')] bg-cover bg-center" data-alt="Wooden sauna interior with soft steam and warm lighting"></div>
+<div class="absolute inset-0 bg-gradient-to-tr from-amber-900/30 via-orange-900/20 to-transparent mix-blend-overlay z-10"></div>
+</div>
+<div class="relative z-20 container mx-auto px-4 text-center max-w-4xl flex flex-col items-center gap-8">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-wood-medium/50 border border-wood-light backdrop-blur-sm">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span class="text-xs font-medium text-gray-300 uppercase tracking-wider">New: The Blueprint Protocol</span>
+</div>
+<h1 class="font-display font-bold text-5xl md:text-7xl leading-[1.1] text-white text-glow">
+            Science-Backed Sauna Protocols to <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-200">Extend Your Healthspan</span>
+</h1>
+<p class="text-lg md:text-xl text-gray-300 max-w-2xl font-light leading-relaxed">
+            Discover evidence-based heat therapy routines, including Bryan Johnson's Blueprint, designed for longevity, recovery, and HGH optimization.
+        </p>
+<div class="flex flex-col sm:flex-row gap-4 w-full justify-center items-center mt-4">
+<button class="min-w-[200px] h-14 cta-gradient hover:brightness-110 text-white text-lg font-bold rounded-full transition-all transform hover:scale-105 shadow-xl shadow-orange-900/30 flex items-center justify-center gap-2">
+                Start Your Protocol
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="min-w-[200px] h-14 bg-wood-medium/80 hover:bg-wood-light text-white text-lg font-medium rounded-full backdrop-blur-md border border-wood-light transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">play_circle</span>
+                Watch Guide
+            </button>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce z-20 text-gray-400">
+<span class="material-symbols-outlined text-3xl">keyboard_arrow_down</span>
+</div>
+</header>
+<section class="border-y border-wood-light bg-wood-dark py-8 relative z-20">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="flex items-center justify-center gap-4 border-r border-wood-light/30 last:border-0">
+<span class="material-symbols-outlined text-primary text-4xl">science</span>
+<div class="flex flex-col">
+<span class="text-2xl font-bold font-display text-white">50+</span>
+<span class="text-xs text-gray-400 uppercase tracking-wider">Studies Cited</span>
+</div>
+</div>
+<div class="flex items-center justify-center gap-4 border-r border-wood-light/30 last:border-0">
+<span class="material-symbols-outlined text-primary text-4xl">groups</span>
+<div class="flex flex-col">
+<span class="text-2xl font-bold font-display text-white">10k+</span>
+<span class="text-xs text-gray-400 uppercase tracking-wider">Active Users</span>
+</div>
+</div>
+<div class="flex items-center justify-center gap-4 border-r border-wood-light/30 last:border-0">
+<span class="material-symbols-outlined text-primary text-4xl">verified</span>
+<div class="flex flex-col">
+<span class="text-2xl font-bold font-display text-white">12</span>
+<span class="text-xs text-gray-400 uppercase tracking-wider">Verified Protocols</span>
+</div>
+</div>
+<div class="flex items-center justify-center gap-4">
+<span class="material-symbols-outlined text-primary text-4xl">medical_services</span>
+<div class="flex flex-col">
+<span class="text-2xl font-bold font-display text-white">8</span>
+<span class="text-xs text-gray-400 uppercase tracking-wider">Medical Experts</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-background-dark steam-gradient">
+<div class="container mx-auto px-4">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<h2 class="font-display font-bold text-3xl md:text-4xl text-white mb-4">Popular Questions</h2>
+<p class="text-gray-400 max-w-xl">Quick answers to the most common questions about heat therapy and protocol optimization.</p>
+</div>
+<a class="text-primary hover:text-white transition-colors flex items-center gap-1 font-medium" href="#">
+                View all FAQs <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="group relative h-64 perspective-1000">
+<div class="absolute inset-0 bg-wood-medium border border-wood-light rounded-xl p-8 flex flex-col justify-between hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-900/10 cursor-pointer">
+<div>
+<div class="w-12 h-12 bg-wood-light rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors text-primary">
+<span class="material-symbols-outlined text-2xl">thermostat</span>
+</div>
+<h3 class="font-display font-bold text-xl text-white mb-2">Infrared vs. Traditional?</h3>
+<p class="text-gray-400 text-sm leading-relaxed">Understanding the key differences in heat mechanism and cellular impact.</p>
+</div>
+<div class="flex items-center text-primary text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
+                        Read Answer <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</div>
+</div>
+</div>
+<div class="group relative h-64 perspective-1000">
+<div class="absolute inset-0 bg-wood-medium border border-wood-light rounded-xl p-8 flex flex-col justify-between hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-900/10 cursor-pointer">
+<div>
+<div class="w-12 h-12 bg-wood-light rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors text-primary">
+<span class="material-symbols-outlined text-2xl">local_fire_department</span>
+</div>
+<h3 class="font-display font-bold text-xl text-white mb-2">Ideal Temperature?</h3>
+<p class="text-gray-400 text-sm leading-relaxed">Finding the sweet spot for maximizing Heat Shock Proteins (HSP) and HGH release.</p>
+</div>
+<div class="flex items-center text-primary text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
+                        Read Answer <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</div>
+</div>
+</div>
+<div class="group relative h-64 perspective-1000">
+<div class="absolute inset-0 bg-wood-medium border border-wood-light rounded-xl p-8 flex flex-col justify-between hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-900/10 cursor-pointer">
+<div>
+<div class="w-12 h-12 bg-wood-light rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors text-primary">
+<span class="material-symbols-outlined text-2xl">schedule</span>
+</div>
+<h3 class="font-display font-bold text-xl text-white mb-2">How Long?</h3>
+<p class="text-gray-400 text-sm leading-relaxed">Optimal duration for maximum cardiovascular benefit without overstressing.</p>
+</div>
+<div class="flex items-center text-primary text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
+                        Read Answer <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-wood-dark border-y border-wood-light relative overflow-hidden">
+<div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="container mx-auto px-4 relative z-10">
+<div class="flex flex-col lg:flex-row gap-16 items-center">
+<div class="flex-1 space-y-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-wood-light border border-wood-medium text-primary text-xs font-bold uppercase tracking-wider">
+                    Featured Protocol
+                </div>
+<h2 class="font-display font-bold text-4xl md:text-5xl text-white leading-tight">
+                    The Blueprint Protocol
+                </h2>
+<p class="text-lg text-gray-300 leading-relaxed">
+                    Bryan Johnson's specific high-heat routine designed to mimic the cardiovascular intensity of moderate exercise while promoting autophagy and skin rejuvenation.
+                </p>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-6 bg-wood-medium rounded-xl border border-wood-light hover:border-primary/30 transition-colors">
+<div class="text-primary mb-2">
+<span class="material-symbols-outlined">thermometer</span>
+</div>
+<div class="text-3xl font-bold text-white font-display mb-1">200°F</div>
+<div class="text-sm text-gray-400">Target Temperature</div>
+</div>
+<div class="p-6 bg-wood-medium rounded-xl border border-wood-light hover:border-primary/30 transition-colors">
+<div class="text-primary mb-2">
+<span class="material-symbols-outlined">timer</span>
+</div>
+<div class="text-3xl font-bold text-white font-display mb-1">20 Min</div>
+<div class="text-sm text-gray-400">Duration Per Session</div>
+</div>
+<div class="p-6 bg-wood-medium rounded-xl border border-wood-light hover:border-primary/30 transition-colors">
+<div class="text-primary mb-2">
+<span class="material-symbols-outlined">water_drop</span>
+</div>
+<div class="text-3xl font-bold text-white font-display mb-1">57%</div>
+<div class="text-sm text-gray-400">Humidity Level</div>
+</div>
+<div class="p-6 bg-wood-medium rounded-xl border border-wood-light hover:border-primary/30 transition-colors">
+<div class="text-primary mb-2">
+<span class="material-symbols-outlined">monitor_heart</span>
+</div>
+<div class="text-3xl font-bold text-white font-display mb-1">140 BPM</div>
+<div class="text-sm text-gray-400">Target Heart Rate</div>
+</div>
+</div>
+<button class="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-orange-600 text-white font-bold rounded-lg transition-all shadow-lg shadow-orange-900/20 flex items-center justify-center gap-2">
+                    View Full Blueprint
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="flex-1 w-full relative">
+<div class="relative rounded-2xl overflow-hidden aspect-[4/5] border border-wood-light shadow-2xl">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
+<div class="absolute bottom-0 left-0 right-0 p-8 z-20">
+<blockquote class="text-xl font-display italic text-white mb-4">
+                            "The single most powerful longevity intervention you can do at home."
+                        </blockquote>
+<cite class="text-primary font-bold not-italic">— Bryan Johnson</cite>
+</div>
+<img alt="Person relaxing in sauna with moody lighting" class="w-full h-full object-cover" data-alt="Silhouette of a man sitting in a dark, modern sauna room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCeF0Vzrq6Q00cK44ztiAsG73i1k8o8XERulbXyX8AHtQDPSEsb9DPauwOJZG9MwqspCIH-eSXlkztRU3ML3kKcNNjt42EogIod_XRA8UR5UjcjBNRx6sb86P8YAZYcWX1maP8mCbpvK_wuNYwukhVxf5LQbrNAZXCZyRUVHzLo-epE7nuDk8pCytjeSh1dWNnfJsPin8Lf7IWJhPebqABhECv4qisFNX1Ed7Mqa1q5hqycch9M7KndaiAZx_B80FxyDUpcdawv7I"/>
+</div>
+<div class="absolute top-8 right-8 z-20 bg-white text-black px-4 py-2 rounded-lg font-bold shadow-xl transform rotate-3 text-sm">
+                    Verified 2024
+                </div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-background-dark">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="font-display font-bold text-4xl text-white mb-4">Choose Your Protocol</h2>
+<p class="text-gray-400 max-w-2xl mx-auto">Whether you're just starting or looking for advanced longevity benefits, we have a scientifically verified routine for you.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group bg-wood-medium rounded-2xl overflow-hidden border border-wood-light hover:border-primary transition-all duration-300">
+<div class="h-48 overflow-hidden relative">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+<img alt="Bright wooden sauna interior" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" data-alt="Bright, welcoming traditional sauna interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa-7SDHecdYISRV_Rhl4weJc91Yu2AKMvI_psb0B7EOC5kEWwEVam0TKTocye8wdn3ZYoAIHNjWwUk2IFb9UtZaZ8ui2JcBakzOp5k-Bj2J_Zl-bZr7DdIsbkziBA3NwYylgwT9DrkRYJ7fPN6wChTetVsnXnJTYWy20EAWjPU5FAnOcREcw8KBfBETMjnsBLZrAnA0GRm05NjFSS3FoodE0yDY4ZHNkjXF8wZwiA1heM0VGC55mpjzDj7FQSbtbOZsbeSfgIQ-gI"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-display font-bold text-2xl text-white">Beginner</h3>
+<span class="px-3 py-1 bg-green-900/30 text-green-400 text-xs font-bold rounded uppercase">Level 1</span>
+</div>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-3 text-sm text-gray-300">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            175°F Temperature
+                        </li>
+<li class="flex items-center gap-3 text-sm text-gray-300">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            10-15 Minutes
+                        </li>
+<li class="flex items-center gap-3 text-sm text-gray-300">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            Relaxation Focus
+                        </li>
+</ul>
+<button class="w-full py-3 border border-wood-light rounded-lg text-white font-medium hover:bg-wood-light hover:border-white transition-colors">View Details</button>
+</div>
+</div>
+<div class="group bg-wood-medium rounded-2xl overflow-hidden border border-wood-light hover:border-primary transition-all duration-300 relative transform md:-translate-y-4 shadow-2xl shadow-orange-900/10">
+<div class="absolute top-0 inset-x-0 h-1 bg-primary"></div>
+<div class="h-48 overflow-hidden relative">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+<img alt="Modern sauna with glass front" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" data-alt="Modern sauna room with ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiHYymyMuyLADYL-FJdqiB5-x3X79ZSUEaxAZ7F4d0tAWlIhnJaH9BRqxWAR0Wifxu_0iIUhduBE4yResXw7GO1SXmKqoyMV03Iia9BxR4e5uqov2ctpuvwiKm0l2fI_vZGktai6FdOKC3TI_Zgvjfz_XR3uAUBZPg73o-HoflnLzXoQY7sFxnSw9W8m3OQ8IagLRp0hNad02JB1Xqj3MA9FMrbhLtvtXwIY4E4rT-qFPftSee_UYBI9WkjPULSyZjElTo_NrmQnM"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-display font-bold text-2xl text-white">Advanced</h3>
+<span class="px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded uppercase">Popular</span>
+</div>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-3 text-sm text-gray-300">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            195°F Temperature
+                        </li>
+<li class="flex items-center gap-3 text-sm text-gray-300">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            20-25 Minutes
+                        </li>
+<li class="flex items-center gap-3 text-sm text-gray-300">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            HGH Release Focus
+                        </li>
+</ul>
+<button class="w-full py-3 bg-primary hover:bg-orange-600 rounded-lg text-white font-bold transition-colors shadow-lg shadow-orange-900/20">Start Now</button>
+</div>
+</div>
+<div class="group bg-wood-medium rounded-2xl overflow-hidden border border-wood-light hover:border-primary transition-all duration-300">
+<div class="h-48 overflow-hidden relative">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+<img alt="Luxury home interior" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" data-alt="Abstract heat map visualization" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmG5vI6ip6ZpaGpddh5iW2a5T6tP4ww8L1KplvQxcXChQDq0Pk24xrFqa_MANfOFDpHxco8nIjQo6VIfQiqAv7cBIeH6UHR5-7gLTiOZGLL4jAnzDPXDsJvz_3SsV8CaGMVt-rv7q4ist6LpX3uW3nJAmW0obhxklRppaNtMBL7TBBEuHM95flYjp1K8iKSoBMqMSBXG48m2EK3mXeyWLOhdgB7-ETJWv210-chODPdJJ2jJH-BtWRsXmvBM-q32jG_N2Gl1f7vUU"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-display font-bold text-2xl text-white">Longevity</h3>
+<span class="px-3 py-1 bg-purple-900/30 text-purple-400 text-xs font-bold rounded uppercase">Pro</span>
+</div>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-3 text-sm text-gray-300">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            200°F+ Temperature
+                        </li>
+<li class="flex items-center gap-3 text-sm text-gray-300">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            Interval Training
+                        </li>
+<li class="flex items-center gap-3 text-sm text-gray-300">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                            Maximum Autophagy
+                        </li>
+</ul>
+<button class="w-full py-3 border border-wood-light rounded-lg text-white font-medium hover:bg-wood-light hover:border-white transition-colors">View Details</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-wood-dark border-t border-wood-light">
+<div class="container mx-auto px-4">
+<div class="flex justify-between items-center mb-12">
+<h2 class="font-display font-bold text-3xl text-white">Recommended Gear</h2>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full border border-wood-light flex items-center justify-center text-white hover:bg-wood-light"><span class="material-symbols-outlined">arrow_back</span></button>
+<button class="w-10 h-10 rounded-full border border-wood-light flex items-center justify-center text-white hover:bg-wood-light"><span class="material-symbols-outlined">arrow_forward</span></button>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="bg-wood-medium p-4 rounded-xl border border-wood-light hover:border-gray-600 transition-colors group">
+<div class="aspect-square bg-white/5 rounded-lg mb-4 flex items-center justify-center relative overflow-hidden">
+<img alt="Sauna hat" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform" data-alt="Wool sauna hat on wooden bench" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9t7hOyLYJo8G0QbW358_dtONEVXR1P6Zi8EpbbB8mdUV3T7lpbgbJllbqA5dPaXroFRH8xCg1d0XKTF0Vs5oPQcYj0H2J0SqbKhs29CyHVfWQsXX6bMoP3fhb303x7ZWHBEL7YWe7eJNAaYEIVEZOtIMp3_inlz_PbKXSC4-3xBp9OoJp8m1Nfb6-38wH85K7BldrFlTmIzkxpNv8GcrrtE3EMsRk0VEywjyB-8rl-GmCGyWJCom3qsOqlKBhZti9vN4yRzMBDwQ"/>
+<span class="absolute top-2 right-2 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded">Editor's Pick</span>
+</div>
+<h4 class="text-white font-bold mb-1">Wool Sauna Hat</h4>
+<p class="text-gray-400 text-sm mb-3">Protect your head from heat</p>
+<div class="flex justify-between items-center">
+<span class="text-white font-bold">$35.00</span>
+<button class="text-primary hover:text-white"><span class="material-symbols-outlined">add_shopping_cart</span></button>
+</div>
+</div>
+<div class="bg-wood-medium p-4 rounded-xl border border-wood-light hover:border-gray-600 transition-colors group">
+<div class="aspect-square bg-white/5 rounded-lg mb-4 flex items-center justify-center relative overflow-hidden">
+<img alt="Thermometer" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform" data-alt="Analog sauna thermometer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0MOXXWmGTBPZAFxt7euh8PlQY1gMwE__AzcbMf0X5WkCvrf_w5-5BaWtHzWu72CsFoB4zp__BLEgAt8BzwB9ypCl9XO7ywj3NxTzZ97zJ9NzZ_8Zr3pXAKJqw18EIv4FO6mMGz1B8vYldX3ZolTi2A2e_vvszneqCiNeDFaus_D_YcvZHvFB5A0OCw4dhLlqBdNi1Q-J5uuWxjjdCc8Q0aTO3uAnG7ps27IVwZswAqgMl5wCUO15XFLl3Z5lLved-OZoGXaddNyE"/>
+</div>
+<h4 class="text-white font-bold mb-1">Precision Thermometer</h4>
+<p class="text-gray-400 text-sm mb-3">Accurate to 250°F</p>
+<div class="flex justify-between items-center">
+<span class="text-white font-bold">$45.00</span>
+<button class="text-primary hover:text-white"><span class="material-symbols-outlined">add_shopping_cart</span></button>
+</div>
+</div>
+<div class="bg-wood-medium p-4 rounded-xl border border-wood-light hover:border-gray-600 transition-colors group">
+<div class="aspect-square bg-white/5 rounded-lg mb-4 flex items-center justify-center relative overflow-hidden">
+<img alt="Essential oils" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform" data-alt="Bottles of eucalyptus essential oil" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPIxC3M0I-P2GyrModwzwt9IHsyUmsRkHJJpLGFIA9lAkCP1PEVp3jiLcbFvUq_RmJUwEqQVLu9DA4wPNHGBjrVumH0uD8a6gXDhM-6oWNYjpx9pva5F75YBsQBGPJxXmJkWXsjAQ393BJk49xTUvdJ50eAkoeNzdiQJbNyXcI0l2UHtkMG-NcxFM8t7g3znsIMsxVYqb_uEviAmlvd2IKFyKO79eTH_c4Fwv3F1BVrxXlHe-_7MvevuoEroEBt6vB3u8Kl5BGNHs"/>
+</div>
+<h4 class="text-white font-bold mb-1">Eucalyptus Oil</h4>
+<p class="text-gray-400 text-sm mb-3">Respiratory support</p>
+<div class="flex justify-between items-center">
+<span class="text-white font-bold">$18.00</span>
+<button class="text-primary hover:text-white"><span class="material-symbols-outlined">add_shopping_cart</span></button>
+</div>
+</div>
+<div class="bg-wood-medium p-4 rounded-xl border border-wood-light hover:border-gray-600 transition-colors group">
+<div class="aspect-square bg-white/5 rounded-lg mb-4 flex items-center justify-center relative overflow-hidden">
+<img alt="Water bottle" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform" data-alt="Large metal water bottle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPcDOGTynNuoTGEv4TmVWwF9lqKkEUortd27ydZkOjhPMfhcQUxKleBaPXsdF13yA30geNe9HqcV_0f_GpG9YBB9ZXKg3slgwjZQcr7_EcE3TFn7xwtNG3XGVjKJL3fLJcczdAJrJ8JCwc_QxAz6zGOHKlFuvnKHPHkwC6NyaghYRAY_Z1gRJ1l6tLvriOWK3cDF-1t8ccJVWdHG1b0PcpNJs4DT9Q6ZDVjXODogNiYkJ3iKeqPPObIghkgAYMqLmPwQRpxYTd8Sk"/>
+</div>
+<h4 class="text-white font-bold mb-1">Electrolyte Bottle</h4>
+<p class="text-gray-400 text-sm mb-3">Stay hydrated</p>
+<div class="flex justify-between items-center">
+<span class="text-white font-bold">$28.00</span>
+<button class="text-primary hover:text-white"><span class="material-symbols-outlined">add_shopping_cart</span></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-background-dark">
+<div class="container mx-auto px-4">
+<h2 class="font-display font-bold text-3xl text-white mb-12 border-l-4 border-primary pl-4">Latest Research &amp; Articles</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<article class="flex flex-col gap-4 group cursor-pointer">
+<div class="rounded-xl overflow-hidden aspect-video border border-wood-light group-hover:border-primary/50 transition-colors">
+<img alt="Science lab" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="Microscope and lab equipment blurred" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2gFURouPI0Ox8ePewnet4YbQ8Wk_X3BjWCtRo86ie1HtU_T5s1FNJpMZUn1OJgKJadMkKYKn-_mmMJcIMKTYsnNSGGKXADH8HjAh56ENV4Jf-2LR19mtttmVUpKSVkn2wz3kkWzoQna4AYxcZU0vApYNWRHnzDIiqkuM4ueyvqDHtkqDSLA3tNnDT0iJ51Tw7mw8BWjQA6E_hsjo2NZ7io5X7AC9XwxBDR-e3HvSgzKEQbQDbpe1pbTYHFBfUcZ0oh5fwUEG3EfE"/>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3 text-xs text-gray-400">
+<span class="text-primary font-bold uppercase">Science</span>
+<span>•</span>
+<span>5 min read</span>
+</div>
+<h3 class="text-xl font-display font-bold text-white group-hover:text-primary transition-colors">Heat Shock Proteins: The Mechanics of Cellular Repair</h3>
+<p class="text-sm text-gray-400 line-clamp-2">New studies from Finland suggest that 4 sessions a week can significantly reduce all-cause mortality rates.</p>
+</div>
+</article>
+<article class="flex flex-col gap-4 group cursor-pointer">
+<div class="rounded-xl overflow-hidden aspect-video border border-wood-light group-hover:border-primary/50 transition-colors">
+<img alt="Man running" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="Runner stretching legs in sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt0i1Oc0wAhiMhL8yha8Roid9b_Z02tNA9RQQDGjj0pePsJ_Yb879_m5f990LaCSruWqrjSGv_2pb6ZINt21fEgRbr9AC0SC1ZIXSze8J3gEqi9PNFMMPIh8PZP9DrJ6rKYKF_MxZu3BS8DZb1LgODpKukTsGZAibxaPw6IRA61QMuwcLUmgAOg7Nc0qa-MlAdAtHoWlGBurGWEd0ERb6cOprjcNhF31KD4k53zvx2mMO7eIINZ6wI5jhKXRbUb_ez6peWPSuDIKY"/>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3 text-xs text-gray-400">
+<span class="text-primary font-bold uppercase">Performance</span>
+<span>•</span>
+<span>7 min read</span>
+</div>
+<h3 class="text-xl font-display font-bold text-white group-hover:text-primary transition-colors">Post-Workout Saunas: Does it Kill Gains?</h3>
+<p class="text-sm text-gray-400 line-clamp-2">Debunking the myth that heat therapy blunts hypertrophy. What the latest sports science actually says.</p>
+</div>
+</article>
+<article class="flex flex-col gap-4 group cursor-pointer">
+<div class="rounded-xl overflow-hidden aspect-video border border-wood-light group-hover:border-primary/50 transition-colors">
+<img alt="Clock" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="Abstract sand timer close up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzxqkTDfpQbkSFchuXQB-Uaud37JrcM2D2RCWCeJAkOnudfcIKiHAkOPlxTPtBStJnyijRIDmFPF3Y7fD7Nv6qmu283ySvEKj_Rxu49TZTEzAIW2LWUDO4GyJui7MGVEOlHnr8DzeROkyyWQllJlF_Hx-3ceYRvwAktgs9M5Ps2lu-p_BU5cynJyOZ_EoADayGFA3mKV26KZwHerTtGsRo4jI8CWrFfOCFeJNqzn1auxkP1Ly-F8z1ieU0qigwOa_R-M4-fF5koWU"/>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3 text-xs text-gray-400">
+<span class="text-primary font-bold uppercase">Longevity</span>
+<span>•</span>
+<span>10 min read</span>
+</div>
+<h3 class="text-xl font-display font-bold text-white group-hover:text-primary transition-colors">The 20-Year Study: Sauna vs. Cardiac Disease</h3>
+<p class="text-sm text-gray-400 line-clamp-2">A deep dive into the landmark study that changed how cardiologists view heat stress.</p>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="py-24 bg-wood-dark border-t border-wood-light">
+<div class="container mx-auto px-4">
+<div class="bg-gradient-to-r from-wood-medium to-wood-light rounded-3xl p-8 md:p-16 relative overflow-hidden border border-wood-light">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] opacity-10 mix-blend-overlay"></div>
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -mr-16 -mt-16"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1 text-center md:text-left">
+<h2 class="font-display font-bold text-3xl md:text-4xl text-white mb-4">Get the "Heat Guide" PDF</h2>
+<p class="text-gray-300 text-lg mb-8">Join 15,000+ others. Receive our cheat sheet for temperature timing, hydration formulas, and post-sauna protocols.</p>
+<form class="flex flex-col sm:flex-row gap-3">
+<input class="flex-1 bg-wood-dark border-wood-light text-white rounded-lg px-6 py-4 focus:ring-primary focus:border-primary placeholder-gray-500" placeholder="Enter your email" type="email"/>
+<button class="bg-primary hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg shadow-orange-900/20 transition-all transform hover:-translate-y-1" type="button">
+                            Download Free
+                        </button>
+</form>
+<p class="text-xs text-gray-500 mt-4">We respect your privacy. Unsubscribe at any time.</p>
+</div>
+<div class="flex-1 flex justify-center">
+<div class="bg-white p-6 rounded-lg shadow-2xl rotate-3 transform hover:rotate-0 transition-transform duration-500 max-w-xs">
+<div class="border-2 border-dashed border-gray-200 h-64 w-48 flex flex-col items-center justify-center gap-4 bg-gray-50">
+<span class="material-symbols-outlined text-6xl text-primary">description</span>
+<span class="font-display font-bold text-gray-800">The Heat Guide</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-background-dark border-t border-wood-light pt-16 pb-8 text-sm">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
+<div class="col-span-2 lg:col-span-2">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-2xl">hot_tub</span>
+<span class="font-display font-bold text-xl text-white">SaunaProtocol</span>
+</div>
+<p class="text-gray-400 mb-6 max-w-xs">Democratizing access to longevity science through heat therapy education and community-verified protocols.</p>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded-full bg-wood-light flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors" href="#">
+<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+</a>
+<a class="w-8 h-8 rounded-full bg-wood-light flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors" href="#">
+<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Protocols</h4>
+<ul class="space-y-2 text-gray-400">
+<li><a class="hover:text-primary" href="#">Beginner Guide</a></li>
+<li><a class="hover:text-primary" href="#">Intermediate</a></li>
+<li><a class="hover:text-primary" href="#">The Blueprint</a></li>
+<li><a class="hover:text-primary" href="#">Post-Workout</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Science</h4>
+<ul class="space-y-2 text-gray-400">
+<li><a class="hover:text-primary" href="#">Clinical Studies</a></li>
+<li><a class="hover:text-primary" href="#">Benefits</a></li>
+<li><a class="hover:text-primary" href="#">Risks &amp; Safety</a></li>
+<li><a class="hover:text-primary" href="#">Expert Directory</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Company</h4>
+<ul class="space-y-2 text-gray-400">
+<li><a class="hover:text-primary" href="#">About Us</a></li>
+<li><a class="hover:text-primary" href="#">Contact</a></li>
+<li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary" href="#">Terms</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-wood-light pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500">
+<p>© 2024 SaunaProtocol. All rights reserved.</p>
+<div class="flex gap-6 mt-4 md:mt-0">
+<span class="flex items-center gap-1 text-xs uppercase tracking-wide">
+<span class="w-2 h-2 rounded-full bg-green-500"></span> System Operational
+                </span>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

@@ -20,7 +20,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.5,
-      ease: [0.16, 1, 0.3, 1]
+      ease: [0.16, 1, 0.3, 1] as const
     }
   }
 }
@@ -38,7 +38,7 @@ export function TrustBar() {
       className="relative z-20 border-y border-wood-light bg-wood-dark/90 backdrop-blur-sm py-6"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.6, delay: 0.9, ease: [0.16, 1, 0.3, 1] as const }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Blueprint: 200°F Sauna Protocol</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f26c0d",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#231810",
+                        "card-dark": "#2e2118",
+                        "text-muted": "#cba990",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #231810; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #493222; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f26c0d; 
+        }html {
+            scroll-behavior: smooth;
+        }details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-[#e5e5e5] font-display antialiased selection:bg-primary selection:text-white overflow-x-hidden">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#493222] bg-[#231810] sticky top-0 z-50">
+<div class="max-w-[1440px] mx-auto w-full flex items-center justify-between px-6 lg:px-16 xl:px-24 py-3">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-white">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-3xl">spa</span>
+</div>
+<h2 class="text-white text-xl font-bold leading-tight tracking-tight italic">Protocol</h2>
+</div>
+<div class="hidden lg:flex items-center gap-9">
+<a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Protocols</a>
+<a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Science</a>
+<a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">About</a>
+</div>
+</div>
+<div class="flex flex-1 justify-end gap-4 lg:gap-8">
+<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full">
+<div class="text-[#cba990] flex border-none bg-[#493222] items-center justify-center pl-4 rounded-l-xl border-r-0">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border-none bg-[#493222] focus:border-none h-full placeholder:text-[#cba990] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal font-sans" placeholder="Search..." value=""/>
+</div>
+</label>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-orange-600 transition-colors shadow-lg shadow-orange-900/20">
+<span class="truncate">Subscribe</span>
+</button>
+</div>
+</div>
+</header>
+<div class="layout-container flex h-full grow flex-col w-full">
+<div class="flex flex-1 justify-center py-5 w-full">
+<div class="layout-content-container flex flex-col max-w-[1440px] w-full flex-1 px-6 lg:px-16 xl:px-24">
+<div class="flex flex-wrap gap-2 py-4 items-center">
+<a class="text-text-muted text-sm font-medium leading-normal hover:text-white transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-text-muted text-xs">chevron_right</span>
+<a class="text-text-muted text-sm font-medium leading-normal hover:text-white transition-colors" href="#">Protocols</a>
+<span class="material-symbols-outlined text-text-muted text-xs">chevron_right</span>
+<span class="text-white text-sm font-medium leading-normal">Heat Therapy</span>
+</div>
+<div class="relative rounded-3xl overflow-hidden mb-10 group">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Dark interior of a wooden sauna with warm ambient lighting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDmFG9ncb8hwES-ijAkxUHrwMdAmRTu8u4jQLT6TkxxasugWqG3SKVhR_XMoKyKRa-1YvIoHFMhV18XGOuCcXgs8Ep6EU0qE_G14LuLM7ZPEy2Uxx0rWTCmUuc0VrnoBgvar4dF-iQBJQgWsZ4xuT8mJmcbW8cN4slzNEV4CejxaV03OuQf1EsxK6yqD5khWablw0fcAKIOl2FLEjm01JPfEg69GhSRyOGPwIAdBvjKPNjre7OecuNtLlJje0Z8Aq3CaGADmz9kVmM");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#231810] via-[#231810]/80 to-transparent"></div>
+<div class="relative z-10 p-8 lg:p-16 flex flex-col justify-end min-h-[500px] max-w-4xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-primary/20 text-primary border border-primary/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Longevity</span>
+<span class="text-white/60 text-xs font-sans uppercase tracking-widest">Updated Oct 2023</span>
+</div>
+<h1 class="text-white text-4xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-6 italic">
+                        The Blueprint: <span class="text-primary">200°F</span> Sauna Protocol
+                    </h1>
+<p class="text-gray-200 text-lg lg:text-xl font-normal leading-relaxed max-w-2xl mb-8 font-sans">
+                        A deep dive into the extreme heat regimen used by Bryan Johnson to reverse aging markers, increase HRV, and detoxify at a cellular level.
+                    </p>
+<div class="flex flex-wrap items-center gap-6 text-text-muted text-sm font-sans border-t border-white/10 pt-6">
+<div class="flex items-center gap-2">
+<div class="size-8 rounded-full bg-gray-700 bg-cover" data-alt="Portrait of a doctor" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC7WMyNxqvVa5l887qw_CrDVA0WP8vf1g1gRXhPbzbApqCy68cCgI_wNs9l95Han323NfI38rMlfbmeBLqRXtJvtTApBh6FBV4Df4YTP70FrUKgvSrXL7UMSUsA9Z4_BsCt07z7AljgRmNQQrdrT-uL3v2LUymtev92cKqA7VF_19O4gFu1Up02OyKJrsX7ANje9iW2PBWUuoyLTpA20VM4WUfSnNiVLqypLa5HyoiHR-S0kA9zHWRo_GUKHVpHFiazrj6AZ0NNfZY");'></div>
+<span>By Dr. Andrew Huberman</span>
+</div>
+<span class="hidden sm:block">•</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span>12 Min Read</span>
+</div>
+<span class="hidden sm:block">•</span>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[18px] fill-1">verified</span>
+<span>Medically Reviewed</span>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 relative">
+<main class="lg:col-span-8 xl:col-span-8 flex flex-col gap-16">
+<section class="scroll-mt-24" id="introduction">
+<p class="text-xl lg:text-2xl text-gray-200 leading-relaxed mb-8 font-light italic">
+                            "The single most powerful thing you can do for your cardiovascular health outside of exercise is heat therapy. The data is undeniable."
+                        </p>
+<div class="relative w-full rounded-2xl overflow-hidden shadow-2xl shadow-orange-900/10 border border-[#493222] bg-card-dark mb-8">
+<div class="relative flex items-center justify-center aspect-video bg-cover bg-center group cursor-pointer" data-alt="Video thumbnail showing Bryan Johnson in a sauna" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCupp698WtJCVTNq12JvGedVLh57VvyULvod_unblU6-qJi6TlljpSsywV-FtTQQXzxd_x5EuKnd4vfFJV869R7-dVaZuQJ_PmvXPDY7GQySBXFQs8tXzJjnU1E80rH3d_OPQxVURaXTHOm0GhuFnjmSTeZI8KNfLUk_Q_YRuvcpA0d9NpCEkPkO6cwQ0T1AhkjJtMF6hVDHZkbN6xKHwg0rEHulposx5QVxq02XLAJMbxEBqR03Ek479CG-kIFBeB36pJPrKJYbqo");'>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all"></div>
+<button class="relative flex shrink-0 items-center justify-center rounded-full size-20 bg-primary text-white shadow-xl shadow-orange-600/20 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl ml-1">play_arrow</span>
+</button>
+</div>
+</div>
+<div class="prose prose-invert prose-lg max-w-none text-gray-300 font-sans leading-loose">
+<p>
+                                Bryan Johnson’s "Blueprint" project isn't just about diet; it's about environmental stressors. The 200°F sauna protocol is designed to mimic the effects of moderate aerobic exercise, inducing heat shock proteins (HSPs) that repair damaged cells. This guide breaks down the exact methodology used to achieve a 57% reduction in all-cause mortality risk.
+                            </p>
+</div>
+</section>
+<section class="scroll-mt-24" id="timeline">
+<h3 class="text-3xl font-bold text-white mb-8 italic flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">timeline</span>
+                            The Progression
+                        </h3>
+<div class="flex flex-col gap-6 relative">
+<div class="absolute left-6 top-6 bottom-6 w-0.5 bg-[#493222] hidden sm:block"></div>
+<div class="relative pl-0 sm:pl-16">
+<div class="absolute left-3 top-6 size-6 rounded-full bg-primary border-4 border-[#231810] hidden sm:block z-10"></div>
+<div class="bg-card-dark p-6 rounded-xl border border-[#493222] hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-xl font-bold text-white">Week 1-2: Acclimatization</h4>
+<span class="bg-[#493222] text-text-muted text-xs font-bold px-2 py-1 rounded uppercase">Easy</span>
+</div>
+<p class="text-text-muted mb-4 font-sans text-sm">Focus on staying in, not the heat level.</p>
+<div class="flex gap-4 text-sm font-sans text-white/80">
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-primary text-base">thermostat</span> 170°F</div>
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-primary text-base">timer</span> 15 Min</div>
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-primary text-base">repeat</span> 3x/Week</div>
+</div>
+</div>
+</div>
+<div class="relative pl-0 sm:pl-16">
+<div class="absolute left-3 top-6 size-6 rounded-full bg-card-dark border-4 border-primary hidden sm:block z-10"></div>
+<div class="bg-card-dark p-6 rounded-xl border border-[#493222] hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-xl font-bold text-white">Week 3-4: The Ramp Up</h4>
+<span class="bg-[#493222] text-text-muted text-xs font-bold px-2 py-1 rounded uppercase">Medium</span>
+</div>
+<p class="text-text-muted mb-4 font-sans text-sm">Increasing thermal load to trigger HSP release.</p>
+<div class="flex gap-4 text-sm font-sans text-white/80">
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-primary text-base">thermostat</span> 185°F</div>
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-primary text-base">timer</span> 20 Min</div>
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-primary text-base">repeat</span> 4x/Week</div>
+</div>
+</div>
+</div>
+<div class="relative pl-0 sm:pl-16">
+<div class="absolute left-3 top-6 size-6 rounded-full bg-white border-4 border-[#231810] hidden sm:block z-10"></div>
+<div class="bg-gradient-to-br from-primary/20 to-card-dark p-6 rounded-xl border border-primary/40 shadow-lg shadow-orange-900/10">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-xl font-bold text-white">Week 5+: The Blueprint Standard</h4>
+<span class="bg-primary text-white text-xs font-bold px-2 py-1 rounded uppercase">Hard</span>
+</div>
+<p class="text-white/80 mb-4 font-sans text-sm">Full protocol. Extreme heat caution advised.</p>
+<div class="flex gap-4 text-sm font-sans font-bold text-white">
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-base">thermostat</span> 200°F+</div>
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-base">timer</span> 25-30 Min</div>
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-base">repeat</span> Daily</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="scroll-mt-24" id="results">
+<h3 class="text-3xl font-bold text-white mb-8 italic">Measured Outcomes</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<div class="bg-card-dark p-6 rounded-2xl border border-[#493222] flex flex-col items-center text-center">
+<span class="text-text-muted text-sm uppercase tracking-wider font-sans mb-2">Resting Heart Rate</span>
+<div class="text-5xl font-black text-white mb-2 font-display italic">42 <span class="text-2xl not-italic font-normal text-white/50">bpm</span></div>
+<div class="inline-flex items-center gap-1 text-green-400 text-sm font-bold bg-green-900/20 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm">trending_down</span> -12% drop
+                                </div>
+</div>
+<div class="bg-card-dark p-6 rounded-2xl border border-[#493222] flex flex-col items-center text-center">
+<span class="text-text-muted text-sm uppercase tracking-wider font-sans mb-2">HRV (Rmssd)</span>
+<div class="text-5xl font-black text-primary mb-2 font-display italic">61 <span class="text-2xl not-italic font-normal text-white/50">ms</span></div>
+<div class="inline-flex items-center gap-1 text-green-400 text-sm font-bold bg-green-900/20 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm">trending_up</span> +24% gain
+                                </div>
+</div>
+<div class="bg-card-dark p-6 rounded-2xl border border-[#493222] flex flex-col items-center text-center">
+<span class="text-text-muted text-sm uppercase tracking-wider font-sans mb-2">Blood Pressure</span>
+<div class="text-5xl font-black text-white mb-2 font-display italic">102/68</div>
+<span class="text-xs text-white/40 font-sans">Optimal range achieved</span>
+</div>
+</div>
+</section>
+<section class="scroll-mt-24" id="fertility">
+<div class="bg-[#1a120b] border border-[#493222] rounded-2xl overflow-hidden">
+<div class="p-8 border-b border-[#493222]">
+<h3 class="text-3xl font-bold text-white mb-2 italic">The Fertility Experiment</h3>
+<p class="text-text-muted font-sans">Heat is known to impair spermatogenesis. Here is the data from 3 months of ice-baths immediately following sauna sessions to counteract heat damage.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#493222]">
+<div class="p-8">
+<h4 class="text-lg font-bold text-white mb-6 flex items-center gap-2">
+<span class="size-2 rounded-full bg-red-500"></span> Before Protocol
+                                    </h4>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-sm text-text-muted mb-1">Concentration</div>
+<div class="w-full bg-[#231810] rounded-full h-3">
+<div class="bg-red-500/50 h-3 rounded-full" style="width: 45%"></div>
+</div>
+<div class="text-right text-xs text-white mt-1">45M / ml</div>
+</div>
+<div>
+<div class="flex justify-between text-sm text-text-muted mb-1">Motility</div>
+<div class="w-full bg-[#231810] rounded-full h-3">
+<div class="bg-red-500/50 h-3 rounded-full" style="width: 52%"></div>
+</div>
+<div class="text-right text-xs text-white mt-1">52%</div>
+</div>
+</div>
+</div>
+<div class="p-8 bg-primary/5">
+<h4 class="text-lg font-bold text-white mb-6 flex items-center gap-2">
+<span class="size-2 rounded-full bg-green-500"></span> After (Ice Counteract)
+                                    </h4>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-sm text-text-muted mb-1">Concentration</div>
+<div class="w-full bg-[#231810] rounded-full h-3">
+<div class="bg-green-500 h-3 rounded-full" style="width: 88%"></div>
+</div>
+<div class="text-right text-xs text-white mt-1">88M / ml</div>
+</div>
+<div>
+<div class="flex justify-between text-sm text-text-muted mb-1">Motility</div>
+<div class="w-full bg-[#231810] rounded-full h-3">
+<div class="bg-green-500 h-3 rounded-full" style="width: 76%"></div>
+</div>
+<div class="text-right text-xs text-white mt-1">76%</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="scroll-mt-24" id="safety">
+<div class="rounded-xl border-l-4 border-amber-500 bg-amber-900/10 p-6 flex flex-col sm:flex-row gap-4">
+<div class="shrink-0">
+<span class="material-symbols-outlined text-amber-500 text-4xl">warning</span>
+</div>
+<div>
+<h4 class="text-lg font-bold text-amber-500 mb-2">Safety Warning</h4>
+<p class="text-amber-200/80 font-sans text-sm leading-relaxed">
+                                    Extreme heat can be dangerous. Do not attempt this protocol if you have a history of heart conditions, low blood pressure, or are pregnant. Always hydrate with electrolytes before and after. If you feel dizzy, exit immediately.
+                                </p>
+</div>
+</div>
+</section>
+<section class="scroll-mt-24" id="guide">
+<h3 class="text-3xl font-bold text-white mb-8 italic">Step-by-Step Guide</h3>
+<div class="space-y-4">
+<div class="flex gap-4 p-4 hover:bg-card-dark rounded-xl transition-colors group">
+<div class="flex items-center justify-center size-10 rounded-full bg-[#493222] text-white font-bold font-sans group-hover:bg-primary transition-colors">1</div>
+<div>
+<h5 class="text-white font-bold text-lg mb-1">Pre-Hydration</h5>
+<p class="text-text-muted font-sans text-sm">Drink 16oz of water with electrolytes 30 mins prior.</p>
+</div>
+</div>
+<div class="flex gap-4 p-4 hover:bg-card-dark rounded-xl transition-colors group">
+<div class="flex items-center justify-center size-10 rounded-full bg-[#493222] text-white font-bold font-sans group-hover:bg-primary transition-colors">2</div>
+<div>
+<h5 class="text-white font-bold text-lg mb-1">The Session</h5>
+<p class="text-text-muted font-sans text-sm">Enter sauna at 200°F. No electronics. Focus on breathing.</p>
+</div>
+</div>
+<div class="flex gap-4 p-4 hover:bg-card-dark rounded-xl transition-colors group">
+<div class="flex items-center justify-center size-10 rounded-full bg-[#493222] text-white font-bold font-sans group-hover:bg-primary transition-colors">3</div>
+<div>
+<h5 class="text-white font-bold text-lg mb-1">Cool Down</h5>
+<p class="text-text-muted font-sans text-sm">2 min cold shower or air cool. Do not shock system if heart issues exist.</p>
+</div>
+</div>
+<div class="flex gap-4 p-4 hover:bg-card-dark rounded-xl transition-colors group">
+<div class="flex items-center justify-center size-10 rounded-full bg-[#493222] text-white font-bold font-sans group-hover:bg-primary transition-colors">4</div>
+<div>
+<h5 class="text-white font-bold text-lg mb-1">Post-Hydration</h5>
+<p class="text-text-muted font-sans text-sm">Replenish lost minerals immediately.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="scroll-mt-24" id="equipment">
+<h3 class="text-3xl font-bold text-white mb-8 italic">Recommended Gear</h3>
+<div class="grid grid-cols-2 gap-4">
+<a class="group block bg-card-dark rounded-xl p-4 border border-[#493222] hover:border-primary transition-colors" href="#">
+<div class="aspect-video bg-gray-800 rounded-lg mb-3 bg-cover bg-center" data-alt="Wooden sauna bucket and ladle" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAsyf9mx0_yVWfdMxH40KSgsPRFhiSP0cgX7OQ_o1hVYTIJty89sUlKJ_wWYhF3O4f8Sd1Wu5YD71Guwa0y0Qi9OeYJaKFxIFndIo4VuNAgbFtnBlUFBEIh6QycXabPZmXBR7dxdSiCV2itXLZHSPdkmLfySAoHonar1mbe62WpI9J8perSFonx2RmvdWmqm_n-xoPoKx3aLvL1j0M3Jakc0jJcwQl4YKvUModTz0oWl74qB34lcfbJYGBaDvYTbM-Rq7QhRv27__c");'></div>
+<h5 class="text-white font-bold text-sm mb-1 group-hover:text-primary transition-colors">Traditional Bucket &amp; Ladle</h5>
+<p class="text-text-muted text-xs font-sans">For humidity control</p>
+</a>
+<a class="group block bg-card-dark rounded-xl p-4 border border-[#493222] hover:border-primary transition-colors" href="#">
+<div class="aspect-video bg-gray-800 rounded-lg mb-3 bg-cover bg-center" data-alt="Smart fitness tracker watch" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAcVCeztCXqA-GYSWvRJRoc53TwKRx-KAd-XZPHgyEykcbi4Db5S9kqyti_n-jxI68jOxJtd47u92slB6ZPJ8ZB43e1ZLdYcaaNE8AgDp6Jf0KNkn4PEjCt6Ri85SxTRAEnoPxGMC5b-sJtGVp3xJF5VXahsG9EVDiFcK8BJap7Y2D3vbHnjOLbbxY198L0quJ7rbIDKADyVIXq2EgJN7U87Q3M86kBW4Pfa8Gt-t2VcAtkbWq2ymUtRZ_REh0Fhv_zHgktAkH_HaY");'></div>
+<h5 class="text-white font-bold text-sm mb-1 group-hover:text-primary transition-colors">HRV Tracker</h5>
+<p class="text-text-muted text-xs font-sans">Monitor real-time stress</p>
+</a>
+</div>
+</section>
+<section class="scroll-mt-24 mb-12" id="faq">
+<h3 class="text-3xl font-bold text-white mb-8 italic">Frequently Asked Questions</h3>
+<div class="space-y-2">
+<details class="group bg-card-dark rounded-xl border border-[#493222] open:border-primary/50 transition-colors">
+<summary class="flex cursor-pointer items-center justify-between p-6 text-white font-bold text-lg select-none">
+<span>How often should I do this?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-text-muted font-sans leading-relaxed">
+                                    The Blueprint protocol recommends 4-7 sessions per week for maximum longevity benefits. However, starting with 2-3 sessions is advised for beginners.
+                                </div>
+</details>
+<details class="group bg-card-dark rounded-xl border border-[#493222] open:border-primary/50 transition-colors">
+<summary class="flex cursor-pointer items-center justify-between p-6 text-white font-bold text-lg select-none">
+<span>Is Infrared better than Traditional?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-text-muted font-sans leading-relaxed">
+                                    Bryan uses a high-heat traditional sauna (dry heat). Infrared typically tops out at 140-150°F, which may not trigger the same level of Heat Shock Proteins as 200°F dry heat, though it has other benefits.
+                                </div>
+</details>
+<details class="group bg-card-dark rounded-xl border border-[#493222] open:border-primary/50 transition-colors">
+<summary class="flex cursor-pointer items-center justify-between p-6 text-white font-bold text-lg select-none">
+<span>Can I eat before the session?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-text-muted font-sans leading-relaxed">
+                                    It is recommended to wait at least 1-2 hours after a heavy meal. Blood flow is diverted to the skin for cooling during sauna use, which can interfere with digestion.
+                                </div>
+</details>
+</div>
+</section>
+</main>
+<aside class="hidden lg:block lg:col-span-4 xl:col-span-4">
+<div class="sticky top-24 flex flex-col gap-6">
+<div class="bg-card-dark border border-[#493222] rounded-xl p-6">
+<h4 class="text-white font-bold text-lg mb-4 border-b border-[#493222] pb-2 font-display italic">Table of Contents</h4>
+<nav class="flex flex-col gap-1">
+<a class="text-text-muted hover:text-white hover:bg-[#231810] px-3 py-2 rounded-lg text-sm transition-colors font-sans flex items-center gap-2" href="#introduction">Introduction</a>
+<a class="text-text-muted hover:text-white hover:bg-[#231810] px-3 py-2 rounded-lg text-sm transition-colors font-sans flex items-center gap-2" href="#timeline">Timeline Progression</a>
+<a class="text-white bg-primary/10 border-l-2 border-primary px-3 py-2 rounded-r-lg text-sm font-bold transition-colors font-sans flex items-center gap-2" href="#results">Measured Outcomes</a>
+<a class="text-text-muted hover:text-white hover:bg-[#231810] px-3 py-2 rounded-lg text-sm transition-colors font-sans flex items-center gap-2" href="#fertility">Fertility Data</a>
+<a class="text-text-muted hover:text-white hover:bg-[#231810] px-3 py-2 rounded-lg text-sm transition-colors font-sans flex items-center gap-2" href="#safety">Safety Warnings</a>
+<a class="text-text-muted hover:text-white hover:bg-[#231810] px-3 py-2 rounded-lg text-sm transition-colors font-sans flex items-center gap-2" href="#guide">Implementation</a>
+<a class="text-text-muted hover:text-white hover:bg-[#231810] px-3 py-2 rounded-lg text-sm transition-colors font-sans flex items-center gap-2" href="#equipment">Gear</a>
+<a class="text-text-muted hover:text-white hover:bg-[#231810] px-3 py-2 rounded-lg text-sm transition-colors font-sans flex items-center gap-2" href="#faq">FAQ</a>
+</nav>
+</div>
+<div class="bg-gradient-to-b from-[#2e2118] to-[#231810] border border-[#493222] rounded-xl p-6 text-center">
+<span class="material-symbols-outlined text-4xl text-primary mb-2">picture_as_pdf</span>
+<h4 class="text-white font-bold mb-2">Offline Guide</h4>
+<p class="text-text-muted text-xs font-sans mb-4">Get the full printable checklist and tracking sheet.</p>
+<button class="w-full bg-white text-black font-bold text-sm py-2 rounded-lg hover:bg-gray-200 transition-colors">Download PDF</button>
+</div>
+</div>
+</aside>
+</div>
+<div class="mt-20 mb-20 relative rounded-3xl overflow-hidden text-center p-10 lg:p-20 border border-[#493222]">
+<div class="absolute inset-0 bg-cover bg-center opacity-30" data-alt="Abstract heat waves pattern" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAncmfgHn4yAkn-zIyRw2JawD9jbnRDnF-cHhL5ffIr7QXW18d0jdbbh-U-4vVjfimjNNgz8flDIJqgYlZXmogH4wFYfSJJ126MYu3Mragu4y1hdmadcC9MxMf0EP8GGv3mxB61ANAPO1Dvxn4yaUAHjhFDARHXbuQgKPszr4OU4CDKk-n1LRaoEeTLPQTaVCQTBKAQy_dseSoqtHEEr2ws5vm_fpmdzlChC2eUtt_VVPGvQUew3iFWwSefHmQgLEmYjau1IdIWWlU");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#231810] via-transparent to-[#231810]"></div>
+<div class="relative z-10 max-w-2xl mx-auto">
+<h2 class="text-4xl lg:text-5xl font-black text-white italic mb-6">Ready to start the protocol?</h2>
+<p class="text-lg text-gray-300 font-sans mb-8">Join 15,000+ others tracking their longevity metrics. Download the free starter pack.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="flex items-center justify-center gap-2 bg-primary text-white text-lg font-bold px-8 py-3 rounded-xl hover:bg-orange-600 transition-colors shadow-lg shadow-orange-900/40">
+<span class="material-symbols-outlined">download</span>
+                            Download PDF
+                        </button>
+<button class="flex items-center justify-center gap-2 bg-[#493222] text-white text-lg font-bold px-8 py-3 rounded-xl hover:bg-[#5a3e2b] transition-colors">
+                            View Community Results
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>
