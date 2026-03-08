@@ -245,7 +245,7 @@ export default function BryanJohnsonProtocolPage() {
     title: "Bryan Johnson's 200°F Sauna Protocol",
     description: "The exact sauna protocol used by Bryan Johnson to improve blood pressure and increase HRV.",
     publishedAt: "2025-11-09T00:00:00.000Z",
-    updatedAt: "2025-11-09T00:00:00.000Z",
+    updatedAt: "2026-03-08T00:00:00.000Z",
     author: "SaunaProtocol Team",
     image: `${siteUrl}/images/og/bryan-johnson-protocol.jpg`,
     url: `${siteUrl}/protocols/bryan-johnson`,

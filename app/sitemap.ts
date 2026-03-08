@@ -46,24 +46,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
-    {
-      url: `${siteUrl}/protocols/intermediate`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${siteUrl}/protocols/post-workout`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${siteUrl}/protocols/contrast`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
+    // Note: intermediate, post-workout, and contrast are "coming soon" pages
+    // They are noindexed and excluded from sitemap until content is ready
     {
       url: `${siteUrl}/equipment`,
       lastModified: new Date(),

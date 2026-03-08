@@ -40,7 +40,7 @@ export default function EquipmentPage() {
               Best Sauna Equipment & Accessories
             </h1>
             <p className="text-xl text-text-muted leading-relaxed mb-6">
-              Whether you're setting up your first home sauna or upgrading your existing setup, having the right equipment and accessories can transform your sauna experience from basic to exceptional. After researching dozens of products and analyzing hundreds of user reviews on Amazon and specialty retailers, we've compiled this comprehensive guide to the best sauna equipment available in 2025.
+              Whether you're setting up your first home sauna or upgrading your existing setup, having the right equipment and accessories can transform your sauna experience from basic to exceptional. After researching dozens of products and analyzing hundreds of user reviews on Amazon and specialty retailers, we've compiled this comprehensive guide to the best sauna equipment available in 2026.
             </p>
 
             <Card>
@@ -75,7 +75,7 @@ export default function EquipmentPage() {
                 <CardHeader>
                   <Badge variant="featured" className="mb-2 w-fit">TOP PICKS</Badge>
                   <CardTitle className="group-hover:text-primary transition-colors">
-                    Best Infrared Saunas 2025
+                    Best Infrared Saunas 2026
                   </CardTitle>
                   <CardDescription>
                     Comprehensive comparison of top-rated home infrared saunas. Rankings, specs, and buying guide.

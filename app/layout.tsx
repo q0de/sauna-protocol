@@ -82,7 +82,7 @@ export default function RootLayout({
     '@type': 'Organization',
     name: 'SaunaProtocol',
     url: siteUrl,
-    logo: `${siteUrl}/logo.png`,
+    logo: `${siteUrl}/images/logo.png`,
     description: 'Evidence-based sauna protocols and equipment reviews for optimal health and longevity',
     sameAs: [
       // Add social media profiles here when available

@@ -425,7 +425,7 @@ export default function SunlightenReviewPage() {
               <Card className="hover:border-primary transition-all cursor-pointer">
                 <CardContent className="pt-6">
                   <Badge variant="featured" className="mb-2">COMPARISON</Badge>
-                  <h3 className="text-lg font-bold text-white mb-2">Best Infrared Saunas 2025</h3>
+                  <h3 className="text-lg font-bold text-white mb-2">Best Infrared Saunas 2026</h3>
                   <p className="text-text-muted text-sm">See how Sunlighten compares to other top brands.</p>
                 </CardContent>
               </Card>

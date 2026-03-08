@@ -5,12 +5,14 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { FadeIn } from '@/components/effects/fade-in'
 import { StaggerContainer, StaggerItem } from '@/components/effects/stagger-container'
+import { generateSEO } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateSEO({
   title: 'Beginner Sauna Protocol - Safe Start Guide',
   description: 'Start your sauna journey safely with our beginner protocol. Gradual adaptation from 150°F for 10 minutes. Perfect for first-timers.',
+  path: '/protocols/beginner',
   keywords: ['beginner sauna protocol', 'first time sauna', 'sauna for beginners', 'how to start sauna'],
-}
+})
 
 export default function BeginnerProtocolPage() {
   return (

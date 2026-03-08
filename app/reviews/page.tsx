@@ -18,7 +18,7 @@ export const metadata: Metadata = generateSEO({
 
 const reviews = [
   {
-    title: 'Best Infrared Saunas 2025',
+    title: 'Best Infrared Saunas 2026',
     slug: 'best-infrared-saunas',
     description: 'Complete comparison of top-rated home infrared saunas. Rankings, specs, and buying guide to help you choose.',
     badge: 'TOP PICKS',

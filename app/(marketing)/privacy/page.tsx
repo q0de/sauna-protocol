@@ -8,7 +8,7 @@ export const metadata: Metadata = generateSEO({
 })
 
 export default function PrivacyPage() {
-  const lastUpdated = 'March 2025'
+  const lastUpdated = 'March 2026'
 
   return (
     <div className="pt-32 pb-20 bg-background-dark">

@@ -5,8 +5,8 @@ const footerLinks = {
     { name: 'All Protocols', href: '/protocols' },
     { name: 'Bryan Johnson Protocol', href: '/protocols/bryan-johnson' },
     { name: 'Beginner Protocol', href: '/protocols/beginner' },
-    { name: 'Finnish Protocol', href: '/protocols/finnish' },
-    { name: 'Contrast Therapy', href: '/protocols/contrast-therapy' },
+    { name: 'Advanced Protocol', href: '/protocols/advanced' },
+    { name: 'Contrast Therapy', href: '/protocols/contrast' },
   ],
   reviews: [
     { name: 'Best Infrared Saunas', href: '/reviews/best-infrared-saunas' },
@@ -16,9 +16,9 @@ const footerLinks = {
   ],
   science: [
     { name: 'Latest Research', href: '/articles' },
-    { name: 'Heat Shock Proteins', href: '/articles/heat-shock-proteins' },
-    { name: 'Cardiovascular Benefits', href: '/articles/cardiovascular-health' },
-    { name: 'Sauna Safety', href: '/articles/sauna-safety' },
+    { name: 'Red Light Therapy Guide', href: '/articles/red-light-therapy-guide' },
+    { name: 'Dry vs Wet Sauna', href: '/articles/dry-sauna-vs-wet-sauna' },
+    { name: 'Sauna Duration Guide', href: '/articles/how-long-to-sit-in-sauna' },
   ],
   company: [
     { name: 'About', href: '/about' },

@@ -5,12 +5,14 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { FadeIn } from '@/components/effects/fade-in'
 import { StaggerContainer, StaggerItem } from '@/components/effects/stagger-container'
+import { generateSEO } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateSEO({
   title: 'Advanced Sauna Protocol - Maximum Benefits',
   description: 'Advanced sauna protocol for experienced users. 190-200°F for 20-25 minutes, 4-5x/week. Maximize cardiovascular and longevity benefits.',
+  path: '/protocols/advanced',
   keywords: ['advanced sauna protocol', 'high intensity sauna', '200 degree sauna', 'sauna longevity'],
-}
+})
 
 export default function AdvancedProtocolPage() {
   return (

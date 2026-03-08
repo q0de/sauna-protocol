@@ -7,6 +7,7 @@ import { FadeIn } from '@/components/effects/fade-in'
 export const metadata: Metadata = {
   title: 'Post-Workout Sauna Protocol - Coming Soon',
   description: 'Post-workout sauna protocol for optimal recovery. Coming soon.',
+  robots: { index: false, follow: true },
 }
 
 export default function PostWorkoutProtocolPage() {
