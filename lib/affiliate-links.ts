@@ -92,14 +92,22 @@ export const affiliateLinks = {
 }
 
 // Helper function to add tracking parameters to URLs
-export function getAffiliateLink(key: keyof typeof affiliateLinks, additionalParams?: Record<string, string>) {
-  let url = affiliateLinks[key]
+// Only works with simple string URLs, not nested objects like clearlight/sunlighten
+export function getAffiliateLink(key: keyof typeof affiliateLinks, additionalParams?: Record<string, string>): string {
+  const link = affiliateLinks[key]
+  
+  // If the link is an object (like clearlight or sunlighten), return the main URL
+  if (typeof link === 'object' && link !== null) {
+    return (link as { main: string }).main
+  }
+  
+  let url = link as string
   
   // Add additional tracking parameters if provided
   if (additionalParams) {
     const urlObj = new URL(url)
-    Object.entries(additionalParams).forEach(([key, value]) => {
-      urlObj.searchParams.set(key, value)
+    Object.entries(additionalParams).forEach(([k, value]) => {
+      urlObj.searchParams.set(k, value)
     })
     url = urlObj.toString()
   }
