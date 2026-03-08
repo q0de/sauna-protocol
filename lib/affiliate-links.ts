@@ -1,8 +1,38 @@
-// Amazon Affiliate Links Configuration
-// Replace the placeholder URLs with your actual Amazon Associates affiliate links
-// Format: https://amazon.com/dp/PRODUCT-ID?tag=YOUR-AFFILIATE-TAG
+// Affiliate Links Configuration
+// Includes both Amazon Associates links and direct manufacturer affiliate programs
+// Direct manufacturer programs offer 8-10% commission vs Amazon's 1-4%
 
 export const affiliateLinks = {
+  // ===========================================
+  // DIRECT MANUFACTURER AFFILIATE LINKS
+  // High-commission programs (8-10%)
+  // ===========================================
+  
+  // Clearlight Saunas - Apply at: https://www.clearlight.com/affiliate-program
+  // Commission: 8-10% on $3,000-$6,000+ products = $240-600 per sale
+  clearlight: {
+    main: 'https://www.clearlight.com/?ref=SAUNAPROTOCOL', // TODO: Replace with actual affiliate link after approval
+    sanctuary2: 'https://www.clearlight.com/sanctuary-full-spectrum/?ref=SAUNAPROTOCOL', // 2-person Sanctuary
+    sanctuary3: 'https://www.clearlight.com/sanctuary-full-spectrum/?ref=SAUNAPROTOCOL', // 3-person Sanctuary
+    premier: 'https://www.clearlight.com/premier-far-infrared/?ref=SAUNAPROTOCOL', // Premier line
+    essential: 'https://www.clearlight.com/essential-full-spectrum/?ref=SAUNAPROTOCOL', // Essential line
+    outdoorSanctuary: 'https://www.clearlight.com/outdoor-sauna/?ref=SAUNAPROTOCOL', // Outdoor
+  },
+  
+  // Sunlighten Saunas - Apply at: https://www.sunlighten.com/affiliate-program
+  // Commission: 8-10% on $4,000-$12,000+ products = $320-1,200 per sale
+  sunlighten: {
+    main: 'https://www.sunlighten.com/?ref=SAUNAPROTOCOL', // TODO: Replace with actual affiliate link after approval
+    mPulse: 'https://www.sunlighten.com/mpulse-smart-sauna/?ref=SAUNAPROTOCOL', // mPulse smart saunas
+    signature: 'https://www.sunlighten.com/signature/?ref=SAUNAPROTOCOL', // Signature line
+    solo: 'https://www.sunlighten.com/solo-system/?ref=SAUNAPROTOCOL', // Solo portable
+  },
+  
+  // ===========================================
+  // AMAZON AFFILIATE LINKS
+  // Lower commission (1-4%) - use for accessories
+  // ===========================================
+  
   // Thermometers
   thermometerDialTraditional: 'https://amazon.com/dp/YOUR-AFFILIATE-LINK', // TODO: Add traditional dial thermometer
   thermometerHygrometerCombo: 'https://amzn.to/49Kpw6L', // Northwood Sauna - Finnish Pine - $29.97 ✅
@@ -77,9 +107,18 @@ export function getAffiliateLink(key: keyof typeof affiliateLinks, additionalPar
   return url
 }
 
-// Amazon Associates Program Disclosure
+// Affiliate Program Disclosure
 export const affiliateDisclosure = {
-  short: "We earn from qualifying purchases through our Amazon affiliate links.",
-  full: "We have affiliate relationships with Amazon and other retailers mentioned in this guide. When you purchase through our links, we earn a small commission at no extra cost to you. This helps us continue testing products and creating free content like this guide.",
+  short: "We earn commissions from qualifying purchases.",
+  full: "We have affiliate relationships with Clearlight Saunas, Sunlighten, Amazon, and other brands mentioned on this site. When you purchase through our links, we earn a commission at no extra cost to you. This supports our ability to test products and create free, evidence-based content.",
+  manufacturerNote: "We partner directly with premium sauna manufacturers like Clearlight and Sunlighten. These partnerships allow us to offer our readers direct access to the best products while supporting our mission to provide research-backed sauna protocols.",
+}
+
+// Link to affiliate application pages (for internal reference)
+export const affiliatePrograms = {
+  clearlight: 'https://www.clearlight.com/affiliate-program',
+  sunlighten: 'https://www.sunlighten.com/affiliate-program',
+  shareASale: 'https://www.shareasale.com', // Check for other sauna brands
+  cjAffiliate: 'https://www.cj.com', // Commission Junction - check for sauna brands
 }
 

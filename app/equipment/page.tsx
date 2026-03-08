@@ -4,47 +4,163 @@ import Image from 'next/image'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Thermometer, Star, CheckCircle, AlertCircle, TrendingUp } from 'lucide-react'
 import { affiliateLinks } from '@/lib/affiliate-links'
+import { FadeIn } from '@/components/effects/fade-in'
+import { StaggerContainer, StaggerItem } from '@/components/effects/stagger-container'
+import { HoverCard } from '@/components/effects/hover-card'
+import { generateSEO, generateBreadcrumbSchema } from '@/lib/seo'
+import { StructuredData } from '@/components/seo/structured-data'
 
-export const metadata: Metadata = {
-  title: 'Best Sauna Equipment & Accessories Review Guide 2025',
+export const metadata: Metadata = generateSEO({
+  title: 'Best Sauna Equipment & Accessories Review Guide 2026',
   description: 'Expert reviews of sauna equipment and accessories. We tested and analyzed hundreds of products to find the best thermometers, towels, and gear.',
+  path: '/equipment',
   keywords: ['sauna equipment reviews', 'best sauna accessories', 'sauna thermometer review', 'sauna towels', 'sauna gear'],
-}
+})
 
 export default function EquipmentPage() {
-  return (
-    <article className="pt-44 pb-12">
-      <div className="mx-auto max-w-4xl px-6 lg:px-8">
-        
-        {/* Header */}
-        <header className="mb-12">
-          <Badge variant="accent" className="mb-4">EQUIPMENT REVIEWS</Badge>
-          <h1 className="text-4xl font-bold mb-6">
-            Best Sauna Equipment & Accessories: Complete Review Guide [2025]
-          </h1>
-          <p className="text-xl text-gray-700 leading-relaxed mb-6">
-            Whether you're setting up your first home sauna or upgrading your existing setup, having the right equipment and accessories can transform your sauna experience from basic to exceptional. After researching dozens of products and analyzing hundreds of user reviews on Amazon and specialty retailers, we've compiled this comprehensive guide to the best sauna equipment available in 2025.
-          </p>
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://saunaprotocol.com'
+  
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: siteUrl },
+    { name: 'Equipment', url: `${siteUrl}/equipment` },
+  ])
 
-          <Card className="bg-blue-50 border-2 border-blue-200">
+  return (
+    <>
+      <StructuredData data={breadcrumbSchema} />
+      <article className="pt-32 pb-12 bg-background-dark">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+
+          {/* Header */}
+        <FadeIn>
+          <header className="mb-12">
+            <Badge variant="default" className="mb-4">EQUIPMENT REVIEWS</Badge>
+            <h1 className="font-display text-4xl font-bold italic text-white mb-6">
+              Best Sauna Equipment & Accessories
+            </h1>
+            <p className="text-xl text-text-muted leading-relaxed mb-6">
+              Whether you're setting up your first home sauna or upgrading your existing setup, having the right equipment and accessories can transform your sauna experience from basic to exceptional. After researching dozens of products and analyzing hundreds of user reviews on Amazon and specialty retailers, we've compiled this comprehensive guide to the best sauna equipment available in 2025.
+            </p>
+
+            <Card>
             <CardContent className="pt-6">
-              <p className="text-lg font-semibold mb-2">Quick Take:</p>
-              <p className="text-gray-700">
+              <p className="text-lg font-semibold mb-2 text-white">Quick Take:</p>
+              <p className="text-text-muted">
                 Essential sauna equipment includes an accurate thermometer ($20-50), <span id="timer" className="scroll-mt-32">timer</span> ($15-40), proper <span id="towels" className="scroll-mt-32">towels</span> ($25-60), and quality cleaning supplies ($30-80). Optional upgrades like aromatherapy systems, sound systems, and tracking devices can enhance your experience significantly.
               </p>
             </CardContent>
           </Card>
-        </header>
+          </header>
+        </FadeIn>
 
-        {/* Top 8 Products */}
+        {/* Full Sauna Units Section - NEW */}
+        <section className="mb-16">
+          <FadeIn>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="material-symbols-outlined text-primary text-3xl">spa</span>
+              <h2 className="font-display text-2xl font-bold italic text-white">Full Sauna Units</h2>
+            </div>
+            
+            <p className="text-text-muted text-lg mb-8">
+              Looking for a complete infrared sauna for your home? We've reviewed the top brands to help you find the perfect unit for your space and budget.
+            </p>
+          </FadeIn>
+
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <StaggerItem>
+              <HoverCard className="h-full">
+                <Link href="/reviews/best-infrared-saunas" className="block h-full">
+                  <Card className="h-full hover:border-primary transition-all group cursor-pointer">
+                <CardHeader>
+                  <Badge variant="featured" className="mb-2 w-fit">TOP PICKS</Badge>
+                  <CardTitle className="group-hover:text-primary transition-colors">
+                    Best Infrared Saunas 2025
+                  </CardTitle>
+                  <CardDescription>
+                    Comprehensive comparison of top-rated home infrared saunas. Rankings, specs, and buying guide.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <span className="text-primary text-sm font-semibold flex items-center">
+                    View Comparison
+                    <span className="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+                  </span>
+                </CardContent>
+              </Card>
+                </Link>
+              </HoverCard>
+            </StaggerItem>
+
+            <StaggerItem>
+              <HoverCard className="h-full">
+                <Link href="/reviews/clearlight" className="block h-full">
+                  <Card className="h-full hover:border-primary transition-all group cursor-pointer">
+                <CardHeader>
+                  <Badge variant="default" className="mb-2 w-fit">PREMIUM</Badge>
+                  <CardTitle className="group-hover:text-primary transition-colors">
+                    Clearlight Saunas Review
+                  </CardTitle>
+                  <CardDescription>
+                    In-depth review of Clearlight's full-spectrum infrared saunas. EMF testing, build quality, warranty.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <span className="text-primary text-sm font-semibold flex items-center">
+                    Read Review
+                    <span className="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+                  </span>
+                </CardContent>
+              </Card>
+                </Link>
+              </HoverCard>
+            </StaggerItem>
+
+            <StaggerItem>
+              <HoverCard className="h-full">
+                <Link href="/reviews/sunlighten" className="block h-full">
+                  <Card className="h-full hover:border-primary transition-all group cursor-pointer">
+                <CardHeader>
+                  <Badge variant="secondary" className="mb-2 w-fit">VALUE PICK</Badge>
+                  <CardTitle className="group-hover:text-primary transition-colors">
+                    Sunlighten Saunas Review
+                  </CardTitle>
+                  <CardDescription>
+                    Complete review of Sunlighten's mPulse and Signature series. Smart features, health programs.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <span className="text-primary text-sm font-semibold flex items-center">
+                    Read Review
+                    <span className="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+                  </span>
+                </CardContent>
+              </Card>
+                </Link>
+              </HoverCard>
+            </StaggerItem>
+          </StaggerContainer>
+
+          <FadeIn delay={0.2}>
+            <Card className="bg-primary/10 border-primary">
+            <CardContent className="pt-6">
+              <p className="text-white">
+                <strong>Looking for the best deal?</strong> Infrared sauna manufacturers like Clearlight and Sunlighten offer direct purchase discounts of 8-10% through their affiliate programs. Check our reviews for current promotions.
+              </p>
+            </CardContent>
+          </Card>
+          </FadeIn>
+        </section>
+
+        {/* Top Tested Products */}
         <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 flex items-center gap-2">
-            <TrendingUp className="h-8 w-8 text-[#ff6b6b]" />
-            Our Top 8 Tested Products
-          </h2>
-          <p className="text-lg text-gray-700 mb-8">
+          <FadeIn>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="material-symbols-outlined text-primary text-3xl">trending_up</span>
+              <h2 className="font-display text-2xl font-bold italic text-white">Accessories & Gear</h2>
+            </div>
+          </FadeIn>
+          <p className="text-lg text-text-muted mb-8">
             After testing dozens of sauna accessories and analyzing thousands of user reviews, these are the products we recommend most often. Each one solves a specific need and has proven reliability in high-heat environments.
           </p>
 
@@ -656,41 +772,55 @@ export default function EquipmentPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="mb-12">
-          <Card className="bg-gradient-to-br from-[#ff6b6b] to-[#f59e0b] text-white border-none">
-            <CardContent className="pt-8 pb-8 text-center">
-              <h3 className="text-2xl font-bold mb-4">Ready to Upgrade Your Sauna Experience?</h3>
-              <p className="text-lg mb-6 text-white/90">
-                Start with our essential recommendations and build from there
-              </p>
-              <Button asChild size="lg" variant="secondary" className="bg-white text-gray-900 hover:bg-gray-100">
-                <Link href="/protocols/bryan-johnson">See Bryan Johnson's Equipment Setup →</Link>
-              </Button>
-            </CardContent>
-          </Card>
-        </section>
+        <FadeIn>
+          <section className="mb-12">
+            <HoverCard scale={1.01} lift={4}>
+              <Card className="bg-gradient-to-br from-[#ff6b6b] to-[#f59e0b] text-white border-none">
+                <CardContent className="pt-8 pb-8 text-center">
+                  <h3 className="text-2xl font-bold mb-4">Ready to Upgrade Your Sauna Experience?</h3>
+                  <p className="text-lg mb-6 text-white/90">
+                    Start with our essential recommendations and build from there
+                  </p>
+                  <Button asChild size="lg" variant="secondary" className="bg-white text-gray-900 hover:bg-gray-100">
+                    <Link href="/protocols/bryan-johnson">See Bryan Johnson's Equipment Setup →</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </HoverCard>
+          </section>
+        </FadeIn>
 
         {/* Related Articles */}
         <section>
-          <h3 className="text-2xl font-bold mb-4">Related Articles</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Card>
-              <CardContent className="pt-6">
-                <Link href="/protocols/bryan-johnson" className="text-[#ff6b6b] hover:underline font-semibold">
-                  Bryan Johnson's Sauna Protocol →
-                </Link>
-                <p className="text-sm text-gray-600 mt-2">Learn the exact equipment and timing he uses</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="pt-6">
-                <Link href="/articles/sauna-before-or-after-workout" className="text-[#ff6b6b] hover:underline font-semibold">
-                  Sauna Before or After Workout →
-                </Link>
-                <p className="text-sm text-gray-600 mt-2">Optimal timing for maximum benefits</p>
-              </CardContent>
-            </Card>
-          </div>
+          <FadeIn>
+            <h3 className="text-2xl font-bold mb-4">Related Articles</h3>
+          </FadeIn>
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <StaggerItem>
+              <HoverCard>
+                <Card>
+                  <CardContent className="pt-6">
+                    <Link href="/protocols/bryan-johnson" className="text-[#ff6b6b] hover:underline font-semibold">
+                      Bryan Johnson's Sauna Protocol →
+                    </Link>
+                    <p className="text-sm text-gray-600 mt-2">Learn the exact equipment and timing he uses</p>
+                  </CardContent>
+                </Card>
+              </HoverCard>
+            </StaggerItem>
+            <StaggerItem>
+              <HoverCard>
+                <Card>
+                  <CardContent className="pt-6">
+                    <Link href="/articles/sauna-before-or-after-workout" className="text-[#ff6b6b] hover:underline font-semibold">
+                      Sauna Before or After Workout →
+                    </Link>
+                    <p className="text-sm text-gray-600 mt-2">Optimal timing for maximum benefits</p>
+                  </CardContent>
+                </Card>
+              </HoverCard>
+            </StaggerItem>
+          </StaggerContainer>
         </section>
 
         {/* Coming Soon: Full Sauna Reviews */}
@@ -743,7 +873,8 @@ export default function EquipmentPage() {
           </p>
         </div>
 
-      </div>
-    </article>
+        </div>
+      </article>
+    </>
   )
 }

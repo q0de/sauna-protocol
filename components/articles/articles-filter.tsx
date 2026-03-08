@@ -4,6 +4,9 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { FadeIn } from '@/components/effects/fade-in'
+import { StaggerContainer, StaggerItem } from '@/components/effects/stagger-container'
+import { HoverCard } from '@/components/effects/hover-card'
 
 type Article = {
   slug: string
@@ -43,30 +46,33 @@ export function ArticlesFilter({ staticPages, mdxArticles }: ArticlesFilterProps
   return (
     <>
       {/* Category Filter */}
-      <div className="flex flex-wrap gap-3 justify-center mb-12">
-        {categories.map((category) => (
-          <Badge
-            key={category}
-            variant={category === selectedCategory ? 'default' : 'outline'}
-            className="text-sm px-4 py-2 cursor-pointer hover:bg-[#ff6b6b] hover:text-white transition-colors"
-            onClick={() => setSelectedCategory(category)}
-          >
-            {category.toUpperCase()}
-          </Badge>
-        ))}
-      </div>
+      <FadeIn>
+        <div className="flex flex-wrap gap-3 justify-center mb-12">
+          {categories.map((category) => (
+            <Badge
+              key={category}
+              variant={category === selectedCategory ? 'default' : 'outline'}
+              className="text-sm px-4 py-2 cursor-pointer hover:bg-primary hover:text-white transition-colors"
+              onClick={() => setSelectedCategory(category)}
+            >
+              {category.toUpperCase()}
+            </Badge>
+          ))}
+        </div>
+      </FadeIn>
 
       {/* Featured Protocol (Bryan Johnson) - Always show if "All" or "Protocol" selected */}
       {featuredItem && (selectedCategory === 'All' || selectedCategory === 'Protocol') && (
-        <div className="mb-12">
-          <Link href={featuredItem.href || `/articles/${featuredItem.slug}`} className="block">
-            <Card className="border-2 border-[#ff6b6b] bg-gradient-to-br from-[#ff6b6b]/5 to-[#f59e0b]/5 hover:shadow-xl transition-all cursor-pointer">
+        <FadeIn className="mb-12">
+          <HoverCard scale={1.01} lift={6}>
+            <Link href={featuredItem.href || `/articles/${featuredItem.slug}`} className="block">
+              <Card className="border-2 border-primary bg-gradient-to-br from-primary/10 to-primary/5 hover:shadow-xl transition-all cursor-pointer">
               <CardHeader>
                 <div className="flex items-center gap-2 mb-2">
                   <Badge variant="featured">FEATURED PROTOCOL</Badge>
                   <Badge variant="secondary">{featuredItem.frontmatter.category}</Badge>
                 </div>
-                <CardTitle className="text-2xl hover:text-[#ff6b6b] transition-colors">
+                <CardTitle className="text-2xl hover:text-primary transition-colors">
                   {featuredItem.frontmatter.title}
                 </CardTitle>
                 <CardDescription className="text-base">
@@ -75,33 +81,37 @@ export function ArticlesFilter({ staticPages, mdxArticles }: ArticlesFilterProps
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="font-medium text-gray-700">{featuredItem.frontmatter.readingTime}</span>
-                  <span className="text-gray-500">{new Date(featuredItem.frontmatter.publishedAt).toLocaleDateString()}</span>
+                  <span className="font-medium text-white">{featuredItem.frontmatter.readingTime}</span>
+                  <span className="text-text-muted">{new Date(featuredItem.frontmatter.publishedAt).toLocaleDateString()}</span>
                 </div>
               </CardContent>
             </Card>
-          </Link>
-        </div>
+            </Link>
+          </HoverCard>
+        </FadeIn>
       )}
 
       {/* Filtered Content Grid */}
       {otherContent.length === 0 ? (
         <div className="text-center py-12">
-          <p className="text-xl text-gray-600">No {selectedCategory.toLowerCase()} content yet. Check back soon!</p>
+          <p className="text-xl text-text-muted">No {selectedCategory.toLowerCase()} content yet. Check back soon!</p>
         </div>
       ) : (
         <div className="mb-8">
-          <h2 className="text-2xl font-bold mb-6">
-            {selectedCategory === 'All' ? 'All Guides & Articles' : `${selectedCategory} Content`}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <FadeIn>
+            <h2 className="font-display text-2xl font-bold text-white mb-6">
+              {selectedCategory === 'All' ? 'All Guides & Articles' : `${selectedCategory} Content`}
+            </h2>
+          </FadeIn>
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {otherContent.map((item) => (
-              <Link 
-                key={item.slug} 
-                href={item.href || `/articles/${item.slug}`} 
-                className="block"
-              >
-                <Card className="hover:shadow-lg transition-all cursor-pointer h-full">
+              <StaggerItem key={item.slug}>
+                <HoverCard className="h-full">
+                  <Link 
+                    href={item.href || `/articles/${item.slug}`} 
+                    className="block h-full"
+                  >
+                    <Card className="hover:shadow-lg hover:border-primary transition-all cursor-pointer h-full">
                   <CardHeader>
                     <div className="flex items-center gap-2 mb-2">
                       <Badge variant="secondary">
@@ -111,7 +121,7 @@ export function ArticlesFilter({ staticPages, mdxArticles }: ArticlesFilterProps
                         <Badge variant="featured">FEATURED</Badge>
                       )}
                     </div>
-                    <CardTitle className="text-xl hover:text-[#ff6b6b] transition-colors">
+                    <CardTitle className="text-xl hover:text-primary transition-colors">
                       {item.frontmatter.title}
                     </CardTitle>
                     <CardDescription className="line-clamp-3">
@@ -119,15 +129,17 @@ export function ArticlesFilter({ staticPages, mdxArticles }: ArticlesFilterProps
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="flex items-center justify-between text-sm text-gray-500">
+                    <div className="flex items-center justify-between text-sm text-text-muted">
                       <span>{item.frontmatter.readingTime}</span>
                       <span>{new Date(item.frontmatter.publishedAt).toLocaleDateString()}</span>
                     </div>
                   </CardContent>
                 </Card>
-              </Link>
+                  </Link>
+                </HoverCard>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       )}
     </>

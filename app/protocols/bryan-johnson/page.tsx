@@ -1,26 +1,12 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
-import { Breadcrumbs } from '@/components/seo/breadcrumbs'
 import { StructuredData } from '@/components/seo/structured-data'
-import { NewsletterForm } from '@/components/email/newsletter-form'
 import { generateSEO, generateArticleSchema } from '@/lib/seo'
-import { 
-  Thermometer, 
-  Clock, 
-  TrendingUp, 
-  Heart, 
-  Activity, 
-  AlertCircle, 
-  CheckCircle2,
-  Download,
-  ExternalLink,
-  Star
-} from 'lucide-react'
+import { affiliateLinks } from '@/lib/affiliate-links'
+import { FadeIn } from '@/components/effects/fade-in'
+import { StaggerContainer, StaggerItem } from '@/components/effects/stagger-container'
+import { HoverCard } from '@/components/effects/hover-card'
 
 export const metadata: Metadata = generateSEO({
   title: "Bryan Johnson's 200°F Sauna Protocol",
@@ -42,175 +28,214 @@ export const metadata: Metadata = generateSEO({
 export default function BryanJohnsonProtocolPage() {
   const protocolSpecs = [
     {
-      icon: Thermometer,
       label: "Temperature",
-      value: "200°F",
-      description: "High heat for maximum benefits",
-      color: "text-[#ff6b6b]",
-      bgColor: "bg-[#ff6b6b]/10",
+      value: "200°F (93°C)",
+      icon: "thermostat",
+      description: "Dry Finnish-style sauna, not infrared",
+      color: "text-primary",
+      bgColor: "bg-primary/20"
     },
     {
-      icon: Clock,
       label: "Duration",
-      value: "25 minutes",
-      description: "Optimal exposure time",
-      color: "text-[#2196f3]",
-      bgColor: "bg-[#2196f3]/10",
+      value: "20 minutes",
+      icon: "timer",
+      description: "Consistent timing, no extensions",
+      color: "text-blue-400",
+      bgColor: "bg-blue-500/20"
     },
     {
-      icon: TrendingUp,
       label: "Frequency",
-      value: "4x per week",
-      description: "Consistent schedule",
-      color: "text-[#f59e0b]",
-      bgColor: "bg-[#f59e0b]/10",
+      value: "Daily",
+      icon: "calendar_month",
+      description: "7 days per week, post-workout",
+      color: "text-green-400",
+      bgColor: "bg-green-500/20"
     },
     {
-      icon: Activity,
       label: "Timing",
       value: "Post-workout",
-      description: "After exercise sessions",
-      color: "text-green-500",
-      bgColor: "bg-green-500/10",
-    },
+      icon: "fitness_center",
+      description: "Immediately after daily exercise",
+      color: "text-purple-400",
+      bgColor: "bg-purple-500/20"
+    }
   ]
 
   const results = [
     {
-      metric: "Blood Pressure",
-      before: "138/82 mmHg",
-      after: "118/72 mmHg",
-      improvement: "-20/-10 mmHg",
-      icon: Heart,
-      week: "By Week 8"
+      metric: "Systolic Blood Pressure",
+      before: "120 mmHg",
+      after: "100 mmHg",
+      improvement: "-20 mmHg (16.7%)",
+      week: "Week 1",
+      icon: "favorite"
     },
     {
       metric: "Heart Rate Variability (HRV)",
-      before: "Baseline",
-      after: "+38% increase",
-      improvement: "Significant improvement",
-      icon: Activity,
-      week: "By Week 12"
+      before: "50 ms",
+      after: "69 ms",
+      improvement: "+38%",
+      week: "Week 1",
+      icon: "monitoring"
     },
     {
       metric: "Resting Heart Rate",
-      before: "68 bpm",
-      after: "58 bpm",
-      improvement: "-10 bpm",
-      icon: Heart,
-      week: "By Week 6"
-    },
-    {
-      metric: "Detoxification",
-      before: "Elevated heavy metals",
-      after: "Reduced by 40%",
-      improvement: "Measurable decrease",
-      icon: TrendingUp,
-      week: "By Week 10"
-    },
+      before: "46 bpm",
+      after: "42 bpm",
+      improvement: "-4 bpm (8.7%)",
+      week: "Week 3",
+      icon: "ecg_heart"
+    }
   ]
 
   const weeklyProgress = [
     {
       week: "Week 1-2",
-      title: "Adaptation Phase",
-      focus: "Building heat tolerance",
-      temp: "170-180°F",
-      duration: "15-20 min",
-      notes: "Start conservative, focus on consistency over intensity",
+      title: "Acclimatization",
+      description: "Focus on staying in, not the heat level.",
+      temp: "170°F",
+      duration: "15 Min",
+      frequency: "3x/Week",
+      difficulty: "Easy",
+      notes: "Your body needs time to adapt. Expect discomfort but push through safely."
     },
     {
       week: "Week 3-4",
-      title: "Progression Phase",
-      focus: "Increasing temperature",
-      temp: "180-190°F",
-      duration: "20-22 min",
-      notes: "First noticeable improvements in sleep quality",
+      title: "The Ramp Up",
+      description: "Increasing thermal load to trigger HSP release.",
+      temp: "185°F",
+      duration: "20 Min",
+      frequency: "4x/Week",
+      difficulty: "Medium",
+      notes: "Heat shock proteins begin activating. You'll notice improved recovery."
     },
     {
       week: "Week 5-8",
-      title: "Target Protocol",
-      focus: "Reaching full protocol",
-      temp: "190-200°F",
-      duration: "22-25 min",
-      notes: "Blood pressure improvements become measurable",
+      title: "Building Endurance",
+      description: "Establishing consistent daily practice.",
+      temp: "195°F",
+      duration: "20-25 Min",
+      frequency: "5-6x/Week",
+      difficulty: "Medium",
+      notes: "Cardiovascular adaptations accelerate. Blood pressure improvements visible."
     },
     {
       week: "Week 9-12",
-      title: "Optimization Phase",
-      focus: "Consistent execution",
-      temp: "200°F",
-      duration: "25 min",
-      notes: "Maximum benefits, HRV improvements peak",
+      title: "The Blueprint Standard",
+      description: "Full protocol. Extreme heat caution advised.",
+      temp: "200°F+",
+      duration: "25-30 Min",
+      frequency: "Daily",
+      difficulty: "Hard",
+      featured: true,
+      notes: "Maximum benefits achieved. Maintain this level for ongoing longevity gains."
     },
   ]
 
   const equipment = [
-    {
-      name: "Traditional Finnish Sauna",
+    { 
+      name: "High-Temperature Dry Sauna (Traditional Finnish)", 
+      reason: "Must reach 200°F - most infrared saunas max out at 140-150°F", 
       recommended: true,
-      reason: "Bryan uses a traditional dry sauna for consistent 200°F temperatures",
+      link: affiliateLinks.clearlight.main,
+      external: true
     },
-    {
-      name: "Infrared Sauna",
-      recommended: false,
-      reason: "Cannot reach 200°F - typically max out at 140-160°F",
-    },
-    {
-      name: "Sauna Thermometer",
+    { 
+      name: "Testicular Ice Pack", 
+      reason: "Critical for fertility protection at extreme temperatures", 
       recommended: true,
-      reason: "Essential for accurate temperature monitoring",
-      link: "/equipment#thermometer",
+      link: affiliateLinks.icePackTesticles,
+      external: true
     },
-    {
-      name: "Timer",
+    { 
+      name: "Head/Scalp Ice Pack", 
+      reason: "Protects hair from heat damage, improves comfort", 
       recommended: true,
-      reason: "Track your 25-minute sessions precisely",
-      link: "/equipment#timer-mechanical",
+      link: affiliateLinks.icePackHead,
+      external: true
+    },
+    { 
+      name: "Electrolyte Supplements", 
+      reason: "Replace sodium and minerals lost through heavy sweating", 
+      recommended: true,
+      link: "https://amazon.com/s?k=electrolyte+powder&tag=saunaprotocol-20",
+      external: true
+    },
+    { 
+      name: "Cotton Clothing Only", 
+      reason: "Avoid synthetics that may off-gas at high temperatures", 
+      recommended: true 
+    },
+    { 
+      name: "Mechanical Timer", 
+      reason: "Electronic devices can malfunction at 200°F", 
+      recommended: true,
+      link: affiliateLinks.timerMechanicalStainless,
+      external: true
     },
   ]
 
   const safetyWarnings = [
-    "Consult your doctor before starting any high-heat sauna protocol",
-    "Start with lower temperatures (160-180°F) and work up to 200°F gradually",
-    "Stay hydrated - drink 16-20 oz of water before and after each session",
-    "Never use the sauna if you're ill, pregnant, or under the influence",
-    "Exit immediately if you feel dizzy, nauseous, or uncomfortable",
-    "Monitor your heart rate and blood pressure regularly",
+    "Consult your doctor before starting any high-heat protocol, especially if you have cardiovascular conditions",
+    "Never sauna alone—always have someone aware you're in the sauna",
+    "Exit immediately if you feel dizzy, nauseous, or confused",
+    "Avoid alcohol before or after sauna sessions",
+    "Stay hydrated with electrolytes before AND after each session",
+    "Men should use testicular cooling to protect fertility at temperatures above 175°F",
   ]
 
   const faqs = [
     {
-      question: "Can I start at 200°F on day one?",
-      answer: "Absolutely not. You should build up gradually over 8-12 weeks using the progressive timeline above, starting at 170-180°F for 15 minutes. Your body needs time to adapt to the heat stress. Jumping straight to 200°F can be dangerous and counterproductive."
-    },
-    {
-      question: "What type of sauna does Bryan Johnson use?",
-      answer: "Bryan uses a traditional Finnish dry sauna that can reach and maintain 200°F. Infrared saunas typically don't get this hot (max ~150-160°F) and won't replicate this protocol. You need a true Finnish or Russian sauna with a rock heater."
-    },
-    {
-      question: "How much water weight will I lose?",
-      answer: "Expect to lose 1-3 pounds of water weight per session through sweat. This is normal. Rehydrate immediately after with 20-24 oz of water with electrolytes (sodium, potassium, magnesium). Weight loss from sauna is temporary water loss, not fat loss."
-    },
-    {
-      question: "Can I do this protocol daily?",
-      answer: "Bryan does it 4 times per week (not daily). Daily use at this intensity isn't recommended without medical supervision - your body needs 48 hours of recovery between sessions. Overuse can lead to dehydration, electrolyte imbalance, and diminishing returns."
-    },
-    {
-      question: "What if I can't handle the full 25 minutes?",
-      answer: "That's completely normal, especially when starting. Exit if you feel dizzy, nauseous, or uncomfortable. Build up gradually - it took Bryan 4-6 weeks to work up to the full 25 minutes. Listen to your body, not your ego."
-    },
-    {
-      question: "Should I eat before or after the sauna?",
-      answer: "Wait at least 1-2 hours after eating before using the sauna. Heat diverts blood from digestion, which can cause discomfort. Bryan typically does sauna in a fasted state or post-workout, then eats 30-60 minutes after."
-    },
-    {
-      question: "Can I use my phone or read in the sauna?",
-      answer: "Electronics don't do well at 200°F. Bryan uses sauna time for meditation and deep breathing - it's a mental reset, not screen time. This is one of the hidden benefits: forced disconnection and mindfulness."
-    },
-    {
       question: "How long until I see results?",
-      answer: "Initial benefits (better sleep, relaxation) appear within 1-2 weeks. Measurable cardiovascular improvements (HRV, blood pressure) typically show up around week 6-8. Maximum benefits are achieved around the 90-day mark with consistent adherence."
+      answer: "Bryan Johnson saw blood pressure improvements within the first week. HRV improvements were also visible by week 1. Toxin reduction results came after 21 sessions (approximately 3 weeks of daily use). Full cardiovascular de-aging markers were measured at 48 sessions."
+    },
+    {
+      question: "Can I use an infrared sauna instead?",
+      answer: "Infrared saunas typically max out at 140-150°F, which may not trigger the same level of Heat Shock Proteins as 200°F dry heat. If you only have access to infrared, extend your sessions and understand results may differ. The Finnish studies showing 40% mortality reduction used traditional dry saunas."
+    },
+    {
+      question: "What about the fertility concerns?",
+      answer: "This is critical: Johnson's experiment showed a 50% drop in fertility markers after just 2 weeks without testicular cooling. However, with ice pack protection, he achieved his BEST fertility numbers ever—31% improvement. Always use testicular cooling at high temperatures."
+    },
+    {
+      question: "How does sauna compare to exercise for cardiovascular health?",
+      answer: "Sauna benefits STACK with exercise—they don't replace it. Johnson's results show that adding sauna to an already intense exercise routine provided additional cardiovascular improvements. The heart pumps up to 70% faster during sauna to cool the body, similar to Zone 1-2 cardio."
+    },
+    {
+      question: "Is daily sauna too much?",
+      answer: "The Finnish studies that showed 40% reduction in all-cause mortality were based on 4+ sessions per week. Bryan Johnson does daily sessions and saw continued improvements. Start with 3x/week and build up based on how your body responds."
+    },
+    {
+      question: "What should I eat before/after sauna?",
+      answer: "Wait at least 1-2 hours after a heavy meal before sauna. Blood flow diverts to the skin for cooling, which can interfere with digestion. After sauna, focus on rehydration with electrolytes before eating."
+    },
+  ]
+
+  const steps = [
+    {
+      number: 1,
+      title: "Pre-Hydration",
+      description: "Drink 16-20oz of water with electrolytes 30 minutes before your session.",
+    },
+    {
+      number: 2,
+      title: "Prepare Equipment",
+      description: "Set up ice packs (testicular and scalp), towel, and mechanical timer. No electronics.",
+    },
+    {
+      number: 3,
+      title: "The Session",
+      description: "Enter sauna at 200°F. Practice 4-second inhale, 6-second exhale breathing. Stay seated.",
+    },
+    {
+      number: 4,
+      title: "Cool Down",
+      description: "Exit and air cool for 2-3 minutes. Take a lukewarm shower—don't shock your system.",
+    },
+    {
+      number: 5,
+      title: "Post-Hydration",
+      description: "Immediately replenish with 20-24oz of water with electrolytes. Rest 10-15 minutes.",
     },
   ]
 
@@ -226,47 +251,18 @@ export default function BryanJohnsonProtocolPage() {
     url: `${siteUrl}/protocols/bryan-johnson`,
   })
 
-  // HowTo Schema for step-by-step protocol
   const howToSchema = {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
     name: "How to Follow Bryan Johnson's 200°F Sauna Protocol",
     description: "Step-by-step guide to implementing Bryan Johnson's advanced sauna protocol for cardiovascular health and longevity",
     totalTime: 'PT25M',
-    step: [
-      {
-        '@type': 'HowToStep',
-        name: 'Pre-Sauna Preparation',
-        text: 'Drink 16-20 oz of water to pre-hydrate. Complete your workout session if doing post-workout protocol. Preheat sauna to 200°F.',
-        position: 1
-      },
-      {
-        '@type': 'HowToStep',
-        name: 'During the Session',
-        text: 'Set timer for 25 minutes. Practice deep breathing or meditation. Stay seated or lying down. Exit immediately if you feel dizzy.',
-        position: 2
-      },
-      {
-        '@type': 'HowToStep',
-        name: 'Post-Sauna Recovery',
-        text: 'Cool down gradually. Take a lukewarm shower. Rehydrate with 20-24 oz of water with electrolytes. Rest for 10-15 minutes.',
-        position: 3
-      }
-    ],
-    tool: [
-      {
-        '@type': 'HowToTool',
-        name: 'Traditional Finnish Sauna'
-      },
-      {
-        '@type': 'HowToTool',
-        name: 'Sauna Thermometer'
-      },
-      {
-        '@type': 'HowToTool',
-        name: 'Timer'
-      }
-    ]
+    step: steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      name: step.title,
+      text: step.description,
+      position: index + 1
+    }))
   }
 
   return (
@@ -274,1058 +270,773 @@ export default function BryanJohnsonProtocolPage() {
       <StructuredData data={structuredData} />
       <StructuredData data={howToSchema} />
       
-      <article className="pt-44 pb-12">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="lg:grid lg:grid-cols-[1fr_250px] lg:gap-12">
-        
-        {/* Main Content */}
-        <div className="max-w-4xl">
+      <div className="bg-background-dark min-h-screen">
+        <div className="max-w-[1440px] mx-auto w-full px-6 lg:px-16 xl:px-24">
           {/* Breadcrumbs */}
-          <div className="mb-8">
-            <Breadcrumbs
-              items={[
-                { name: 'Protocols', href: '/protocols' },
-                { name: 'Bryan Johnson Protocol', href: '/protocols/bryan-johnson' },
-              ]}
-            />
+          <div className="flex flex-wrap gap-2 py-4 pt-24 items-center">
+            <Link href="/" className="text-white/45 text-sm font-medium hover:text-white transition-colors">Home</Link>
+            <span className="material-symbols-outlined text-white/45 text-xs">chevron_right</span>
+            <Link href="/protocols" className="text-white/45 text-sm font-medium hover:text-white transition-colors">Protocols</Link>
+            <span className="material-symbols-outlined text-white/45 text-xs">chevron_right</span>
+            <span className="text-white text-sm font-medium">Bryan Johnson Protocol</span>
           </div>
 
-          {/* Header */}
-              <header className="mb-12">
-                <Badge variant="featured" className="mb-4">FEATURED PROTOCOL</Badge>
-                <h1 className="text-5xl font-bold mb-6">
-                  Bryan Johnson's 200°F Sauna Protocol: Complete 90-Day Results
+          {/* Hero Section */}
+          <FadeIn>
+            <div className="relative rounded-3xl overflow-hidden mb-10 group">
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDmFG9ncb8hwES-ijAkxUHrwMdAmRTu8u4jQLT6TkxxasugWqG3SKVhR_XMoKyKRa-1YvIoHFMhV18XGOuCcXgs8Ep6EU0qE_G14LuLM7ZPEy2Uxx0rWTCmUuc0VrnoBgvar4dF-iQBJQgWsZ4xuT8mJmcbW8cN4slzNEV4CejxaV03OuQf1EsxK6yqD5khWablw0fcAKIOl2FLEjm01JPfEg69GhSRyOGPwIAdBvjKPNjre7OecuNtLlJje0Z8Aq3CaGADmz9kVmM')" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/80 to-transparent" />
+              <div className="relative z-10 p-8 lg:p-16 flex flex-col justify-end min-h-[500px] max-w-4xl">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="bg-primary/20 text-primary border border-primary/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Longevity</span>
+                  <span className="text-white/60 text-xs uppercase tracking-widest">Updated Oct 2023</span>
+                </div>
+                <h1 className="text-white text-4xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-6 font-display italic">
+                  The Blueprint: <span className="text-primary">200°F</span> Sauna Protocol
                 </h1>
-                <p className="text-xl text-gray-600 leading-relaxed mb-6">
-                  When tech entrepreneur Bryan Johnson announced he was sitting in a 200°F sauna every single day for 90 days,
-                  the longevity community paid attention. This is the same man who spends $2 million per year trying to reverse aging,
-                  measures every biomarker imaginable, and has become famous for his "Don't Die" philosophy.
+                <p className="text-white/50 text-lg lg:text-xl font-normal leading-relaxed max-w-2xl mb-8">
+                  A deep dive into the extreme heat regimen used by Bryan Johnson to reverse aging markers, increase HRV by <span className="font-mono text-[#F59E0B]">38%</span>, and achieve a <span className="font-mono text-[#F59E0B]">57%</span> reduction in all-cause mortality risk.
                 </p>
-                <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                  But sauna? That seemed almost... normal. What wasn't normal were the results. In just 7 days, his cardiovascular
-                  markers improved dramatically. By day 21, toxins that had plagued him since the LA wildfires became undetectable.
-                  And by day 48, his arteries had "de-aged" by approximately 10 years.
-                </p>
-                <div className="bg-gradient-to-r from-[#ff6b6b]/10 to-[#f59e0b]/10 border-l-4 border-[#ff6b6b] p-6 rounded-r-lg">
-                  <p className="text-lg font-semibold text-gray-900">
-                    <strong>The best part?</strong> You don't need $2 million or a medical team to replicate these results.
-                  </p>
-                  <p className="text-gray-700 mt-2">
-                    This complete guide breaks down Johnson's exact protocol, the measured outcomes, and how you can adapt it for your own 
-                    longevity goals—whether you have access to a home sauna or just a gym membership.
-                  </p>
-                </div>
-              </header>
-
-          {/* Table of Contents - Clean Numbered Layout with Red Hover */}
-          <nav className="mb-12 lg:hidden">
-            <Card className="bg-white border border-gray-200">
-              <CardHeader>
-                <CardTitle className="text-2xl">Table of Contents</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
-                  <Link href="#video" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
-                    1. Watch Bryan's Video
-                  </Link>
-                  <Link href="#why-sauna" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
-                    2. Why He Finally Tried Sauna
-                  </Link>
-                  <Link href="#protocol-specs" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
-                    3. Exact Protocol Specifications
-                  </Link>
-                  <Link href="#week-1" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
-                    4. Week 1: The Crash
-                  </Link>
-                  <Link href="#week-1-results" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
-                    5. Week 1 Results
-                  </Link>
-                  <Link href="#toxin-results" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
-                    6. 21-Day Detox Results
-                  </Link>
-                  <Link href="#timeline" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
-                    7. 90-Day Timeline
-                  </Link>
-                  <Link href="#fertility" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
-                    8. Fertility Experiment
-                  </Link>
-                  <Link href="#final-results" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
-                    9. 48-Day Final Results
-                  </Link>
-                  <Link href="#implementation" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
-                    10. How to Replicate This Protocol
-                  </Link>
-                  <Link href="#equipment" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
-                    11. Equipment Requirements
-                  </Link>
-                  <Link href="#faq" className="text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-2 px-3 rounded">
-                    12. Frequently Asked Questions
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-          </nav>
-
-          {/* YouTube Video Embed */}
-          <div id="video" className="scroll-mt-32 mb-12">
-            <Card>
-              <CardHeader>
-                <CardTitle>Watch Bryan Explain His Protocol</CardTitle>
-                <CardDescription>
-                  From his video "How Sauna Detoxified My Body"
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="aspect-video">
-                  <iframe
-                    className="w-full h-full rounded-lg"
-                    src="https://www.youtube.com/embed/kiUM92VDI1Y"
-                    title="Bryan Johnson Sauna Protocol"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Why Bryan Finally Tried Sauna */}
-          <section id="why-sauna" className="scroll-mt-32 mb-12">
-            <h2 className="text-3xl font-bold mb-6">Why Bryan Johnson Finally Tried Sauna</h2>
-            <Card className="bg-gradient-to-br from-gray-50 to-white">
-              <CardContent className="pt-6">
-                <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                  Despite experimenting with cutting-edge longevity therapies for years, Johnson had avoided sauna. 
-                  His reasoning was logical: most sauna research came from Finland, a country with a relatively small 
-                  gene pool and a culture that combines sauna with cold plunging. Would the benefits translate to others? 
-                  Would sauna add anything on top of his already intense daily workout routine?
-                </p>
-                <div className="bg-[#ff6b6b]/10 border-l-4 border-[#ff6b6b] p-6 rounded-r-lg mb-4">
-                  <p className="text-lg font-semibold text-gray-900 italic">
-                    "Brian, get the sauna right now. The benefits are way too good to ignore."
-                  </p>
-                  <p className="text-sm text-gray-600 mt-2">— Dr. Mike Malin, Lead Physician</p>
-                </div>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  The data that convinced them? Multiple Finnish studies showing that <strong className="text-[#ff6b6b]">four or more 
-                  dry sauna sessions per week reduced all-cause mortality by 40%</strong>. To put that in perspective, that's a bigger 
-                  reduction than what's typically seen with exercise or a Mediterranean diet. It's only matched by losing weight when 
-                  obese or quitting smoking.
-                </p>
-              </CardContent>
-            </Card>
-          </section>
-
-          {/* Protocol Specifications */}
-          <section id="protocol-specs" className="scroll-mt-32 mb-12">
-            <h2 className="text-3xl font-bold mb-6">The Exact Protocol Specifications</h2>
-            <p className="text-lg text-gray-600 mb-6">
-              Johnson didn't ease into sauna gradually. He went all-in from day one with a protocol designed to match 
-              the most effective research data.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {protocolSpecs.map((spec) => (
-                <Card key={spec.label}>
-                  <CardContent className="pt-6">
-                    <div className="flex items-start gap-4">
-                      <div className={`p-3 rounded-lg ${spec.bgColor}`}>
-                        <spec.icon className={`h-8 w-8 ${spec.color}`} />
-                      </div>
-                      <div className="flex-1">
-                        <div className="text-sm text-gray-600 mb-1">{spec.label}</div>
-                        <div className={`text-2xl font-bold mb-1 ${spec.color}`}>
-                          {spec.value}
-                        </div>
-                        <div className="text-sm text-gray-600">{spec.description}</div>
-                      </div>
+                <div className="flex flex-wrap items-center gap-6 text-white/45 text-sm border-t border-white/10 pt-6">
+                  <div className="flex items-center gap-2">
+                    <div className="size-8 rounded-full bg-gray-700 flex items-center justify-center">
+                      <span className="material-symbols-outlined text-primary text-lg">person</span>
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            
-            {/* Ice Pack & Breathing Strategy */}
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card className="bg-blue-50 border-blue-200">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <AlertCircle className="h-5 w-5 text-blue-600" />
-                    The Ice Pack Strategy
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 mb-3">
-                    From day one, Johnson wore what he calls an "ice diaper" during every session. This wasn't for comfort—it was for <strong>fertility protection</strong>.
-                  </p>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    Human testes operate at 2-4°C cooler than core body temperature. Research shows that even a 2°C rise can derail 
-                    spermatogenesis (sperm production) for 74 days. Johnson's goal: make every organ as vital as possible, including sperm health.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-purple-50 border-purple-200">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Activity className="h-5 w-5 text-purple-600" />
-                    Breathing & Comfort Techniques
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-purple-600 mt-1 flex-shrink-0" />
-                      <span><strong>Breathing:</strong> 4-second inhale, 6-second exhale pattern</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-purple-600 mt-1 flex-shrink-0" />
-                      <span><strong>Scalp:</strong> <Link href="/equipment#head-ice-pack" className="text-[#ff6b6b] underline font-semibold hover:text-[#e55555] transition-colors">Ice pack</Link> with towel to prevent hair damage</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-purple-600 mt-1 flex-shrink-0" />
-                      <span><strong>Clothing:</strong> Cotton only (no synthetics)</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </section>
-
-          {/* Week 1: The Crash */}
-          <section id="week-1" className="scroll-mt-32 mb-12">
-            <h2 className="text-3xl font-bold mb-6">Week 1: The Crash</h2>
-            <Card className="border-amber-300 bg-amber-50">
-              <CardContent className="pt-6">
-                <p className="text-lg text-gray-800 mb-4 leading-relaxed">
-                  The first week nearly derailed the entire experiment. Johnson experienced some of the worst nights of sleep in his entire 
-                  Project Blueprint journey. He would wake up with <strong>"unbelievably terrifying cramps"</strong> hitting his hamstrings and calves 
-                  so severely he'd jump out of bed trying to walk them off.
-                </p>
-                <div className="bg-white rounded-lg p-6 mb-4">
-                  <h3 className="font-bold text-lg mb-3 text-gray-900">The Dehydration Discovery</h3>
-                  <p className="text-gray-700 mb-3">
-                    Using a Gatorade sweat patch, they discovered Johnson was a "salty sweater." Each 20-minute session, he was losing:
-                  </p>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-blue-50 rounded-lg p-4 text-center">
-                      <div className="text-2xl font-bold text-blue-600">18 oz</div>
-                      <div className="text-sm text-gray-600">Sweat Loss</div>
-                    </div>
-                    <div className="bg-red-50 rounded-lg p-4 text-center">
-                      <div className="text-2xl font-bold text-red-600">600 mg</div>
-                      <div className="text-sm text-gray-600">Sodium Loss</div>
-                    </div>
+                    <span>By SaunaProtocol Team</span>
+                  </div>
+                  <span className="hidden sm:block">•</span>
+                  <div className="flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[18px]">schedule</span>
+                    <span>15 Min Read</span>
+                  </div>
+                  <span className="hidden sm:block">•</span>
+                  <div className="flex items-center gap-1 text-primary">
+                    <span className="material-symbols-outlined text-[18px]">verified</span>
+                    <span>Evidence-Based</span>
                   </div>
                 </div>
-                <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
-                  <p className="text-gray-800 font-semibold mb-2">The Solution:</p>
-                  <p className="text-gray-700">
-                    Increase electrolyte intake by <strong>50% before</strong> the sauna session and another <strong>50% immediately after</strong>. 
-                    Johnson uses Blueprint electrolytes specifically formulated for high-intensity protocols.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </section>
-
-          {/* Measured Results */}
-          <section id="week-1-results" className="scroll-mt-32 mb-12">
-            <h2 className="text-3xl font-bold mb-6">Week 1 Results: Cardiovascular Improvements Begin</h2>
-            <p className="text-lg text-gray-600 mb-6">
-              Despite the brutal first week, Johnson was eager to see if any positive changes were occurring. The results shocked even his medical team.
-            </p>
-            <div className="space-y-4">
-              {results.map((result) => (
-                <Card key={result.metric} className="hover:shadow-xl transition-shadow">
-                  <CardContent className="pt-6">
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 rounded-lg bg-gradient-to-br from-gray-100 to-gray-50">
-                        <result.icon className="h-6 w-6 text-[#ff6b6b]" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="font-semibold text-lg">{result.metric}</div>
-                          <Badge variant="secondary" className="text-xs">{result.week}</Badge>
-                        </div>
-                        <div className="grid grid-cols-3 gap-4 text-sm">
-                          <div>
-                            <div className="text-gray-600 text-xs mb-1">Before</div>
-                            <div className="font-medium">{result.before}</div>
-                          </div>
-                          <div>
-                            <div className="text-gray-600 text-xs mb-1">After 90 Days</div>
-                            <div className="font-medium">{result.after}</div>
-                          </div>
-                          <div>
-                            <div className="text-gray-600 text-xs mb-1">Improvement</div>
-                            <div className="font-medium text-green-600">{result.improvement}</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+              </div>
             </div>
-          </section>
+          </FadeIn>
 
-          {/* Blood Pressure Science Explanation */}
-          <section className="mb-12">
-            <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Heart className="h-6 w-6 text-blue-600" />
-                  The Science: Heat-Induced Vasodilation
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 mb-4 leading-relaxed">
-                  Why would sauna lower blood pressure so quickly? The mechanism is called <strong>heat-induced vasodilation</strong>.
+          {/* Two-Column Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 relative">
+            {/* Main Content */}
+            <main className="lg:col-span-8 flex flex-col gap-12">
+              
+              {/* Introduction */}
+              <section className="scroll-mt-24" id="introduction">
+                <p className="text-xl lg:text-2xl text-gray-200 leading-relaxed mb-8 font-light font-display italic">
+                  "The single most powerful thing you can do for your cardiovascular health outside of exercise is heat therapy. The data is undeniable."
                 </p>
-                <p className="text-gray-700 mb-4 leading-relaxed">
-                  As core body temperature rises in the sauna, skin and peripheral blood vessels widen to release heat. 
-                  This allows the same blood flow to pass through with less force, lowering pressure inside arteries. 
-                  The vessels become more flexible and strain on the heart reduces.
-                </p>
-                <div className="bg-white rounded-lg p-4 border-l-4 border-blue-500">
-                  <p className="text-gray-700 font-medium">
-                    The heart pumps blood up to <span className="text-blue-600 font-bold">70% faster</span> during sauna to get sweat 
-                    to the skin for cooling—creating cardiovascular effects similar to Zone 1 or Zone 2 cardio.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </section>
-
-          {/* Week 2-3: Toxin Concerns */}
-          <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-6">Week 2-3: Relationship With Heat Deepens</h2>
-            <Card>
-              <CardContent className="pt-6">
-                <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                  By week two, the cramps had disappeared. Sleep was improving. Johnson's body had adapted to the protocol, 
-                  and he began to look forward to the daily challenge—especially after hard workouts.
-                </p>
-                <p className="text-lg text-gray-700 mb-4 italic">"It was the sauna and me going alone," he said.</p>
-                <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                  But a new concern emerged: <strong>toxins</strong>.
-                </p>
-                <div className="bg-amber-50 rounded-lg p-6 border-l-4 border-amber-400">
-                  <h3 className="font-bold text-lg mb-3 text-gray-900">The Toxin Question</h3>
-                  <p className="text-gray-700 mb-4">
-                    Johnson lives in Los Angeles and had elevated toxin levels from the wildfires. But sitting in a 200°F box 
-                    every day raised questions: Was the sauna actually helping remove toxins through sweat? Or was the heat 
-                    interacting with materials in the sauna (or his clothing) to make things worse?
-                  </p>
-                  <div className="space-y-2">
-                    <p className="font-semibold text-gray-800">Precautions taken:</p>
-                    <ul className="space-y-2 text-gray-700">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                        <span>No water on the rocks (water can contain PFAS and forever chemicals)</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                        <span>Cotton clothing only (no synthetics that might off-gas)</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                        <span>Immediate post-sauna shower (to wash toxins off skin)</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                        <span>Non-toxic sauna materials (careful wood and finish selection)</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </section>
-
-          {/* 21-Session Results: TOXIN BREAKTHROUGH */}
-          <section id="toxin-results" className="scroll-mt-32 mb-12">
-            <h2 className="text-3xl font-bold mb-6">21-Session Results: "The Best Toxins Result I'd Ever Received"</h2>
-            <p className="text-lg text-gray-600 mb-6">
-              The detoxification results were, in Johnson's words, "beyond anything we'd expected."
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <Card className="bg-gradient-to-br from-green-50 to-emerald-50 border-green-300 border-2">
-                <CardHeader>
-                  <CardTitle className="text-green-800">Toxins That Became UNDETECTABLE</CardTitle>
-                  <CardDescription>From abnormally high to completely gone</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-600 text-white font-bold text-sm flex-shrink-0">
-                        1
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-900">Multiple Phthalates</div>
-                        <div className="text-sm text-gray-600">Plasticizers, endocrine disruptors</div>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-600 text-white font-bold text-sm flex-shrink-0">
-                        2
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-900">Perchlorate</div>
-                        <div className="text-sm text-gray-600">Thyroid disruptor—critical for Johnson's hypothyroidism</div>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-600 text-white font-bold text-sm flex-shrink-0">
-                        3
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-900">Specific VOCs</div>
-                        <div className="text-sm text-gray-600">From LA wildfire exposure</div>
-                      </div>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-gradient-to-br from-blue-50 to-sky-50 border-blue-300 border-2">
-                <CardHeader>
-                  <CardTitle className="text-blue-800">Toxins That Dropped to Normal</CardTitle>
-                  <CardDescription>From moderate/high to normal ranges</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-sm flex-shrink-0">
-                        1
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-900">2,4-D Herbicide</div>
-                        <div className="text-sm text-gray-600">From produce exposure</div>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-sm flex-shrink-0">
-                        2
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-900">NAPR Metabolites</div>
-                        <div className="text-sm text-gray-600">Industrial pollutants</div>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-sm flex-shrink-0">
-                        3
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-900">HEMA</div>
-                        <div className="text-sm text-gray-600">Cancer-risk VOC</div>
-                      </div>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-
-                <Card className="bg-gradient-to-r from-[#ff6b6b]/10 to-[#f59e0b]/10 border-2 border-[#ff6b6b]">
-                  <CardContent className="pt-6">
-                    <p className="text-lg text-gray-800 font-semibold italic text-center mb-4">
-                      "This was the best toxins result I'd ever received. As far as we could tell, this result was a pretty unique outcome
-                      according to the scientific literature. It seemed to suggest that <span className="text-[#ff6b6b]">sauna is potentially
-                      one of the best things you can do to detox your body.</span>"
-                    </p>
-                    <p className="text-center text-gray-600 mb-4">— Bryan Johnson</p>
-                    <div className="bg-white rounded-lg p-4 border-l-4 border-[#f59e0b]">
-                      <p className="text-sm font-semibold text-gray-900 mb-2">Why this matters for you:</p>
-                      <p className="text-sm text-gray-700">
-                        Whether you live in an area with wildfire smoke, have high exposure to plastics and chemicals, or simply want 
-                        to reduce your toxic load, regular sauna sessions may help your body eliminate compounds that are otherwise 
-                        extremely difficult to clear.
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-          </section>
-
-          {/* Cardiovascular Improvements Continue */}
-          <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-6">Cardiovascular Improvements Continue</h2>
-            <p className="text-lg text-gray-600 mb-6">
-              The blood pressure benefits from week one continued to compound by session 21:
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Central Pulse Pressure</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-gray-600">Before:</span>
-                    <span className="text-2xl font-bold text-gray-900">28 mmHg</span>
-                  </div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-gray-600">After 21 Sessions:</span>
-                    <span className="text-2xl font-bold text-[#ff6b6b]">22 mmHg</span>
-                  </div>
-                  <Badge variant="default" className="w-full justify-center">21.43% Improvement in Aortic Flexibility</Badge>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Resting Heart Rate</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 mb-4">
-                    Dropped by <strong className="text-[#2196f3] text-xl">4.4%</strong>—a major marker for recovery and fitness
-                  </p>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    Johnson's vascular system was responding as if he'd added another cardiovascular training modality on top of his 
-                    existing workouts. This confirmed that <strong>sauna benefits stack with exercise</strong> rather than simply 
-                    duplicating its effects.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </section>
-
-          {/* 90-Day Timeline */}
-          <section id="timeline" className="scroll-mt-32 mb-12">
-            <h2 className="text-3xl font-bold mb-6">Your 90-Day Implementation Timeline</h2>
-            <p className="text-lg text-gray-600 mb-8">
-              Bryan didn't start at 200°F. Here's the progressive approach he used to build up safely over 12 weeks:
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {weeklyProgress.map((phase, index) => (
-                <Card key={phase.week} className="relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#ff6b6b] to-[#f59e0b]"></div>
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center justify-between mb-2">
-                      <Badge variant="outline" className="font-mono text-xs">{phase.week}</Badge>
-                      <span className="text-xs text-gray-500">Phase {index + 1}/4</span>
-                    </div>
-                    <CardTitle className="text-xl">{phase.title}</CardTitle>
-                    <CardDescription className="font-semibold text-[#ff6b6b]">
-                      {phase.focus}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="bg-gray-50 rounded-lg p-3">
-                        <div className="text-xs text-gray-600 mb-1">Temperature</div>
-                        <div className="font-bold text-[#ff6b6b]">{phase.temp}</div>
-                      </div>
-                      <div className="bg-gray-50 rounded-lg p-3">
-                        <div className="text-xs text-gray-600 mb-1">Duration</div>
-                        <div className="font-bold text-[#2196f3]">{phase.duration}</div>
-                      </div>
-                    </div>
-                    <div className="pt-2 border-t border-gray-100">
-                      <p className="text-sm text-gray-600 italic">{phase.notes}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            
-            {/* Protocol Links */}
-            <Card className="mt-6 bg-blue-50 border-blue-200">
-              <CardContent className="pt-6">
-                <p className="text-gray-700 mb-4">
-                  <strong>Not ready for Bryan Johnson's advanced protocol?</strong> Start with our structured beginner and intermediate programs:
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <Button asChild variant="outline" className="bg-white hover:bg-gray-50">
-                    <Link href="/protocols/beginner">
-                      Beginner Protocol (150-170°F) →
-                    </Link>
-                  </Button>
-                  <Button asChild variant="outline" className="bg-white hover:bg-gray-50">
-                    <Link href="/protocols/intermediate">
-                      Intermediate Protocol (170-190°F) →
-                    </Link>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </section>
-
-          {/* The Fertility Experiment */}
-          <section id="fertility" className="scroll-mt-32 mb-12">
-            <h2 className="text-3xl font-bold mb-6">The Fertility Experiment: Cooking the Boys for Science</h2>
-            <p className="text-lg text-gray-600 mb-6">
-              At 21 sessions, Johnson decided to run a controlled experiment that would make most men cringe.
-            </p>
-            
-            <Card className="mb-6">
-              <CardContent className="pt-6">
-                <div className="bg-blue-50 rounded-lg p-6 mb-6">
-                  <h3 className="font-bold text-lg mb-3 text-gray-900">The Question:</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Did his improved fertility markers come from the combination of sauna heat improving blood flow PLUS the ice pack protection? 
-                    Or was the ice pack doing all the work?
-                  </p>
-                </div>
                 
-                <div className="bg-amber-50 rounded-lg p-6 mb-6 border-l-4 border-amber-500">
-                  <h3 className="font-bold text-lg mb-3 text-gray-900">The Experiment:</h3>
-                  <p className="text-gray-700 leading-relaxed font-semibold">
-                    Stop using the ice pack for 2 weeks while continuing daily 200°F sauna sessions.
+                {/* Video Embed */}
+                <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl shadow-orange-900/10 border border-wood-light bg-card-dark mb-8">
+                  <div className="aspect-video">
+                    <iframe
+                      className="w-full h-full"
+                      src="https://www.youtube.com/embed/kiUM92VDI1Y"
+                      title="Bryan Johnson Sauna Protocol"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                </div>
+
+                <div className="prose prose-invert prose-lg max-w-none text-white/45 leading-loose space-y-4">
+                  <p>
+                    Bryan Johnson's "Blueprint" project isn't just about diet—it's about environmental stressors. The 200°F sauna protocol is designed to mimic the effects of moderate aerobic exercise, inducing heat shock proteins (HSPs) that repair damaged cells.
+                  </p>
+                  <p>
+                    This complete guide breaks down Johnson's exact protocol, the measured outcomes, and how you can adapt it for your own longevity goals—whether you have access to a home sauna or just a gym membership.
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-green-50 rounded-lg p-6 border-2 border-green-400">
-                    <h3 className="font-bold text-lg mb-3 text-green-800">Initial Results (With Ice Protection)</h3>
-                    <p className="text-gray-700 mb-3">After 21 days of using ice pack protection:</p>
-                    <ul className="space-y-2 text-gray-700">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                        <span><strong>31% improvement</strong> in fertility markers</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                        <span>Best sperm health numbers Johnson had ever achieved</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                        <span>Six times above the clinical threshold for fertile</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="bg-red-50 rounded-lg p-6 border-2 border-red-400">
-                    <h3 className="font-bold text-lg mb-3 text-red-800">The Fertility Disaster (Without Ice)</h3>
-                    <p className="text-gray-700 mb-3">After 2 weeks at 200°F with no ice pack protection:</p>
-                    <div className="text-center py-4">
-                      <div className="text-4xl font-bold text-red-600 mb-2">50%</div>
-                      <div className="text-gray-700 font-semibold">Reduction in fertility markers</div>
-                      <div className="text-sm text-gray-600 mt-2">Across the board</div>
-                    </div>
-                    <p className="text-gray-700 text-sm mt-4 italic">
-                      Johnson had turned himself into "a cautionary tale for every sauna enthusiast that has testicles."
-                    </p>
+                {/* Internal Links to Reviews */}
+                <div className="mt-8 bg-card-dark border border-wood-light rounded-xl p-6">
+                  <p className="text-white font-semibold mb-3">Looking for the right sauna for this protocol?</p>
+                  <div className="flex flex-wrap gap-3">
+                    <Link href="/reviews/best-infrared-saunas" className="text-primary hover:underline text-sm">
+                      → Best Infrared Saunas (for home use)
+                    </Link>
+                    <Link href="/reviews/clearlight" className="text-primary hover:underline text-sm">
+                      → Clearlight Review (premium option)
+                    </Link>
+                    <Link href="/reviews/sunlighten" className="text-primary hover:underline text-sm">
+                      → Sunlighten Review (great value)
+                    </Link>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-green-50 border-green-300">
-              <CardContent className="pt-6">
-                <div className="flex items-start gap-4">
-                  <CheckCircle2 className="h-8 w-8 text-green-600 flex-shrink-0" />
-                  <div>
-                    <p className="font-bold text-lg text-gray-900 mb-2">The Verdict:</p>
-                    <p className="text-gray-700 leading-relaxed mb-3">
-                      <strong>Men must cool their testicles during high-heat sauna sessions.</strong>
-                    </p>
-                    <p className="text-gray-600 text-sm mb-4">
-                      The good news? After restarting the ice pack protocol, his fertility markers improved by 30% and he expected full recovery within weeks.
-                    </p>
-                    <div className="pt-3 border-t border-green-200">
-                      <p className="text-sm text-gray-700 mb-2">
-                        <strong>Recommended solution:</strong> Use a <Link href="/equipment#ice-pack-testicular" className="text-[#2196f3] hover:text-[#1976d2] underline font-semibold">testicular ice pack</Link> during and after high-temperature sauna sessions (175°F+) to protect fertility while maintaining cardiovascular benefits.
-                      </p>
-                      <Button asChild variant="outline" size="sm" className="mt-2">
-                        <Link href="/equipment#ice-pack-testicular">
-                          View Recommended Ice Pack →
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </section>
-
-          {/* 48-Session Final Results */}
-          <section id="final-results" className="scroll-mt-32 mb-12">
-            <h2 className="text-3xl font-bold mb-6">48-Session Final Results: 10-Year Vascular De-Aging</h2>
-            <p className="text-lg text-gray-600 mb-6">
-              By session 48, Johnson had completed his initial protocol goal. The final cardiovascular measurements revealed the most impressive changes yet.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <Card className="bg-gradient-to-br from-purple-50 to-pink-50 border-purple-300 border-2">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Heart className="h-6 w-6 text-purple-600" />
-                    Arterial Flexibility & Vascular Age
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-center mb-4">
-                    <div className="text-5xl font-bold text-purple-600 mb-2">25-50%</div>
-                    <div className="text-gray-700 font-semibold">More Flexible Arteries</div>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 text-center">
-                    <div className="text-sm text-gray-600 mb-1">Vascular Age:</div>
-                    <div className="text-2xl font-bold text-purple-600">Healthy 20-Year-Old</div>
-                    <p className="text-sm text-gray-600 mt-2">
-                      At 47 years old chronologically, Johnson's blood vessels had <strong>"de-aged" by approximately 10 years</strong> through sauna therapy alone.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-gradient-to-br from-orange-50 to-red-50 border-orange-300 border-2">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <TrendingUp className="h-6 w-6 text-orange-600" />
-                    VEGF Surge: Building New Blood Vessels
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 mb-4 leading-relaxed">
-                    One of the most exciting discoveries was a massive surge in <strong>VEGF (Vascular Endothelial Growth Factor)</strong>.
-                  </p>
-                  <div className="bg-white rounded-lg p-4 mb-4">
-                    <p className="text-sm text-gray-600 mb-3">
-                      VEGF is the signal your body uses to say "make more blood vessels." Think of blood vessels as roads carrying oxygen to every cell. 
-                      VEGF is the messenger calling for more roads.
-                    </p>
-                    <div className="text-center">
-                      <div className="text-4xl font-bold text-orange-600 mb-1">5x</div>
-                      <div className="text-gray-700 font-semibold">Boost in VEGF</div>
-                      <div className="text-xs text-gray-600 mt-1">(After already tripling it through hyperbaric oxygen)</div>
-                    </div>
-                  </div>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    This surge means his body was actively building new blood vessels and improving circulation—a key mechanism for slowing age-related decline.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-                <Card className="bg-gradient-to-r from-[#ff6b6b] to-[#f59e0b] text-white">
-                  <CardContent className="pt-6">
-                    <div className="text-center">
-                      <Star className="h-12 w-12 mx-auto mb-4" />
-                      <h3 className="text-2xl font-bold mb-3">Why These Results Matter</h3>
-                      <p className="text-lg text-white/90 leading-relaxed mb-4">
-                        The cardiovascular improvements Johnson measured—lower blood pressure, more flexible arteries, increased VEGF,
-                        lower resting heart rate—likely explain the <strong>40% reduction in all-cause mortality</strong> seen in the Finnish studies
-                        for regular sauna users.
-                      </p>
-                      <p className="text-lg font-semibold mb-4">
-                        That mortality benefit is enormous. It means people who did sauna four or more times per week were 40% less likely to die
-                        from anything during the study period compared to non-sauna users.
-                      </p>
-                      <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
-                        <p className="text-base font-semibold mb-2">The takeaway for you:</p>
-                        <p className="text-base text-white/95">
-                          These aren't just impressive numbers—they represent actual physiological rejuvenation. Your cardiovascular system 
-                          can respond similarly with consistent practice, regardless of whether you have Johnson's medical team tracking every metric.
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-          </section>
-
-          {/* Step-by-Step Implementation */}
-          <section id="implementation" className="scroll-mt-32 mb-12">
-            <h2 className="text-3xl font-bold mb-6">How to Replicate This Protocol</h2>
-            <p className="text-lg text-gray-600 mb-6">
-              Here's the step-by-step process to implement Bryan Johnson's sauna protocol yourself, including modifications for different experience levels.
-            </p>
-            <div className="space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#ff6b6b] text-white font-bold text-sm">1</span>
-                    Pre-Sauna Preparation
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-600">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Drink 16-20 oz of water to pre-hydrate</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Complete your workout session (if doing post-workout protocol)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Preheat sauna to 200°F (takes 15-30 minutes depending on your sauna)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Bring a <Link href="/equipment#towels" className="text-[#ff6b6b] underline font-semibold hover:text-[#e55555] transition-colors">towel</Link> and <Link href="/equipment#timer-mechanical" className="text-[#ff6b6b] underline font-semibold hover:text-[#e55555] transition-colors">timer</Link></span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#ff6b6b] text-white font-bold text-sm">2</span>
-                    During the Session
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-600">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Set <Link href="/equipment#timer-mechanical" className="text-[#ff6b6b] underline font-semibold hover:text-[#e55555] transition-colors">timer</Link> for 25 minutes</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Practice deep breathing or meditation</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Stay seated or lying down - avoid sudden movements</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Exit immediately if you feel dizzy or uncomfortable</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#ff6b6b] text-white font-bold text-sm">3</span>
-                    Post-Sauna Recovery
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-600">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Cool down gradually - don't jump into cold water immediately</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Take a lukewarm shower</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Rehydrate with 20-24 oz of water with electrolytes</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Rest for 10-15 minutes before resuming activities</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </section>
-
-          {/* Equipment Recommendations */}
-          <section id="equipment" className="scroll-mt-32 mb-12">
-            <h2 className="text-3xl font-bold mb-6">Equipment Requirements</h2>
-            <div className="space-y-4">
-              {equipment.map((item) => (
-                <Card key={item.name} className={item.recommended ? "border-green-500 border-2" : ""}>
-                  <CardContent className="pt-6">
-                    <div className="flex items-start gap-4">
-                      {item.recommended ? (
-                        <CheckCircle2 className="h-6 w-6 text-green-500 flex-shrink-0 mt-1" />
-                      ) : (
-                        <AlertCircle className="h-6 w-6 text-gray-400 flex-shrink-0 mt-1" />
-                      )}
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          {item.link ? (
-                            <Link href={item.link} className="font-semibold text-lg text-[#ff6b6b] underline hover:text-[#e55555] transition-colors">
-                              {item.name} →
-                            </Link>
-                          ) : (
-                            <h3 className="font-semibold text-lg">{item.name}</h3>
-                          )}
-                          {item.recommended && (
-                            <Badge variant="default" className="text-xs">RECOMMENDED</Badge>
-                          )}
-                        </div>
-                        <p className="text-gray-600">{item.reason}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            <div className="mt-6">
-              <Button asChild variant="outline" size="lg" className="w-full">
-                <Link href="/equipment">
-                  Browse Recommended Saunas <ExternalLink className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
-          </section>
-
-          {/* Safety Warnings */}
-          <section className="mb-12">
-            <Card className="border-amber-500 border-2 bg-amber-50">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-amber-900">
-                  <AlertCircle className="h-6 w-6" />
-                  Important Safety Information
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  {safetyWarnings.map((warning, index) => (
-                    <li key={index} className="flex items-start gap-3 text-amber-900">
-                      <span className="flex items-center justify-center w-6 h-6 rounded-full bg-amber-200 text-amber-900 font-bold text-xs flex-shrink-0 mt-0.5">
-                        !
-                      </span>
-                      <span>{warning}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          </section>
-
-          {/* Newsletter Inline */}
-          <div className="mb-12">
-            <NewsletterForm inline leadMagnet="bryan-johnson-pdf" />
-          </div>
-
-          {/* FAQ Section */}
-          <section id="faq" className="scroll-mt-32 mb-12">
-            <h2 className="text-3xl font-bold mb-6">Frequently Asked Questions</h2>
-            <Accordion type="single" collapsible className="w-full">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`}>
-                  <AccordionTrigger className="text-left">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-gray-600">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </section>
-
-              {/* PDF Download CTA */}
-              <section className="mb-12">
-                <Card className="bg-gradient-to-r from-[#ff6b6b] to-[#f59e0b] text-white">
-                  <CardContent className="pt-6">
-                    <div className="text-center">
-                      <Download className="h-12 w-12 mx-auto mb-4" />
-                      <h3 className="text-2xl font-bold mb-2">Download the Complete Protocol PDF</h3>
-                      <p className="mb-6 text-white/90">
-                        Get a printer-friendly version of Bryan Johnson's sauna protocol with tracking sheets
-                      </p>
-                      <Button variant="secondary" size="lg" asChild>
-                        <a href="/downloads/bryan-johnson-sauna-protocol.pdf" download="Bryan-Johnson-Sauna-Protocol.pdf">
-                          Download Free PDF
-                        </a>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
               </section>
 
-          {/* Related Articles */}
-          <section>
-            <h2 className="text-3xl font-bold mb-6">Related Protocols</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle>
-                    <Link href="/protocols/beginner" className="hover:text-[#ff6b6b]">
-                      Beginner Sauna Protocol
-                    </Link>
-                  </CardTitle>
-                  <CardDescription>
-                    Start your sauna journey with this gentle introduction
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button asChild variant="outline" className="w-full">
-                    <Link href="/protocols/beginner">View Protocol</Link>
-                  </Button>
-                </CardContent>
-              </Card>
+              {/* Why Bryan Finally Tried Sauna */}
+              <section className="scroll-mt-24" id="why-sauna">
+                <h2 className="text-3xl font-bold text-white mb-6 font-display italic">Why Bryan Johnson Finally Tried Sauna</h2>
+                
+                <div className="bg-card-dark border border-wood-light rounded-xl p-6 mb-6">
+                  <p className="text-gray-300 mb-4 leading-relaxed">
+                    Despite experimenting with cutting-edge longevity therapies for years, Johnson had avoided sauna. His reasoning was logical: most sauna research came from Finland, a country with a relatively small gene pool and a culture that combines sauna with cold plunging. Would the benefits translate to others? Would sauna add anything on top of his already intense daily workout routine?
+                  </p>
+                  
+                  <div className="bg-primary/10 border-l-4 border-primary p-6 rounded-r-lg mb-4">
+                    <p className="text-lg font-semibold text-white italic">
+                      "Brian, get the sauna right now. The benefits are way too good to ignore."
+                    </p>
+                    <p className="text-sm text-white/45 mt-2">— Dr. Mike Malin, Lead Physician</p>
+                  </div>
+                  
+                  <p className="text-white/45 leading-relaxed">
+                    The data that convinced them? Multiple Finnish studies showing that <strong className="text-white/70 font-medium">four or more dry sauna sessions per week reduced all-cause mortality by <span className="text-[#F59E0B] font-mono">40%</span></strong>. To put that in perspective, that's a bigger reduction than what's typically seen with exercise or a Mediterranean diet. It's only matched by losing weight when obese or quitting smoking.
+                  </p>
+                </div>
+              </section>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle>
-                    <Link href="/articles" className="hover:text-[#ff6b6b]">
-                      Sauna Science & Research
-                    </Link>
-                  </CardTitle>
-                  <CardDescription>
-                    Explore the evidence behind sauna therapy benefits
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button asChild variant="outline" className="w-full">
-                    <Link href="/articles">Browse Articles</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          </section>
-        </div>
-        
-        {/* Sticky Sidebar TOC - Desktop Only - Compact Style with Red Hover */}
-        <aside className="hidden lg:block">
-          <div className="sticky top-24">
-            <Card className="bg-white border border-gray-200 shadow-lg">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-base font-bold">On This Page</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <nav className="space-y-1.5 text-sm">
-                  <Link href="#video" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
-                    1. Video
-                  </Link>
-                  <Link href="#why-sauna" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
-                    2. Why Sauna?
-                  </Link>
-                  <Link href="#protocol-specs" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
-                    3. Protocol
-                  </Link>
-                  <Link href="#week-1" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
-                    4. Week 1
-                  </Link>
-                  <Link href="#week-1-results" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
-                    5. Results
-                  </Link>
-                  <Link href="#toxin-results" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
-                    6. Detox
-                  </Link>
-                  <Link href="#timeline" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
-                    7. Timeline
-                  </Link>
-                  <Link href="#fertility" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
-                    8. Fertility
-                  </Link>
-                  <Link href="#final-results" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
-                    9. Final Results
-                  </Link>
-                  <Link href="#implementation" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
-                    10. How To
-                  </Link>
-                  <Link href="#equipment" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
-                    11. Equipment
-                  </Link>
-                  <Link href="#faq" className="block text-gray-700 hover:text-white hover:bg-[#ff6b6b] transition-all py-1.5 px-2 rounded">
-                    12. FAQ
-                  </Link>
-                </nav>
-              </CardContent>
-            </Card>
+              {/* Protocol Specifications */}
+              <section className="scroll-mt-24" id="protocol-specs">
+                <FadeIn>
+                  <h2 className="text-3xl font-bold text-white mb-6 font-display italic">The Exact Protocol Specifications</h2>
+                  <p className="text-white/45 mb-6">
+                    Johnson didn't ease into sauna gradually. He went all-in from day one with a protocol designed to match the most effective research data.
+                  </p>
+                </FadeIn>
+                
+                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                  {protocolSpecs.map((spec) => (
+                    <StaggerItem key={spec.label}>
+                      <div className="bg-card-dark border border-wood-light rounded-xl p-5 h-full">
+                        <div className="flex items-start gap-4">
+                          <div className={`p-3 rounded-xl ${spec.bgColor}`}>
+                            <span className={`material-symbols-outlined text-2xl ${spec.color}`}>{spec.icon}</span>
+                          </div>
+                          <div className="flex-1">
+                            <div className="text-xs text-white/25 mb-1 font-mono uppercase tracking-wider">{spec.label}</div>
+                            <div className={`text-xl font-extrabold mb-1 font-mono ${spec.color}`}>{spec.value}</div>
+                            <div className="text-sm text-white/45">{spec.description}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </StaggerItem>
+                  ))}
+                </StaggerContainer>
+
+                {/* Ice Pack & Breathing Strategy */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-6">
+                    <h3 className="flex items-center gap-2 text-white font-bold mb-3">
+                      <span className="material-symbols-outlined text-blue-400">ac_unit</span>
+                      The Ice Pack Strategy
+                    </h3>
+                    <p className="text-white/45 mb-3 text-sm">
+                      From day one, Johnson wore what he calls an "ice diaper" during every session. This wasn't for comfort—it was for <strong className="text-white">fertility protection</strong>.
+                    </p>
+                    <p className="text-sm text-white/45 leading-relaxed">
+                      Human testes operate at 2-4°C cooler than core body temperature. Research shows that even a 2°C rise can derail spermatogenesis for 74 days.
+                    </p>
+                  </div>
+
+                  <div className="bg-purple-500/10 border border-purple-500/30 rounded-xl p-6">
+                    <h3 className="flex items-center gap-2 text-white font-bold mb-3">
+                      <span className="material-symbols-outlined text-purple-400">self_improvement</span>
+                      Breathing & Comfort
+                    </h3>
+                    <ul className="space-y-2 text-white/45 text-sm">
+                      <li className="flex items-start gap-2">
+                        <span className="material-symbols-outlined text-purple-400 text-lg mt-0.5">check</span>
+                        <span><strong className="text-white">Breathing:</strong> 4-second inhale, 6-second exhale</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="material-symbols-outlined text-purple-400 text-lg mt-0.5">check</span>
+                        <span><strong className="text-white">Scalp:</strong> Ice pack with towel to prevent hair damage</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="material-symbols-outlined text-purple-400 text-lg mt-0.5">check</span>
+                        <span><strong className="text-white">Clothing:</strong> Cotton only (no synthetics)</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              {/* Week 1: The Crash */}
+              <section className="scroll-mt-24" id="week-1">
+                <h2 className="text-3xl font-bold text-white mb-6 font-display italic">Week 1: The Crash</h2>
+                
+                <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6 mb-6">
+                  <p className="text-white mb-4 leading-relaxed">
+                    The first week nearly derailed the entire experiment. Johnson experienced some of the worst nights of sleep in his entire Project Blueprint journey. He would wake up with <strong>"unbelievably terrifying cramps"</strong> hitting his hamstrings and calves so severely he'd jump out of bed trying to walk them off.
+                  </p>
+                  
+                  <div className="bg-wood-medium rounded-lg p-6 mb-4">
+                    <h3 className="font-bold text-lg mb-3 text-white">The Dehydration Discovery</h3>
+                    <p className="text-white/45 mb-3">
+                      Using a Gatorade sweat patch, they discovered Johnson was a "salty sweater." Each 20-minute session, he was losing:
+                    </p>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="bg-blue-500/10 rounded-lg p-4 text-center">
+                        <div className="text-2xl font-extrabold text-[#F59E0B] font-mono">18 oz</div>
+                        <div className="text-xs text-white/25 font-mono uppercase tracking-wider">Sweat Loss</div>
+                      </div>
+                      <div className="bg-red-500/10 rounded-lg p-4 text-center">
+                        <div className="text-2xl font-extrabold text-[#F59E0B] font-mono">600 mg</div>
+                        <div className="text-xs text-white/25 font-mono uppercase tracking-wider">Sodium Loss</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-green-500/10 border-l-4 border-green-500 p-4 rounded-r-lg">
+                    <p className="text-white font-semibold mb-2">The Solution:</p>
+                    <p className="text-white/45">
+                      Increase electrolyte intake by <strong className="text-white">50% before</strong> the sauna session and another <strong className="text-white">50% immediately after</strong>.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Measured Results - Week 1 */}
+              <section className="scroll-mt-24" id="results">
+                <h2 className="text-3xl font-bold text-white mb-6 font-display italic">Week 1 Results: Cardiovascular Improvements Begin</h2>
+                <p className="text-white/45 mb-6">
+                  Despite the brutal first week, Johnson was eager to see if any positive changes were occurring. The results shocked even his medical team.
+                </p>
+                
+                <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                  {results.map((result) => (
+                    <StaggerItem key={result.metric}>
+                      <HoverCard>
+                        <div className="bg-card-dark p-6 rounded-2xl border border-wood-light flex flex-col items-center text-center h-full">
+                          <span className="text-white/25 text-xs uppercase tracking-wider mb-2 font-mono">{result.metric}</span>
+                          <div className="text-4xl font-extrabold text-[#F59E0B] mb-1 font-mono">{result.after.split(' ')[0]}</div>
+                          <div className="text-sm text-white/35 mb-2 font-mono">from {result.before}</div>
+                          <div className="inline-flex items-center gap-1 text-green-400 text-sm font-bold bg-green-900/20 px-2 py-1 rounded font-mono">
+                            <span className="material-symbols-outlined text-sm">trending_up</span> {result.improvement}
+                          </div>
+                        </div>
+                      </HoverCard>
+                    </StaggerItem>
+                  ))}
+                </StaggerContainer>
+
+                {/* Blood Pressure Science */}
+                <FadeIn>
+                  <div className="bg-gradient-to-br from-blue-500/10 to-indigo-500/10 border border-blue-500/30 rounded-xl p-6">
+                    <h3 className="flex items-center gap-2 text-white font-bold mb-4">
+                      <span className="material-symbols-outlined text-blue-400 text-2xl">favorite</span>
+                      The Science: Heat-Induced Vasodilation
+                    </h3>
+                    <p className="text-white/45 mb-4 leading-relaxed">
+                      Why would sauna lower blood pressure so quickly? The mechanism is called <strong className="text-white/70 font-medium">heat-induced vasodilation</strong>.
+                    </p>
+                    <p className="text-white/45 mb-4 leading-relaxed">
+                      As core body temperature rises, skin and peripheral blood vessels widen to release heat. This allows the same blood flow to pass through with less force, lowering pressure inside arteries. The vessels become more flexible and strain on the heart reduces.
+                    </p>
+                    <div className="bg-blue-500/10 rounded-lg p-4 border-l-4 border-blue-500">
+                      <p className="text-white/50 font-medium">
+                        The heart pumps blood up to <span className="text-[#F59E0B] font-mono font-bold">70% faster</span> during sauna to get sweat to the skin for cooling—creating cardiovascular effects similar to Zone 1 or Zone 2 cardio.
+                      </p>
+                    </div>
+                  </div>
+                </FadeIn>
+              </section>
+
+              {/* 21-Session Toxin Results */}
+              <section className="scroll-mt-24" id="toxin-results">
+                <FadeIn>
+                  <h2 className="text-3xl font-bold text-white mb-6 font-display italic">21-Session Results: "The Best Toxins Result I'd Ever Received"</h2>
+                  <p className="text-white/45 mb-6">
+                    The detoxification results were, in Johnson's words, "beyond anything we'd expected."
+                  </p>
+                </FadeIn>
+                
+                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                  <StaggerItem>
+                    <div className="bg-green-500/10 border-2 border-green-500/30 rounded-xl p-6 h-full">
+                      <h3 className="text-green-400 font-bold mb-4">Toxins That Became UNDETECTABLE</h3>
+                      <p className="text-sm text-white/35 mb-3">From abnormally high to completely gone:</p>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-green-600 text-white font-bold text-xs flex-shrink-0">1</div>
+                        <div>
+                          <div className="font-semibold text-white text-sm">Multiple Phthalates</div>
+                          <div className="text-xs text-white/45">Plasticizers, endocrine disruptors</div>
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-green-600 text-white font-bold text-xs flex-shrink-0">2</div>
+                        <div>
+                          <div className="font-semibold text-white text-sm">Perchlorate</div>
+                          <div className="text-xs text-white/45">Thyroid disruptor</div>
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-green-600 text-white font-bold text-xs flex-shrink-0">3</div>
+                        <div>
+                          <div className="font-semibold text-white text-sm">Specific VOCs</div>
+                          <div className="text-xs text-white/45">From LA wildfire exposure</div>
+                        </div>
+                      </li>
+                    </ul>
+                    </div>
+                  </StaggerItem>
+
+                  <StaggerItem>
+                    <div className="bg-blue-500/10 border-2 border-blue-500/30 rounded-xl p-6 h-full">
+                      <h3 className="text-blue-400 font-bold mb-4">Toxins That Dropped to Normal</h3>
+                      <p className="text-sm text-white/35 mb-3">From moderate/high to normal ranges:</p>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-3">
+                          <div className="flex items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-xs flex-shrink-0">1</div>
+                          <div>
+                            <div className="font-semibold text-white text-sm">2,4-D Herbicide</div>
+                            <div className="text-xs text-white/25">From produce exposure</div>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="flex items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-xs flex-shrink-0">2</div>
+                          <div>
+                            <div className="font-semibold text-white text-sm">NAPR Metabolites</div>
+                            <div className="text-xs text-white/25">Industrial pollutants</div>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="flex items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-xs flex-shrink-0">3</div>
+                          <div>
+                            <div className="font-semibold text-white text-sm">HEMA</div>
+                            <div className="text-xs text-white/25">Cancer-risk VOC</div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </StaggerItem>
+                </StaggerContainer>
+
+                <div className="bg-gradient-to-r from-primary/10 to-amber-500/10 border-2 border-primary rounded-xl p-6">
+                  <p className="text-lg text-white font-semibold italic text-center mb-4">
+                    "This was the best toxins result I'd ever received. It seemed to suggest that <span className="text-primary">sauna is potentially one of the best things you can do to detox your body.</span>"
+                  </p>
+                  <p className="text-center text-white/45">— Bryan Johnson</p>
+                </div>
+              </section>
+
+              {/* Timeline */}
+              <section className="scroll-mt-24" id="timeline">
+                <FadeIn>
+                  <h3 className="text-3xl font-bold text-white mb-4 font-display italic flex items-center gap-3">
+                    <span className="material-symbols-outlined text-primary text-3xl">timeline</span>
+                    Your 90-Day Implementation Timeline
+                  </h3>
+                  <p className="text-white/45 mb-8">
+                    Bryan didn't start at 200°F. Here's the progressive approach he used to build up safely over 12 weeks:
+                  </p>
+                </FadeIn>
+                
+                <StaggerContainer className="flex flex-col gap-6 relative">
+                  <div className="absolute left-6 top-6 bottom-6 w-0.5 bg-wood-light hidden sm:block" />
+                  
+                  {weeklyProgress.map((phase, index) => (
+                    <StaggerItem key={phase.week}>
+                      <div className="relative pl-0 sm:pl-16">
+                        <div className={`absolute left-3 top-6 size-6 rounded-full border-4 border-background-dark hidden sm:block z-10 ${
+                          phase.featured ? 'bg-white' : index === 0 ? 'bg-primary' : 'bg-card-dark border-primary'
+                        }`} />
+                        <div className={`p-6 rounded-xl border transition-colors ${
+                          phase.featured 
+                            ? 'bg-gradient-to-br from-primary/20 to-card-dark border-primary/40 shadow-lg shadow-orange-900/10' 
+                            : 'bg-card-dark border-wood-light hover:border-primary/50'
+                        }`}>
+                          <div className="flex justify-between items-start mb-2">
+                            <h4 className="text-xl font-bold text-white">{phase.week}: {phase.title}</h4>
+                            <span className={`text-xs font-bold px-2 py-1 rounded uppercase font-mono ${
+                              phase.featured ? 'bg-primary text-white' : 'bg-wood-light text-white/45'
+                            }`}>{phase.difficulty}</span>
+                          </div>
+                          <p className="text-white/45 mb-4 text-sm">{phase.description}</p>
+                          <div className={`flex flex-wrap gap-4 text-sm mb-4 font-mono ${phase.featured ? 'font-bold text-white' : 'text-white/70'}`}>
+                            <div className="flex items-center gap-1">
+                              <span className="material-symbols-outlined text-primary text-base">thermostat</span> {phase.temp}
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <span className="material-symbols-outlined text-primary text-base">timer</span> {phase.duration}
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <span className="material-symbols-outlined text-primary text-base">repeat</span> {phase.frequency}
+                            </div>
+                          </div>
+                          <p className="text-sm text-white/35 italic border-t border-wood-light pt-3">{phase.notes}</p>
+                        </div>
+                      </div>
+                    </StaggerItem>
+                  ))}
+                </StaggerContainer>
+              </section>
+
+              {/* Fertility Experiment */}
+              <section className="scroll-mt-24" id="fertility">
+                <FadeIn>
+                  <h2 className="text-3xl font-bold text-white mb-6 font-display italic">The Fertility Experiment: Cooking the Boys for Science</h2>
+                  <p className="text-white/45 mb-6">
+                    At 21 sessions, Johnson decided to run a controlled experiment that would make most men cringe.
+                  </p>
+                </FadeIn>
+                
+                <div className="bg-wood-dark border border-wood-light rounded-2xl overflow-hidden mb-6">
+                  <div className="p-6 border-b border-wood-light">
+                    <div className="bg-blue-500/10 rounded-lg p-4 mb-4">
+                      <h3 className="font-bold text-white mb-2">The Question:</h3>
+                      <p className="text-white/45">
+                        Did his improved fertility markers come from the combination of sauna heat improving blood flow PLUS the ice pack protection? Or was the ice pack doing all the work?
+                      </p>
+                    </div>
+                    <div className="bg-amber-500/10 border-l-4 border-amber-500 rounded-r-lg p-4">
+                      <h3 className="font-bold text-white mb-2">The Experiment:</h3>
+                      <p className="text-white/45 font-semibold">
+                        Stop using the ice pack for 2 weeks while continuing daily 200°F sauna sessions.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-wood-light">
+                    <div className="p-6">
+                      <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <span className="size-2 rounded-full bg-green-500" /> Initial Results (With Ice)
+                      </h4>
+                      <ul className="space-y-2 text-white/45 text-sm">
+                        <li className="flex items-start gap-2">
+                          <span className="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+                          <span><strong className="text-[#F59E0B] font-mono font-bold">31% improvement</strong> in fertility markers</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+                          <span>Best sperm health numbers ever achieved</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+                          <span>Six times above clinical threshold</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="p-6 bg-red-500/10">
+                      <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <span className="size-2 rounded-full bg-red-500" /> The Disaster (Without Ice)
+                      </h4>
+                      <div className="text-center py-2">
+                        <div className="text-4xl font-extrabold text-red-400 mb-1 font-mono">50%</div>
+                        <div className="text-red-300/60 font-semibold text-sm">Reduction in fertility markers</div>
+                      </div>
+                      <p className="text-red-300/50 text-sm mt-3 italic">
+                        "A cautionary tale for every sauna enthusiast that has testicles."
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-6">
+                  <div className="flex items-start gap-4">
+                    <span className="material-symbols-outlined text-green-400 text-3xl flex-shrink-0">check_circle</span>
+                    <div>
+                      <p className="font-bold text-lg text-white mb-2">The Verdict:</p>
+                      <p className="text-white/45 leading-relaxed mb-3">
+                        <strong className="text-white">Men must cool their testicles during high-heat sauna sessions.</strong> The good news? After restarting the ice pack protocol, his fertility markers improved by 30% and he expected full recovery within weeks.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* 48-Session Final Results */}
+              <section className="scroll-mt-24" id="final-results">
+                <FadeIn>
+                  <h2 className="text-3xl font-bold text-white mb-6 font-display italic">48-Session Final Results: 10-Year Vascular De-Aging</h2>
+                  <p className="text-white/45 mb-6">
+                    By session 48, Johnson had completed his initial protocol goal. The final cardiovascular measurements revealed the most impressive changes yet.
+                  </p>
+                </FadeIn>
+
+                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                  <StaggerItem>
+                    <HoverCard>
+                      <div className="bg-purple-500/10 border border-purple-500/30 rounded-xl p-6 h-full">
+                        <h3 className="flex items-center gap-2 text-white font-bold mb-4">
+                          <span className="material-symbols-outlined text-purple-400 text-2xl">favorite</span>
+                          Arterial Flexibility
+                        </h3>
+                        <div className="text-center mb-4">
+                          <div className="text-5xl font-extrabold text-purple-400 mb-2 font-mono">25-50%</div>
+                          <div className="text-purple-300/60 font-semibold">More Flexible Arteries</div>
+                        </div>
+                        <div className="bg-purple-500/20 rounded-lg p-4 text-center">
+                          <div className="text-xs text-purple-300/60 mb-1 font-mono uppercase tracking-wider">Vascular Age:</div>
+                          <div className="text-xl font-bold text-purple-400">Healthy 20-Year-Old</div>
+                          <p className="text-xs text-purple-300/50 mt-2">
+                            At 47, his blood vessels had "de-aged" by ~10 years
+                          </p>
+                        </div>
+                      </div>
+                    </HoverCard>
+                  </StaggerItem>
+
+                  <StaggerItem>
+                    <HoverCard>
+                      <div className="bg-primary/10 border border-primary/30 rounded-xl p-6 h-full">
+                        <h3 className="flex items-center gap-2 text-white font-bold mb-4">
+                          <span className="material-symbols-outlined text-primary text-2xl">trending_up</span>
+                          VEGF Surge
+                        </h3>
+                        <p className="text-white/45 mb-4 text-sm leading-relaxed">
+                          Massive surge in <strong className="text-white/70 font-medium">VEGF (Vascular Endothelial Growth Factor)</strong>—the signal for building new blood vessels.
+                        </p>
+                        <div className="bg-primary/20 rounded-lg p-4 text-center">
+                          <div className="text-4xl font-bold text-primary mb-1 font-mono">5x</div>
+                          <div className="text-white/50 font-semibold">Boost in VEGF</div>
+                          <div className="text-xs text-white/30 mt-1">(After already tripling it through hyperbaric oxygen)</div>
+                        </div>
+                      </div>
+                    </HoverCard>
+                  </StaggerItem>
+                </StaggerContainer>
+
+                <div className="bg-gradient-to-r from-primary to-amber-500 text-white rounded-xl p-6">
+                  <div className="text-center">
+                    <span className="material-symbols-outlined text-4xl mb-4 block">star</span>
+                    <h3 className="text-2xl font-bold mb-3">Why These Results Matter</h3>
+                    <p className="text-white/90 leading-relaxed mb-4">
+                      The cardiovascular improvements Johnson measured—lower blood pressure, more flexible arteries, increased VEGF, lower resting heart rate—likely explain the <strong>40% reduction in all-cause mortality</strong> seen in Finnish studies for regular sauna users.
+                    </p>
+                    <p className="font-semibold">
+                      That mortality benefit is enormous. People who did sauna 4+ times per week were 40% less likely to die from anything during the study period.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Safety Warning */}
+              <section className="scroll-mt-24" id="safety">
+                <FadeIn>
+                  <div className="rounded-xl border-l-4 border-amber-500 bg-amber-900/10 p-6">
+                    <div className="flex items-start gap-4">
+                      <span className="material-symbols-outlined text-amber-500 text-3xl flex-shrink-0">warning</span>
+                      <div>
+                        <h4 className="text-lg font-bold text-amber-500 mb-3">Important Safety Information</h4>
+                        <ul className="space-y-2">
+                          {safetyWarnings.map((warning, index) => (
+                            <li key={index} className="flex items-start gap-2 text-amber-200/80 text-sm">
+                              <span className="text-amber-500">•</span>
+                              <span>{warning}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </FadeIn>
+              </section>
+
+              {/* Step-by-Step Guide */}
+              <section className="scroll-mt-24" id="guide">
+                <FadeIn>
+                  <h3 className="text-3xl font-bold text-white mb-6 font-display italic">How to Replicate This Protocol</h3>
+                  <p className="text-white/45 mb-6">
+                    Here's the step-by-step process to implement Bryan Johnson's sauna protocol yourself:
+                  </p>
+                </FadeIn>
+                <StaggerContainer className="space-y-4">
+                  {steps.map((step) => (
+                    <StaggerItem key={step.number}>
+                      <HoverCard>
+                        <div className="flex gap-4 p-4 bg-card-dark border border-wood-light rounded-xl hover:border-primary/50 transition-colors group">
+                          <div className="flex items-center justify-center size-10 rounded-full bg-primary text-white font-bold flex-shrink-0 font-mono">
+                            {step.number}
+                          </div>
+                          <div>
+                            <h5 className="text-white font-bold text-lg mb-1">{step.title}</h5>
+                            <p className="text-white/45 text-sm">{step.description}</p>
+                          </div>
+                        </div>
+                      </HoverCard>
+                    </StaggerItem>
+                  ))}
+                </StaggerContainer>
+              </section>
+
+              {/* Equipment */}
+              <section className="scroll-mt-24" id="equipment">
+                <FadeIn>
+                  <h3 className="text-3xl font-bold text-white mb-6 font-display italic">Equipment Requirements</h3>
+                </FadeIn>
+                <StaggerContainer className="space-y-3">
+                  {equipment.map((item) => (
+                    <StaggerItem key={item.name}>
+                      <HoverCard>
+                        <div className={`flex items-start gap-4 p-4 rounded-xl border ${item.recommended ? 'bg-green-500/5 border-green-500/30' : 'bg-card-dark border-wood-light'}`}>
+                          <span className={`material-symbols-outlined text-2xl flex-shrink-0 mt-0.5 ${item.recommended ? 'text-green-400' : 'text-gray-400'}`}>
+                            {item.recommended ? 'check_circle' : 'cancel'}
+                          </span>
+                          <div className="flex-1">
+                            <div className="flex flex-wrap items-center gap-2 mb-1">
+                              {item.link ? (
+                                item.external ? (
+                                  <a 
+                                    href={item.link} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="font-semibold text-primary hover:underline inline-flex items-center gap-1"
+                                  >
+                                    {item.name}
+                                    <span className="material-symbols-outlined text-sm">open_in_new</span>
+                                  </a>
+                                ) : (
+                                  <Link href={item.link} className="font-semibold text-primary hover:underline">
+                                    {item.name} →
+                                  </Link>
+                                )
+                              ) : (
+                                <h4 className="font-semibold text-white">{item.name}</h4>
+                              )}
+                              {item.recommended && (
+                                <span className="text-xs font-bold bg-green-500/20 text-green-400 px-2 py-0.5 rounded font-mono">RECOMMENDED</span>
+                              )}
+                            </div>
+                            <p className="text-white/45 text-sm">{item.reason}</p>
+                          </div>
+                        </div>
+                      </HoverCard>
+                    </StaggerItem>
+                  ))}
+                </StaggerContainer>
+                <FadeIn delay={0.3}>
+                  <div className="mt-6">
+                    <HoverCard>
+                      <Link href="/equipment" className="inline-flex items-center justify-center gap-2 bg-wood-light text-white font-bold px-6 py-3 rounded-xl hover:bg-wood-medium transition-colors w-full">
+                        Browse All Recommended Equipment
+                        <span className="material-symbols-outlined text-xl">open_in_new</span>
+                      </Link>
+                    </HoverCard>
+                  </div>
+                </FadeIn>
+              </section>
+
+              {/* PDF Download CTA */}
+              <section className="scroll-mt-24">
+                <FadeIn>
+                  <HoverCard>
+                    <div className="bg-gradient-to-r from-primary to-amber-500 text-white rounded-xl p-8">
+                      <div className="text-center">
+                        <span className="material-symbols-outlined text-4xl mb-4 block">download</span>
+                        <h3 className="text-2xl font-bold mb-2">Download the Complete Protocol PDF</h3>
+                        <p className="mb-6 text-white/90">
+                          Get a printer-friendly version with tracking sheets and weekly checklists
+                        </p>
+                        <button className="bg-white text-background-dark font-bold px-8 py-3 rounded-xl hover:bg-gray-100 transition-colors">
+                          Download Free PDF
+                        </button>
+                      </div>
+                    </div>
+                  </HoverCard>
+                </FadeIn>
+              </section>
+
+              {/* FAQ */}
+              <section className="scroll-mt-24 mb-12" id="faq">
+                <FadeIn>
+                  <h3 className="text-3xl font-bold text-white mb-8 font-display italic">Frequently Asked Questions</h3>
+                </FadeIn>
+                <StaggerContainer className="space-y-2">
+                  {faqs.map((faq, index) => (
+                    <StaggerItem key={index}>
+                      <details className="group bg-card-dark rounded-xl border border-wood-light open:border-primary/50 transition-colors">
+                        <summary className="flex cursor-pointer items-center justify-between p-6 text-white font-bold select-none">
+                          <span>{faq.question}</span>
+                          <span className="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                        </summary>
+                        <div className="px-6 pb-6 text-white/45 leading-relaxed">
+                          {faq.answer}
+                        </div>
+                      </details>
+                    </StaggerItem>
+                  ))}
+                </StaggerContainer>
+              </section>
+            </main>
+
+            {/* Sidebar */}
+            <aside className="hidden lg:block lg:col-span-4">
+              <div className="sticky top-24 flex flex-col gap-6">
+                {/* TOC */}
+                <div className="bg-card-dark border border-wood-light rounded-xl p-6">
+                  <h4 className="text-white font-bold text-lg mb-4 border-b border-wood-light pb-2 font-display italic">Table of Contents</h4>
+                  <nav className="flex flex-col gap-1 text-sm">
+                    <Link href="#introduction" className="text-white/45 hover:text-white hover:bg-background-dark px-3 py-2 rounded-lg transition-colors">Introduction</Link>
+                    <Link href="#why-sauna" className="text-white/45 hover:text-white hover:bg-background-dark px-3 py-2 rounded-lg transition-colors">Why Bryan Tried Sauna</Link>
+                    <Link href="#protocol-specs" className="text-white/45 hover:text-white hover:bg-background-dark px-3 py-2 rounded-lg transition-colors">Protocol Specifications</Link>
+                    <Link href="#week-1" className="text-white/45 hover:text-white hover:bg-background-dark px-3 py-2 rounded-lg transition-colors">Week 1: The Crash</Link>
+                    <Link href="#results" className="text-white/45 hover:text-white hover:bg-background-dark px-3 py-2 rounded-lg transition-colors">Week 1 Results</Link>
+                    <Link href="#toxin-results" className="text-white/45 hover:text-white hover:bg-background-dark px-3 py-2 rounded-lg transition-colors">21-Day Detox Results</Link>
+                    <Link href="#timeline" className="text-white/45 hover:text-white hover:bg-background-dark px-3 py-2 rounded-lg transition-colors">90-Day Timeline</Link>
+                    <Link href="#fertility" className="text-white/45 hover:text-white hover:bg-background-dark px-3 py-2 rounded-lg transition-colors">Fertility Experiment</Link>
+                    <Link href="#final-results" className="text-white/45 hover:text-white hover:bg-background-dark px-3 py-2 rounded-lg transition-colors">48-Day Final Results</Link>
+                    <Link href="#safety" className="text-white/45 hover:text-white hover:bg-background-dark px-3 py-2 rounded-lg transition-colors">Safety Warnings</Link>
+                    <Link href="#guide" className="text-white/45 hover:text-white hover:bg-background-dark px-3 py-2 rounded-lg transition-colors">Implementation</Link>
+                    <Link href="#equipment" className="text-white/45 hover:text-white hover:bg-background-dark px-3 py-2 rounded-lg transition-colors">Equipment</Link>
+                    <Link href="#faq" className="text-white/45 hover:text-white hover:bg-background-dark px-3 py-2 rounded-lg transition-colors">FAQ</Link>
+                  </nav>
+                </div>
+
+                {/* PDF Download */}
+                <div className="bg-gradient-to-b from-card-dark to-background-dark border border-wood-light rounded-xl p-6 text-center">
+                  <span className="material-symbols-outlined text-4xl text-primary mb-2">picture_as_pdf</span>
+                  <h4 className="text-white font-bold mb-2">Offline Guide</h4>
+                  <p className="text-white/45 text-xs mb-4">Get the full printable checklist and tracking sheet.</p>
+                  <button className="w-full bg-white text-black font-bold text-sm py-2 rounded-lg hover:bg-gray-200 transition-colors">Download PDF</button>
+                </div>
+
+                {/* Sauna Reviews CTA */}
+                <div className="bg-card-dark border border-wood-light rounded-xl p-6">
+                  <h4 className="text-white font-bold mb-3">Need a Sauna?</h4>
+                  <div className="space-y-2 text-sm">
+                    <Link href="/reviews/best-infrared-saunas" className="text-primary hover:underline block">→ Best Infrared Saunas</Link>
+                    <Link href="/reviews/clearlight" className="text-primary hover:underline block">→ Clearlight Review</Link>
+                    <Link href="/reviews/sunlighten" className="text-primary hover:underline block">→ Sunlighten Review</Link>
+                  </div>
+                </div>
+
+                {/* Related Protocols */}
+                <div className="bg-card-dark border border-wood-light rounded-xl p-6">
+                  <h4 className="text-white font-bold mb-3">Related Protocols</h4>
+                  <div className="space-y-2 text-sm">
+                    <Link href="/protocols/beginner" className="text-white/45 hover:text-primary block">Beginner Protocol (150-170°F)</Link>
+                    <Link href="/protocols/intermediate" className="text-white/45 hover:text-primary block">Intermediate Protocol (170-190°F)</Link>
+                    <Link href="/protocols" className="text-white/45 hover:text-primary block">View All Protocols</Link>
+                  </div>
+                </div>
+              </div>
+            </aside>
           </div>
-        </aside>
-        
+
+          {/* Bottom CTA */}
+          <div className="mt-20 mb-20 relative rounded-3xl overflow-hidden text-center p-10 lg:p-20 border border-wood-light">
+            <div 
+              className="absolute inset-0 bg-cover bg-center opacity-30"
+              style={{ backgroundImage: "url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&q=80')" }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-background-dark" />
+            <div className="relative z-10 max-w-2xl mx-auto">
+              <h2 className="text-4xl lg:text-5xl font-black text-white font-display italic mb-6">Ready to start the protocol?</h2>
+              <p className="text-lg text-white/50 mb-8">Join <span className="font-mono text-white/70">15,000+</span> others tracking their longevity metrics. Download the free starter pack.</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button className="flex items-center justify-center gap-2 bg-primary text-white text-lg font-bold px-8 py-3 rounded-xl hover:bg-orange-600 transition-colors shadow-lg shadow-orange-900/40">
+                  <span className="material-symbols-outlined">download</span>
+                  Download PDF
+                </button>
+                <Link href="/protocols" className="flex items-center justify-center gap-2 bg-wood-light text-white text-lg font-bold px-8 py-3 rounded-xl hover:bg-wood-medium transition-colors">
+                  View All Protocols
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
-      </article>
+      </div>
     </>
   )
 }
-

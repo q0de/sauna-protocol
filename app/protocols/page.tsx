@@ -1,14 +1,21 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Thermometer, Clock, TrendingUp, Star, ArrowRight, Flame } from 'lucide-react'
+import { FadeIn } from '@/components/effects/fade-in'
+import { StaggerContainer, StaggerItem } from '@/components/effects/stagger-container'
+import { HoverCard } from '@/components/effects/hover-card'
+import { generateSEO, generateBreadcrumbSchema } from '@/lib/seo'
+import { StructuredData } from '@/components/seo/structured-data'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateSEO({
   title: 'Evidence-Based Sauna Protocols',
   description: 'Comprehensive guide to sauna protocols backed by research. From beginner to advanced, including Bryan Johnson\'s 200°F protocol.',
-}
+  path: '/protocols',
+  keywords: ['sauna protocols', 'sauna guide', 'bryan johnson sauna', 'beginner sauna', 'advanced sauna protocol'],
+})
 
 export default function ProtocolsPage() {
   const protocols = [
@@ -95,7 +102,7 @@ export default function ProtocolsPage() {
     },
     {
       title: "Contrast Therapy Protocol",
-      slug: "contrast",
+      slug: "contrast-therapy",
       description: "Combine sauna with cold plunge for maximum cardiovascular and recovery benefits",
       temperature: "180-200°F + Cold",
       duration: "3-4 cycles",
@@ -114,100 +121,140 @@ export default function ProtocolsPage() {
   const featuredProtocol = protocols.find(p => p.featured)
   const otherProtocols = protocols.filter(p => !p.featured)
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://saunaprotocol.com'
+  
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: siteUrl },
+    { name: 'Protocols', url: `${siteUrl}/protocols` },
+  ])
+
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Sauna Protocols',
+    description: 'Evidence-based sauna protocols for health and longevity',
+    numberOfItems: protocols.length,
+    itemListElement: protocols.map((protocol, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: protocol.title,
+      url: `${siteUrl}/protocols/${protocol.slug}`,
+    })),
+  }
+
   return (
-    <div className="py-12">
+    <>
+      <StructuredData data={breadcrumbSchema} />
+      <StructuredData data={itemListSchema} />
+      <div className="pt-32 pb-20 bg-background-dark">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-4">PROTOCOLS</Badge>
-          <h1 className="text-4xl font-bold mb-4">Evidence-Based Sauna Protocols</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Choose the right protocol for your experience level and health goals. All protocols are backed by research and optimized for measurable results.
+        <FadeIn className="text-center mb-16">
+          <p className="text-primary font-semibold mb-2 uppercase tracking-wide">Library</p>
+          <h1 className="font-display text-5xl font-bold italic text-white mb-4">
+            Sauna Protocols
+          </h1>
+          <p className="text-xl text-text-muted max-w-3xl mx-auto">
+            Choose the right protocol for your experience level and health goals. 
+            All protocols are backed by research and optimized for measurable results.
           </p>
-        </div>
+        </FadeIn>
 
         {/* Featured Protocol - Bryan Johnson */}
         {featuredProtocol && (
-          <div className="mb-16">
-            <div className="flex items-center gap-2 mb-4">
-              <Flame className="h-6 w-6 text-[#ff6b6b]" />
-              <h2 className="text-2xl font-bold">Featured Protocol</h2>
+          <FadeIn className="mb-20">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="material-symbols-outlined text-primary text-3xl">local_fire_department</span>
+              <h2 className="font-display text-2xl font-bold italic text-white">Featured Protocol</h2>
             </div>
             
-            <Card className="border-2 border-[#ff6b6b] bg-gradient-to-br from-[#ff6b6b]/5 to-[#f59e0b]/5 hover:shadow-2xl transition-all">
-              <CardHeader>
-                <div className="flex items-center gap-2 mb-2">
-                  <Badge variant="featured">FEATURED</Badge>
-                  <Badge variant="default">{featuredProtocol.difficulty}</Badge>
-                </div>
-                <CardTitle className="text-3xl">{featuredProtocol.title}</CardTitle>
-                <CardDescription className="text-base">
-                  {featuredProtocol.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-                  <div className="text-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#ff6b6b]/10 mb-3">
-                      <Thermometer className="h-8 w-8 text-[#ff6b6b]" />
-                    </div>
-                    <div className="text-2xl font-bold text-[#ff6b6b]">{featuredProtocol.temperature}</div>
-                    <div className="text-sm text-gray-600">Temperature</div>
+            <HoverCard scale={1.01} lift={6}>
+              <Card className="border-primary bg-gradient-to-br from-primary/10 to-card-dark overflow-hidden">
+              <div className="lg:grid lg:grid-cols-2">
+                <div className="p-8 lg:p-10">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Badge variant="featured">FEATURED</Badge>
+                    <Badge variant="default">{featuredProtocol.difficulty}</Badge>
                   </div>
-                  <div className="text-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#2196f3]/10 mb-3">
-                      <Clock className="h-8 w-8 text-[#2196f3]" />
+                  <CardTitle className="text-3xl md:text-4xl font-display italic mb-4">
+                    {featuredProtocol.title}
+                  </CardTitle>
+                  <CardDescription className="text-base text-text-muted mb-6">
+                    {featuredProtocol.description}
+                  </CardDescription>
+
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="bg-wood-medium rounded-xl p-4 text-center">
+                      <div className="text-2xl font-bold text-primary">{featuredProtocol.temperature}</div>
+                      <div className="text-sm text-text-muted">Temperature</div>
                     </div>
-                    <div className="text-2xl font-bold text-[#2196f3]">{featuredProtocol.duration}</div>
-                    <div className="text-sm text-gray-600">Duration</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#f59e0b]/10 mb-3">
-                      <TrendingUp className="h-8 w-8 text-[#f59e0b]" />
+                    <div className="bg-wood-medium rounded-xl p-4 text-center">
+                      <div className="text-2xl font-bold text-blue-400">{featuredProtocol.duration}</div>
+                      <div className="text-sm text-text-muted">Duration</div>
                     </div>
-                    <div className="text-2xl font-bold text-[#f59e0b]">{featuredProtocol.frequency}</div>
-                    <div className="text-sm text-gray-600">Frequency</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/10 mb-3">
-                      <Star className="h-8 w-8 text-green-500" />
+                    <div className="bg-wood-medium rounded-xl p-4 text-center">
+                      <div className="text-2xl font-bold text-amber-400">{featuredProtocol.frequency}</div>
+                      <div className="text-sm text-text-muted">Frequency</div>
                     </div>
-                    <div className="text-2xl font-bold text-green-500">+38%</div>
-                    <div className="text-sm text-gray-600">HRV Increase</div>
+                    <div className="bg-wood-medium rounded-xl p-4 text-center">
+                      <div className="text-2xl font-bold text-green-400">+38%</div>
+                      <div className="text-sm text-text-muted">HRV Increase</div>
+                    </div>
                   </div>
+
+                  <div className="bg-wood-dark rounded-xl p-5 mb-6">
+                    <h3 className="font-semibold text-white mb-3">Key Results:</h3>
+                    <ul className="space-y-2">
+                      {featuredProtocol.results.map((result, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-text-muted">
+                          <span className="material-symbols-outlined text-green-400 text-lg mt-0.5">check_circle</span>
+                          <span>{result}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <Button asChild size="lg" className="w-full">
+                    <Link href={`/protocols/${featuredProtocol.slug}`}>
+                      View Complete Protocol
+                      <span className="material-symbols-outlined ml-2">arrow_forward</span>
+                    </Link>
+                  </Button>
                 </div>
 
-                <div className="bg-white rounded-xl p-6 mb-6">
-                  <h3 className="font-bold text-lg mb-4">Key Results:</h3>
-                  <ul className="space-y-2">
-                    {featuredProtocol.results.map((result, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-gray-700">
-                        <span className="text-green-600 font-bold flex-shrink-0">✓</span>
-                        <span>{result}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="relative hidden lg:block">
+                  <Image
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
+                    alt="Bryan Johnson sauna protocol"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-card-dark/80 to-transparent" />
                 </div>
-
-                <Button asChild size="lg" className="w-full">
-                  <Link href={`/protocols/${featuredProtocol.slug}`}>
-                    View Complete Protocol <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-              </CardContent>
+              </div>
             </Card>
-          </div>
+            </HoverCard>
+          </FadeIn>
         )}
 
         {/* All Other Protocols */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold mb-6">All Protocols</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mb-20">
+          <FadeIn>
+            <h2 className="font-display text-2xl font-bold italic text-white mb-8">All Protocols</h2>
+          </FadeIn>
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {otherProtocols.map((protocol) => (
-              <Card key={protocol.slug} className="hover:shadow-lg transition-all">
+              <StaggerItem key={protocol.slug}>
+                <HoverCard className="h-full">
+                  <Card className="h-full hover:border-primary transition-all">
                 <CardHeader>
                   <div className="flex items-center gap-2 mb-2">
-                    <Badge variant={protocol.difficulty === 'Beginner' ? 'secondary' : protocol.difficulty === 'Advanced' ? 'default' : 'accent'}>
+                    <Badge 
+                      variant={
+                        protocol.difficulty === 'Beginner' ? 'secondary' : 
+                        protocol.difficulty === 'Advanced' ? 'default' : 'accent'
+                      }
+                    >
                       {protocol.difficulty}
                     </Badge>
                   </div>
@@ -219,59 +266,83 @@ export default function ProtocolsPage() {
                 <CardContent>
                   <div className="space-y-3 mb-6">
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-600">Temperature:</span>
-                      <span className="font-bold">{protocol.temperature}</span>
+                      <span className="text-text-muted">Temperature:</span>
+                      <span className="font-bold text-white">{protocol.temperature}</span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-600">Duration:</span>
-                      <span className="font-bold">{protocol.duration}</span>
+                      <span className="text-text-muted">Duration:</span>
+                      <span className="font-bold text-white">{protocol.duration}</span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-600">Frequency:</span>
-                      <span className="font-bold">{protocol.frequency}</span>
+                      <span className="text-text-muted">Frequency:</span>
+                      <span className="font-bold text-white">{protocol.frequency}</span>
                     </div>
                   </div>
 
-                  <Button asChild variant="outline" className="w-full">
+                  <Button asChild variant="secondary" className="w-full">
                     <Link href={`/protocols/${protocol.slug}`}>
-                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                      Learn More
+                      <span className="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
                     </Link>
                   </Button>
                 </CardContent>
               </Card>
+                </HoverCard>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
 
         {/* Getting Started Guide */}
-        <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-blue-300 rounded-2xl p-8">
-          <h2 className="text-2xl font-bold mb-6">Not Sure Which Protocol to Choose?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white rounded-xl p-6">
-              <div className="text-3xl font-bold text-blue-600 mb-2">New to Sauna?</div>
-              <p className="text-gray-700 mb-4">Start with the Beginner Protocol and work your way up gradually over 4-6 weeks.</p>
-              <Button asChild variant="secondary" size="sm">
-                <Link href="/protocols/beginner">Start Here</Link>
-              </Button>
-            </div>
-            <div className="bg-white rounded-xl p-6">
-              <div className="text-3xl font-bold text-orange-600 mb-2">Regular User?</div>
-              <p className="text-gray-700 mb-4">The Intermediate Protocol offers a great balance of benefits and sustainability.</p>
-              <Button asChild variant="secondary" size="sm">
-                <Link href="/protocols/intermediate">View Protocol</Link>
-              </Button>
-            </div>
-            <div className="bg-white rounded-xl p-6">
-              <div className="text-3xl font-bold text-red-600 mb-2">Optimize Everything?</div>
-              <p className="text-gray-700 mb-4">Bryan Johnson's data-driven protocol offers the most documented results.</p>
-              <Button asChild variant="secondary" size="sm">
-                <Link href="/protocols/bryan-johnson">See Results</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
+        <FadeIn>
+          <Card className="bg-wood-dark border-wood-light">
+            <CardContent className="p-8">
+              <h2 className="font-display text-2xl font-bold italic text-white mb-8 text-center">
+                Not Sure Where to Start?
+              </h2>
+              <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <StaggerItem>
+                  <div className="bg-card-dark border border-wood-light rounded-xl p-6 text-center h-full">
+                    <span className="material-symbols-outlined text-blue-400 text-4xl mb-3">spa</span>
+                    <div className="text-xl font-bold text-white mb-2">New to Sauna?</div>
+                    <p className="text-text-muted text-sm mb-4">
+                      Start with the Beginner Protocol and work your way up gradually over 4-6 weeks.
+                    </p>
+                    <Button asChild variant="outline" size="sm">
+                      <Link href="/protocols/beginner">Start Here</Link>
+                    </Button>
+                  </div>
+                </StaggerItem>
+                <StaggerItem>
+                  <div className="bg-card-dark border border-wood-light rounded-xl p-6 text-center h-full">
+                    <span className="material-symbols-outlined text-amber-400 text-4xl mb-3">trending_up</span>
+                    <div className="text-xl font-bold text-white mb-2">Regular User?</div>
+                    <p className="text-text-muted text-sm mb-4">
+                      The Intermediate Protocol offers a great balance of benefits and sustainability.
+                    </p>
+                    <Button asChild variant="outline" size="sm">
+                      <Link href="/protocols/intermediate">View Protocol</Link>
+                    </Button>
+                  </div>
+                </StaggerItem>
+                <StaggerItem>
+                  <div className="bg-card-dark border border-wood-light rounded-xl p-6 text-center h-full">
+                    <span className="material-symbols-outlined text-primary text-4xl mb-3">local_fire_department</span>
+                    <div className="text-xl font-bold text-white mb-2">Optimize Everything?</div>
+                    <p className="text-text-muted text-sm mb-4">
+                      Bryan Johnson's data-driven protocol offers the most documented results.
+                    </p>
+                    <Button asChild variant="outline" size="sm">
+                      <Link href="/protocols/bryan-johnson">See Results</Link>
+                    </Button>
+                  </div>
+                </StaggerItem>
+              </StaggerContainer>
+            </CardContent>
+          </Card>
+        </FadeIn>
       </div>
     </div>
+    </>
   )
 }
-

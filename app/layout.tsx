@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Inter } from 'next/font/google'
+import { Newsreader, Noto_Sans } from 'next/font/google'
 import Script from 'next/script'
 import "./globals.css"
 import { Header } from "@/components/layout/header"
@@ -8,9 +8,18 @@ import { ScrollToTop } from "@/components/ui/scroll-to-top"
 import { Analytics } from "@vercel/analytics/react"
 import { StructuredData } from "@/components/seo/structured-data"
 
-const inter = Inter({ 
+const newsreader = Newsreader({ 
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-newsreader",
+  display: 'swap',
+  style: ['normal', 'italic'],
+})
+
+const notoSans = Noto_Sans({ 
+  subsets: ["latin"],
+  variable: "--font-noto-sans",
+  display: 'swap',
+  weight: ['400', '500', '700'],
 })
 
 export const metadata: Metadata = {
@@ -81,8 +90,14 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased`} suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <link 
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" 
+          rel="stylesheet" 
+        />
+      </head>
+      <body className={`${newsreader.variable} ${notoSans.variable} font-body antialiased bg-background-dark text-white`} suppressHydrationWarning>
         <StructuredData data={organizationSchema} />
         <div className="flex min-h-screen flex-col">
           <Header />

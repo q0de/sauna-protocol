@@ -1,0 +1,67 @@
+"use client"
+
+import { motion } from 'framer-motion'
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.8,
+    }
+  }
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.16, 1, 0.3, 1]
+    }
+  }
+}
+
+const stats = [
+  { icon: "science", value: "50+", label: "Studies Cited", hasBorder: true },
+  { icon: "groups", value: "10k+", label: "Active Users", hasBorder: true },
+  { icon: "verified", value: "12", label: "Verified Protocols", hasBorder: true },
+  { icon: "medical_services", value: "8", label: "Medical Experts", hasBorder: false },
+]
+
+export function TrustBar() {
+  return (
+    <motion.div 
+      className="relative z-20 border-y border-wood-light bg-wood-dark/90 backdrop-blur-sm py-6"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          className="grid grid-cols-2 md:grid-cols-4 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+        >
+          {stats.map((stat, index) => (
+            <motion.div 
+              key={stat.label}
+              variants={itemVariants}
+              className={`flex items-center justify-center gap-3 ${stat.hasBorder ? 'md:border-r border-wood-light/30' : ''}`}
+            >
+              <span className="material-symbols-outlined text-primary text-3xl">{stat.icon}</span>
+              <div className="flex flex-col">
+                <span className="text-xl font-bold font-display text-white">{stat.value}</span>
+                <span className="text-xs text-gray-400 uppercase tracking-wider">{stat.label}</span>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </motion.div>
+  )
+}

@@ -4,9 +4,19 @@ import { useEffect, useRef } from 'react'
 
 interface NoiseTextureProps {
   opacity?: number
+  contrast?: number
+  brightness?: number
+  speed?: number
+  className?: string
 }
 
-export function NoiseTexture({ opacity = 0.5 }: NoiseTextureProps) {
+export const NoiseTexture = ({
+  opacity = 0.04,
+  contrast = 2.5,
+  brightness = 1.5,
+  speed = 18,
+  className = ''
+}: NoiseTextureProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -16,68 +26,54 @@ export function NoiseTexture({ opacity = 0.5 }: NoiseTextureProps) {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    // Set canvas size to match parent element (hero section)
-    const resizeCanvas = () => {
-      const parent = canvas.parentElement
-      if (parent) {
-        canvas.width = parent.offsetWidth
-        canvas.height = parent.offsetHeight
-      }
-    }
-    
-    resizeCanvas()
-    window.addEventListener('resize', resizeCanvas)
-
-    // Generate noise function
-    const generateNoise = () => {
-      const imageData = ctx.createImageData(canvas.width, canvas.height)
-      const data = imageData.data
-
-      for (let i = 0; i < data.length; i += 4) {
-        // Random grayscale value (0-255)
-        const gray = Math.floor(Math.random() * 256)
-        
-        // Random alpha (0-120) for varied visibility
-        const alpha = Math.floor(Math.random() * 120)
-
-        data[i] = gray       // Red
-        data[i + 1] = gray   // Green
-        data[i + 2] = gray   // Blue
-        data[i + 3] = alpha  // Alpha
-      }
-
-      ctx.putImageData(imageData, 0, 0)
-    }
-
-    // Animate noise with 100ms throttle (10fps instead of 33fps - less GPU strain)
+    let animationId: number
     let lastTime = 0
-    const animate = (time: number) => {
-      if (time - lastTime > 100) {
-        generateNoise()
-        lastTime = time
-      }
-      requestAnimationFrame(animate)
+    const frameInterval = 1000 / speed
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth
+      canvas.height = canvas.offsetHeight
     }
 
-    requestAnimationFrame(animate)
+    resize()
+    window.addEventListener('resize', resize)
+
+    const generateNoise = (timestamp: number) => {
+      if (timestamp - lastTime < frameInterval) {
+        animationId = requestAnimationFrame(generateNoise)
+        return
+      }
+      lastTime = timestamp
+
+      const imageData = ctx.createImageData(canvas.width, canvas.height)
+      for (let i = 0; i < imageData.data.length; i += 4) {
+        const noise = Math.random() * 255
+        const adjusted = Math.min(255, Math.max(0, ((noise - 128) * contrast + 128) * brightness))
+        imageData.data[i] = adjusted
+        imageData.data[i + 1] = adjusted
+        imageData.data[i + 2] = adjusted
+        imageData.data[i + 3] = 255
+      }
+      ctx.putImageData(imageData, 0, 0)
+
+      animationId = requestAnimationFrame(generateNoise)
+    }
+
+    animationId = requestAnimationFrame(generateNoise)
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas)
+      cancelAnimationFrame(animationId)
+      window.removeEventListener('resize', resize)
     }
-  }, [])
+  }, [contrast, brightness, speed])
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 pointer-events-none z-10 mix-blend-overlay"
-      style={{
-        filter: 'contrast(2.5) brightness(1.5)',
-        opacity,
-        willChange: 'transform',
-        transform: 'translateZ(0)', // Force GPU acceleration
-        backfaceVisibility: 'hidden' as const,
-      }}
-    />
+    <div className={`absolute inset-0 pointer-events-none overflow-hidden ${className}`}>
+      <canvas
+        ref={canvasRef}
+        className="w-full h-full mix-blend-overlay"
+        style={{ opacity }}
+      />
+    </div>
   )
 }
-

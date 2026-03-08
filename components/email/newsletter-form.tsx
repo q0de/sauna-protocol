@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Mail } from 'lucide-react'
 
 type NewsletterFormProps = {
   inline?: boolean
@@ -11,7 +10,6 @@ type NewsletterFormProps = {
 
 export function NewsletterForm({ inline = false, leadMagnet = 'general' }: NewsletterFormProps) {
   const [email, setEmail] = useState('')
-  const [firstName, setFirstName] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
 
@@ -27,7 +25,6 @@ export function NewsletterForm({ inline = false, leadMagnet = 'general' }: Newsl
         },
         body: JSON.stringify({
           email,
-          firstName,
           leadMagnet,
         }),
       })
@@ -36,9 +33,8 @@ export function NewsletterForm({ inline = false, leadMagnet = 'general' }: Newsl
 
       if (response.ok) {
         setStatus('success')
-        setMessage('Thanks for subscribing! Check your email for the download link.')
+        setMessage('Thanks! Check your email for the download link.')
         setEmail('')
-        setFirstName('')
       } else {
         setStatus('error')
         setMessage(data.error || 'Something went wrong. Please try again.')
@@ -58,7 +54,7 @@ export function NewsletterForm({ inline = false, leadMagnet = 'general' }: Newsl
     return (
       <div className="bg-gradient-to-r from-[#ff6b6b] to-[#f59e0b] rounded-lg p-8 my-12">
         <div className="max-w-2xl mx-auto text-center text-white">
-          <Mail className="h-12 w-12 mx-auto mb-4" />
+          <span className="material-symbols-outlined text-5xl mb-4">download</span>
           <h3 className="text-2xl font-bold mb-2">Want More Sauna Insights?</h3>
           <p className="mb-6">
             Get our free Sauna Protocol Cheatsheet with evidence-based tips to optimize your sessions.
@@ -73,7 +69,7 @@ export function NewsletterForm({ inline = false, leadMagnet = 'general' }: Newsl
               className="flex-1 px-4 py-2 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
             />
             <Button type="submit" variant="secondary" disabled={status === 'loading'}>
-              {status === 'loading' ? 'Subscribing...' : 'Get Free PDF'}
+              {status === 'loading' ? 'Sending...' : 'Get Free PDF'}
             </Button>
           </form>
           {message && (
@@ -87,45 +83,24 @@ export function NewsletterForm({ inline = false, leadMagnet = 'general' }: Newsl
   }
 
   return (
-    <div className="w-full max-w-md">
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
-            First Name
-          </label>
-          <input
-            type="text"
-            id="firstName"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff6b6b]"
-            placeholder="John"
-          />
-        </div>
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-            Email Address*
-          </label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff6b6b]"
-            placeholder="john@example.com"
-          />
-        </div>
-        <Button type="submit" className="w-full" disabled={status === 'loading'}>
-          {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
-        </Button>
-        {message && (
-          <p className={`text-sm ${status === 'success' ? 'text-green-600' : 'text-red-600'}`}>
-            {message}
-          </p>
-        )}
-      </form>
-    </div>
+    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full">
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Enter your email"
+        required
+        className="flex-1 px-4 py-3 bg-wood-medium border border-wood-light rounded-lg text-white placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary"
+      />
+      <Button type="submit" className="px-8" disabled={status === 'loading'}>
+        {status === 'loading' ? 'Sending...' : 'Get Free PDF'}
+      </Button>
+      {message && (
+        <p className={`text-sm ${status === 'success' ? 'text-green-400' : 'text-red-400'}`}>
+          {message}
+        </p>
+      )}
+    </form>
   )
 }
 
