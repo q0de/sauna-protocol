@@ -113,10 +113,10 @@ export default async function ArticlePage({ params }: Props) {
                   </Badge>
                 )}
                 <h1 className="text-5xl font-bold mb-4">{frontmatter.title}</h1>
-                <p className="text-xl text-gray-600 mb-6">{frontmatter.excerpt}</p>
+                <p className="text-xl text-text-muted mb-6">{frontmatter.excerpt}</p>
 
                 {/* Meta Information */}
-                <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600">
+                <div className="flex flex-wrap items-center gap-6 text-sm text-text-muted">
                   <div className="flex items-center gap-2">
                     <Calendar className="h-4 w-4" />
                     <time dateTime={frontmatter.publishedAt}>
@@ -138,15 +138,15 @@ export default async function ArticlePage({ params }: Props) {
 
               {/* TL;DR */}
               {frontmatter.tldr && frontmatter.tldr.length > 0 && (
-                <Card className="mb-8 bg-blue-50 border-blue-200 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'backwards' }}>
+                <Card className="mb-8 bg-wood-medium border-wood-light animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'backwards' }}>
                   <CardHeader>
-                    <CardTitle className="text-lg">TL;DR</CardTitle>
+                    <CardTitle className="text-lg text-white">TL;DR</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2">
                       {frontmatter.tldr.map((point, index) => (
-                        <li key={index} className="flex items-start gap-2">
-                          <span className="text-blue-600 font-bold">•</span>
+                        <li key={index} className="flex items-start gap-2 text-gray-300">
+                          <span className="text-primary font-bold">•</span>
                           <span>{point}</span>
                         </li>
                       ))}
@@ -167,18 +167,18 @@ export default async function ArticlePage({ params }: Props) {
 
               {/* Author Bio */}
               <Separator className="my-12" />
-              <Card className="bg-gray-50">
+              <Card className="bg-card-dark border-wood-light">
                 <CardContent className="pt-6">
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-[#ff6b6b] flex items-center justify-center text-white text-2xl font-bold">
+                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white text-2xl font-bold">
                       S
                     </div>
                     <div>
-                      <h3 className="font-bold text-lg mb-2">{frontmatter.author}</h3>
-                      <p className="text-gray-600 mb-4">
+                      <h3 className="font-bold text-lg mb-2 text-white">{frontmatter.author}</h3>
+                      <p className="text-text-muted mb-4">
                         Our team researches and writes evidence-based guides to help you optimize your sauna practice safely and effectively.
                       </p>
-                      <Link href="/about" className="text-[#2196f3] hover:text-[#1976d2] font-medium">
+                      <Link href="/about" className="text-primary hover:text-orange-400 font-medium">
                         Learn more about us →
                       </Link>
                     </div>
@@ -192,22 +192,22 @@ export default async function ArticlePage({ params }: Props) {
                   <h2 className="text-3xl font-bold mb-6">Related Articles</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {relatedArticles.map((related) => (
-                      <Card key={related.slug} className="hover:shadow-lg transition-shadow">
+                      <Card key={related.slug} className="hover:shadow-lg transition-shadow bg-card-dark border-wood-light">
                         <CardHeader>
                           <Badge variant="secondary" className="mb-2 w-fit">
                             {related.frontmatter.category}
                           </Badge>
-                          <CardTitle className="text-lg">
-                            <Link href={`/articles/${related.slug}`} className="hover:text-[#ff6b6b]">
+                          <CardTitle className="text-lg text-white">
+                            <Link href={`/articles/${related.slug}`} className="hover:text-primary transition-colors">
                               {related.frontmatter.title}
                             </Link>
                           </CardTitle>
-                          <CardDescription className="line-clamp-2">
+                          <CardDescription className="line-clamp-2 text-text-muted">
                             {related.frontmatter.excerpt}
                           </CardDescription>
                         </CardHeader>
                         <CardContent>
-                          <div className="text-sm text-gray-500">
+                          <div className="text-sm text-text-muted">
                             {related.frontmatter.readingTime}
                           </div>
                         </CardContent>
