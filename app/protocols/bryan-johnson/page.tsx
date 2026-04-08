@@ -430,7 +430,7 @@ export default function BryanJohnsonProtocolPage() {
                       The Ice Pack Strategy
                     </h3>
                     <p className="text-white/45 mb-3 text-sm">
-                      From day one, Johnson wore what he calls an "ice diaper" during every session. This wasn't for comfort—it was for <strong className="text-white">fertility protection</strong>.
+                      From day one, Johnson wore what he calls an <a href="https://amzn.to/4qTfeY9" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline underline-offset-2 font-medium transition-colors">"ice diaper"</a> during every session. This wasn't for comfort—it was for <strong className="text-white">fertility protection</strong>.
                     </p>
                     <p className="text-sm text-white/45 leading-relaxed">
                       Human testes operate at 2-4°C cooler than core body temperature. Research shows that even a 2°C rise can derail spermatogenesis for 74 days.
