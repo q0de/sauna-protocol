@@ -738,7 +738,7 @@ export default function BryanJohnsonProtocolPage() {
                     <div>
                       <p className="font-bold text-lg text-white mb-2">The Verdict:</p>
                       <p className="text-white/45 leading-relaxed mb-3">
-                        <strong className="text-white">Men must cool their testicles during high-heat sauna sessions.</strong> The good news? After restarting the ice pack protocol, his fertility markers improved by 30% and he expected full recovery within weeks.
+                        <strong className="text-white">Men must cool their testicles during high-heat sauna sessions.</strong> The good news? After restarting the <a href="https://amzn.to/4qTfeY9" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline underline-offset-2 font-medium transition-colors">ice pack protocol</a>, his fertility markers improved by 30% and he expected full recovery within weeks.
                       </p>
                     </div>
                   </div>
