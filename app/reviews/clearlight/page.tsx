@@ -34,6 +34,7 @@ export default function ClearlightReviewPage() {
     'Longer lead times (4-6 weeks for delivery)',
     'No smart home integration',
     'Some models require dedicated electrical circuit',
+    'Public affiliate terms exclude several major cabin models from commission',
   ]
 
   const models = [
@@ -156,6 +157,19 @@ export default function ClearlightReviewPage() {
                     Clearlight delivers the best-in-class EMF performance and build quality in the infrared sauna market. 
                     The premium price is justified for health-conscious buyers who prioritize low EMF exposure and want 
                     a sauna that will last a lifetime. <span className="text-[#F59E0B] font-mono font-bold">Rating: 9.2/10</span>
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="mt-6 bg-amber-500/10 border-amber-500/30">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <span className="material-symbols-outlined text-amber-400 text-3xl">info</span>
+                <div>
+                  <p className="text-lg font-semibold text-white mb-2">Affiliate note</p>
+                  <p className="text-white/45">
+                    Clearlight is still worth reviewing on product quality, but public affiliate terms say major cabin models like Sanctuary, Sanctuary Outdoor, Premier IS-1-3, and custom builds may not earn commission. We treat cabin links as buyer-helpful references unless private terms confirm otherwise.
                   </p>
                 </div>
               </div>
@@ -360,11 +374,10 @@ export default function ClearlightReviewPage() {
             <CardContent className="pt-8 pb-8 text-center">
               <span className="material-symbols-outlined text-primary text-5xl mb-4">spa</span>
               <h3 className="font-display text-2xl font-bold italic text-white mb-4">
-                Ready to Experience Clearlight?
+                Compare Clearlight Options
               </h3>
               <p className="text-white/45 mb-6 max-w-2xl mx-auto leading-relaxed">
-                Visit Clearlight directly for current pricing, financing options, and exclusive promotions. 
-                Most models ship within <span className="font-mono text-white/70">4-6 weeks</span>.
+                Start with current pricing, electrical requirements, and model availability. For monetization, verify the exact model against Clearlight's current affiliate terms before assuming a cabin purchase is commissionable.
               </p>
               <Button asChild size="lg">
                 <a 
@@ -372,12 +385,12 @@ export default function ClearlightReviewPage() {
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  Shop Clearlight Saunas
+                  View Clearlight Models
                   <span className="material-symbols-outlined ml-2">open_in_new</span>
                 </a>
               </Button>
               <p className="text-xs text-white/25 mt-4">
-                Affiliate link – we may earn a commission at no extra cost to you
+                Link may be affiliate-tracked; public terms exclude some sauna cabin models
               </p>
             </CardContent>
           </Card>

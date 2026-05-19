@@ -20,9 +20,9 @@ export const metadata: Metadata = generateSEO({
 export default function ProtocolsPage() {
   const protocols = [
     {
-      title: "Bryan Johnson's 200°F Protocol",
+      title: "Bryan Johnson 200°F Case Study",
       slug: "bryan-johnson",
-      description: "The exact protocol used by biohacker Bryan Johnson to achieve +38% HRV improvement and measurable health gains",
+      description: "Independent analysis of the publicly reported protocol Bryan Johnson used while tracking HRV and other health markers",
       temperature: "200°F",
       duration: "20-25 min",
       frequency: "4-7x/week",

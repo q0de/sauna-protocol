@@ -86,7 +86,7 @@ const protocols = [
   },
   {
     title: "Bryan Johnson Protocol",
-    description: "Advanced longevity optimization",
+    description: "Independent analysis of a public longevity protocol",
     temperature: "200°F",
     duration: "25 min",
     frequency: "4x/week",
@@ -113,6 +113,39 @@ const faqs = [
   {
     question: "What's the difference between dry and wet sauna?",
     answer: "Dry saunas (Finnish style) use hot air at 170-200°F with low humidity. Wet saunas (steam rooms) use moist heat at lower temperatures. Both provide similar benefits.",
+  },
+]
+
+const researchSources = [
+  {
+    title: 'Sauna bathing and mortality',
+    takeaway: 'Finnish cohort study linking more frequent sauna use with lower fatal cardiovascular and all-cause mortality risk.',
+    source: 'JAMA Internal Medicine, 2015',
+    href: 'https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2130724',
+  },
+  {
+    title: 'Cardiovascular sauna review',
+    takeaway: 'Evidence review covering blood pressure, vascular function, cardiovascular outcomes, and safety considerations.',
+    source: 'Mayo Clinic Proceedings, 2018',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/30077204/',
+  },
+  {
+    title: 'Men and women prospective cohort',
+    takeaway: 'Prospective cohort study associating sauna bathing with reduced cardiovascular mortality and improved risk prediction.',
+    source: 'BMC Medicine, 2018',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/30486813/',
+  },
+  {
+    title: 'Post-exercise sauna adaptation',
+    takeaway: 'Study of post-exercise sauna exposure, plasma volume expansion, and heart-rate-variability tracking in trained cyclists.',
+    source: 'European Journal of Applied Physiology, 2015',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/25432420/',
+  },
+  {
+    title: 'Causality caveat',
+    takeaway: 'Commentary emphasizing that sauna-mortality findings are associations and should not be overstated as causal proof.',
+    source: 'JAMA Internal Medicine, 2015',
+    href: 'https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2448449',
   },
 ]
 
@@ -153,20 +186,15 @@ export default async function HomePage() {
       <div className="flex flex-col bg-background-dark">
         {/* Hero Section with Trust Bar */}
       <section className="relative h-screen flex flex-col">
-        {/* Background Video with Gradient */}
+        {/* Background Image with Gradient */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-orange-900/40 via-background-dark/80 to-background-dark z-10" />
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
-            poster="https://images.unsplash.com/photo-1515362778563-6a8d0e44bc0b?q=80&w=2070&auto=format&fit=crop"
-          >
-            <source src="https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/sign/vid/sauna-protocol-vid.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yZjYwM2EwMS00ZmEwLTQ0M2YtODJhNi03ZmU4MDBmZjJiOGUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWQvc2F1bmEtcHJvdG9jb2wtdmlkLndlYm0iLCJpYXQiOjE3NjI3MjI2MTAsImV4cCI6MTc5NDI1ODYxMH0.JS-u_DL9wmxYMvqJADkrdNZa3QBdZfrFZZ4MYc-9CO8" type="video/webm" />
-          </video>
+          <div
+            className="absolute inset-0 w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1515362778563-6a8d0e44bc0b?q=80&w=2070&auto=format&fit=crop')",
+            }}
+          />
           <div className="absolute inset-0 bg-gradient-to-tr from-amber-900/30 via-orange-900/20 to-transparent mix-blend-overlay z-10" />
           
           {/* Noise Overlay */}
@@ -235,7 +263,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Featured Protocol - The Blueprint */}
+              {/* Featured Protocol - Bryan Johnson public protocol */}
       <section className="py-24 bg-wood-dark border-y border-wood-light relative overflow-hidden">
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="max-w-7xl mx-auto px-4 relative z-10">
@@ -246,11 +274,10 @@ export default async function HomePage() {
                 Featured Protocol
               </div>
               <h2 className="font-display font-bold text-4xl md:text-5xl text-white leading-tight">
-                The Blueprint Protocol
+                Bryan Johnson Case Study
               </h2>
               <p className="text-lg text-gray-300 leading-relaxed">
-                Bryan Johnson's specific high-heat routine designed to mimic the cardiovascular 
-                intensity of moderate exercise while promoting autophagy and skin rejuvenation.
+                An independent breakdown of Bryan Johnson's publicly discussed high-heat routine, including protocol details, safety considerations, and reported outcomes.
               </p>
               
               <StaggerContainer staggerDelay={0.08} className="grid grid-cols-2 gap-4">
@@ -296,7 +323,7 @@ export default async function HomePage() {
                 href="/protocols/bryan-johnson"
                 className="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-orange-600 text-white font-bold rounded-lg transition-all shadow-lg shadow-orange-900/20 flex items-center justify-center gap-2 inline-flex"
               >
-                View Full Blueprint
+                View Full Analysis
                 <span className="material-symbols-outlined">arrow_forward</span>
               </Link>
             </FadeIn>
@@ -397,7 +424,7 @@ export default async function HomePage() {
               Recommended Gear
             </h2>
             <p className="text-xl text-text-muted">
-              Expert-reviewed equipment for your sauna practice
+              Research-informed equipment for your sauna practice
             </p>
           </FadeIn>
 
@@ -417,7 +444,7 @@ export default async function HomePage() {
                     </CardHeader>
                     <CardContent>
                       <span className="text-primary text-sm font-semibold flex items-center">
-                        Shop Infrared Saunas
+                        Compare Infrared Saunas
                         <span className="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
                       </span>
                     </CardContent>
@@ -441,7 +468,7 @@ export default async function HomePage() {
                     </CardHeader>
                     <CardContent>
                       <span className="text-primary text-sm font-semibold flex items-center">
-                        Buy Clearlight
+                        Read Clearlight Review
                         <span className="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
                       </span>
                     </CardContent>
@@ -530,6 +557,57 @@ export default async function HomePage() {
           </div>
         </section>
       )}
+
+      {/* Research Sources */}
+      <section id="research-sources" className="py-20 bg-wood-dark border-y border-wood-light scroll-mt-24">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <FadeIn className="mb-12">
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+              <div>
+                <Badge variant="secondary" className="mb-4">SOURCE LIBRARY</Badge>
+                <h2 className="font-display text-4xl font-bold italic text-white mb-4">
+                  Research Behind the Protocols
+                </h2>
+                <p className="text-lg text-text-muted max-w-3xl">
+                  The core guidance on SaunaProtocol is grounded in published sauna research, review papers, and publicly documented case-study data. We cite associations carefully because many long-term sauna studies are observational.
+                </p>
+              </div>
+              <Button asChild variant="outline">
+                <Link href="/articles">Read Guides</Link>
+              </Button>
+            </div>
+          </FadeIn>
+
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-5">
+            {researchSources.map((source) => (
+              <StaggerItem key={source.title}>
+                <a
+                  href={source.href}
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="group block h-full rounded-lg border border-wood-light bg-card-dark p-5 transition-colors hover:border-primary"
+                >
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 text-primary">
+                    <span className="material-symbols-outlined text-xl">science</span>
+                  </div>
+                  <h3 className="mb-2 text-lg font-bold text-white group-hover:text-primary transition-colors">
+                    {source.title}
+                  </h3>
+                  <p className="mb-4 text-sm leading-relaxed text-text-muted">
+                    {source.takeaway}
+                  </p>
+                  <div className="mt-auto flex items-center justify-between gap-3 border-t border-wood-light pt-4">
+                    <span className="text-xs font-mono uppercase tracking-wider text-white/35">
+                      {source.source}
+                    </span>
+                    <span className="material-symbols-outlined text-sm text-primary">open_in_new</span>
+                  </div>
+                </a>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-20 bg-wood-dark">

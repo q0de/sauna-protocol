@@ -8,9 +8,11 @@ import { FadeIn } from '@/components/effects/fade-in'
 import { StaggerContainer, StaggerItem } from '@/components/effects/stagger-container'
 import { HoverCard } from '@/components/effects/hover-card'
 
+const PDF_DOWNLOAD_PATH = '/downloads/bryan-johnson-sauna-protocol'
+
 export const metadata: Metadata = generateSEO({
-  title: "Bryan Johnson's 200°F Sauna Protocol",
-  description: "The exact sauna protocol Bryan Johnson uses to improve blood pressure 20 mmHg and increase HRV 38%. Complete 90-day guide with measured results.",
+  title: "Bryan Johnson's 200°F Sauna Protocol: Independent Analysis",
+  description: "Independent analysis of the publicly reported sauna protocol Bryan Johnson uses. Not affiliated with, endorsed by, or sponsored by Bryan Johnson, Blueprint, or Kernel.",
   keywords: [
     "bryan johnson sauna",
     "bryan johnson protocol",
@@ -121,7 +123,7 @@ export default function BryanJohnsonProtocolPage() {
     },
     {
       week: "Week 9-12",
-      title: "The Blueprint Standard",
+      title: "Target Standard",
       description: "Full protocol. Extreme heat caution advised.",
       temp: "200°F+",
       duration: "25-30 Min",
@@ -211,6 +213,39 @@ export default function BryanJohnsonProtocolPage() {
     },
   ]
 
+  const researchSources = [
+    {
+      title: 'Frequent sauna bathing and mortality',
+      note: 'The major Finnish cohort study behind the 4-7 sessions/week mortality association. Useful, but observational.',
+      href: 'https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2130724',
+      source: 'JAMA Internal Medicine',
+    },
+    {
+      title: 'Cardiovascular and health benefits review',
+      note: 'Review paper summarizing evidence around cardiovascular, vascular, respiratory, pain, and safety outcomes.',
+      href: 'https://pubmed.ncbi.nlm.nih.gov/30077204/',
+      source: 'Mayo Clinic Proceedings',
+    },
+    {
+      title: 'Post-exercise sauna heat adaptation',
+      note: 'Small athlete study on post-training sauna exposure, plasma volume, and HRV-related markers.',
+      href: 'https://pubmed.ncbi.nlm.nih.gov/25432420/',
+      source: 'European Journal of Applied Physiology',
+    },
+    {
+      title: 'Causality caution',
+      note: 'Commentary on why sauna-mortality associations should not be presented as settled cause-and-effect.',
+      href: 'https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2448449',
+      source: 'JAMA Internal Medicine',
+    },
+    {
+      title: 'Public Blueprint reference',
+      note: 'Publicly available Bryan Johnson / Blueprint material used for case-study context, not an endorsement of SaunaProtocol.',
+      href: 'https://blueprint.bryanjohnson.com/',
+      source: 'Blueprint',
+    },
+  ]
+
   const steps = [
     {
       number: 1,
@@ -242,8 +277,8 @@ export default function BryanJohnsonProtocolPage() {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://saunaprotocol.com'
   
   const structuredData = generateArticleSchema({
-    title: "Bryan Johnson's 200°F Sauna Protocol",
-    description: "The exact sauna protocol used by Bryan Johnson to improve blood pressure and increase HRV.",
+    title: "Bryan Johnson's 200°F Sauna Protocol: Independent Analysis",
+    description: "Independent analysis of the publicly reported sauna protocol used by Bryan Johnson.",
     publishedAt: "2025-11-09T00:00:00.000Z",
     updatedAt: "2026-03-08T00:00:00.000Z",
     author: "SaunaProtocol Team",
@@ -254,8 +289,8 @@ export default function BryanJohnsonProtocolPage() {
   const howToSchema = {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
-    name: "How to Follow Bryan Johnson's 200°F Sauna Protocol",
-    description: "Step-by-step guide to implementing Bryan Johnson's advanced sauna protocol for cardiovascular health and longevity",
+    name: "How to Adapt Bryan Johnson's Publicly Reported 200°F Sauna Protocol",
+    description: "Step-by-step educational guide to adapting Bryan Johnson's publicly reported advanced sauna protocol for cardiovascular health and longevity",
     totalTime: 'PT25M',
     step: steps.map((step, index) => ({
       '@type': 'HowToStep',
@@ -295,10 +330,10 @@ export default function BryanJohnsonProtocolPage() {
                   <span className="text-white/60 text-xs uppercase tracking-widest">Updated Oct 2023</span>
                 </div>
                 <h1 className="text-white text-4xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-6 font-display italic">
-                  The Blueprint: <span className="text-primary">200°F</span> Sauna Protocol
+                  Bryan Johnson's Public <span className="text-primary">200°F</span> Sauna Protocol
                 </h1>
                 <p className="text-white/50 text-lg lg:text-xl font-normal leading-relaxed max-w-2xl mb-8">
-                  A deep dive into the extreme heat regimen used by Bryan Johnson to reverse aging markers, increase HRV by <span className="font-mono text-[#F59E0B]">38%</span>, and achieve a <span className="font-mono text-[#F59E0B]">57%</span> reduction in all-cause mortality risk.
+                  An independent breakdown of the extreme heat regimen Bryan Johnson has publicly discussed, including reported HRV, blood pressure, and sauna-practice details.
                 </p>
                 <div className="flex flex-wrap items-center gap-6 text-white/45 text-sm border-t border-white/10 pt-6">
                   <div className="flex items-center gap-2">
@@ -321,6 +356,13 @@ export default function BryanJohnsonProtocolPage() {
               </div>
             </div>
           </FadeIn>
+
+          <div className="mb-10 rounded-xl border border-amber-500/30 bg-amber-500/10 p-5 text-sm text-amber-50">
+            <p className="font-bold text-white mb-2">Independent site disclosure</p>
+            <p className="text-white/60 leading-relaxed">
+              SaunaProtocol is not affiliated with, endorsed by, sponsored by, or officially connected to Bryan Johnson, Blueprint, Kernel, or their related companies. This page is an independent educational analysis based on publicly available information.
+            </p>
+          </div>
 
           {/* Two-Column Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 relative">
@@ -348,10 +390,10 @@ export default function BryanJohnsonProtocolPage() {
 
                 <div className="prose prose-invert prose-lg max-w-none text-white/45 leading-loose space-y-4">
                   <p>
-                    Bryan Johnson's "Blueprint" project isn't just about diet—it's about environmental stressors. The 200°F sauna protocol is designed to mimic the effects of moderate aerobic exercise, inducing heat shock proteins (HSPs) that repair damaged cells.
+                    Bryan Johnson's publicly documented Blueprint project isn't just about diet; it also includes environmental stressors. His reported 200°F sauna protocol is designed to mimic some effects of moderate aerobic exercise, inducing heat shock proteins (HSPs) associated with cellular repair.
                   </p>
                   <p>
-                    This complete guide breaks down Johnson's exact protocol, the measured outcomes, and how you can adapt it for your own longevity goals—whether you have access to a home sauna or just a gym membership.
+                    This guide breaks down the publicly reported protocol, the claimed measured outcomes, and how you can adapt the concept for your own longevity goals, whether you have access to a home sauna or a gym membership.
                   </p>
                 </div>
 
@@ -397,7 +439,7 @@ export default function BryanJohnsonProtocolPage() {
               {/* Protocol Specifications */}
               <section className="scroll-mt-24" id="protocol-specs">
                 <FadeIn>
-                  <h2 className="text-3xl font-bold text-white mb-6 font-display italic">The Exact Protocol Specifications</h2>
+                  <h2 className="text-3xl font-bold text-white mb-6 font-display italic">Publicly Reported Protocol Specifications</h2>
                   <p className="text-white/45 mb-6">
                     Johnson didn't ease into sauna gradually. He went all-in from day one with a protocol designed to match the most effective research data.
                   </p>
@@ -838,7 +880,7 @@ export default function BryanJohnsonProtocolPage() {
                 <FadeIn>
                   <h3 className="text-3xl font-bold text-white mb-6 font-display italic">How to Replicate This Protocol</h3>
                   <p className="text-white/45 mb-6">
-                    Here's the step-by-step process to implement Bryan Johnson's sauna protocol yourself:
+                    Here's a step-by-step process for adapting Bryan Johnson's publicly reported sauna protocol yourself:
                   </p>
                 </FadeIn>
                 <StaggerContainer className="space-y-4">
@@ -928,13 +970,44 @@ export default function BryanJohnsonProtocolPage() {
                         <p className="mb-6 text-white/90">
                           Get a printer-friendly version with tracking sheets and weekly checklists
                         </p>
-                        <button className="bg-white text-background-dark font-bold px-8 py-3 rounded-xl hover:bg-gray-100 transition-colors">
+                        <Link href={PDF_DOWNLOAD_PATH} className="inline-flex items-center justify-center bg-white text-background-dark font-bold px-8 py-3 rounded-xl hover:bg-gray-100 transition-colors">
                           Download Free PDF
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   </HoverCard>
                 </FadeIn>
+              </section>
+
+              {/* Research */}
+              <section className="scroll-mt-24" id="research">
+                <FadeIn>
+                  <h3 className="text-3xl font-bold text-white mb-4 font-display italic">Research & Sources</h3>
+                  <p className="text-white/45 mb-6 leading-relaxed">
+                    These are the main sources behind the sauna claims on this page. The long-term mortality findings are promising associations, not guaranteed outcomes or proof that sauna alone causes the risk reduction.
+                  </p>
+                </FadeIn>
+                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {researchSources.map((source) => (
+                    <StaggerItem key={source.title}>
+                      <a
+                        href={source.href}
+                        target="_blank"
+                        rel="noopener noreferrer nofollow"
+                        className="group block h-full rounded-xl border border-wood-light bg-card-dark p-5 transition-colors hover:border-primary"
+                      >
+                        <div className="flex items-start gap-4">
+                          <span className="material-symbols-outlined text-primary text-2xl">article</span>
+                          <div>
+                            <h4 className="text-white font-bold mb-2 group-hover:text-primary transition-colors">{source.title}</h4>
+                            <p className="text-white/45 text-sm leading-relaxed mb-3">{source.note}</p>
+                            <p className="text-xs font-mono uppercase tracking-wider text-white/30">{source.source}</p>
+                          </div>
+                        </div>
+                      </a>
+                    </StaggerItem>
+                  ))}
+                </StaggerContainer>
               </section>
 
               {/* FAQ */}
@@ -979,6 +1052,7 @@ export default function BryanJohnsonProtocolPage() {
                     <Link href="#safety" className="text-white/45 hover:text-white hover:bg-background-dark px-3 py-2 rounded-lg transition-colors">Safety Warnings</Link>
                     <Link href="#guide" className="text-white/45 hover:text-white hover:bg-background-dark px-3 py-2 rounded-lg transition-colors">Implementation</Link>
                     <Link href="#equipment" className="text-white/45 hover:text-white hover:bg-background-dark px-3 py-2 rounded-lg transition-colors">Equipment</Link>
+                    <Link href="#research" className="text-white/45 hover:text-white hover:bg-background-dark px-3 py-2 rounded-lg transition-colors">Research & Sources</Link>
                     <Link href="#faq" className="text-white/45 hover:text-white hover:bg-background-dark px-3 py-2 rounded-lg transition-colors">FAQ</Link>
                   </nav>
                 </div>
@@ -988,7 +1062,7 @@ export default function BryanJohnsonProtocolPage() {
                   <span className="material-symbols-outlined text-4xl text-primary mb-2">picture_as_pdf</span>
                   <h4 className="text-white font-bold mb-2">Offline Guide</h4>
                   <p className="text-white/45 text-xs mb-4">Get the full printable checklist and tracking sheet.</p>
-                  <button className="w-full bg-white text-black font-bold text-sm py-2 rounded-lg hover:bg-gray-200 transition-colors">Download PDF</button>
+                  <Link href={PDF_DOWNLOAD_PATH} className="block w-full bg-white text-black font-bold text-sm py-2 rounded-lg hover:bg-gray-200 transition-colors">Download PDF</Link>
                 </div>
 
                 {/* Sauna Reviews CTA */}
@@ -1025,10 +1099,10 @@ export default function BryanJohnsonProtocolPage() {
               <h2 className="text-4xl lg:text-5xl font-black text-white font-display italic mb-6">Ready to start the protocol?</h2>
               <p className="text-lg text-white/50 mb-8">Join <span className="font-mono text-white/70">15,000+</span> others tracking their longevity metrics. Download the free starter pack.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="flex items-center justify-center gap-2 bg-primary text-white text-lg font-bold px-8 py-3 rounded-xl hover:bg-orange-600 transition-colors shadow-lg shadow-orange-900/40">
+                <Link href={PDF_DOWNLOAD_PATH} className="flex items-center justify-center gap-2 bg-primary text-white text-lg font-bold px-8 py-3 rounded-xl hover:bg-orange-600 transition-colors shadow-lg shadow-orange-900/40">
                   <span className="material-symbols-outlined">download</span>
                   Download PDF
-                </button>
+                </Link>
                 <Link href="/protocols" className="flex items-center justify-center gap-2 bg-wood-light text-white text-lg font-bold px-8 py-3 rounded-xl hover:bg-wood-medium transition-colors">
                   View All Protocols
                 </Link>

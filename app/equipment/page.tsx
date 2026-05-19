@@ -145,7 +145,7 @@ export default function EquipmentPage() {
             <Card className="bg-primary/10 border-primary">
             <CardContent className="pt-6">
               <p className="text-white">
-                <strong>Looking for the best deal?</strong> Infrared sauna manufacturers like Clearlight and Sunlighten offer direct purchase discounts of 8-10% through their affiliate programs. Check our reviews for current promotions.
+                <strong>Shopping for the cabin too?</strong> Start with our infrared sauna comparisons, then verify current manufacturer terms before assuming a direct cabin purchase is commissionable. Clearlight's public terms appear to exclude several major sauna cabin models.
               </p>
             </CardContent>
           </Card>

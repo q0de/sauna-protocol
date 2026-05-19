@@ -36,6 +36,9 @@ export const metadata: Metadata = {
   authors: [{ name: "SaunaProtocol Team" }],
   verification: {
     google: 'MGGQ4BczJSuzQaaZ-AAgWts1peu5Eup3P4P4YWjLZnY',
+    other: {
+      'msvalidate.01': 'A0DF4C3276DBDA7326AE02A69A13FB6A',
+    },
   },
   openGraph: {
     type: "website",

@@ -14,7 +14,7 @@ export function HeroWithVariants() {
   const content = {
     badge: "11 Equipment Reviews • 40+ Studies Cited",
     headline: "Science-Backed Sauna Protocols to Extend Your Healthspan",
-    subheadline: "Complete sauna protocol guide covering dry sauna vs wet sauna benefits, optimal duration by experience level, and advanced protocols used by top biohackers. Backed by 40+ peer-reviewed studies.",
+    subheadline: "Complete sauna protocol guide covering dry sauna vs wet sauna benefits, optimal duration by experience level, and advanced protocols used by top biohackers. Linked to published research and safety caveats.",
     cta: "Explore All Protocols"
   }
 
@@ -153,4 +153,3 @@ export function HeroWithVariants() {
     </>
   )
 }
-

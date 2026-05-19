@@ -101,7 +101,7 @@ export default function AboutPage() {
             <p className="text-text-muted">
               The information on SaunaProtocol is for educational purposes only. We are not medical professionals. 
               Always consult with your healthcare provider before starting any new health protocol, especially if you 
-              have pre-existing conditions or are pregnant.
+              have pre-existing conditions or are pregnant. SaunaProtocol is independent and is not affiliated with, endorsed by, or sponsored by Bryan Johnson, Blueprint, Kernel, or their related companies.
             </p>
           </section>
 
@@ -117,4 +117,3 @@ export default function AboutPage() {
     </div>
   )
 }
-

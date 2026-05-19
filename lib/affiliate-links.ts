@@ -1,6 +1,6 @@
 // Affiliate Links Configuration
 // Includes both Amazon Associates links and direct manufacturer affiliate programs
-// Direct manufacturer programs offer 8-10% commission vs Amazon's 1-4%
+// Amazon is used for accessories. Manufacturer programs vary by brand and SKU.
 
 export const affiliateLinks = {
   // ===========================================
@@ -9,14 +9,17 @@ export const affiliateLinks = {
   // ===========================================
   
   // Clearlight Saunas - Apply at: https://www.clearlight.com/affiliate-program
-  // Commission: 8-10% on $3,000-$6,000+ products = $240-600 per sale
+  // Public Awin terms list 5% base commission for eligible wellness products.
+  // Major sauna cabins are excluded: Sanctuary Full Spectrum, Sanctuary Outdoor,
+  // Premier IS-1-3, and custom builds. Treat cabin links as editorial/referral
+  // links until the private SAUNAPROTOCOL terms are confirmed.
   clearlight: {
-    main: 'https://www.clearlight.com/?ref=SAUNAPROTOCOL', // TODO: Replace with actual affiliate link after approval
-    sanctuary2: 'https://www.clearlight.com/sanctuary-full-spectrum/?ref=SAUNAPROTOCOL', // 2-person Sanctuary
-    sanctuary3: 'https://www.clearlight.com/sanctuary-full-spectrum/?ref=SAUNAPROTOCOL', // 3-person Sanctuary
-    premier: 'https://www.clearlight.com/premier-far-infrared/?ref=SAUNAPROTOCOL', // Premier line
-    essential: 'https://www.clearlight.com/essential-full-spectrum/?ref=SAUNAPROTOCOL', // Essential line
-    outdoorSanctuary: 'https://www.clearlight.com/outdoor-sauna/?ref=SAUNAPROTOCOL', // Outdoor
+    main: 'https://www.clearlight.com/?ref=SAUNAPROTOCOL',
+    sanctuary2: 'https://www.clearlight.com/sanctuary-full-spectrum/?ref=SAUNAPROTOCOL', // Cabin link; public terms may exclude commission
+    sanctuary3: 'https://www.clearlight.com/sanctuary-full-spectrum/?ref=SAUNAPROTOCOL', // Cabin link; public terms may exclude commission
+    premier: 'https://www.clearlight.com/premier-far-infrared/?ref=SAUNAPROTOCOL', // Cabin link; public terms may exclude commission
+    essential: 'https://www.clearlight.com/essential-full-spectrum/?ref=SAUNAPROTOCOL', // Confirm terms before relying on commission
+    outdoorSanctuary: 'https://www.clearlight.com/outdoor-sauna/?ref=SAUNAPROTOCOL', // Cabin link; public terms may exclude commission
   },
   
   // Sunlighten Saunas - Apply at: https://www.sunlighten.com/affiliate-program
@@ -129,4 +132,3 @@ export const affiliatePrograms = {
   shareASale: 'https://www.shareasale.com', // Check for other sauna brands
   cjAffiliate: 'https://www.cj.com', // Commission Junction - check for sauna brands
 }
-

@@ -19,8 +19,8 @@ export default async function ArticlesPage() {
       slug: 'bryan-johnson',
       href: '/protocols/bryan-johnson',
       frontmatter: {
-        title: "Bryan Johnson's 200°F Sauna Protocol: Complete 90-Day Results",
-        excerpt: "The exact sauna protocol used by Bryan Johnson to improve blood pressure by 20 mmHg and increase HRV by 38%. Complete 90-day implementation guide with measured results.",
+        title: "Bryan Johnson's 200°F Sauna Protocol: Independent Analysis",
+        excerpt: "Independent analysis of Bryan Johnson's publicly reported sauna protocol, including reported blood pressure, HRV, safety, and implementation details.",
         category: 'Protocol',
         featured: true,
         publishedAt: '2025-11-09',
@@ -91,4 +91,3 @@ export default async function ArticlesPage() {
     </div>
   )
 }
-

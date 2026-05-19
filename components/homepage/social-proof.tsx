@@ -23,15 +23,15 @@ export function SocialProof() {
       bgColor: "bg-blue-50",
     },
     {
-      title: "Bryan Johnson's Protocol",
+      title: "Bryan Johnson Case Study",
       participants: "Documented case study",
       duration: "90-day protocol",
       findings: [
         "HRV increased by 38%",
         "Blood pressure reduced by 20 mmHg",
-        "All metrics publicly verified"
+        "Reported in public Blueprint material"
       ],
-      source: "Blueprint Protocol (Public Data)",
+      source: "Publicly available Blueprint data",
       icon: User,
       color: "text-[#ff6b6b]",
       bgColor: "bg-red-50",
@@ -39,16 +39,16 @@ export function SocialProof() {
       studyLink: "https://blueprint.bryanjohnson.com/",
     },
     {
-      title: "Long-Term Health Benefits",
-      participants: "Meta-analysis of 40+ studies",
+      title: "Sauna Evidence Review",
+      participants: "Evidence review",
       duration: "Various timeframes",
       findings: [
         "32% reduction in inflammation markers",
         "30-40% improvement in sleep onset",
         "Significant HRV improvements in 12 weeks"
       ],
-      source: "Multiple peer-reviewed studies",
-      studyLink: "https://pubmed.ncbi.nlm.nih.gov/?term=sauna+cardiovascular+health",
+      source: "Mayo Clinic Proceedings, 2018",
+      studyLink: "https://pubmed.ncbi.nlm.nih.gov/30077204/",
       icon: TrendingUp,
       color: "text-green-600",
       bgColor: "bg-green-50",
@@ -61,7 +61,7 @@ export function SocialProof() {
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">Research-Backed Results</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Evidence from 40+ peer-reviewed studies and documented protocols showing the measurable benefits of consistent sauna use
+            Evidence from published sauna studies, review papers, and publicly documented protocols showing measurable associations with consistent sauna use
           </p>
         </div>
 
@@ -128,9 +128,9 @@ export function SocialProof() {
         
         <div className="text-center mt-12">
           <p className="text-sm text-gray-500">
-            All results based on published research and publicly documented protocols. Individual results may vary. 
-            <Link href="/protocols/bryan-johnson#research" className="text-[#2196f3] underline hover:text-[#1976d2] ml-1">
-              View complete research library →
+            Many long-term sauna findings are observational associations, not proof of causation. Individual results may vary.
+            <Link href="/#research-sources" className="text-[#2196f3] underline hover:text-[#1976d2] ml-1">
+              View source library →
             </Link>
           </p>
         </div>
@@ -138,4 +138,3 @@ export function SocialProof() {
     </section>
   )
 }
-

@@ -4,8 +4,8 @@ import { Shield, FileText, DollarSign } from 'lucide-react'
 export function PreFooterTrust() {
   // Locked to Methodology variant (stronger credibility)
   const content = {
-    about: "Every protocol is peer-reviewed, personally tested, and backed by published research.",
-    aboutLink: "Our Methodology",
+    about: "Protocol claims link to published research where available, with safety limits and observational-study caveats called out.",
+    aboutLink: "View Sources",
   }
 
   return (
@@ -23,7 +23,7 @@ export function PreFooterTrust() {
               {content.about}
             </p>
             <Link 
-              href="/about" 
+              href="/#research-sources" 
               className="text-sm text-[#2196f3] hover:text-[#1976d2] font-medium underline underline-offset-2"
             >
               {content.aboutLink} →
@@ -68,4 +68,3 @@ export function PreFooterTrust() {
     </section>
   )
 }
-

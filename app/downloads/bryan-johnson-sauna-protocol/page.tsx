@@ -19,13 +19,16 @@ export default function ProtocolPDFPage() {
           {/* Header */}
           <header className="text-center border-b-4 border-[#ff6b6b] pb-6">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">
-              Bryan Johnson's 200°F Sauna Protocol
+              Bryan Johnson's Public 200°F Sauna Protocol
             </h1>
             <p className="text-xl text-gray-600">
-              Complete 90-Day Implementation Guide
+              Independent 90-Day Adaptation Guide
             </p>
             <p className="text-sm text-gray-500 mt-2">
               From SaunaProtocol.com
+            </p>
+            <p className="text-xs text-gray-500 mt-3 max-w-2xl mx-auto">
+              SaunaProtocol is not affiliated with, endorsed by, sponsored by, or officially connected to Bryan Johnson, Blueprint, Kernel, or their related companies.
             </p>
           </header>
 
@@ -261,4 +264,3 @@ export default function ProtocolPDFPage() {
     </div>
   )
 }
-

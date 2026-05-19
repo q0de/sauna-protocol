@@ -53,7 +53,7 @@ export function HeroContent() {
         className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-wood-medium/50 border border-wood-light backdrop-blur-sm"
       >
         <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-        <span className="text-xs font-medium text-gray-300 uppercase tracking-wider">New: The Blueprint Protocol</span>
+        <span className="text-xs font-medium text-gray-300 uppercase tracking-wider">New: Bryan Johnson Case Study</span>
       </motion.div>
       
       {/* Headline */}
@@ -73,7 +73,7 @@ export function HeroContent() {
         variants={itemVariants}
         className="text-lg md:text-xl text-gray-300 max-w-2xl font-light leading-relaxed"
       >
-        Discover evidence-based heat therapy routines, including Bryan Johnson's Blueprint, 
+        Discover evidence-based heat therapy routines, including an independent Bryan Johnson protocol analysis,
         designed for longevity, recovery, and HGH optimization.
       </motion.p>
       
@@ -91,7 +91,7 @@ export function HeroContent() {
             href="/protocols/bryan-johnson"
             className="px-8 h-14 bg-primary hover:bg-orange-600 text-white text-lg font-bold rounded-xl transition-colors shadow-lg shadow-orange-900/30 flex items-center justify-center gap-2"
           >
-            Start Bryan Johnson Protocol
+            View Bryan Johnson Analysis
             <span className="material-symbols-outlined text-xl">arrow_forward</span>
           </Link>
         </motion.div>

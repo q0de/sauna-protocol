@@ -8,7 +8,7 @@ export const metadata: Metadata = generateSEO({
 })
 
 export default function PrivacyPage() {
-  const lastUpdated = 'March 2026'
+  const lastUpdated = 'May 2026'
 
   return (
     <div className="pt-32 pb-20 bg-background-dark">
@@ -118,6 +118,13 @@ export default function PrivacyPage() {
           </section>
 
           <section>
+            <h2 className="font-display text-3xl font-bold italic text-white mb-4">No Affiliation With Bryan Johnson or Blueprint</h2>
+            <p className="text-text-muted">
+              SaunaProtocol is an independent educational website. We are not affiliated with, endorsed by, sponsored by, or officially connected to Bryan Johnson, Blueprint, Kernel, or any related companies. References to Bryan Johnson, Blueprint, or related names are used only for commentary, analysis, and identification of publicly discussed protocols.
+            </p>
+          </section>
+
+          <section>
             <h2 className="font-display text-3xl font-bold italic text-white mb-4">Data Security</h2>
             <p className="text-text-muted">
               We implement appropriate technical and organizational security measures to protect your personal 
@@ -178,4 +185,3 @@ export default function PrivacyPage() {
     </div>
   )
 }
-

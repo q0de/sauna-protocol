@@ -1,7 +1,6 @@
 import { redirect } from 'next/navigation'
 
 export async function GET() {
-  // Redirect to the printable version of the protocol
-  redirect('/protocols/bryan-johnson?print=true')
+  // Keep the legacy PDF URL working while serving the latest printable guide.
+  redirect('/downloads/bryan-johnson-sauna-protocol')
 }
-

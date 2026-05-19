@@ -24,6 +24,8 @@ const footerLinks = {
     { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },
     { name: 'Privacy', href: '/privacy' },
+    { name: 'Disclaimer', href: '/disclaimer' },
+    { name: 'Affiliate Disclosure', href: '/affiliate-disclosure' },
   ],
 }
 

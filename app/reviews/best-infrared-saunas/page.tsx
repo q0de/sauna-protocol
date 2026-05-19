@@ -26,7 +26,7 @@ export default function BestInfraredSaunasPage() {
       rating: '9.2/10',
       price: '$4,999 - $7,999',
       pros: ['Lowest EMF levels', 'Full spectrum IR', 'Lifetime warranty'],
-      cons: ['Premium pricing', 'Longer lead times'],
+      cons: ['Premium pricing', 'Longer lead times', 'Public affiliate terms exclude some cabins'],
       bestFor: 'Health optimization enthusiasts who prioritize EMF safety',
       link: '/reviews/clearlight',
     },
@@ -382,6 +382,7 @@ export default function BestInfraredSaunasPage() {
               <CardContent>
                 <p className="text-text-muted text-sm mb-4">
                   If EMF levels and build quality are your top priorities, Clearlight is the clear winner.
+                  Public affiliate terms may exclude major cabin models, so verify the exact model before treating this as a commissionable purchase.
                 </p>
                 <Button asChild className="w-full">
                   <a 
@@ -453,7 +454,7 @@ export default function BestInfraredSaunasPage() {
                 <CardContent className="pt-6">
                   <Badge variant="featured" className="mb-2">PROTOCOL</Badge>
                   <h3 className="text-lg font-bold text-white mb-2">Bryan Johnson's Sauna Protocol</h3>
-                  <p className="text-text-muted text-sm">Learn the exact protocol Bryan uses with his sauna setup.</p>
+                  <p className="text-text-muted text-sm">Read our independent analysis of Bryan Johnson's publicly reported sauna setup.</p>
                 </CardContent>
               </Card>
             </Link>
