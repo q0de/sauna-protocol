@@ -224,7 +224,7 @@ export default function AdvancedProtocolPage() {
         <FadeIn className="text-center">
           <h3 className="font-display text-2xl font-bold italic text-white mb-4">Ready for the Ultimate Protocol?</h3>
           <p className="text-text-muted mb-6">
-            See how Bryan Johnson uses advanced sauna protocols for longevity optimization
+            See our independent analysis of Bryan Johnson's publicly discussed advanced sauna protocol
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Button asChild size="lg">

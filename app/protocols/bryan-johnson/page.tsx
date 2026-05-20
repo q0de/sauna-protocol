@@ -12,7 +12,7 @@ const PDF_DOWNLOAD_PATH = '/downloads/bryan-johnson-sauna-protocol'
 
 export const metadata: Metadata = generateSEO({
   title: "Bryan Johnson's 200°F Sauna Protocol: Independent Analysis",
-  description: "Independent analysis of the publicly reported sauna protocol Bryan Johnson uses. Not affiliated with, endorsed by, or sponsored by Bryan Johnson, Blueprint, or Kernel.",
+  description: "Independent analysis of the publicly reported sauna protocol Bryan Johnson has discussed. Not affiliated with, endorsed by, or sponsored by Bryan Johnson, Blueprint, or Kernel.",
   keywords: [
     "bryan johnson sauna",
     "bryan johnson protocol",

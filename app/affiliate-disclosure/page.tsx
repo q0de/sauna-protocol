@@ -25,6 +25,13 @@ export default function AffiliateDisclosurePage() {
           </section>
 
           <section>
+            <h2 className="font-display text-3xl font-bold italic text-white mb-4">Third-Party Orders and Support</h2>
+            <p className="text-text-muted">
+              Purchases are completed through third-party retailers, marketplaces, or manufacturers. SaunaProtocol does not process orders, ship products, handle returns, issue refunds, or provide warranty support. For order help, contact the seller or manufacturer listed in your order confirmation.
+            </p>
+          </section>
+
+          <section>
             <h2 className="font-display text-3xl font-bold italic text-white mb-4">Editorial Independence</h2>
             <p className="text-text-muted">
               Affiliate compensation may influence which products we can sustainably cover, but it does not guarantee a positive review or ranking. We aim to separate product analysis from commission potential and to call out known commission limitations where relevant.

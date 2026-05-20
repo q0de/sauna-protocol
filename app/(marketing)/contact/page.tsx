@@ -40,13 +40,25 @@ export default function ContactPage() {
           </p>
         </header>
 
+        <div className="mb-8 rounded-xl border border-amber-500/30 bg-amber-500/10 p-5">
+          <div className="flex items-start gap-4">
+            <span className="material-symbols-outlined text-amber-400 text-3xl">info</span>
+            <div>
+              <p className="text-white font-bold mb-2">We&apos;re a review site, not a retailer.</p>
+              <p className="text-text-muted text-sm leading-relaxed">
+                We can&apos;t help with orders, shipping, returns, refunds, or warranty claims. Please contact the seller, marketplace, or manufacturer you purchased from.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <Card>
               <CardHeader>
                 <CardTitle>Send us a message</CardTitle>
                 <CardDescription>
-                  Fill out the form below and we'll get back to you within 24 hours.
+                  For article corrections, partnership questions, or site feedback.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -154,6 +166,22 @@ export default function ContactPage() {
 
             <Card className="bg-wood-dark border-wood-light">
               <CardContent className="pt-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-lg bg-amber-500/20">
+                    <span className="material-symbols-outlined text-2xl text-amber-400">receipt_long</span>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-white mb-2">Order Help</h3>
+                    <p className="text-sm text-text-muted leading-relaxed">
+                      Amazon orders: go to Your Orders, select the item, then choose Get help. For Clearlight, Sunlighten, or another manufacturer, use the support contact in your order confirmation email or on the brand&apos;s official website.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-wood-dark border-wood-light">
+              <CardContent className="pt-6">
                 <h3 className="font-bold text-white mb-3">Response Time</h3>
                 <p className="text-sm text-text-muted">
                   We typically respond within 24 hours during business days. For urgent safety concerns, 
@@ -167,4 +195,3 @@ export default function ContactPage() {
     </div>
   )
 }
-

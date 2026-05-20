@@ -690,7 +690,7 @@ export default function EquipmentPage() {
 
                 <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
                   <p className="text-sm text-blue-900">
-                    <strong>Pro tip:</strong> Bryan Johnson uses ice packs on his head during sauna to prevent hair damage and extend tolerance to extreme heat.
+                    <strong>Pro tip:</strong> Bryan Johnson has discussed using head cooling during high-heat sauna sessions to improve comfort and reduce heat stress.
                   </p>
                 </div>
 
@@ -714,10 +714,10 @@ export default function EquipmentPage() {
               <CardHeader>
                 <div className="flex items-center gap-2 mb-2">
                   <Badge variant="secondary">PRODUCT #11</Badge>
-                  <Badge className="bg-blue-600 text-white">BRYAN JOHNSON USES</Badge>
+                  <Badge className="bg-blue-600 text-white">PROTOCOL-INSPIRED COOLING</Badge>
                 </div>
-                <CardTitle className="text-2xl">Testicular Ice Pack for Post-Sauna Recovery</CardTitle>
-                <CardDescription className="text-base">
+                <CardTitle className="text-2xl text-violet-950">Testicular Ice Pack for Post-Sauna Recovery</CardTitle>
+                <CardDescription className="text-base text-violet-900/75">
                   <strong>Best for:</strong> Protecting fertility and testosterone during high-heat sauna protocols
                 </CardDescription>
               </CardHeader>
@@ -751,7 +751,7 @@ export default function EquipmentPage() {
 
                 <div className="bg-amber-50 p-3 rounded-lg border border-amber-200">
                   <p className="text-sm text-amber-900">
-                    <strong>Important:</strong> Bryan Johnson applies this immediately post-sauna for 15-20 minutes to counteract heat exposure to sensitive areas.
+                    <strong>Important:</strong> Bryan Johnson has discussed targeted cooling around high-heat sauna exposure. This is a practical Amazon option for that general strategy, not a confirmed exact product used by him.
                   </p>
                 </div>
 
