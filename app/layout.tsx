@@ -135,6 +135,58 @@ export default function RootLayout({
             plausible.init()
           `}
         </Script>
+        <Script id="plausible-affiliate-clicks" strategy="afterInteractive">
+          {`
+            (function () {
+              var AFFILIATE_HOSTS = ["amazon.com", "amzn.to", "clearlight.com", "sunlighten.com"];
+
+              function isAffiliateLink(anchor) {
+                try {
+                  var url = new URL(anchor.href);
+                  var host = url.hostname.replace(/^www\\./, "");
+                  var isKnownHost = AFFILIATE_HOSTS.some(function (knownHost) {
+                    return host === knownHost || host.endsWith("." + knownHost);
+                  });
+                  if (!isKnownHost) return false;
+                  return (
+                    url.searchParams.has("tag") ||
+                    url.searchParams.has("ref") ||
+                    host === "amzn.to" ||
+                    host === "clearlight.com" ||
+                    host === "sunlighten.com"
+                  );
+                } catch (error) {
+                  return false;
+                }
+              }
+
+              function destinationType(anchor) {
+                try {
+                  var host = new URL(anchor.href).hostname.replace(/^www\\./, "");
+                  if (host === "amazon.com" || host.endsWith(".amazon.com") || host === "amzn.to") return "amazon";
+                  if (host === "clearlight.com" || host.endsWith(".clearlight.com")) return "clearlight";
+                  if (host === "sunlighten.com" || host.endsWith(".sunlighten.com")) return "sunlighten";
+                  return host;
+                } catch (error) {
+                  return "unknown";
+                }
+              }
+
+              document.addEventListener("click", function (event) {
+                var anchor = event.target && event.target.closest ? event.target.closest("a[href]") : null;
+                if (!anchor || !isAffiliateLink(anchor) || !window.plausible) return;
+                window.plausible("affiliate_click", {
+                  props: {
+                    destination: destinationType(anchor),
+                    href_host: new URL(anchor.href).hostname.replace(/^www\\./, ""),
+                    link_text: (anchor.innerText || anchor.textContent || "").trim().slice(0, 80),
+                    source_path: window.location.pathname,
+                  },
+                });
+              }, { capture: true });
+            })();
+          `}
+        </Script>
         
         {/* Ahrefs Analytics */}
         <Script
