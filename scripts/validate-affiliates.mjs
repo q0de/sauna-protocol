@@ -8,6 +8,8 @@ import { fileURLToPath } from "node:url";
 const EXPECTED_TAG = "saunaprotocol-20";
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(scriptDir, "..");
+const layoutPath = path.join(siteRoot, "app/layout.tsx");
+const layout = await fs.readFile(layoutPath, "utf8");
 const errors = [];
 const warnings = [];
 
@@ -17,6 +19,16 @@ function fail(message) {
 
 function warn(message) {
   warnings.push(message);
+}
+
+if (!layout.includes("commission_status") || !layout.includes("confirmed_amazon_associates")) {
+  fail("app/layout.tsx: affiliate_click events must include commission_status");
+}
+if (!layout.includes("manufacturer_unconfirmed_or_limited")) {
+  fail("app/layout.tsx: manufacturer/source clicks must be classified as unconfirmed or limited");
+}
+if (!layout.includes("affiliate_tag") || !layout.includes("page_type")) {
+  fail("app/layout.tsx: affiliate_click events must include affiliate_tag and page_type");
 }
 
 async function walk(dir) {

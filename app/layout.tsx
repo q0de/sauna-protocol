@@ -174,13 +174,17 @@ export default function RootLayout({
               document.addEventListener("click", function (event) {
                 var anchor = event.target && event.target.closest ? event.target.closest("a[href]") : null;
                 if (!anchor || !isAffiliateLink(anchor) || !window.plausible) return;
+                var url = new URL(anchor.href);
+                var destination = destinationType(anchor);
                 window.plausible("affiliate_click", {
                   props: {
-                    destination: destinationType(anchor),
-                    href_host: new URL(anchor.href).hostname.replace(/^www\\./, ""),
-                    commission_status: destinationType(anchor) === "amazon" ? "confirmed_amazon_associates" : "manufacturer_unconfirmed_or_limited",
+                    destination: destination,
+                    href_host: url.hostname.replace(/^www\\./, ""),
+                    commission_status: destination === "amazon" ? "confirmed_amazon_associates" : "manufacturer_unconfirmed_or_limited",
+                    affiliate_tag: url.searchParams.get("tag") || url.searchParams.get("ref") || "none",
                     link_text: (anchor.innerText || anchor.textContent || "").trim().slice(0, 80),
                     source_path: window.location.pathname,
+                    page_type: document.body ? document.body.dataset.pageType || "unknown" : "unknown",
                   },
                 });
               }, { capture: true });
