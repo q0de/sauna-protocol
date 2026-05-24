@@ -70,7 +70,7 @@ for (const file of files) {
 
   for (const match of text.matchAll(/https?:\/\/amzn\.to\/[A-Za-z0-9]+/g)) {
     shortlinkCount += 1;
-    warn(`${rel}: amzn.to shortlink needs manual Associates verification: ${match[0]}`);
+    fail(`${rel}: amzn.to shortlinks are not allowed; use direct Amazon URLs with tag=${EXPECTED_TAG}: ${match[0]}`);
   }
 
   if (/TODO:\s*Replace with actual affiliate link after approval/i.test(text)) {
