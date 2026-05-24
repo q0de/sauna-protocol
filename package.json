@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "validate:affiliates": "node scripts/validate-affiliates.mjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",
