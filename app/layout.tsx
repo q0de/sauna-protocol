@@ -138,7 +138,7 @@ export default function RootLayout({
         <Script id="plausible-affiliate-clicks" strategy="afterInteractive">
           {`
             (function () {
-              var AFFILIATE_HOSTS = ["amazon.com", "amzn.to", "clearlight.com", "sunlighten.com"];
+              var AFFILIATE_HOSTS = ["amazon.com", "clearlight.com", "sunlighten.com"];
 
               function isAffiliateLink(anchor) {
                 try {
@@ -151,7 +151,6 @@ export default function RootLayout({
                   return (
                     url.searchParams.has("tag") ||
                     url.searchParams.has("ref") ||
-                    host === "amzn.to" ||
                     host === "clearlight.com" ||
                     host === "sunlighten.com"
                   );
@@ -163,7 +162,7 @@ export default function RootLayout({
               function destinationType(anchor) {
                 try {
                   var host = new URL(anchor.href).hostname.replace(/^www\\./, "");
-                  if (host === "amazon.com" || host.endsWith(".amazon.com") || host === "amzn.to") return "amazon";
+                  if (host === "amazon.com" || host.endsWith(".amazon.com")) return "amazon";
                   if (host === "clearlight.com" || host.endsWith(".clearlight.com")) return "clearlight";
                   if (host === "sunlighten.com" || host.endsWith(".sunlighten.com")) return "sunlighten";
                   return host;
@@ -179,6 +178,7 @@ export default function RootLayout({
                   props: {
                     destination: destinationType(anchor),
                     href_host: new URL(anchor.href).hostname.replace(/^www\\./, ""),
+                    commission_status: destinationType(anchor) === "amazon" ? "confirmed_amazon_associates" : "manufacturer_unconfirmed_or_limited",
                     link_text: (anchor.innerText || anchor.textContent || "").trim().slice(0, 80),
                     source_path: window.location.pathname,
                   },

@@ -385,7 +385,7 @@ export default function SunlightenReviewPage() {
                 </a>
               </Button>
               <p className="text-xs text-text-muted mt-4">
-                Affiliate link – we may earn a commission at no extra cost to you
+                Referral/source link; commission status is not confirmed in this repo
               </p>
             </CardContent>
           </Card>

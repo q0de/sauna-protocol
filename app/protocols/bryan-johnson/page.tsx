@@ -139,8 +139,6 @@ export default function BryanJohnsonProtocolPage() {
       name: "High-Temperature Dry Sauna (Traditional Finnish)", 
       reason: "Must reach 200°F - most infrared saunas max out at 140-150°F", 
       recommended: true,
-      link: affiliateLinks.clearlight.main,
-      external: true
     },
     { 
       name: "Testicular Ice Pack", 

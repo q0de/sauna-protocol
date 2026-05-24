@@ -404,7 +404,7 @@ export default function BestInfraredSaunasPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-text-muted text-sm mb-4">
-                  If you want smart health programs and cutting-edge technology, mPulse delivers.
+                  If you want smart health programs and cutting-edge technology, mPulse delivers. Verify current program terms before treating this as a commissionable purchase.
                 </p>
                 <Button asChild variant="secondary" className="w-full">
                   <a 
@@ -426,7 +426,7 @@ export default function BestInfraredSaunasPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-text-muted text-sm mb-4">
-                  Proven SoloCarbon technology at a more accessible price point.
+                  Proven SoloCarbon technology at a more accessible price point. Verify current program terms before treating this as a commissionable purchase.
                 </p>
                 <Button asChild variant="secondary" className="w-full">
                   <a 
@@ -441,7 +441,7 @@ export default function BestInfraredSaunasPage() {
             </Card>
           </div>
           <p className="text-xs text-text-muted text-center mt-4">
-            Affiliate links – we may earn a commission at no extra cost to you
+            Manufacturer links may be tracked; commission status varies by brand, model, and current program terms
           </p>
         </section>
 

@@ -20,7 +20,7 @@ export default function AffiliateDisclosurePage() {
           <section>
             <h2 className="font-display text-3xl font-bold italic text-white mb-4">How We Earn Money</h2>
             <p className="text-text-muted">
-              SaunaProtocol may earn commissions from qualifying purchases made through links on this site, including Amazon Associates links and direct manufacturer or retailer affiliate programs. This does not increase the price you pay.
+              SaunaProtocol participates in the Amazon Associates program and may earn commissions from qualifying Amazon purchases. We may also include manufacturer or retailer referral links. Some non-Amazon links may be tracked for attribution but are not guaranteed to be commissionable. This does not increase the price you pay.
             </p>
           </section>
 
@@ -35,6 +35,13 @@ export default function AffiliateDisclosurePage() {
             <h2 className="font-display text-3xl font-bold italic text-white mb-4">Editorial Independence</h2>
             <p className="text-text-muted">
               Affiliate compensation may influence which products we can sustainably cover, but it does not guarantee a positive review or ranking. We aim to separate product analysis from commission potential and to call out known commission limitations where relevant.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-3xl font-bold italic text-white mb-4">Manufacturer Links</h2>
+            <p className="text-text-muted">
+              Manufacturer links to sauna brands are included to help readers check current pricing, electrical requirements, model availability, and warranty terms. Unless a page says otherwise, treat non-Amazon manufacturer links as buyer-helpful referral or source links rather than confirmed commissionable links.
             </p>
           </section>
 

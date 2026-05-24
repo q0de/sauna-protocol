@@ -112,8 +112,8 @@ export default function PrivacyPage() {
             <p className="text-text-muted">
               Some of our content contains affiliate links. If you click on these links and make a purchase, 
               we may earn a commission at no extra cost to you. These links help support our site and allow 
-              us to continue providing valuable content. We partner directly with premium sauna manufacturers 
-              like Clearlight and Sunlighten.
+              us to continue providing valuable content. Some manufacturer links may be tracked for attribution,
+              but they are not guaranteed to be commissionable unless explicitly stated.
             </p>
           </section>
 

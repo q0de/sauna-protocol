@@ -45,6 +45,7 @@ for (const root of scanRoots) {
 
 let directAmazonCount = 0;
 let shortlinkCount = 0;
+let manufacturerReferralCount = 0;
 
 for (const file of files) {
   const text = await fs.readFile(file, "utf8");
@@ -74,7 +75,20 @@ for (const file of files) {
   }
 
   if (/TODO:\s*Replace with actual affiliate link after approval/i.test(text)) {
-    warn(`${rel}: contains direct-program TODO affiliate links that should not be treated as confirmed commissionable`);
+    fail(`${rel}: remove TODO affiliate placeholders or classify them as unconfirmed referral/source links`);
+  }
+
+  for (const match of text.matchAll(/https?:\/\/(?:www\.)?(clearlight|sunlighten)\.com\/[^"'`\s)<>]*/gi)) {
+    manufacturerReferralCount += 1;
+    const raw = match[0].replace(/&amp;/g, "&");
+    try {
+      const url = new URL(raw);
+      if (url.searchParams.has("ref") && url.searchParams.get("ref") !== "SAUNAPROTOCOL") {
+        fail(`${rel}: manufacturer referral URL has unexpected ref value: ${raw}`);
+      }
+    } catch {
+      fail(`${rel}: invalid manufacturer referral URL: ${raw}`);
+    }
   }
 }
 
@@ -89,4 +103,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Affiliate validation passed. Direct Amazon URLs: ${directAmazonCount}. Shortlinks flagged: ${shortlinkCount}.`);
+console.log(`Affiliate validation passed. Direct Amazon URLs: ${directAmazonCount}. Shortlinks flagged: ${shortlinkCount}. Manufacturer referral/source URLs: ${manufacturerReferralCount}.`);

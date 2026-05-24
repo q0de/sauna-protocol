@@ -1,11 +1,12 @@
 // Affiliate Links Configuration
-// Includes both Amazon Associates links and direct manufacturer affiliate programs
-// Amazon is used for accessories. Manufacturer programs vary by brand and SKU.
+// Amazon links are confirmed Associates links. Manufacturer links below are
+// buyer-helpful referral/source links until private program terms are confirmed.
 
 export const affiliateLinks = {
   // ===========================================
-  // DIRECT MANUFACTURER AFFILIATE LINKS
-  // High-commission programs (8-10%)
+  // DIRECT MANUFACTURER REFERRAL/SOURCE LINKS
+  // Keep these separate from confirmed Amazon Associates links. Some public
+  // terms exclude sauna cabins, so do not assume every click is commissionable.
   // ===========================================
   
   // Clearlight Saunas - Apply at: https://www.clearlight.com/affiliate-program
@@ -23,9 +24,9 @@ export const affiliateLinks = {
   },
   
   // Sunlighten Saunas - Apply at: https://www.sunlighten.com/affiliate-program
-  // Commission: 8-10% on $4,000-$12,000+ products = $320-1,200 per sale
+  // Treat as unconfirmed referral/source links until approval and terms are documented.
   sunlighten: {
-    main: 'https://www.sunlighten.com/?ref=SAUNAPROTOCOL', // TODO: Replace with actual affiliate link after approval
+    main: 'https://www.sunlighten.com/?ref=SAUNAPROTOCOL',
     mPulse: 'https://www.sunlighten.com/mpulse-smart-sauna/?ref=SAUNAPROTOCOL', // mPulse smart saunas
     signature: 'https://www.sunlighten.com/signature/?ref=SAUNAPROTOCOL', // Signature line
     solo: 'https://www.sunlighten.com/solo-system/?ref=SAUNAPROTOCOL', // Solo portable
@@ -121,9 +122,20 @@ export function getAffiliateLink(key: keyof typeof affiliateLinks, additionalPar
 // Affiliate Program Disclosure
 export const affiliateDisclosure = {
   short: "We earn commissions from qualifying purchases.",
-  full: "We have affiliate relationships with Clearlight Saunas, Sunlighten, Amazon, and other brands mentioned on this site. When you purchase through our links, we earn a commission at no extra cost to you. This supports our ability to test products and create free, evidence-based content.",
-  manufacturerNote: "We partner directly with premium sauna manufacturers like Clearlight and Sunlighten. These partnerships allow us to offer our readers direct access to the best products while supporting our mission to provide research-backed sauna protocols.",
+  full: "We participate in the Amazon Associates program and may also use manufacturer or retailer referral links. Some non-Amazon manufacturer links may be tracked for attribution but are not guaranteed to be commissionable. When a qualifying purchase earns a commission, it does not increase the price you pay.",
+  manufacturerNote: "Manufacturer links are included to help readers reach current model, pricing, and availability pages. We call out known commission limitations where public terms or our own records indicate uncertainty.",
 }
+
+export const directProgramStatus = {
+  clearlight: {
+    status: 'unconfirmed_or_limited',
+    note: 'Public terms appear to exclude several major cabin models; treat cabin links as buyer-helpful unless private terms confirm commission.',
+  },
+  sunlighten: {
+    status: 'unconfirmed',
+    note: 'Referral-style links are present, but private approval and commission terms are not documented in this repo.',
+  },
+} as const
 
 // Link to affiliate application pages (for internal reference)
 export const affiliatePrograms = {
