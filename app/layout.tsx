@@ -171,20 +171,54 @@ export default function RootLayout({
                 }
               }
 
+              function sourcePage() {
+                var path = window.location.pathname || "/";
+                path = path.replace(/^\\/+/, "").replace(/\\/+$/, "");
+                return path || "home";
+              }
+
+              function pageTypeFromPath(path) {
+                if (path === "home") return "home";
+                if (path === "equipment" || path.indexOf("equipment/") === 0) return "equipment";
+                if (path.indexOf("reviews/") === 0 || path === "reviews") return "review";
+                if (path.indexOf("protocols/") === 0 || path === "protocols") return "protocol";
+                if (path.indexOf("articles/") === 0 || path === "articles") return "article";
+                if (path.indexOf("downloads/") === 0) return "download";
+                return "other";
+              }
+
+              function productSlug(url, destination) {
+                if (destination === "amazon") {
+                  var asin = url.pathname.match(/\\/(?:dp|gp\\/product)\\/([A-Z0-9]{10})/i);
+                  if (asin) return asin[1].toUpperCase();
+                  var keyword = url.searchParams.get("k");
+                  if (keyword) return keyword.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+                }
+
+                var path = url.pathname.replace(/^\\/+/, "").replace(/\\/+$/, "");
+                return path || destination;
+              }
+
               document.addEventListener("click", function (event) {
                 var anchor = event.target && event.target.closest ? event.target.closest("a[href]") : null;
                 if (!anchor || !isAffiliateLink(anchor) || !window.plausible) return;
                 var url = new URL(anchor.href);
                 var destination = destinationType(anchor);
+                var source = sourcePage();
+                var pageType = document.body && document.body.dataset.pageType
+                  ? document.body.dataset.pageType
+                  : pageTypeFromPath(source);
                 window.plausible("affiliate_click", {
                   props: {
                     destination: destination,
                     href_host: url.hostname.replace(/^www\\./, ""),
                     commission_status: destination === "amazon" ? "confirmed_amazon_associates" : "manufacturer_unconfirmed_or_limited",
                     affiliate_tag: url.searchParams.get("tag") || url.searchParams.get("ref") || "none",
+                    product_slug: productSlug(url, destination),
                     link_text: (anchor.innerText || anchor.textContent || "").trim().slice(0, 80),
                     source_path: window.location.pathname,
-                    page_type: document.body ? document.body.dataset.pageType || "unknown" : "unknown",
+                    source_page: source,
+                    page_type: pageType,
                   },
                 });
               }, { capture: true });
