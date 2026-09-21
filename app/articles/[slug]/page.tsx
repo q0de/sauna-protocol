@@ -8,7 +8,6 @@ import { Breadcrumbs } from '@/components/seo/breadcrumbs'
 import { StructuredData } from '@/components/seo/structured-data'
 import { MDXContent } from '@/components/article/mdx-content'
 import { TableOfContents } from '@/components/article/table-of-contents'
-import { NewsletterForm } from '@/components/email/newsletter-form'
 import { getArticleBySlug, getAllArticles } from '@/lib/mdx'
 import { generateSEO, generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo'
 import { formatDate } from '@/lib/utils'
@@ -160,9 +159,22 @@ export default async function ArticlePage({ params }: Props) {
                 <MDXContent source={content} />
               </div>
 
-              {/* Newsletter Inline (after 2nd H2) */}
-              <div className="my-12">
-                <NewsletterForm inline leadMagnet={`article-${slug}`} />
+              {/* Free Printable Protocol Guide */}
+              <div className="bg-gradient-to-r from-[#ff6b6b] to-[#f59e0b] rounded-lg p-8 my-12">
+                <div className="max-w-2xl mx-auto text-center text-white">
+                  <span className="material-symbols-outlined text-5xl mb-4" aria-hidden="true">description</span>
+                  <h3 className="text-2xl font-bold mb-2">Keep a Printable Protocol Guide</h3>
+                  <p className="mb-6">
+                    Open our independent guide to Bryan Johnson&apos;s public sauna protocol, including a session checklist and tracking log.
+                  </p>
+                  <a
+                    href="/downloads/bryan-johnson-sauna-protocol.pdf"
+                    className="inline-flex items-center justify-center rounded-xl bg-wood-medium px-6 py-3 font-semibold text-white hover:bg-wood-light transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                  >
+                    Open Free Guide
+                  </a>
+                  <p className="mt-4 text-sm">No signup required. Print it or save it as a PDF.</p>
+                </div>
               </div>
 
               {/* Author Bio */}

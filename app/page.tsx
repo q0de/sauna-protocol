@@ -9,7 +9,6 @@ import { HeroContent } from '@/components/sections/hero-content'
 import { TrustBar } from '@/components/sections/trust-bar'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { NewsletterForm } from '@/components/email/newsletter-form'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { StructuredData } from '@/components/seo/structured-data'
 import { getAllArticles } from '@/lib/mdx'
@@ -638,8 +637,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Email Capture - Heat Guide PDF */}
-      <section className="py-20 relative overflow-hidden">
+      {/* Free Printable Protocol Guide */}
+      <section id="printable-guide" className="py-20 relative overflow-hidden scroll-mt-24">
         {/* Orange gradient glow background */}
         <div 
           className="absolute inset-0 opacity-50"
@@ -655,29 +654,21 @@ export default async function HomePage() {
                   {/* Left: Content */}
                   <div className="flex-1 text-left">
                     <h2 className="font-display text-3xl lg:text-4xl font-bold text-white mb-4">
-                      Get the "<span className="text-primary">Heat Guide</span>" PDF
+                      Get the <span className="text-primary">Printable Protocol Guide</span>
                     </h2>
                     <p className="text-text-muted text-lg mb-8 max-w-md">
-                      Join 15,000+ others. Receive our cheat sheet for temperature timing, hydration formulas, and post-sauna protocols.
+                      Keep our independent guide to Bryan Johnson&apos;s public sauna protocol, with a session checklist and tracking log.
                     </p>
                     
-                    <form className="flex flex-col sm:flex-row gap-3 mb-4">
-                      <input
-                        type="email"
-                        placeholder="Enter your email"
-                        required
-                        className="flex-1 px-5 py-3.5 bg-wood-medium border border-wood-light rounded-full text-white placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary"
-                      />
-                      <button
-                        type="submit"
-                        className="px-8 py-3.5 bg-primary hover:bg-orange-600 text-white font-bold rounded-full transition-colors shadow-lg shadow-orange-900/30 whitespace-nowrap"
-                      >
-                        Download Free
-                      </button>
-                    </form>
+                    <a
+                      href="/downloads/bryan-johnson-sauna-protocol.pdf"
+                      className="inline-flex mb-4 px-8 py-3.5 bg-primary hover:bg-orange-600 text-white font-bold rounded-full transition-colors shadow-lg shadow-orange-900/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-card-dark"
+                    >
+                      Open Free Guide
+                    </a>
                     
                     <p className="text-sm text-text-muted/70">
-                      We respect your privacy. Unsubscribe at any time.
+                      No signup required. Print it or save it as a PDF.
                     </p>
                   </div>
                   
@@ -694,7 +685,7 @@ export default async function HomePage() {
                           </div>
                           {/* Title */}
                           <h3 className="font-display text-lg font-bold text-gray-800 text-center italic">
-                            The Heat Guide
+                            Bryan Johnson Protocol Guide
                           </h3>
                         </div>
                       </div>
