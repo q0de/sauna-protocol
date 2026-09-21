@@ -8,7 +8,7 @@ export const metadata: Metadata = generateSEO({
 })
 
 export default function PrivacyPage() {
-  const lastUpdated = 'May 2026'
+  const lastUpdated = 'September 2026'
 
   return (
     <div className="pt-32 pb-20 bg-background-dark">
@@ -33,7 +33,6 @@ export default function PrivacyPage() {
             <h3 className="text-2xl font-bold text-white mb-3 mt-6">Personal Information</h3>
             <p className="text-text-muted">We may collect personal information that you voluntarily provide to us when you:</p>
             <ul className="text-text-muted list-disc list-inside space-y-1">
-              <li>Subscribe to our newsletter</li>
               <li>Fill out a contact form</li>
               <li>Leave a comment on an article</li>
             </ul>
@@ -43,6 +42,9 @@ export default function PrivacyPage() {
               <li>Email address</li>
               <li>Any other information you choose to provide</li>
             </ul>
+            <p className="text-text-muted mt-4">
+              We no longer accept newsletter signups. Our printable protocol guide is available without providing an email address.
+            </p>
 
             <h3 className="text-2xl font-bold text-white mb-3 mt-6">Automatically Collected Information</h3>
             <p className="text-text-muted">When you visit our site, we automatically collect certain information:</p>
@@ -59,7 +61,6 @@ export default function PrivacyPage() {
             <h2 className="font-display text-3xl font-bold italic text-white mb-4">How We Use Your Information</h2>
             <p className="text-text-muted">We use the information we collect to:</p>
             <ul className="text-text-muted list-disc list-inside space-y-1">
-              <li>Send you our newsletter and updates (if you've subscribed)</li>
               <li>Respond to your inquiries and support requests</li>
               <li>Improve our website and content</li>
               <li>Analyze website usage and trends</li>
@@ -97,14 +98,6 @@ export default function PrivacyPage() {
                 Vercel's Privacy Policy
               </a>.
             </p>
-
-            <h3 className="text-2xl font-bold text-white mb-3 mt-6">Database (Supabase)</h3>
-            <p className="text-text-muted">
-              We use Supabase to store subscriber information. View{' '}
-              <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                Supabase's Privacy Policy
-              </a>.
-            </p>
           </section>
 
           <section>
@@ -140,7 +133,6 @@ export default function PrivacyPage() {
               <li><strong className="text-white">Access:</strong> Request a copy of your personal data</li>
               <li><strong className="text-white">Correction:</strong> Request correction of inaccurate data</li>
               <li><strong className="text-white">Deletion:</strong> Request deletion of your personal data</li>
-              <li><strong className="text-white">Opt-out:</strong> Unsubscribe from our newsletter at any time</li>
             </ul>
             <p className="text-text-muted mt-4">To exercise these rights, please contact us using the information below.</p>
           </section>

@@ -7,16 +7,16 @@ Your SaunaProtocol.com website is fully built and ready to launch! 🎉
 ## 🚀 What's Been Built
 
 ### ✅ Core Features
-- ✅ Next.js 14 with TypeScript and App Router
+- ✅ Next.js 16 with TypeScript and App Router
 - ✅ Tailwind CSS + shadcn/ui components
-- ✅ Supabase integration (database ready)
+- ✅ Local product images and MDX content (no database required)
 - ✅ MDX content management system
 - ✅ SEO optimized (meta tags, structured data, sitemaps)
-- ✅ Email capture with ConvertKit integration
+- ✅ Printable protocol guide with no signup
 - ✅ Responsive mobile-first design
 
 ### ✅ Pages Built
-- ✅ Homepage with all sections (hero, protocols, articles, newsletter)
+- ✅ Homepage with all sections (hero, protocols, articles, printable guide)
 - ✅ **Bryan Johnson Protocol Page** (FEATURED - complete with video embed, specs, results)
 - ✅ Article listing page
 - ✅ Dynamic article pages with MDX rendering, TOC, related articles
@@ -29,7 +29,7 @@ Your SaunaProtocol.com website is fully built and ready to launch! 🎉
 ### ✅ Components
 - ✅ Header with mobile menu
 - ✅ Footer with navigation
-- ✅ Newsletter forms (inline and sidebar)
+- ✅ Direct links to the printable guide
 - ✅ SEO components (structured data, breadcrumbs)
 - ✅ Article components (MDX renderer, table of contents)
 - ✅ UI components (buttons, cards, badges, accordions, tabs)
@@ -39,39 +39,18 @@ Your SaunaProtocol.com website is fully built and ready to launch! 🎉
 
 ## 📋 Next Steps to Launch
 
-### 1. Set Up Supabase (5 minutes)
+### 1. Install Dependencies
 
-1. Go to [supabase.com](https://supabase.com) and create a free account
-2. Create a new project
-3. Go to **SQL Editor** and run the schema:
-   ```bash
-   # Copy the contents of lib/supabase/schema.sql
-   ```
-4. Go to **Settings → API** and copy:
-   - Project URL → `NEXT_PUBLIC_SUPABASE_URL`
-   - `anon public` key → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - `service_role` key → `SUPABASE_SERVICE_ROLE_KEY`
+Use Node.js 20.9+ and run `npm install`.
 
 ### 2. Set Up Environment Variables
 
-1. Copy the example file:
-   ```bash
-   cp .env.example .env.local
-   ```
+Create `.env.local`:
+```dotenv
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
 
-2. Fill in your Supabase credentials:
-   ```
-   NEXT_PUBLIC_SUPABASE_URL=your_url_here
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key_here
-   SUPABASE_SERVICE_ROLE_KEY=your_key_here
-   NEXT_PUBLIC_SITE_URL=http://localhost:3000
-   ```
-
-3. (Optional) Add ConvertKit credentials for email:
-   ```
-   CONVERTKIT_API_KEY=your_key
-   CONVERTKIT_FORM_ID=your_form_id
-   ```
+Set the production value to `https://saunaprotocol.com`. No Supabase or ConvertKit account, database setup, or API credentials are required. Product images and the optional hero video are included in `public/`.
 
 ### 3. Test Locally
 
@@ -245,25 +224,22 @@ npm run build
 - Restart dev server after adding variables
 - Variables starting with `NEXT_PUBLIC_` are exposed to the browser
 
-### Supabase Connection Issues
-- Check that your URL and keys are correct
-- Verify the database schema is created
-- Check Supabase dashboard for API logs
+### Retiring the Previous Supabase Project
+
+Follow the retirement checklist in `README.md`: privately export any existing subscribers, deploy and verify the site, then review other project consumers before changing paid resources. Site changes do not cancel Supabase billing automatically.
 
 ## 📚 Resources
 
 - [Next.js Docs](https://nextjs.org/docs)
 - [Tailwind CSS Docs](https://tailwindcss.com/docs)
-- [Supabase Docs](https://supabase.com/docs)
 - [MDX Docs](https://mdxjs.com/)
 
 ## 🎉 You're Ready to Launch!
 
 Your site is production-ready. Just:
-1. Set up Supabase
-2. Add environment variables
-3. Deploy to Vercel
-4. Start creating content!
+1. Set the site URL
+2. Deploy to Vercel
+3. Start creating content!
 
 Need help? Check the README.md for more detailed instructions.
 

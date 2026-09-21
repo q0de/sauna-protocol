@@ -1,13 +1,13 @@
 # SaunaProtocol.com
 
-Evidence-based sauna protocols and equipment reviews to optimize your health. Built with Next.js 14, TypeScript, and Supabase.
+Evidence-based sauna protocols and equipment reviews to optimize your health. Built with Next.js 16, TypeScript, and local MDX content. No database or newsletter service is required.
 
 ## 🌟 Features
 
 - **Featured Content**: Bryan Johnson's 200°F sauna protocol with measured results
 - **SEO Optimized**: Perfect meta tags, structured data, and dynamic sitemaps
 - **MDX Content**: Write articles in Markdown with React components
-- **Email Capture**: ConvertKit integration with lead magnets
+- **Printable Guide**: Free protocol guide with print/save-as-PDF access, no email required
 - **Performance**: 90+ Lighthouse scores, optimized images, static generation
 - **Modern UI**: Tailwind CSS + shadcn/ui components
 
@@ -15,10 +15,8 @@ Evidence-based sauna protocols and equipment reviews to optimize your health. Bu
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 20.9+
 - npm or yarn
-- Supabase account (free tier works)
-- ConvertKit account (optional)
 
 ### Installation
 
@@ -33,26 +31,16 @@ cd sauan-protocol-bj
 npm install
 ```
 
-3. **Set up environment variables**
-```bash
-cp .env.example .env.local
+3. **Set the site URL**
+
+Create `.env.local` with:
+```dotenv
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
-Edit `.env.local` and add your credentials:
-- Supabase URL and keys (from Supabase dashboard)
-- ConvertKit API key and form ID (optional)
-- Site URL (use `http://localhost:3000` for development)
+Use `https://saunaprotocol.com` in production. Supabase and ConvertKit credentials are no longer used.
 
-4. **Set up Supabase database**
-
-Run the SQL schema in your Supabase SQL editor:
-```bash
-cat lib/supabase/schema.sql
-```
-
-Copy the contents and execute in Supabase dashboard → SQL Editor.
-
-5. **Run the development server**
+4. **Run the development server**
 ```bash
 npm run dev
 ```
@@ -62,7 +50,7 @@ Open [http://localhost:3000](http://localhost:3000) to see your site!
 ## 📁 Project Structure
 
 ```
-├── app/                      # Next.js 14 App Router
+├── app/                      # Next.js 16 App Router
 │   ├── (marketing)/         # Marketing pages (about, contact, privacy)
 │   ├── articles/[slug]/     # Article pages
 │   ├── protocols/           # Protocol pages
@@ -75,13 +63,12 @@ Open [http://localhost:3000](http://localhost:3000) to see your site!
 │   ├── layout/              # Header, Footer
 │   ├── article/             # Article-specific components
 │   ├── seo/                 # SEO components
-│   └── email/               # Email capture forms
 ├── content/
 │   ├── articles/            # Article MDX files
 │   ├── protocols/           # Protocol MDX files
 │   └── equipment/           # Equipment review MDX files
 ├── lib/
-│   ├── supabase/            # Supabase client and schema
+│   ├── supabase/            # Historical SQL only; not used by the site
 │   ├── mdx.ts               # MDX utilities
 │   ├── seo.ts               # SEO utilities
 │   └── utils.ts             # General utilities
@@ -217,13 +204,21 @@ After deployment:
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `NEXT_PUBLIC_SUPABASE_URL` | Yes | Supabase project URL |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Yes | Supabase anonymous key |
-| `SUPABASE_SERVICE_ROLE_KEY` | Yes | Supabase service role key |
-| `CONVERTKIT_API_KEY` | No | ConvertKit API key |
-| `CONVERTKIT_FORM_ID` | No | ConvertKit form ID |
 | `NEXT_PUBLIC_SITE_URL` | Yes | Your site URL |
 | `NEXT_PUBLIC_GA_ID` | No | Google Analytics ID |
+
+## Supabase retirement
+
+Product images are served from `public/images/equipment/`; the optional hero video is in `public/videos/`. Newsletter collection is retired, and `POST /api/newsletter` returns HTTP 410 without storing data. The printable guide remains available at `/downloads/bryan-johnson-sauna-protocol`; the old `.pdf` URL redirects there.
+
+Before retiring the old Supabase project:
+
+1. Export existing subscriber records to a private location outside this repository.
+2. Deploy this version and verify the equipment images, articles, and printable guide.
+3. Confirm no other applications use the Supabase project or its storage buckets.
+4. Retire the project's paid resources and review the organization subscription. Removing application code alone does not cancel billing; other projects may share the paid plan.
+
+Historical SQL in `lib/supabase/` is retained for reference only. Do not run it as part of setup.
 
 ## 📝 Content Roadmap
 
@@ -250,7 +245,6 @@ All rights reserved - SaunaProtocol.com
 ## 🔗 Resources
 
 - [Next.js Documentation](https://nextjs.org/docs)
-- [Supabase Documentation](https://supabase.com/docs)
 - [shadcn/ui Components](https://ui.shadcn.com)
 - [Tailwind CSS](https://tailwindcss.com/docs)
 

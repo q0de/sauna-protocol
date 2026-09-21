@@ -14,7 +14,7 @@ export function FeaturedEquipment() {
       benefit: 'Monitor exact temperature to follow protocols precisely—essential for Bryan Johnson\'s 200°F standard',
       price: '$29.97',
       rating: 5,
-      image: 'https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-01-Thermo-49Kpw6L.webp',
+      image: '/images/equipment/product-01-Thermo-49Kpw6L.webp',
     },
     {
       id: 'towels',
@@ -22,7 +22,7 @@ export function FeaturedEquipment() {
       benefit: 'Absorbs 2x more than regular towels—prevents slipping and enhances heat exposure safety',
       price: '$37.99',
       rating: 5,
-      image: 'https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-06-towels-3JfK1iY.webp',
+      image: '/images/equipment/product-06-towels-3JfK1iY.webp',
     },
     {
       id: 'head-ice-pack',
@@ -30,7 +30,7 @@ export function FeaturedEquipment() {
       benefit: 'Post-sauna recovery essential—activates cold shock proteins shown to reduce inflammation',
       price: '$38.99',
       rating: 5,
-      image: 'https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-10-headicepack-487cn6y.webp',
+      image: '/images/equipment/product-10-headicepack-487cn6y.webp',
     },
     {
       id: 'heartrate',
@@ -38,7 +38,7 @@ export function FeaturedEquipment() {
       benefit: 'Track HRV and cardiovascular response in real-time—measure your protocol\'s effectiveness',
       price: '$104.95',
       rating: 5,
-      image: 'https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-03-heartrate-47YPUYO.webp',
+      image: '/images/equipment/product-03-heartrate-47YPUYO.webp',
     },
   ]
 
@@ -49,7 +49,7 @@ export function FeaturedEquipment() {
       benefit: 'Monitor exact temperature to follow protocols precisely—essential for Bryan Johnson\'s 200°F standard',
       price: '$29.97',
       rating: 5,
-      image: 'https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-01-Thermo-49Kpw6L.webp',
+      image: '/images/equipment/product-01-Thermo-49Kpw6L.webp',
     },
     {
       id: 'timer-mechanical',
@@ -57,7 +57,7 @@ export function FeaturedEquipment() {
       benefit: 'Track session duration precisely—no batteries needed, works reliably at 200°F+',
       price: '$22.98',
       rating: 5,
-      image: 'https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-09-timer-4oANaal.webp',
+      image: '/images/equipment/product-09-timer-4oANaal.webp',
     },
     {
       id: 'towels',
@@ -65,7 +65,7 @@ export function FeaturedEquipment() {
       benefit: 'Absorbs 2x more than regular towels—prevents slipping and enhances heat exposure safety',
       price: '$37.99',
       rating: 5,
-      image: 'https://sztikcqmpilwflrbbqhl.supabase.co/storage/v1/object/public/img/product-06-towels-3JfK1iY.webp',
+      image: '/images/equipment/product-06-towels-3JfK1iY.webp',
     },
   ]
 
